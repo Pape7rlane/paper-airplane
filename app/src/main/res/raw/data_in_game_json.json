@@ -1,0 +1,43 @@
+{
+  "lineups": {
+    "0": 1303,
+    "1": 1310,
+    "2": 8001,
+    "3": 1225
+  },
+  "position": {
+    "x": -67793,
+    "z": -236628,
+    "y": 22075,
+    "rot_y": 24990
+  },
+  "scene": {
+    "plane_id": 20311,
+    "floor_id": 20311001,
+    "entry_id": 2031101
+  },
+  "char_path": {
+    "main": 8006,
+    "march_7": 1224
+  },
+  "battle": {
+    "battle_id": 0,
+    "skip_half": 0,
+    "blessings": [],
+    "freesr": false,
+    "current_half": 0,
+    "path_resonance_id": 0,
+    "maze_buff": 0,
+    "first_lineup": [],
+    "second_lineup": []
+  },
+  "theory_craft": {
+    "hp": {
+      "1": 700000,
+      "2": 10000000
+    },
+    "cycle_count": 1,
+    "log": false,
+    "mode": true
+  }
+}
