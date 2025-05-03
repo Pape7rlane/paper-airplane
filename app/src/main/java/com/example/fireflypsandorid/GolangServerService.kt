@@ -55,7 +55,7 @@ class GolangServerService : Service() {
                 Libandroid.setServerRunning(true)
                 Log.d(TAG, "✅ Server started")
             } catch (e: Exception) {
-                Log.e(TAG, "❌ Lỗi khi chạy server:", e)
+                Log.e(TAG, "❌ Error when start server:", e)
             }
         }.start()
 
@@ -83,7 +83,7 @@ class GolangServerService : Service() {
                 "Golang Server Channel",
                 NotificationManager.IMPORTANCE_LOW
             ).apply {
-                description = "Thông báo khi server Golang đang chạy"
+                description = "Notify Golang backend runing"
             }
 
             val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
