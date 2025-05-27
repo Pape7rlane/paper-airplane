@@ -3,62 +3,41 @@
     "damageType": "Ice",
     "baseType": "Knight",
     "relics": {
-      "AvatarID": 1001,
-      "Set4IDList": [
+      "set4IDList": [
         103,
         106,
         102
       ],
-      "Set2IDList": [
+      "set2IDList": [
         304,
         310,
         317
       ],
-      "PropertyList3": [
-        "DefenceAddedRatio",
-        "StatusProbabilityBase"
+      "scoreRankList": [
+        279,
+        216
       ],
-      "PropertyList4": [
-        "SpeedDelta",
-        "DefenceAddedRatio"
-      ],
-      "PropertyList5": [
-        "DefenceAddedRatio"
-      ],
-      "PropertyList6": [
-        "DefenceAddedRatio"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "DefenceAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "DefenceAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "DefenceAddedRatio"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "DefenceAddedRatio",
+          "StatusProbabilityBase"
+        ],
+        "foot": [
+          "SpeedDelta",
+          "DefenceAddedRatio"
+        ],
+        "neck": [
+          "DefenceAddedRatio"
+        ],
+        "object": [
+          "DefenceAddedRatio"
+        ]
+      },
+      "subAffix": [
         "DefenceAddedRatio",
         "SpeedDelta",
         "StatusProbabilityBase",
         "StatusResistanceBase"
-      ],
-      "ScoreRankList": [
-        279,
-        216
       ]
     },
     "techType": "MazeAttack"
@@ -67,62 +46,41 @@
     "damageType": "Wind",
     "baseType": "Rogue",
     "relics": {
-      "AvatarID": 1002,
-      "Set4IDList": [
+      "set4IDList": [
         110,
         122,
         102
       ],
-      "Set2IDList": [
+      "set2IDList": [
         311,
         301,
         309
       ],
-      "PropertyList3": [
-        "CriticalChanceBase",
-        "CriticalDamageBase"
+      "scoreRankList": [
+        346,
+        287
       ],
-      "PropertyList4": [
-        "SpeedDelta",
-        "AttackAddedRatio"
-      ],
-      "PropertyList5": [
-        "WindAddedRatio"
-      ],
-      "PropertyList6": [
-        "AttackAddedRatio"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "CriticalChanceBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "WindAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "AttackAddedRatio"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "CriticalChanceBase",
+          "CriticalDamageBase"
+        ],
+        "foot": [
+          "SpeedDelta",
+          "AttackAddedRatio"
+        ],
+        "neck": [
+          "WindAddedRatio"
+        ],
+        "object": [
+          "AttackAddedRatio"
+        ]
+      },
+      "subAffix": [
         "CriticalChanceBase",
         "CriticalDamageBase",
         "AttackAddedRatio",
         "SpeedDelta"
-      ],
-      "ScoreRankList": [
-        346,
-        287
       ]
     },
     "techType": "Enhance"
@@ -131,65 +89,43 @@
     "damageType": "Fire",
     "baseType": "Mage",
     "relics": {
-      "AvatarID": 1003,
-      "Set4IDList": [
+      "set4IDList": [
         115,
         107,
         119
       ],
-      "Set2IDList": [
+      "set2IDList": [
         306,
         313,
         301
       ],
-      "PropertyList3": [
-        "CriticalChanceBase",
-        "CriticalDamageBase"
+      "scoreRankList": [
+        343,
+        289
       ],
-      "PropertyList4": [
-        "SpeedDelta",
-        "AttackAddedRatio"
-      ],
-      "PropertyList5": [
-        "FireAddedRatio"
-      ],
-      "PropertyList6": [
-        "AttackAddedRatio",
-        "SPRatioBase"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "CriticalChanceBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "FireAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "AttackAddedRatio"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "CriticalChanceBase",
+          "CriticalDamageBase"
+        ],
+        "foot": [
+          "SpeedDelta",
+          "AttackAddedRatio"
+        ],
+        "neck": [
+          "FireAddedRatio"
+        ],
+        "object": [
+          "AttackAddedRatio",
+          "SPRatioBase"
+        ]
+      },
+      "subAffix": [
         "CriticalChanceBase",
         "CriticalDamageBase",
         "AttackAddedRatio",
         "SpeedDelta"
-      ],
-      "ScoreRankList": [
-        343,
-        289
-      ],
-      "LocalCriticalChance": 0.1500000001396984
+      ]
     },
     "techType": "Impair"
   },
@@ -197,62 +133,41 @@
     "damageType": "Imaginary",
     "baseType": "Warlock",
     "relics": {
-      "AvatarID": 1004,
-      "Set4IDList": [
+      "set4IDList": [
         112,
         122,
         111
       ],
-      "Set2IDList": [
+      "set2IDList": [
         309,
         301,
         303
       ],
-      "PropertyList3": [
-        "CriticalChanceBase",
-        "CriticalDamageBase"
+      "scoreRankList": [
+        358,
+        302
       ],
-      "PropertyList4": [
-        "SpeedDelta"
-      ],
-      "PropertyList5": [
-        "ImaginaryAddedRatio"
-      ],
-      "PropertyList6": [
-        "AttackAddedRatio",
-        "SPRatioBase"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "CriticalChanceBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "ImaginaryAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "AttackAddedRatio"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "CriticalChanceBase",
+          "CriticalDamageBase"
+        ],
+        "foot": [
+          "SpeedDelta"
+        ],
+        "neck": [
+          "ImaginaryAddedRatio"
+        ],
+        "object": [
+          "AttackAddedRatio",
+          "SPRatioBase"
+        ]
+      },
+      "subAffix": [
         "CriticalChanceBase",
         "CriticalDamageBase",
         "AttackAddedRatio",
         "SpeedDelta"
-      ],
-      "ScoreRankList": [
-        358,
-        302
       ]
     },
     "techType": "Impair"
@@ -261,60 +176,39 @@
     "damageType": "Thunder",
     "baseType": "Warlock",
     "relics": {
-      "AvatarID": 1005,
-      "Set4IDList": [
+      "set4IDList": [
         116,
         109,
         102
       ],
-      "Set2IDList": [
+      "set2IDList": [
+        322,
         311,
-        301,
-        307
+        301
       ],
-      "PropertyList3": [
-        "AttackAddedRatio"
+      "scoreRankList": [
+        310,
+        256
       ],
-      "PropertyList4": [
-        "SpeedDelta"
-      ],
-      "PropertyList5": [
-        "ThunderAddedRatio"
-      ],
-      "PropertyList6": [
-        "AttackAddedRatio",
-        "SPRatioBase"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "AttackAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "ThunderAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "AttackAddedRatio"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "AttackAddedRatio"
+        ],
+        "foot": [
+          "SpeedDelta"
+        ],
+        "neck": [
+          "ThunderAddedRatio"
+        ],
+        "object": [
+          "AttackAddedRatio",
+          "SPRatioBase"
+        ]
+      },
+      "subAffix": [
         "AttackAddedRatio",
         "SpeedDelta",
         "StatusProbabilityBase"
-      ],
-      "ScoreRankList": [
-        310,
-        256
       ]
     },
     "techType": "MazeAttack"
@@ -323,61 +217,40 @@
     "damageType": "Quantum",
     "baseType": "Warlock",
     "relics": {
-      "AvatarID": 1006,
-      "Set4IDList": [
+      "set4IDList": [
         108,
         111,
         117
       ],
-      "Set2IDList": [
+      "set2IDList": [
         312,
         303,
         307
       ],
-      "PropertyList3": [
-        "StatusProbabilityBase",
-        "CriticalChanceBase"
+      "scoreRankList": [
+        340,
+        285
       ],
-      "PropertyList4": [
-        "SpeedDelta"
-      ],
-      "PropertyList5": [
-        "QuantumAddedRatio"
-      ],
-      "PropertyList6": [
-        "SPRatioBase"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "StatusProbabilityBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "QuantumAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "SPRatioBase"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "StatusProbabilityBase",
+          "CriticalChanceBase"
+        ],
+        "foot": [
+          "SpeedDelta"
+        ],
+        "neck": [
+          "QuantumAddedRatio"
+        ],
+        "object": [
+          "SPRatioBase"
+        ]
+      },
+      "subAffix": [
         "SpeedDelta",
         "StatusProbabilityBase",
         "CriticalChanceBase",
         "CriticalDamageBase"
-      ],
-      "ScoreRankList": [
-        340,
-        285
       ]
     },
     "techType": "MazeAttack"
@@ -386,62 +259,41 @@
     "damageType": "Thunder",
     "baseType": "Warrior",
     "relics": {
-      "AvatarID": 1008,
-      "Set4IDList": [
+      "set4IDList": [
         109,
         122,
         117
       ],
-      "Set2IDList": [
+      "set2IDList": [
         309,
         301,
         305
       ],
-      "PropertyList3": [
-        "CriticalChanceBase",
-        "CriticalDamageBase"
+      "scoreRankList": [
+        346,
+        287
       ],
-      "PropertyList4": [
-        "SpeedDelta"
-      ],
-      "PropertyList5": [
-        "ThunderAddedRatio",
-        "AttackAddedRatio"
-      ],
-      "PropertyList6": [
-        "AttackAddedRatio"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "CriticalChanceBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "ThunderAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "AttackAddedRatio"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "CriticalChanceBase",
+          "CriticalDamageBase"
+        ],
+        "foot": [
+          "SpeedDelta"
+        ],
+        "neck": [
+          "ThunderAddedRatio",
+          "AttackAddedRatio"
+        ],
+        "object": [
+          "AttackAddedRatio"
+        ]
+      },
+      "subAffix": [
         "CriticalChanceBase",
         "CriticalDamageBase",
         "AttackAddedRatio",
         "SpeedDelta"
-      ],
-      "ScoreRankList": [
-        346,
-        287
       ]
     },
     "techType": "MazeAttack"
@@ -450,62 +302,41 @@
     "damageType": "Fire",
     "baseType": "Shaman",
     "relics": {
-      "AvatarID": 1009,
-      "Set4IDList": [
+      "set4IDList": [
         114,
         111,
         106
       ],
-      "Set2IDList": [
+      "set2IDList": [
         302,
         310,
         308
       ],
-      "PropertyList3": [
-        "HPAddedRatio",
-        "CriticalChanceBase"
+      "scoreRankList": [
+        321,
+        278
       ],
-      "PropertyList4": [
-        "SpeedDelta"
-      ],
-      "PropertyList5": [
-        "FireAddedRatio",
-        "HPAddedRatio"
-      ],
-      "PropertyList6": [
-        "SPRatioBase"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "HPAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "FireAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "SPRatioBase"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "HPAddedRatio",
+          "CriticalChanceBase"
+        ],
+        "foot": [
+          "SpeedDelta"
+        ],
+        "neck": [
+          "FireAddedRatio",
+          "HPAddedRatio"
+        ],
+        "object": [
+          "SPRatioBase"
+        ]
+      },
+      "subAffix": [
         "SpeedDelta",
         "AttackAddedRatio",
         "CriticalChanceBase",
         "CriticalDamageBase"
-      ],
-      "ScoreRankList": [
-        321,
-        278
       ]
     },
     "techType": "MazeAttack"
@@ -514,128 +345,174 @@
     "damageType": "Ice",
     "baseType": "Mage",
     "relics": {
-      "AvatarID": 1013,
-      "Set4IDList": [
+      "set4IDList": [
         104,
         102,
         122
       ],
-      "Set2IDList": [
+      "set2IDList": [
         313,
         306,
         315
       ],
-      "PropertyList3": [
-        "CriticalChanceBase",
-        "CriticalDamageBase"
-      ],
-      "PropertyList4": [
-        "AttackAddedRatio",
-        "SpeedDelta"
-      ],
-      "PropertyList5": [
-        "IceAddedRatio",
-        "AttackAddedRatio"
-      ],
-      "PropertyList6": [
-        "AttackAddedRatio",
-        "SPRatioBase"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "CriticalChanceBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "AttackAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "IceAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "AttackAddedRatio"
-        }
-      ],
-      "SubAffixPropertyList": [
-        "CriticalChanceBase",
-        "CriticalDamageBase",
-        "AttackAddedRatio"
-      ],
-      "ScoreRankList": [
+      "scoreRankList": [
         338,
         284
       ],
-      "LocalCriticalChance": 0.1500000001396984
+      "mainAffix": {
+        "body": [
+          "CriticalChanceBase",
+          "CriticalDamageBase"
+        ],
+        "foot": [
+          "AttackAddedRatio",
+          "SpeedDelta"
+        ],
+        "neck": [
+          "IceAddedRatio",
+          "AttackAddedRatio"
+        ],
+        "object": [
+          "AttackAddedRatio",
+          "SPRatioBase"
+        ]
+      },
+      "subAffix": [
+        "CriticalChanceBase",
+        "CriticalDamageBase",
+        "AttackAddedRatio"
+      ]
     },
     "techType": "Enhance"
+  },
+  "1014": {
+    "damageType": "Wind",
+    "baseType": "Warrior",
+    "relics": {
+      "set4IDList": [
+        126,
+        122,
+        102
+      ],
+      "set2IDList": [
+        306,
+        301,
+        309
+      ],
+      "scoreRankList": [
+        336,
+        281
+      ],
+      "mainAffix": {
+        "body": [
+          "CriticalChanceBase",
+          "CriticalDamageBase"
+        ],
+        "foot": [
+          "AttackAddedRatio",
+          "SpeedDelta"
+        ],
+        "neck": [
+          "WindAddedRatio",
+          "AttackAddedRatio"
+        ],
+        "object": [
+          "AttackAddedRatio",
+          "SPRatioBase"
+        ]
+      },
+      "subAffix": [
+        "CriticalChanceBase",
+        "CriticalDamageBase",
+        "AttackAddedRatio",
+        "SpeedDelta"
+      ]
+    },
+    "techType": "Enhance"
+  },
+  "1015": {
+    "damageType": "Quantum",
+    "baseType": "Rogue",
+    "relics": {
+      "set4IDList": [
+        108,
+        122,
+        102
+      ],
+      "set2IDList": [
+        309,
+        301,
+        306
+      ],
+      "scoreRankList": [
+        336,
+        281
+      ],
+      "mainAffix": {
+        "body": [
+          "CriticalChanceBase",
+          "CriticalDamageBase"
+        ],
+        "foot": [
+          "AttackAddedRatio",
+          "SpeedDelta"
+        ],
+        "neck": [
+          "QuantumAddedRatio",
+          "AttackAddedRatio"
+        ],
+        "object": [
+          "AttackAddedRatio",
+          "SPRatioBase"
+        ]
+      },
+      "subAffix": [
+        "CriticalChanceBase",
+        "CriticalDamageBase",
+        "AttackAddedRatio",
+        "SpeedDelta"
+      ]
+    },
+    "techType": "MazeAttack"
   },
   "1101": {
     "damageType": "Wind",
     "baseType": "Shaman",
     "relics": {
-      "AvatarID": 1101,
-      "Set4IDList": [
+      "set4IDList": [
         114,
         110,
         121
       ],
-      "Set2IDList": [
+      "set2IDList": [
         317,
         310,
         302
       ],
-      "PropertyList3": [
-        "CriticalDamageBase"
-      ],
-      "PropertyList4": [
-        "SpeedDelta"
-      ],
-      "PropertyList5": [
-        "HPAddedRatio",
-        "DefenceAddedRatio"
-      ],
-      "PropertyList6": [
-        "SPRatioBase"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "CriticalDamageBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "HPAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "SPRatioBase"
-        }
-      ],
-      "SubAffixPropertyList": [
-        "CriticalDamageBase",
-        "SpeedDelta",
-        "StatusResistanceBase"
-      ],
-      "ScoreRankList": [
+      "scoreRankList": [
         247,
         188
       ],
-      "LocalCriticalChance": 1
+      "mainAffix": {
+        "body": [
+          "CriticalDamageBase"
+        ],
+        "foot": [
+          "SpeedDelta"
+        ],
+        "neck": [
+          "HPAddedRatio",
+          "DefenceAddedRatio"
+        ],
+        "object": [
+          "SPRatioBase"
+        ]
+      },
+      "subAffix": [
+        "CriticalDamageBase",
+        "SpeedDelta",
+        "StatusResistanceBase"
+      ]
     },
     "techType": "Support"
   },
@@ -643,63 +520,42 @@
     "damageType": "Quantum",
     "baseType": "Rogue",
     "relics": {
-      "AvatarID": 1102,
-      "Set4IDList": [
+      "set4IDList": [
         108,
         122,
         102
       ],
-      "Set2IDList": [
+      "set2IDList": [
         311,
         301,
         306
       ],
-      "PropertyList3": [
-        "CriticalChanceBase",
-        "CriticalDamageBase"
+      "scoreRankList": [
+        346,
+        287
       ],
-      "PropertyList4": [
-        "SpeedDelta",
-        "AttackAddedRatio"
-      ],
-      "PropertyList5": [
-        "QuantumAddedRatio",
-        "AttackAddedRatio"
-      ],
-      "PropertyList6": [
-        "AttackAddedRatio"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "CriticalChanceBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "QuantumAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "AttackAddedRatio"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "CriticalChanceBase",
+          "CriticalDamageBase"
+        ],
+        "foot": [
+          "SpeedDelta",
+          "AttackAddedRatio"
+        ],
+        "neck": [
+          "QuantumAddedRatio",
+          "AttackAddedRatio"
+        ],
+        "object": [
+          "AttackAddedRatio"
+        ]
+      },
+      "subAffix": [
         "CriticalChanceBase",
         "CriticalDamageBase",
         "AttackAddedRatio",
         "SpeedDelta"
-      ],
-      "ScoreRankList": [
-        346,
-        287
       ]
     },
     "techType": "Enhance"
@@ -708,63 +564,42 @@
     "damageType": "Thunder",
     "baseType": "Mage",
     "relics": {
-      "AvatarID": 1103,
-      "Set4IDList": [
+      "set4IDList": [
         109,
         117,
         122
       ],
-      "Set2IDList": [
+      "set2IDList": [
         301,
         306,
         313
       ],
-      "PropertyList3": [
-        "CriticalChanceBase",
-        "CriticalDamageBase"
+      "scoreRankList": [
+        351,
+        296
       ],
-      "PropertyList4": [
-        "SpeedDelta"
-      ],
-      "PropertyList5": [
-        "ThunderAddedRatio",
-        "AttackAddedRatio"
-      ],
-      "PropertyList6": [
-        "AttackAddedRatio",
-        "SPRatioBase"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "CriticalChanceBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "ThunderAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "AttackAddedRatio"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "CriticalChanceBase",
+          "CriticalDamageBase"
+        ],
+        "foot": [
+          "SpeedDelta"
+        ],
+        "neck": [
+          "ThunderAddedRatio",
+          "AttackAddedRatio"
+        ],
+        "object": [
+          "AttackAddedRatio",
+          "SPRatioBase"
+        ]
+      },
+      "subAffix": [
         "CriticalChanceBase",
         "CriticalDamageBase",
         "AttackAddedRatio",
         "SpeedDelta"
-      ],
-      "ScoreRankList": [
-        351,
-        296
       ]
     },
     "techType": "MazeAttack"
@@ -773,61 +608,40 @@
     "damageType": "Ice",
     "baseType": "Knight",
     "relics": {
-      "AvatarID": 1104,
-      "Set4IDList": [
+      "set4IDList": [
         103,
         106,
         114
       ],
-      "Set2IDList": [
+      "set2IDList": [
         304,
         310,
         317
       ],
-      "PropertyList3": [
-        "DefenceAddedRatio"
+      "scoreRankList": [
+        285,
+        221
       ],
-      "PropertyList4": [
-        "SpeedDelta"
-      ],
-      "PropertyList5": [
-        "DefenceAddedRatio"
-      ],
-      "PropertyList6": [
-        "SPRatioBase",
-        "DefenceAddedRatio"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "DefenceAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "DefenceAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "SPRatioBase"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "DefenceAddedRatio"
+        ],
+        "foot": [
+          "SpeedDelta"
+        ],
+        "neck": [
+          "DefenceAddedRatio"
+        ],
+        "object": [
+          "SPRatioBase",
+          "DefenceAddedRatio"
+        ]
+      },
+      "subAffix": [
         "DefenceAddedRatio",
         "SpeedDelta",
         "StatusProbabilityBase",
         "StatusResistanceBase"
-      ],
-      "ScoreRankList": [
-        285,
-        221
       ]
     },
     "techType": "Defence"
@@ -836,61 +650,40 @@
     "damageType": "Physical",
     "baseType": "Priest",
     "relics": {
-      "AvatarID": 1105,
-      "Set4IDList": [
+      "set4IDList": [
         101,
         114,
         121
       ],
-      "Set2IDList": [
+      "set2IDList": [
         302,
         317,
         310
       ],
-      "PropertyList3": [
-        "HealRatioBase",
-        "HPAddedRatio"
+      "scoreRankList": [
+        296,
+        229
       ],
-      "PropertyList4": [
-        "SpeedDelta"
-      ],
-      "PropertyList5": [
-        "HPAddedRatio"
-      ],
-      "PropertyList6": [
-        "HPAddedRatio",
-        "SPRatioBase"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "HealRatioBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "HPAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "HPAddedRatio"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "HealRatioBase",
+          "HPAddedRatio"
+        ],
+        "foot": [
+          "SpeedDelta"
+        ],
+        "neck": [
+          "HPAddedRatio"
+        ],
+        "object": [
+          "HPAddedRatio",
+          "SPRatioBase"
+        ]
+      },
+      "subAffix": [
         "HPAddedRatio",
         "SpeedDelta",
         "StatusResistanceBase"
-      ],
-      "ScoreRankList": [
-        296,
-        229
       ]
     },
     "techType": "MazeAttack"
@@ -899,62 +692,41 @@
     "damageType": "Ice",
     "baseType": "Warlock",
     "relics": {
-      "AvatarID": 1106,
-      "Set4IDList": [
+      "set4IDList": [
         104,
         106,
         110
       ],
-      "Set2IDList": [
+      "set2IDList": [
         312,
         310,
         308
       ],
-      "PropertyList3": [
-        "StatusProbabilityBase",
-        "CriticalChanceBase"
+      "scoreRankList": [
+        318,
+        267
       ],
-      "PropertyList4": [
-        "SpeedDelta"
-      ],
-      "PropertyList5": [
-        "HPAddedRatio",
-        "IceAddedRatio"
-      ],
-      "PropertyList6": [
-        "SPRatioBase"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "StatusProbabilityBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "HPAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "SPRatioBase"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "StatusProbabilityBase",
+          "CriticalChanceBase"
+        ],
+        "foot": [
+          "SpeedDelta"
+        ],
+        "neck": [
+          "HPAddedRatio",
+          "IceAddedRatio"
+        ],
+        "object": [
+          "SPRatioBase"
+        ]
+      },
+      "subAffix": [
         "SpeedDelta",
         "StatusProbabilityBase",
         "CriticalChanceBase",
         "CriticalDamageBase"
-      ],
-      "ScoreRankList": [
-        318,
-        267
       ]
     },
     "techType": "MazeAttack"
@@ -963,61 +735,40 @@
     "damageType": "Physical",
     "baseType": "Warrior",
     "relics": {
-      "AvatarID": 1107,
-      "Set4IDList": [
+      "set4IDList": [
         105,
         113,
         115
       ],
-      "Set2IDList": [
+      "set2IDList": [
         306,
         315,
         301
       ],
-      "PropertyList3": [
-        "CriticalChanceBase",
-        "CriticalDamageBase"
+      "scoreRankList": [
+        331,
+        277
       ],
-      "PropertyList4": [
-        "AttackAddedRatio"
-      ],
-      "PropertyList5": [
-        "PhysicalAddedRatio"
-      ],
-      "PropertyList6": [
-        "SPRatioBase",
-        "AttackAddedRatio"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "CriticalChanceBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "AttackAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "PhysicalAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "SPRatioBase"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "CriticalChanceBase",
+          "CriticalDamageBase"
+        ],
+        "foot": [
+          "AttackAddedRatio"
+        ],
+        "neck": [
+          "PhysicalAddedRatio"
+        ],
+        "object": [
+          "SPRatioBase",
+          "AttackAddedRatio"
+        ]
+      },
+      "subAffix": [
         "CriticalChanceBase",
         "CriticalDamageBase",
         "AttackAddedRatio"
-      ],
-      "ScoreRankList": [
-        331,
-        277
       ]
     },
     "techType": "MazeAttack"
@@ -1026,59 +777,38 @@
     "damageType": "Wind",
     "baseType": "Warlock",
     "relics": {
-      "AvatarID": 1108,
-      "Set4IDList": [
+      "set4IDList": [
         110,
         116,
         102
       ],
-      "Set2IDList": [
+      "set2IDList": [
         301,
         303,
         311
       ],
-      "PropertyList3": [
-        "AttackAddedRatio"
+      "scoreRankList": [
+        316,
+        263
       ],
-      "PropertyList4": [
-        "SpeedDelta"
-      ],
-      "PropertyList5": [
-        "WindAddedRatio"
-      ],
-      "PropertyList6": [
-        "AttackAddedRatio"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "AttackAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "WindAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "AttackAddedRatio"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "AttackAddedRatio"
+        ],
+        "foot": [
+          "SpeedDelta"
+        ],
+        "neck": [
+          "WindAddedRatio"
+        ],
+        "object": [
+          "AttackAddedRatio"
+        ]
+      },
+      "subAffix": [
         "AttackAddedRatio",
         "SpeedDelta",
         "StatusProbabilityBase"
-      ],
-      "ScoreRankList": [
-        316,
-        263
       ]
     },
     "techType": "Impair"
@@ -1087,61 +817,40 @@
     "damageType": "Fire",
     "baseType": "Warrior",
     "relics": {
-      "AvatarID": 1109,
-      "Set4IDList": [
+      "set4IDList": [
         117,
         122,
         107
       ],
-      "Set2IDList": [
+      "set2IDList": [
         301,
         309,
         305
       ],
-      "PropertyList3": [
-        "CriticalChanceBase",
-        "CriticalDamageBase"
+      "scoreRankList": [
+        346,
+        287
       ],
-      "PropertyList4": [
-        "SpeedDelta"
-      ],
-      "PropertyList5": [
-        "FireAddedRatio"
-      ],
-      "PropertyList6": [
-        "AttackAddedRatio"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "CriticalChanceBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "FireAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "AttackAddedRatio"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "CriticalChanceBase",
+          "CriticalDamageBase"
+        ],
+        "foot": [
+          "SpeedDelta"
+        ],
+        "neck": [
+          "FireAddedRatio"
+        ],
+        "object": [
+          "AttackAddedRatio"
+        ]
+      },
+      "subAffix": [
         "CriticalChanceBase",
         "CriticalDamageBase",
         "AttackAddedRatio",
         "SpeedDelta"
-      ],
-      "ScoreRankList": [
-        346,
-        287
       ]
     },
     "techType": "MazeAttack"
@@ -1150,61 +859,40 @@
     "damageType": "Quantum",
     "baseType": "Priest",
     "relics": {
-      "AvatarID": 1110,
-      "Set4IDList": [
+      "set4IDList": [
         101,
         114,
         106
       ],
-      "Set2IDList": [
+      "set2IDList": [
         302,
         310,
         317
       ],
-      "PropertyList3": [
-        "HealRatioBase",
-        "HPAddedRatio"
+      "scoreRankList": [
+        296,
+        229
       ],
-      "PropertyList4": [
-        "SpeedDelta"
-      ],
-      "PropertyList5": [
-        "HPAddedRatio"
-      ],
-      "PropertyList6": [
-        "HPAddedRatio",
-        "SPRatioBase"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "HealRatioBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "HPAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "HPAddedRatio"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "HealRatioBase",
+          "HPAddedRatio"
+        ],
+        "foot": [
+          "SpeedDelta"
+        ],
+        "neck": [
+          "HPAddedRatio"
+        ],
+        "object": [
+          "HPAddedRatio",
+          "SPRatioBase"
+        ]
+      },
+      "subAffix": [
         "HPAddedRatio",
         "SpeedDelta",
         "StatusResistanceBase"
-      ],
-      "ScoreRankList": [
-        296,
-        229
       ]
     },
     "techType": "Restore"
@@ -1213,59 +901,38 @@
     "damageType": "Physical",
     "baseType": "Warlock",
     "relics": {
-      "AvatarID": 1111,
-      "Set4IDList": [
+      "set4IDList": [
         105,
         116,
         102
       ],
-      "Set2IDList": [
+      "set2IDList": [
         301,
         307,
         309
       ],
-      "PropertyList3": [
-        "AttackAddedRatio"
+      "scoreRankList": [
+        322,
+        284
       ],
-      "PropertyList4": [
-        "SpeedDelta"
-      ],
-      "PropertyList5": [
-        "PhysicalAddedRatio"
-      ],
-      "PropertyList6": [
-        "AttackAddedRatio"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "AttackAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "PhysicalAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "AttackAddedRatio"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "AttackAddedRatio"
+        ],
+        "foot": [
+          "SpeedDelta"
+        ],
+        "neck": [
+          "PhysicalAddedRatio"
+        ],
+        "object": [
+          "AttackAddedRatio"
+        ]
+      },
+      "subAffix": [
         "AttackAddedRatio",
         "SpeedDelta",
         "BreakDamageAddedRatioBase"
-      ],
-      "ScoreRankList": [
-        322,
-        284
       ]
     },
     "techType": "MazeAttack"
@@ -1274,62 +941,41 @@
     "damageType": "Fire",
     "baseType": "Rogue",
     "relics": {
-      "AvatarID": 1112,
-      "Set4IDList": [
+      "set4IDList": [
         115,
         107,
         117
       ],
-      "Set2IDList": [
+      "set2IDList": [
         318,
         306,
         315
       ],
-      "PropertyList3": [
-        "CriticalChanceBase",
-        "CriticalDamageBase"
+      "scoreRankList": [
+        346,
+        287
       ],
-      "PropertyList4": [
-        "AttackAddedRatio",
-        "SpeedDelta"
-      ],
-      "PropertyList5": [
-        "FireAddedRatio"
-      ],
-      "PropertyList6": [
-        "AttackAddedRatio"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "CriticalChanceBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "AttackAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "FireAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "AttackAddedRatio"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "CriticalChanceBase",
+          "CriticalDamageBase"
+        ],
+        "foot": [
+          "AttackAddedRatio",
+          "SpeedDelta"
+        ],
+        "neck": [
+          "FireAddedRatio"
+        ],
+        "object": [
+          "AttackAddedRatio"
+        ]
+      },
+      "subAffix": [
         "CriticalChanceBase",
         "CriticalDamageBase",
         "AttackAddedRatio",
         "SpeedDelta"
-      ],
-      "ScoreRankList": [
-        346,
-        287
       ]
     },
     "techType": "Enhance"
@@ -1338,61 +984,40 @@
     "damageType": "Quantum",
     "baseType": "Mage",
     "relics": {
-      "AvatarID": 1201,
-      "Set4IDList": [
+      "set4IDList": [
         108,
         102,
         111
       ],
-      "Set2IDList": [
+      "set2IDList": [
         309,
         305,
         301
       ],
-      "PropertyList3": [
-        "CriticalChanceBase",
-        "CriticalDamageBase"
+      "scoreRankList": [
+        346,
+        287
       ],
-      "PropertyList4": [
-        "SpeedDelta"
-      ],
-      "PropertyList5": [
-        "QuantumAddedRatio"
-      ],
-      "PropertyList6": [
-        "AttackAddedRatio"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "CriticalChanceBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "QuantumAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "AttackAddedRatio"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "CriticalChanceBase",
+          "CriticalDamageBase"
+        ],
+        "foot": [
+          "SpeedDelta"
+        ],
+        "neck": [
+          "QuantumAddedRatio"
+        ],
+        "object": [
+          "AttackAddedRatio"
+        ]
+      },
+      "subAffix": [
         "CriticalChanceBase",
         "CriticalDamageBase",
         "AttackAddedRatio",
         "SpeedDelta"
-      ],
-      "ScoreRankList": [
-        346,
-        287
       ]
     },
     "techType": "Enhance"
@@ -1401,59 +1026,38 @@
     "damageType": "Thunder",
     "baseType": "Shaman",
     "relics": {
-      "AvatarID": 1202,
-      "Set4IDList": [
+      "set4IDList": [
         121,
         114,
         110
       ],
-      "Set2IDList": [
+      "set2IDList": [
         308,
         312,
         302
       ],
-      "PropertyList3": [
-        "AttackAddedRatio"
+      "scoreRankList": [
+        318,
+        263
       ],
-      "PropertyList4": [
-        "SpeedDelta"
-      ],
-      "PropertyList5": [
-        "AttackAddedRatio"
-      ],
-      "PropertyList6": [
-        "SPRatioBase"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "AttackAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "AttackAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "SPRatioBase"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "AttackAddedRatio"
+        ],
+        "foot": [
+          "SpeedDelta"
+        ],
+        "neck": [
+          "AttackAddedRatio"
+        ],
+        "object": [
+          "SPRatioBase"
+        ]
+      },
+      "subAffix": [
         "SpeedDelta",
         "AttackAddedRatio",
         "StatusResistanceBase"
-      ],
-      "ScoreRankList": [
-        318,
-        263
       ]
     },
     "techType": "Support"
@@ -1462,61 +1066,40 @@
     "damageType": "Imaginary",
     "baseType": "Priest",
     "relics": {
-      "AvatarID": 1203,
-      "Set4IDList": [
+      "set4IDList": [
         101,
         121,
         102
       ],
-      "Set2IDList": [
+      "set2IDList": [
         301,
         317,
         308
       ],
-      "PropertyList3": [
-        "HealRatioBase",
-        "AttackAddedRatio"
+      "scoreRankList": [
+        322,
+        266
       ],
-      "PropertyList4": [
-        "SpeedDelta"
-      ],
-      "PropertyList5": [
-        "AttackAddedRatio"
-      ],
-      "PropertyList6": [
-        "AttackAddedRatio",
-        "SPRatioBase"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "HealRatioBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "AttackAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "AttackAddedRatio"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "HealRatioBase",
+          "AttackAddedRatio"
+        ],
+        "foot": [
+          "SpeedDelta"
+        ],
+        "neck": [
+          "AttackAddedRatio"
+        ],
+        "object": [
+          "AttackAddedRatio",
+          "SPRatioBase"
+        ]
+      },
+      "subAffix": [
         "AttackAddedRatio",
         "SpeedDelta",
         "StatusResistanceBase"
-      ],
-      "ScoreRankList": [
-        322,
-        266
       ]
     },
     "techType": "Restore"
@@ -1525,63 +1108,41 @@
     "damageType": "Thunder",
     "baseType": "Mage",
     "relics": {
-      "AvatarID": 1204,
-      "Set4IDList": [
+      "set4IDList": [
         115,
         109,
         122
       ],
-      "Set2IDList": [
+      "set2IDList": [
         318,
         306,
         313
       ],
-      "PropertyList3": [
-        "CriticalChanceBase",
-        "CriticalDamageBase"
+      "scoreRankList": [
+        346,
+        287
       ],
-      "PropertyList4": [
-        "SpeedDelta"
-      ],
-      "PropertyList5": [
-        "ThunderAddedRatio"
-      ],
-      "PropertyList6": [
-        "AttackAddedRatio"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "CriticalChanceBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "ThunderAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "AttackAddedRatio"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "CriticalChanceBase",
+          "CriticalDamageBase"
+        ],
+        "foot": [
+          "SpeedDelta"
+        ],
+        "neck": [
+          "ThunderAddedRatio"
+        ],
+        "object": [
+          "AttackAddedRatio"
+        ]
+      },
+      "subAffix": [
         "CriticalChanceBase",
         "CriticalDamageBase",
         "AttackAddedRatio",
         "SpeedDelta"
-      ],
-      "ScoreRankList": [
-        346,
-        287
-      ],
-      "LocalCriticalChance": 0.10000000009313226
+      ]
     },
     "techType": "Enhance"
   },
@@ -1589,62 +1150,41 @@
     "damageType": "Wind",
     "baseType": "Warrior",
     "relics": {
-      "AvatarID": 1205,
-      "Set4IDList": [
+      "set4IDList": [
         113,
         110,
         102
       ],
-      "Set2IDList": [
+      "set2IDList": [
         306,
         309,
         302
       ],
-      "PropertyList3": [
-        "CriticalChanceBase",
-        "CriticalDamageBase"
+      "scoreRankList": [
+        346,
+        287
       ],
-      "PropertyList4": [
-        "SpeedDelta",
-        "HPAddedRatio"
-      ],
-      "PropertyList5": [
-        "WindAddedRatio"
-      ],
-      "PropertyList6": [
-        "HPAddedRatio"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "CriticalChanceBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "WindAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "HPAddedRatio"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "CriticalChanceBase",
+          "CriticalDamageBase"
+        ],
+        "foot": [
+          "SpeedDelta",
+          "HPAddedRatio"
+        ],
+        "neck": [
+          "WindAddedRatio"
+        ],
+        "object": [
+          "HPAddedRatio"
+        ]
+      },
+      "subAffix": [
         "CriticalChanceBase",
         "CriticalDamageBase",
         "HPAddedRatio",
         "SpeedDelta"
-      ],
-      "ScoreRankList": [
-        346,
-        287
       ]
     },
     "techType": "MazeAttack"
@@ -1653,63 +1193,42 @@
     "damageType": "Physical",
     "baseType": "Rogue",
     "relics": {
-      "AvatarID": 1206,
-      "Set4IDList": [
+      "set4IDList": [
         105,
         111,
         119
       ],
-      "Set2IDList": [
+      "set2IDList": [
         311,
         307,
         301
       ],
-      "PropertyList3": [
-        "CriticalChanceBase",
-        "CriticalDamageBase"
+      "scoreRankList": [
+        353,
+        298
       ],
-      "PropertyList4": [
-        "SpeedDelta",
-        "AttackAddedRatio"
-      ],
-      "PropertyList5": [
-        "PhysicalAddedRatio"
-      ],
-      "PropertyList6": [
-        "AttackAddedRatio",
-        "BreakDamageAddedRatioBase"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "CriticalChanceBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "PhysicalAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "AttackAddedRatio"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "CriticalChanceBase",
+          "CriticalDamageBase"
+        ],
+        "foot": [
+          "SpeedDelta",
+          "AttackAddedRatio"
+        ],
+        "neck": [
+          "PhysicalAddedRatio"
+        ],
+        "object": [
+          "AttackAddedRatio",
+          "BreakDamageAddedRatioBase"
+        ]
+      },
+      "subAffix": [
         "CriticalChanceBase",
         "CriticalDamageBase",
         "AttackAddedRatio",
         "SpeedDelta"
-      ],
-      "ScoreRankList": [
-        353,
-        298
       ]
     },
     "techType": "MazeAttack"
@@ -1718,63 +1237,41 @@
     "damageType": "Imaginary",
     "baseType": "Shaman",
     "relics": {
-      "AvatarID": 1207,
-      "Set4IDList": [
+      "set4IDList": [
         102,
         112,
         111
       ],
-      "Set2IDList": [
+      "set2IDList": [
         302,
         312,
         308
       ],
-      "PropertyList3": [
-        "CriticalChanceBase"
+      "scoreRankList": [
+        350,
+        294
       ],
-      "PropertyList4": [
-        "SpeedDelta"
-      ],
-      "PropertyList5": [
-        "ImaginaryAddedRatio"
-      ],
-      "PropertyList6": [
-        "SPRatioBase",
-        "AttackAddedRatio"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "CriticalChanceBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "ImaginaryAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "SPRatioBase"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "CriticalChanceBase"
+        ],
+        "foot": [
+          "SpeedDelta"
+        ],
+        "neck": [
+          "ImaginaryAddedRatio"
+        ],
+        "object": [
+          "SPRatioBase",
+          "AttackAddedRatio"
+        ]
+      },
+      "subAffix": [
         "SpeedDelta",
         "AttackAddedRatio",
         "CriticalChanceBase",
         "CriticalDamageBase"
-      ],
-      "ScoreRankList": [
-        350,
-        294
-      ],
-      "LocalCriticalChance": 0.2800000002607703
+      ]
     },
     "techType": "Enhance"
   },
@@ -1782,64 +1279,42 @@
     "damageType": "Quantum",
     "baseType": "Knight",
     "relics": {
-      "AvatarID": 1208,
-      "Set4IDList": [
+      "set4IDList": [
         113,
         106,
         108
       ],
-      "Set2IDList": [
+      "set2IDList": [
         302,
         310,
         308
       ],
-      "PropertyList3": [
-        "HPAddedRatio"
+      "scoreRankList": [
+        328,
+        280
       ],
-      "PropertyList4": [
-        "SpeedDelta",
-        "HPAddedRatio"
-      ],
-      "PropertyList5": [
-        "HPAddedRatio"
-      ],
-      "PropertyList6": [
-        "SPRatioBase",
-        "HPAddedRatio"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "HPAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "HPAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "SPRatioBase"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "HPAddedRatio"
+        ],
+        "foot": [
+          "SpeedDelta",
+          "HPAddedRatio"
+        ],
+        "neck": [
+          "HPAddedRatio"
+        ],
+        "object": [
+          "SPRatioBase",
+          "HPAddedRatio"
+        ]
+      },
+      "subAffix": [
         "HPAddedRatio",
         "DefenceAddedRatio",
         "StatusResistanceBase",
         "SpeedDelta"
-      ],
-      "ScoreRankList": [
-        328,
-        280
-      ],
-      "LocalCriticalChance": 0.12000000011175871
+      ]
     },
     "techType": "Defence"
   },
@@ -1847,62 +1322,40 @@
     "damageType": "Ice",
     "baseType": "Rogue",
     "relics": {
-      "AvatarID": 1209,
-      "Set4IDList": [
+      "set4IDList": [
         104,
         117,
         122
       ],
-      "Set2IDList": [
+      "set2IDList": [
         311,
         301,
         306
       ],
-      "PropertyList3": [
-        "CriticalDamageBase"
+      "scoreRankList": [
+        346,
+        287
       ],
-      "PropertyList4": [
-        "SpeedDelta"
-      ],
-      "PropertyList5": [
-        "IceAddedRatio"
-      ],
-      "PropertyList6": [
-        "AttackAddedRatio"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "CriticalDamageBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "IceAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "AttackAddedRatio"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "CriticalDamageBase"
+        ],
+        "foot": [
+          "SpeedDelta"
+        ],
+        "neck": [
+          "IceAddedRatio"
+        ],
+        "object": [
+          "AttackAddedRatio"
+        ]
+      },
+      "subAffix": [
         "CriticalChanceBase",
         "CriticalDamageBase",
         "AttackAddedRatio",
         "SpeedDelta"
-      ],
-      "ScoreRankList": [
-        346,
-        287
-      ],
-      "LocalCriticalChance": 0.5000000004656613
+      ]
     },
     "techType": "Enhance"
   },
@@ -1910,59 +1363,38 @@
     "damageType": "Fire",
     "baseType": "Warlock",
     "relics": {
-      "AvatarID": 1210,
-      "Set4IDList": [
+      "set4IDList": [
         116,
         102,
         107
       ],
-      "Set2IDList": [
+      "set2IDList": [
         301,
         303,
         307
       ],
-      "PropertyList3": [
-        "AttackAddedRatio"
+      "scoreRankList": [
+        321,
+        270
       ],
-      "PropertyList4": [
-        "SpeedDelta"
-      ],
-      "PropertyList5": [
-        "FireAddedRatio"
-      ],
-      "PropertyList6": [
-        "AttackAddedRatio"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "AttackAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "FireAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "AttackAddedRatio"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "AttackAddedRatio"
+        ],
+        "foot": [
+          "SpeedDelta"
+        ],
+        "neck": [
+          "FireAddedRatio"
+        ],
+        "object": [
+          "AttackAddedRatio"
+        ]
+      },
+      "subAffix": [
         "AttackAddedRatio",
         "SpeedDelta",
         "StatusProbabilityBase"
-      ],
-      "ScoreRankList": [
-        321,
-        270
       ]
     },
     "techType": "MazeAttack"
@@ -1971,61 +1403,40 @@
     "damageType": "Thunder",
     "baseType": "Priest",
     "relics": {
-      "AvatarID": 1211,
-      "Set4IDList": [
+      "set4IDList": [
         101,
         114,
         106
       ],
-      "Set2IDList": [
+      "set2IDList": [
         302,
         310,
         317
       ],
-      "PropertyList3": [
-        "HealRatioBase",
-        "HPAddedRatio"
+      "scoreRankList": [
+        296,
+        229
       ],
-      "PropertyList4": [
-        "SpeedDelta"
-      ],
-      "PropertyList5": [
-        "HPAddedRatio"
-      ],
-      "PropertyList6": [
-        "HPAddedRatio",
-        "SPRatioBase"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "HealRatioBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "HPAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "HPAddedRatio"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "HealRatioBase",
+          "HPAddedRatio"
+        ],
+        "foot": [
+          "SpeedDelta"
+        ],
+        "neck": [
+          "HPAddedRatio"
+        ],
+        "object": [
+          "HPAddedRatio",
+          "SPRatioBase"
+        ]
+      },
+      "subAffix": [
         "HPAddedRatio",
         "SpeedDelta",
         "StatusResistanceBase"
-      ],
-      "ScoreRankList": [
-        296,
-        229
       ]
     },
     "techType": "Restore"
@@ -2034,64 +1445,42 @@
     "damageType": "Ice",
     "baseType": "Warrior",
     "relics": {
-      "AvatarID": 1212,
-      "Set4IDList": [
+      "set4IDList": [
         122,
         104,
         108
       ],
-      "Set2IDList": [
+      "set2IDList": [
+        319,
         309,
-        306,
-        301
+        306
       ],
-      "PropertyList3": [
-        "CriticalDamageBase"
+      "scoreRankList": [
+        338,
+        280
       ],
-      "PropertyList4": [
-        "SpeedDelta",
-        "AttackAddedRatio"
-      ],
-      "PropertyList5": [
-        "IceAddedRatio"
-      ],
-      "PropertyList6": [
-        "SPRatioBase",
-        "AttackAddedRatio"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "CriticalDamageBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "IceAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "SPRatioBase"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "CriticalDamageBase"
+        ],
+        "foot": [
+          "SpeedDelta",
+          "HPAddedRatio"
+        ],
+        "neck": [
+          "IceAddedRatio"
+        ],
+        "object": [
+          "SPRatioBase",
+          "HPAddedRatio"
+        ]
+      },
+      "subAffix": [
         "CriticalChanceBase",
         "CriticalDamageBase",
-        "AttackAddedRatio",
+        "HPAddedRatio",
         "SpeedDelta"
-      ],
-      "ScoreRankList": [
-        342,
-        285
-      ],
-      "LocalCriticalChance": 0.5000000004656613
+      ]
     },
     "techType": "Impair"
   },
@@ -2099,62 +1488,41 @@
     "damageType": "Imaginary",
     "baseType": "Warrior",
     "relics": {
-      "AvatarID": 1213,
-      "Set4IDList": [
+      "set4IDList": [
         102,
         112,
         117
       ],
-      "Set2IDList": [
+      "set2IDList": [
         309,
         305,
         301
       ],
-      "PropertyList3": [
-        "CriticalChanceBase",
-        "CriticalDamageBase"
+      "scoreRankList": [
+        346,
+        287
       ],
-      "PropertyList4": [
-        "SpeedDelta",
-        "AttackAddedRatio"
-      ],
-      "PropertyList5": [
-        "ImaginaryAddedRatio"
-      ],
-      "PropertyList6": [
-        "AttackAddedRatio"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "CriticalChanceBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "ImaginaryAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "AttackAddedRatio"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "CriticalChanceBase",
+          "CriticalDamageBase"
+        ],
+        "foot": [
+          "SpeedDelta",
+          "AttackAddedRatio"
+        ],
+        "neck": [
+          "ImaginaryAddedRatio"
+        ],
+        "object": [
+          "AttackAddedRatio"
+        ]
+      },
+      "subAffix": [
         "CriticalChanceBase",
         "CriticalDamageBase",
         "AttackAddedRatio",
         "SpeedDelta"
-      ],
-      "ScoreRankList": [
-        346,
-        287
       ]
     },
     "techType": "Enhance"
@@ -2163,62 +1531,41 @@
     "damageType": "Quantum",
     "baseType": "Warrior",
     "relics": {
-      "AvatarID": 1214,
-      "Set4IDList": [
+      "set4IDList": [
         108,
         111,
         119
       ],
-      "Set2IDList": [
+      "set2IDList": [
         307,
         306,
         301
       ],
-      "PropertyList3": [
-        "CriticalChanceBase",
-        "CriticalDamageBase"
+      "scoreRankList": [
+        348,
+        293
       ],
-      "PropertyList4": [
-        "SpeedDelta",
-        "AttackAddedRatio"
-      ],
-      "PropertyList5": [
-        "QuantumAddedRatio"
-      ],
-      "PropertyList6": [
-        "BreakDamageAddedRatioBase"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "CriticalChanceBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "QuantumAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "BreakDamageAddedRatioBase"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "CriticalChanceBase",
+          "CriticalDamageBase"
+        ],
+        "foot": [
+          "SpeedDelta",
+          "AttackAddedRatio"
+        ],
+        "neck": [
+          "QuantumAddedRatio"
+        ],
+        "object": [
+          "BreakDamageAddedRatioBase"
+        ]
+      },
+      "subAffix": [
         "BreakDamageAddedRatioBase",
         "CriticalChanceBase",
         "CriticalDamageBase",
         "AttackAddedRatio"
-      ],
-      "ScoreRankList": [
-        348,
-        293
       ]
     },
     "techType": "MazeAttack"
@@ -2227,61 +1574,40 @@
     "damageType": "Physical",
     "baseType": "Shaman",
     "relics": {
-      "AvatarID": 1215,
-      "Set4IDList": [
+      "set4IDList": [
         114,
         102,
         121
       ],
-      "Set2IDList": [
+      "set2IDList": [
         317,
         308,
         310
       ],
-      "PropertyList3": [
-        "HPAddedRatio",
-        "DefenceAddedRatio"
+      "scoreRankList": [
+        254,
+        208
       ],
-      "PropertyList4": [
-        "SpeedDelta"
-      ],
-      "PropertyList5": [
-        "HPAddedRatio",
-        "DefenceAddedRatio"
-      ],
-      "PropertyList6": [
-        "SPRatioBase"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "HPAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "HPAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "SPRatioBase"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "HPAddedRatio",
+          "DefenceAddedRatio"
+        ],
+        "foot": [
+          "SpeedDelta"
+        ],
+        "neck": [
+          "HPAddedRatio",
+          "DefenceAddedRatio"
+        ],
+        "object": [
+          "SPRatioBase"
+        ]
+      },
+      "subAffix": [
         "SpeedDelta",
         "AttackAddedRatio",
         "StatusResistanceBase"
-      ],
-      "ScoreRankList": [
-        254,
-        208
       ]
     },
     "techType": "MazeAttack"
@@ -2290,60 +1616,39 @@
     "damageType": "Wind",
     "baseType": "Priest",
     "relics": {
-      "AvatarID": 1217,
-      "Set4IDList": [
+      "set4IDList": [
         101,
         114,
         110
       ],
-      "Set2IDList": [
+      "set2IDList": [
         302,
         310,
         317
       ],
-      "PropertyList3": [
-        "HealRatioBase",
-        "HPAddedRatio"
+      "scoreRankList": [
+        296,
+        229
       ],
-      "PropertyList4": [
-        "SpeedDelta"
-      ],
-      "PropertyList5": [
-        "HPAddedRatio"
-      ],
-      "PropertyList6": [
-        "SPRatioBase"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "HealRatioBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "HPAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "SPRatioBase"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "HealRatioBase",
+          "HPAddedRatio"
+        ],
+        "foot": [
+          "SpeedDelta"
+        ],
+        "neck": [
+          "HPAddedRatio"
+        ],
+        "object": [
+          "SPRatioBase"
+        ]
+      },
+      "subAffix": [
         "HPAddedRatio",
         "SpeedDelta",
         "StatusResistanceBase"
-      ],
-      "ScoreRankList": [
-        296,
-        229
       ]
     },
     "techType": "Impair"
@@ -2352,59 +1657,38 @@
     "damageType": "Fire",
     "baseType": "Warlock",
     "relics": {
-      "AvatarID": 1218,
-      "Set4IDList": [
+      "set4IDList": [
         116,
         110,
         106
       ],
-      "Set2IDList": [
+      "set2IDList": [
         303,
         302,
         308
       ],
-      "PropertyList3": [
-        "StatusProbabilityBase"
+      "scoreRankList": [
+        328,
+        273
       ],
-      "PropertyList4": [
-        "SpeedDelta"
-      ],
-      "PropertyList5": [
-        "FireAddedRatio"
-      ],
-      "PropertyList6": [
-        "SPRatioBase"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "StatusProbabilityBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "FireAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "SPRatioBase"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "StatusProbabilityBase"
+        ],
+        "foot": [
+          "SpeedDelta"
+        ],
+        "neck": [
+          "FireAddedRatio"
+        ],
+        "object": [
+          "SPRatioBase"
+        ]
+      },
+      "subAffix": [
         "StatusProbabilityBase",
         "AttackAddedRatio",
         "SpeedDelta"
-      ],
-      "ScoreRankList": [
-        328,
-        273
       ]
     },
     "techType": "Impair"
@@ -2413,62 +1697,41 @@
     "damageType": "Wind",
     "baseType": "Rogue",
     "relics": {
-      "AvatarID": 1220,
-      "Set4IDList": [
+      "set4IDList": [
         120,
         110,
         115
       ],
-      "Set2IDList": [
+      "set2IDList": [
         315,
         306,
         311
       ],
-      "PropertyList3": [
-        "CriticalChanceBase",
-        "CriticalDamageBase"
+      "scoreRankList": [
+        346,
+        287
       ],
-      "PropertyList4": [
-        "SpeedDelta"
-      ],
-      "PropertyList5": [
-        "WindAddedRatio",
-        "AttackAddedRatio"
-      ],
-      "PropertyList6": [
-        "AttackAddedRatio"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "CriticalChanceBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "WindAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "AttackAddedRatio"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "CriticalChanceBase",
+          "CriticalDamageBase"
+        ],
+        "foot": [
+          "SpeedDelta"
+        ],
+        "neck": [
+          "WindAddedRatio",
+          "AttackAddedRatio"
+        ],
+        "object": [
+          "AttackAddedRatio"
+        ]
+      },
+      "subAffix": [
         "CriticalChanceBase",
         "CriticalDamageBase",
         "AttackAddedRatio",
         "SpeedDelta"
-      ],
-      "ScoreRankList": [
-        346,
-        287
       ]
     },
     "techType": "Enhance"
@@ -2477,62 +1740,41 @@
     "damageType": "Physical",
     "baseType": "Warrior",
     "relics": {
-      "AvatarID": 1221,
-      "Set4IDList": [
+      "set4IDList": [
         120,
         117,
         105
       ],
-      "Set2IDList": [
+      "set2IDList": [
         315,
         306,
         301
       ],
-      "PropertyList3": [
-        "CriticalChanceBase",
-        "CriticalDamageBase"
+      "scoreRankList": [
+        337,
+        283
       ],
-      "PropertyList4": [
-        "AttackAddedRatio"
-      ],
-      "PropertyList5": [
-        "PhysicalAddedRatio",
-        "AttackAddedRatio"
-      ],
-      "PropertyList6": [
-        "AttackAddedRatio",
-        "SPRatioBase"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "CriticalChanceBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "AttackAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "PhysicalAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "AttackAddedRatio"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "CriticalChanceBase",
+          "CriticalDamageBase"
+        ],
+        "foot": [
+          "AttackAddedRatio"
+        ],
+        "neck": [
+          "PhysicalAddedRatio",
+          "AttackAddedRatio"
+        ],
+        "object": [
+          "AttackAddedRatio",
+          "SPRatioBase"
+        ]
+      },
+      "subAffix": [
         "CriticalChanceBase",
         "CriticalDamageBase",
         "AttackAddedRatio"
-      ],
-      "ScoreRankList": [
-        337,
-        283
       ]
     },
     "techType": "Enhance"
@@ -2541,60 +1783,39 @@
     "damageType": "Fire",
     "baseType": "Priest",
     "relics": {
-      "AvatarID": 1222,
-      "Set4IDList": [
+      "set4IDList": [
         119,
         111,
         101
       ],
-      "Set2IDList": [
+      "set2IDList": [
         316,
         307,
         302
       ],
-      "PropertyList3": [
-        "HealRatioBase"
+      "scoreRankList": [
+        344,
+        297
       ],
-      "PropertyList4": [
-        "SpeedDelta"
-      ],
-      "PropertyList5": [
-        "AttackAddedRatio"
-      ],
-      "PropertyList6": [
-        "SPRatioBase",
-        "BreakDamageAddedRatioBase"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "HealRatioBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "AttackAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "SPRatioBase"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "HealRatioBase"
+        ],
+        "foot": [
+          "SpeedDelta"
+        ],
+        "neck": [
+          "AttackAddedRatio"
+        ],
+        "object": [
+          "SPRatioBase",
+          "BreakDamageAddedRatioBase"
+        ]
+      },
+      "subAffix": [
         "BreakDamageAddedRatioBase",
         "SpeedDelta",
         "AttackAddedRatio"
-      ],
-      "ScoreRankList": [
-        344,
-        297
       ]
     },
     "techType": "Support"
@@ -2603,62 +1824,41 @@
     "damageType": "Thunder",
     "baseType": "Rogue",
     "relics": {
-      "AvatarID": 1223,
-      "Set4IDList": [
+      "set4IDList": [
         117,
         109,
         120
       ],
-      "Set2IDList": [
+      "set2IDList": [
         315,
         314,
         301
       ],
-      "PropertyList3": [
-        "CriticalChanceBase",
-        "CriticalDamageBase"
+      "scoreRankList": [
+        337,
+        283
       ],
-      "PropertyList4": [
-        "SpeedDelta",
-        "AttackAddedRatio"
-      ],
-      "PropertyList5": [
-        "ThunderAddedRatio"
-      ],
-      "PropertyList6": [
-        "AttackAddedRatio"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "CriticalChanceBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "ThunderAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "AttackAddedRatio"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "CriticalChanceBase",
+          "CriticalDamageBase"
+        ],
+        "foot": [
+          "SpeedDelta",
+          "AttackAddedRatio"
+        ],
+        "neck": [
+          "ThunderAddedRatio"
+        ],
+        "object": [
+          "AttackAddedRatio"
+        ]
+      },
+      "subAffix": [
         "CriticalChanceBase",
         "CriticalDamageBase",
         "AttackAddedRatio",
         "SpeedDelta"
-      ],
-      "ScoreRankList": [
-        337,
-        283
       ]
     },
     "techType": "Enhance"
@@ -2667,61 +1867,40 @@
     "damageType": "Imaginary",
     "baseType": "Rogue",
     "relics": {
-      "AvatarID": 1224,
-      "Set4IDList": [
+      "set4IDList": [
         102,
         112,
         117
       ],
-      "Set2IDList": [
+      "set2IDList": [
         309,
         314,
         301
       ],
-      "PropertyList3": [
-        "CriticalChanceBase",
-        "CriticalDamageBase"
+      "scoreRankList": [
+        349,
+        292
       ],
-      "PropertyList4": [
-        "SpeedDelta"
-      ],
-      "PropertyList5": [
-        "ImaginaryAddedRatio"
-      ],
-      "PropertyList6": [
-        "AttackAddedRatio"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "CriticalChanceBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "ImaginaryAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "AttackAddedRatio"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "CriticalChanceBase",
+          "CriticalDamageBase"
+        ],
+        "foot": [
+          "SpeedDelta"
+        ],
+        "neck": [
+          "ImaginaryAddedRatio"
+        ],
+        "object": [
+          "AttackAddedRatio"
+        ]
+      },
+      "subAffix": [
         "CriticalChanceBase",
         "CriticalDamageBase",
         "AttackAddedRatio",
         "SpeedDelta"
-      ],
-      "ScoreRankList": [
-        349,
-        292
       ]
     },
     "techType": "Enhance"
@@ -2730,59 +1909,38 @@
     "damageType": "Fire",
     "baseType": "Warlock",
     "relics": {
-      "AvatarID": 1225,
-      "Set4IDList": [
+      "set4IDList": [
         119,
         111,
         118
       ],
-      "Set2IDList": [
+      "set2IDList": [
         316,
         308,
         307
       ],
-      "PropertyList3": [
-        "StatusProbabilityBase"
+      "scoreRankList": [
+        271,
+        213
       ],
-      "PropertyList4": [
-        "SpeedDelta"
-      ],
-      "PropertyList5": [
-        "HPAddedRatio"
-      ],
-      "PropertyList6": [
-        "SPRatioBase"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "StatusProbabilityBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "HPAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "SPRatioBase"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "StatusProbabilityBase"
+        ],
+        "foot": [
+          "SpeedDelta"
+        ],
+        "neck": [
+          "HPAddedRatio"
+        ],
+        "object": [
+          "SPRatioBase"
+        ]
+      },
+      "subAffix": [
         "BreakDamageAddedRatioBase",
         "SpeedDelta",
         "StatusProbabilityBase"
-      ],
-      "ScoreRankList": [
-        271,
-        213
       ]
     },
     "techType": "Impair"
@@ -2791,60 +1949,39 @@
     "damageType": "Fire",
     "baseType": "Priest",
     "relics": {
-      "AvatarID": 1301,
-      "Set4IDList": [
+      "set4IDList": [
         119,
         111,
         101
       ],
-      "Set2IDList": [
+      "set2IDList": [
         316,
         307,
         302
       ],
-      "PropertyList3": [
-        "HealRatioBase"
+      "scoreRankList": [
+        309,
+        254
       ],
-      "PropertyList4": [
-        "SpeedDelta"
-      ],
-      "PropertyList5": [
-        "HPAddedRatio",
-        "DefenceAddedRatio"
-      ],
-      "PropertyList6": [
-        "BreakDamageAddedRatioBase"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "HealRatioBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "HPAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "BreakDamageAddedRatioBase"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "HealRatioBase"
+        ],
+        "foot": [
+          "SpeedDelta"
+        ],
+        "neck": [
+          "HPAddedRatio",
+          "DefenceAddedRatio"
+        ],
+        "object": [
+          "BreakDamageAddedRatioBase"
+        ]
+      },
+      "subAffix": [
         "SpeedDelta",
         "BreakDamageAddedRatioBase",
         "StatusResistanceBase"
-      ],
-      "ScoreRankList": [
-        309,
-        254
       ]
     },
     "techType": "MazeAttack"
@@ -2853,64 +1990,42 @@
     "damageType": "Physical",
     "baseType": "Mage",
     "relics": {
-      "AvatarID": 1302,
-      "Set4IDList": [
+      "set4IDList": [
         122,
         105,
         108
       ],
-      "Set2IDList": [
+      "set2IDList": [
         306,
         313,
         305
       ],
-      "PropertyList3": [
-        "CriticalChanceBase",
-        "CriticalDamageBase"
+      "scoreRankList": [
+        346,
+        287
       ],
-      "PropertyList4": [
-        "SpeedDelta",
-        "AttackAddedRatio"
-      ],
-      "PropertyList5": [
-        "PhysicalAddedRatio"
-      ],
-      "PropertyList6": [
-        "AttackAddedRatio"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "CriticalChanceBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "PhysicalAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "AttackAddedRatio"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "CriticalChanceBase",
+          "CriticalDamageBase"
+        ],
+        "foot": [
+          "SpeedDelta",
+          "AttackAddedRatio"
+        ],
+        "neck": [
+          "PhysicalAddedRatio"
+        ],
+        "object": [
+          "AttackAddedRatio"
+        ]
+      },
+      "subAffix": [
         "CriticalChanceBase",
         "CriticalDamageBase",
         "AttackAddedRatio",
         "SpeedDelta"
-      ],
-      "ScoreRankList": [
-        346,
-        287
-      ],
-      "LocalCriticalChance": 0.10000000009313226
+      ]
     },
     "techType": "Impair"
   },
@@ -2918,62 +2033,41 @@
     "damageType": "Ice",
     "baseType": "Shaman",
     "relics": {
-      "AvatarID": 1303,
-      "Set4IDList": [
+      "set4IDList": [
         118,
         111,
         114
       ],
-      "Set2IDList": [
+      "set2IDList": [
         307,
         312,
         308
       ],
-      "PropertyList3": [
-        "HPAddedRatio",
-        "DefenceAddedRatio"
+      "scoreRankList": [
+        241,
+        187
       ],
-      "PropertyList4": [
-        "SpeedDelta"
-      ],
-      "PropertyList5": [
-        "HPAddedRatio",
-        "DefenceAddedRatio"
-      ],
-      "PropertyList6": [
-        "BreakDamageAddedRatioBase",
-        "SPRatioBase"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "HPAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "HPAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "BreakDamageAddedRatioBase"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "HPAddedRatio",
+          "DefenceAddedRatio"
+        ],
+        "foot": [
+          "SpeedDelta"
+        ],
+        "neck": [
+          "HPAddedRatio",
+          "DefenceAddedRatio"
+        ],
+        "object": [
+          "BreakDamageAddedRatioBase",
+          "SPRatioBase"
+        ]
+      },
+      "subAffix": [
         "BreakDamageAddedRatioBase",
         "SpeedDelta",
         "StatusResistanceBase"
-      ],
-      "ScoreRankList": [
-        241,
-        187
       ]
     },
     "techType": "Enhance"
@@ -2982,65 +2076,43 @@
     "damageType": "Imaginary",
     "baseType": "Knight",
     "relics": {
-      "AvatarID": 1304,
-      "Set4IDList": [
+      "set4IDList": [
         103,
         117,
         120
       ],
-      "Set2IDList": [
+      "set2IDList": [
         306,
         304,
         310
       ],
-      "PropertyList3": [
-        "CriticalDamageBase",
-        "CriticalChanceBase"
+      "scoreRankList": [
+        301,
+        247
       ],
-      "PropertyList4": [
-        "DefenceAddedRatio",
-        "SpeedDelta"
-      ],
-      "PropertyList5": [
-        "DefenceAddedRatio",
-        "ImaginaryAddedRatio"
-      ],
-      "PropertyList6": [
-        "DefenceAddedRatio"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "CriticalDamageBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "DefenceAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "DefenceAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "DefenceAddedRatio"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "CriticalDamageBase",
+          "CriticalChanceBase"
+        ],
+        "foot": [
+          "DefenceAddedRatio",
+          "SpeedDelta"
+        ],
+        "neck": [
+          "DefenceAddedRatio",
+          "ImaginaryAddedRatio"
+        ],
+        "object": [
+          "DefenceAddedRatio"
+        ]
+      },
+      "subAffix": [
         "DefenceAddedRatio",
         "CriticalChanceBase",
         "CriticalDamageBase",
         "SpeedDelta"
-      ],
-      "ScoreRankList": [
-        301,
-        247
-      ],
-      "LocalCriticalChance": 0.48000000044703484
+      ]
     },
     "techType": "Defence"
   },
@@ -3048,63 +2120,41 @@
     "damageType": "Imaginary",
     "baseType": "Rogue",
     "relics": {
-      "AvatarID": 1305,
-      "Set4IDList": [
+      "set4IDList": [
         117,
         112,
         115
       ],
-      "Set2IDList": [
+      "set2IDList": [
         315,
         306,
         311
       ],
-      "PropertyList3": [
-        "CriticalDamageBase",
-        "CriticalChanceBase"
+      "scoreRankList": [
+        346,
+        287
       ],
-      "PropertyList4": [
-        "SpeedDelta"
-      ],
-      "PropertyList5": [
-        "ImaginaryAddedRatio"
-      ],
-      "PropertyList6": [
-        "AttackAddedRatio"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "CriticalDamageBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "ImaginaryAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "AttackAddedRatio"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "CriticalDamageBase",
+          "CriticalChanceBase"
+        ],
+        "foot": [
+          "SpeedDelta"
+        ],
+        "neck": [
+          "ImaginaryAddedRatio"
+        ],
+        "object": [
+          "AttackAddedRatio"
+        ]
+      },
+      "subAffix": [
         "CriticalChanceBase",
         "CriticalDamageBase",
         "AttackAddedRatio",
         "SpeedDelta"
-      ],
-      "ScoreRankList": [
-        346,
-        287
-      ],
-      "LocalCriticalChance": 0.10000000009313226
+      ]
     },
     "techType": "Impair"
   },
@@ -3112,62 +2162,40 @@
     "damageType": "Quantum",
     "baseType": "Shaman",
     "relics": {
-      "AvatarID": 1306,
-      "Set4IDList": [
+      "set4IDList": [
         121,
         114,
         110
       ],
-      "Set2IDList": [
+      "set2IDList": [
         317,
         310,
         312
       ],
-      "PropertyList3": [
-        "CriticalDamageBase"
-      ],
-      "PropertyList4": [
-        "SpeedDelta"
-      ],
-      "PropertyList5": [
-        "HPAddedRatio",
-        "DefenceAddedRatio"
-      ],
-      "PropertyList6": [
-        "SPRatioBase"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "CriticalDamageBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "HPAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "SPRatioBase"
-        }
-      ],
-      "SubAffixPropertyList": [
-        "CriticalDamageBase",
-        "SpeedDelta",
-        "StatusResistanceBase"
-      ],
-      "ScoreRankList": [
+      "scoreRankList": [
         247,
         187
       ],
-      "LocalCriticalChance": 1
+      "mainAffix": {
+        "body": [
+          "CriticalDamageBase"
+        ],
+        "foot": [
+          "SpeedDelta"
+        ],
+        "neck": [
+          "HPAddedRatio",
+          "DefenceAddedRatio"
+        ],
+        "object": [
+          "SPRatioBase"
+        ]
+      },
+      "subAffix": [
+        "CriticalDamageBase",
+        "SpeedDelta",
+        "StatusResistanceBase"
+      ]
     },
     "techType": "Support"
   },
@@ -3175,60 +2203,39 @@
     "damageType": "Wind",
     "baseType": "Warlock",
     "relics": {
-      "AvatarID": 1307,
-      "Set4IDList": [
+      "set4IDList": [
         116,
         110,
         102
       ],
-      "Set2IDList": [
+      "set2IDList": [
         303,
-        301,
-        311
+        322,
+        301
       ],
-      "PropertyList3": [
-        "StatusProbabilityBase"
+      "scoreRankList": [
+        323,
+        268
       ],
-      "PropertyList4": [
-        "AttackAddedRatio",
-        "SpeedDelta"
-      ],
-      "PropertyList5": [
-        "WindAddedRatio"
-      ],
-      "PropertyList6": [
-        "AttackAddedRatio"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "StatusProbabilityBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "AttackAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "WindAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "AttackAddedRatio"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "StatusProbabilityBase"
+        ],
+        "foot": [
+          "AttackAddedRatio",
+          "SpeedDelta"
+        ],
+        "neck": [
+          "WindAddedRatio"
+        ],
+        "object": [
+          "AttackAddedRatio"
+        ]
+      },
+      "subAffix": [
         "AttackAddedRatio",
         "StatusProbabilityBase",
         "SpeedDelta"
-      ],
-      "ScoreRankList": [
-        323,
-        268
       ]
     },
     "techType": "Enhance"
@@ -3237,63 +2244,42 @@
     "damageType": "Thunder",
     "baseType": "Warlock",
     "relics": {
-      "AvatarID": 1308,
-      "Set4IDList": [
+      "set4IDList": [
         117,
         122,
         109
       ],
-      "Set2IDList": [
+      "set2IDList": [
         314,
         306,
         301
       ],
-      "PropertyList3": [
-        "CriticalChanceBase",
-        "CriticalDamageBase"
+      "scoreRankList": [
+        337,
+        282
       ],
-      "PropertyList4": [
-        "AttackAddedRatio",
-        "SpeedDelta"
-      ],
-      "PropertyList5": [
-        "ThunderAddedRatio",
-        "AttackAddedRatio"
-      ],
-      "PropertyList6": [
-        "AttackAddedRatio"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "CriticalChanceBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "AttackAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "ThunderAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "AttackAddedRatio"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "CriticalChanceBase",
+          "CriticalDamageBase"
+        ],
+        "foot": [
+          "AttackAddedRatio",
+          "SpeedDelta"
+        ],
+        "neck": [
+          "ThunderAddedRatio",
+          "AttackAddedRatio"
+        ],
+        "object": [
+          "AttackAddedRatio"
+        ]
+      },
+      "subAffix": [
         "CriticalChanceBase",
         "CriticalDamageBase",
         "AttackAddedRatio",
         "SpeedDelta"
-      ],
-      "ScoreRankList": [
-        337,
-        282
       ]
     },
     "techType": "MazeAttack"
@@ -3302,61 +2288,40 @@
     "damageType": "Physical",
     "baseType": "Shaman",
     "relics": {
-      "AvatarID": 1309,
-      "Set4IDList": [
+      "set4IDList": [
         102,
         105,
         116
       ],
-      "Set2IDList": [
+      "set2IDList": [
         302,
         301,
         308
       ],
-      "PropertyList3": [
-        "AttackAddedRatio"
+      "scoreRankList": [
+        313,
+        272
       ],
-      "PropertyList4": [
-        "AttackAddedRatio"
-      ],
-      "PropertyList5": [
-        "AttackAddedRatio",
-        "PhysicalAddedRatio"
-      ],
-      "PropertyList6": [
-        "SPRatioBase"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "AttackAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "AttackAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "AttackAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "SPRatioBase"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "AttackAddedRatio"
+        ],
+        "foot": [
+          "AttackAddedRatio"
+        ],
+        "neck": [
+          "AttackAddedRatio",
+          "PhysicalAddedRatio"
+        ],
+        "object": [
+          "SPRatioBase"
+        ]
+      },
+      "subAffix": [
         "AttackAddedRatio",
         "AttackDelta",
         "SpeedDelta",
         "StatusResistanceBase"
-      ],
-      "ScoreRankList": [
-        313,
-        272
       ]
     },
     "techType": "Support"
@@ -3365,59 +2330,38 @@
     "damageType": "Fire",
     "baseType": "Warrior",
     "relics": {
-      "AvatarID": 1310,
-      "Set4IDList": [
+      "set4IDList": [
         119,
         112,
         107
       ],
-      "Set2IDList": [
+      "set2IDList": [
         316,
         307,
         309
       ],
-      "PropertyList3": [
-        "AttackAddedRatio"
+      "scoreRankList": [
+        246,
+        190
       ],
-      "PropertyList4": [
-        "SpeedDelta"
-      ],
-      "PropertyList5": [
-        "AttackAddedRatio"
-      ],
-      "PropertyList6": [
-        "BreakDamageAddedRatioBase"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "AttackAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "AttackAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "BreakDamageAddedRatioBase"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "AttackAddedRatio"
+        ],
+        "foot": [
+          "SpeedDelta"
+        ],
+        "neck": [
+          "AttackAddedRatio"
+        ],
+        "object": [
+          "BreakDamageAddedRatioBase"
+        ]
+      },
+      "subAffix": [
         "BreakDamageAddedRatioBase",
         "SpeedDelta",
         "AttackAddedRatio"
-      ],
-      "ScoreRankList": [
-        246,
-        190
       ]
     },
     "techType": "MazeAttack"
@@ -3426,62 +2370,41 @@
     "damageType": "Ice",
     "baseType": "Warrior",
     "relics": {
-      "AvatarID": 1312,
-      "Set4IDList": [
+      "set4IDList": [
         104,
         122,
         102
       ],
-      "Set2IDList": [
+      "set2IDList": [
         306,
         301,
         311
       ],
-      "PropertyList3": [
-        "CriticalChanceBase",
-        "CriticalDamageBase"
+      "scoreRankList": [
+        337,
+        282
       ],
-      "PropertyList4": [
-        "SpeedDelta",
-        "AttackAddedRatio"
-      ],
-      "PropertyList5": [
-        "IceAddedRatio"
-      ],
-      "PropertyList6": [
-        "AttackAddedRatio"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "CriticalChanceBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "IceAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "AttackAddedRatio"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "CriticalChanceBase",
+          "CriticalDamageBase"
+        ],
+        "foot": [
+          "SpeedDelta",
+          "AttackAddedRatio"
+        ],
+        "neck": [
+          "IceAddedRatio"
+        ],
+        "object": [
+          "AttackAddedRatio"
+        ]
+      },
+      "subAffix": [
         "CriticalChanceBase",
         "CriticalDamageBase",
         "AttackAddedRatio",
         "SpeedDelta"
-      ],
-      "ScoreRankList": [
-        337,
-        282
       ]
     },
     "techType": "Impair"
@@ -3490,62 +2413,40 @@
     "damageType": "Imaginary",
     "baseType": "Shaman",
     "relics": {
-      "AvatarID": 1313,
-      "Set4IDList": [
+      "set4IDList": [
         121,
         114,
         110
       ],
-      "Set2IDList": [
+      "set2IDList": [
         317,
         310,
         308
       ],
-      "PropertyList3": [
-        "CriticalDamageBase"
-      ],
-      "PropertyList4": [
-        "SpeedDelta"
-      ],
-      "PropertyList5": [
-        "HPAddedRatio",
-        "DefenceAddedRatio"
-      ],
-      "PropertyList6": [
-        "SPRatioBase"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "CriticalDamageBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "HPAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "SPRatioBase"
-        }
-      ],
-      "SubAffixPropertyList": [
-        "CriticalDamageBase",
-        "SpeedDelta",
-        "StatusResistanceBase"
-      ],
-      "ScoreRankList": [
+      "scoreRankList": [
         247,
         187
       ],
-      "LocalCriticalChance": 1
+      "mainAffix": {
+        "body": [
+          "CriticalDamageBase"
+        ],
+        "foot": [
+          "SpeedDelta"
+        ],
+        "neck": [
+          "HPAddedRatio",
+          "DefenceAddedRatio"
+        ],
+        "object": [
+          "SPRatioBase"
+        ]
+      },
+      "subAffix": [
+        "CriticalDamageBase",
+        "SpeedDelta",
+        "StatusResistanceBase"
+      ]
     },
     "techType": "Support"
   },
@@ -3553,62 +2454,41 @@
     "damageType": "Quantum",
     "baseType": "Mage",
     "relics": {
-      "AvatarID": 1314,
-      "Set4IDList": [
+      "set4IDList": [
         108,
         115,
         102
       ],
-      "Set2IDList": [
+      "set2IDList": [
         313,
         306,
         301
       ],
-      "PropertyList3": [
-        "CriticalChanceBase"
+      "scoreRankList": [
+        337,
+        282
       ],
-      "PropertyList4": [
-        "AttackAddedRatio",
-        "SpeedDelta"
-      ],
-      "PropertyList5": [
-        "QuantumAddedRatio"
-      ],
-      "PropertyList6": [
-        "SPRatioBase",
-        "AttackAddedRatio"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "CriticalChanceBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "AttackAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "QuantumAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "SPRatioBase"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "CriticalChanceBase"
+        ],
+        "foot": [
+          "AttackAddedRatio",
+          "SpeedDelta"
+        ],
+        "neck": [
+          "QuantumAddedRatio"
+        ],
+        "object": [
+          "SPRatioBase",
+          "AttackAddedRatio"
+        ]
+      },
+      "subAffix": [
         "CriticalChanceBase",
         "CriticalDamageBase",
         "AttackAddedRatio",
         "SpeedDelta"
-      ],
-      "ScoreRankList": [
-        337,
-        282
       ]
     },
     "techType": "Impair"
@@ -3617,63 +2497,41 @@
     "damageType": "Physical",
     "baseType": "Rogue",
     "relics": {
-      "AvatarID": 1315,
-      "Set4IDList": [
+      "set4IDList": [
         111,
         119,
         102
       ],
-      "Set2IDList": [
+      "set2IDList": [
         307,
         316,
         301
       ],
-      "PropertyList3": [
-        "CriticalChanceBase",
-        "AttackAddedRatio"
+      "scoreRankList": [
+        280,
+        226
       ],
-      "PropertyList4": [
-        "SpeedDelta"
-      ],
-      "PropertyList5": [
-        "PhysicalAddedRatio"
-      ],
-      "PropertyList6": [
-        "BreakDamageAddedRatioBase"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "CriticalChanceBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "PhysicalAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "BreakDamageAddedRatioBase"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "CriticalChanceBase",
+          "AttackAddedRatio"
+        ],
+        "foot": [
+          "SpeedDelta"
+        ],
+        "neck": [
+          "PhysicalAddedRatio"
+        ],
+        "object": [
+          "BreakDamageAddedRatioBase"
+        ]
+      },
+      "subAffix": [
         "BreakDamageAddedRatioBase",
         "SpeedDelta",
         "AttackAddedRatio",
         "CriticalChanceBase"
-      ],
-      "ScoreRankList": [
-        280,
-        226
-      ],
-      "LocalCriticalChance": 0.5000000004656613
+      ]
     },
     "techType": "Enhance"
   },
@@ -3681,60 +2539,39 @@
     "damageType": "Imaginary",
     "baseType": "Mage",
     "relics": {
-      "AvatarID": 1317,
-      "Set4IDList": [
+      "set4IDList": [
         119,
         111,
         118
       ],
-      "Set2IDList": [
+      "set2IDList": [
         307,
         316,
         301
       ],
-      "PropertyList3": [
-        "AttackAddedRatio"
+      "scoreRankList": [
+        246,
+        189
       ],
-      "PropertyList4": [
-        "SpeedDelta"
-      ],
-      "PropertyList5": [
-        "AttackAddedRatio"
-      ],
-      "PropertyList6": [
-        "BreakDamageAddedRatioBase",
-        "SPRatioBase"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "AttackAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "AttackAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "BreakDamageAddedRatioBase"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "AttackAddedRatio"
+        ],
+        "foot": [
+          "SpeedDelta"
+        ],
+        "neck": [
+          "AttackAddedRatio"
+        ],
+        "object": [
+          "BreakDamageAddedRatioBase",
+          "SPRatioBase"
+        ]
+      },
+      "subAffix": [
         "BreakDamageAddedRatioBase",
         "SpeedDelta",
         "AttackAddedRatio"
-      ],
-      "ScoreRankList": [
-        246,
-        189
       ]
     },
     "techType": "Enhance"
@@ -3743,63 +2580,42 @@
     "damageType": "Ice",
     "baseType": "Mage",
     "relics": {
-      "AvatarID": 1401,
-      "Set4IDList": [
+      "set4IDList": [
         122,
         104,
         102
       ],
-      "Set2IDList": [
+      "set2IDList": [
         314,
         309,
         313
       ],
-      "PropertyList3": [
-        "CriticalChanceBase",
-        "CriticalDamageBase"
+      "scoreRankList": [
+        346,
+        287
       ],
-      "PropertyList4": [
-        "SpeedDelta",
-        "AttackAddedRatio"
-      ],
-      "PropertyList5": [
-        "IceAddedRatio"
-      ],
-      "PropertyList6": [
-        "AttackAddedRatio",
-        "SPRatioBase"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "CriticalChanceBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "IceAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "AttackAddedRatio"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "CriticalChanceBase",
+          "CriticalDamageBase"
+        ],
+        "foot": [
+          "SpeedDelta",
+          "AttackAddedRatio"
+        ],
+        "neck": [
+          "IceAddedRatio"
+        ],
+        "object": [
+          "AttackAddedRatio",
+          "SPRatioBase"
+        ]
+      },
+      "subAffix": [
         "CriticalChanceBase",
         "CriticalDamageBase",
         "AttackAddedRatio",
         "SpeedDelta"
-      ],
-      "ScoreRankList": [
-        346,
-        287
       ]
     },
     "techType": "Enhance"
@@ -3808,62 +2624,41 @@
     "damageType": "Thunder",
     "baseType": "Memory",
     "relics": {
-      "AvatarID": 1402,
-      "Set4IDList": [
+      "set4IDList": [
         123,
         102,
         109
       ],
-      "Set2IDList": [
+      "set2IDList": [
         318,
         302,
         301
       ],
-      "PropertyList3": [
-        "CriticalChanceBase",
-        "CriticalDamageBase"
+      "scoreRankList": [
+        346,
+        287
       ],
-      "PropertyList4": [
-        "SpeedDelta"
-      ],
-      "PropertyList5": [
-        "ThunderAddedRatio"
-      ],
-      "PropertyList6": [
-        "SPRatioBase",
-        "AttackAddedRatio"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "CriticalChanceBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "ThunderAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "SPRatioBase"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "CriticalChanceBase",
+          "CriticalDamageBase"
+        ],
+        "foot": [
+          "SpeedDelta"
+        ],
+        "neck": [
+          "ThunderAddedRatio"
+        ],
+        "object": [
+          "SPRatioBase",
+          "AttackAddedRatio"
+        ]
+      },
+      "subAffix": [
         "CriticalChanceBase",
         "CriticalDamageBase",
         "AttackAddedRatio",
         "SpeedDelta"
-      ],
-      "ScoreRankList": [
-        346,
-        287
       ]
     },
     "techType": "MazeAttack"
@@ -3872,61 +2667,40 @@
     "damageType": "Quantum",
     "baseType": "Shaman",
     "relics": {
-      "AvatarID": 1403,
-      "Set4IDList": [
+      "set4IDList": [
         124,
         108,
         102
       ],
-      "Set2IDList": [
+      "set2IDList": [
         319,
         302,
         317
       ],
-      "PropertyList3": [
-        "CriticalDamageBase",
-        "CriticalChanceBase"
+      "scoreRankList": [
+        324,
+        268
       ],
-      "PropertyList4": [
-        "HPAddedRatio"
-      ],
-      "PropertyList5": [
-        "QuantumAddedRatio"
-      ],
-      "PropertyList6": [
-        "SPRatioBase",
-        "HPAddedRatio"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "CriticalDamageBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "HPAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "QuantumAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "SPRatioBase"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "CriticalDamageBase",
+          "CriticalChanceBase"
+        ],
+        "foot": [
+          "HPAddedRatio"
+        ],
+        "neck": [
+          "QuantumAddedRatio"
+        ],
+        "object": [
+          "SPRatioBase",
+          "HPAddedRatio"
+        ]
+      },
+      "subAffix": [
         "CriticalChanceBase",
         "CriticalDamageBase",
         "HPAddedRatio"
-      ],
-      "ScoreRankList": [
-        324,
-        268
       ]
     },
     "techType": "Enhance"
@@ -3935,65 +2709,43 @@
     "damageType": "Imaginary",
     "baseType": "Warrior",
     "relics": {
-      "AvatarID": 1404,
-      "Set4IDList": [
+      "set4IDList": [
         122,
         113,
         112
       ],
-      "Set2IDList": [
+      "set2IDList": [
         319,
         309,
         302
       ],
-      "PropertyList3": [
-        "HPAddedRatio",
-        "CriticalDamageBase"
+      "scoreRankList": [
+        333,
+        275
       ],
-      "PropertyList4": [
-        "SpeedDelta",
-        "HPAddedRatio"
-      ],
-      "PropertyList5": [
-        "ImaginaryAddedRatio",
-        "HPAddedRatio"
-      ],
-      "PropertyList6": [
-        "HPAddedRatio"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "HPAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "ImaginaryAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "HPAddedRatio"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "HPAddedRatio",
+          "CriticalDamageBase"
+        ],
+        "foot": [
+          "SpeedDelta",
+          "HPAddedRatio"
+        ],
+        "neck": [
+          "ImaginaryAddedRatio",
+          "HPAddedRatio"
+        ],
+        "object": [
+          "HPAddedRatio"
+        ]
+      },
+      "subAffix": [
         "CriticalChanceBase",
         "CriticalDamageBase",
         "HPAddedRatio",
         "SpeedDelta"
-      ],
-      "ScoreRankList": [
-        333,
-        275
-      ],
-      "LocalCriticalChance": 0.45000000041909516
+      ]
     },
     "techType": "Impair"
   },
@@ -4001,64 +2753,43 @@
     "damageType": "Wind",
     "baseType": "Mage",
     "relics": {
-      "AvatarID": 1405,
-      "Set4IDList": [
+      "set4IDList": [
         110,
         117,
         122
       ],
-      "Set2IDList": [
+      "set2IDList": [
         309,
         314,
         308
       ],
-      "PropertyList3": [
-        "CriticalChanceBase",
-        "CriticalDamageBase"
+      "scoreRankList": [
+        346,
+        287
       ],
-      "PropertyList4": [
-        "SpeedDelta",
-        "AttackAddedRatio"
-      ],
-      "PropertyList5": [
-        "WindAddedRatio",
-        "AttackAddedRatio"
-      ],
-      "PropertyList6": [
-        "SPRatioBase",
-        "AttackAddedRatio"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "CriticalChanceBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "WindAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "SPRatioBase"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "CriticalChanceBase",
+          "CriticalDamageBase"
+        ],
+        "foot": [
+          "SpeedDelta",
+          "AttackAddedRatio"
+        ],
+        "neck": [
+          "WindAddedRatio",
+          "AttackAddedRatio"
+        ],
+        "object": [
+          "SPRatioBase",
+          "AttackAddedRatio"
+        ]
+      },
+      "subAffix": [
         "CriticalChanceBase",
         "CriticalDamageBase",
         "AttackAddedRatio",
         "SpeedDelta"
-      ],
-      "ScoreRankList": [
-        346,
-        287
       ]
     },
     "techType": "Impair"
@@ -4067,64 +2798,42 @@
     "damageType": "Quantum",
     "baseType": "Warlock",
     "relics": {
-      "AvatarID": 1406,
-      "Set4IDList": [
+      "set4IDList": [
         117,
         108,
         114
       ],
-      "Set2IDList": [
+      "set2IDList": [
         317,
         302,
         308
       ],
-      "PropertyList3": [
-        "CriticalDamageBase"
-      ],
-      "PropertyList4": [
-        "SpeedDelta"
-      ],
-      "PropertyList5": [
-        "QuantumAddedRatio",
-        "AttackAddedRatio"
-      ],
-      "PropertyList6": [
-        "AttackAddedRatio",
-        "SPRatioBase"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "CriticalDamageBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "QuantumAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "AttackAddedRatio"
-        }
-      ],
-      "SubAffixPropertyList": [
-        "SpeedDelta",
-        "AttackAddedRatio",
-        "CriticalDamageBase",
-        "CriticalDamageBase"
-      ],
-      "ScoreRankList": [
+      "scoreRankList": [
         273,
         236
       ],
-      "LocalCriticalChance": 0.5000000004656613
+      "mainAffix": {
+        "body": [
+          "CriticalDamageBase"
+        ],
+        "foot": [
+          "SpeedDelta"
+        ],
+        "neck": [
+          "QuantumAddedRatio",
+          "AttackAddedRatio"
+        ],
+        "object": [
+          "AttackAddedRatio",
+          "SPRatioBase"
+        ]
+      },
+      "subAffix": [
+        "SpeedDelta",
+        "AttackAddedRatio",
+        "CriticalDamageBase",
+        "CriticalChanceBase"
+      ]
     },
     "techType": "Enhance"
   },
@@ -4132,60 +2841,81 @@
     "damageType": "Quantum",
     "baseType": "Memory",
     "relics": {
-      "AvatarID": 1407,
-      "Set4IDList": [
+      "set4IDList": [
         124,
         108,
         113
       ],
-      "Set2IDList": [
+      "set2IDList": [
         319,
         302,
         318
       ],
-      "PropertyList3": [
-        "CriticalDamageBase",
-        "CriticalChanceBase"
+      "scoreRankList": [
+        319,
+        261
       ],
-      "PropertyList4": [
-        "HPAddedRatio"
-      ],
-      "PropertyList5": [
-        "QuantumAddedRatio"
-      ],
-      "PropertyList6": [
-        "HPAddedRatio"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "CriticalDamageBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "HPAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "QuantumAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "HPAddedRatio"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "CriticalDamageBase",
+          "CriticalChanceBase"
+        ],
+        "foot": [
+          "HPAddedRatio"
+        ],
+        "neck": [
+          "QuantumAddedRatio"
+        ],
+        "object": [
+          "HPAddedRatio"
+        ]
+      },
+      "subAffix": [
         "CriticalChanceBase",
         "CriticalDamageBase",
         "HPAddedRatio"
+      ]
+    },
+    "techType": "MazeAttack"
+  },
+  "1408": {
+    "damageType": "Physical",
+    "baseType": "Warrior",
+    "relics": {
+      "set4IDList": [
+        126,
+        105,
+        122
       ],
-      "ScoreRankList": [
-        319,
-        261
+      "set2IDList": [
+        321,
+        309,
+        301
+      ],
+      "scoreRankList": [
+        324,
+        266
+      ],
+      "mainAffix": {
+        "body": [
+          "CriticalChanceBase",
+          "CriticalDamageBase"
+        ],
+        "foot": [
+          "AttackAddedRatio"
+        ],
+        "neck": [
+          "PhysicalAddedRatio",
+          "AttackAddedRatio"
+        ],
+        "object": [
+          "AttackAddedRatio"
+        ]
+      },
+      "subAffix": [
+        "CriticalChanceBase",
+        "CriticalDamageBase",
+        "AttackAddedRatio"
       ]
     },
     "techType": "MazeAttack"
@@ -4194,62 +2924,41 @@
     "damageType": "Wind",
     "baseType": "Memory",
     "relics": {
-      "AvatarID": 1409,
-      "Set4IDList": [
+      "set4IDList": [
         125,
         101,
         114
       ],
-      "Set2IDList": [
+      "set2IDList": [
         320,
         302,
         308
       ],
-      "PropertyList3": [
-        "HealRatioBase"
-      ],
-      "PropertyList4": [
-        "SpeedDelta"
-      ],
-      "PropertyList5": [
-        "HPAddedRatio",
-        "WindAddedRatio"
-      ],
-      "PropertyList6": [
-        "SPRatioBase",
-        "HPAddedRatio"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "HealRatioBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "HPAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "SPRatioBase"
-        }
-      ],
-      "SubAffixPropertyList": [
-        "HPAddedRatio",
-        "SpeedDelta",
-        "CriticalChanceBase",
-        "CriticalDamageBase"
-      ],
-      "ScoreRankList": [
+      "scoreRankList": [
         304,
         253
+      ],
+      "mainAffix": {
+        "body": [
+          "HealRatioBase"
+        ],
+        "foot": [
+          "SpeedDelta"
+        ],
+        "neck": [
+          "HPAddedRatio",
+          "WindAddedRatio"
+        ],
+        "object": [
+          "SPRatioBase",
+          "HPAddedRatio"
+        ]
+      },
+      "subAffix": [
+        "HPAddedRatio",
+        "SpeedDelta",
+        "StatusResistanceBase",
+        "CriticalDamageBase"
       ]
     },
     "techType": "Restore"
@@ -4258,61 +2967,40 @@
     "damageType": "Physical",
     "baseType": "Warrior",
     "relics": {
-      "AvatarID": 8001,
-      "Set4IDList": [
+      "set4IDList": [
         105,
         122,
         102
       ],
-      "Set2IDList": [
+      "set2IDList": [
         309,
         301,
         306
       ],
-      "PropertyList3": [
-        "CriticalChanceBase",
-        "CriticalDamageBase"
+      "scoreRankList": [
+        346,
+        287
       ],
-      "PropertyList4": [
-        "SpeedDelta"
-      ],
-      "PropertyList5": [
-        "PhysicalAddedRatio"
-      ],
-      "PropertyList6": [
-        "AttackAddedRatio"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "CriticalChanceBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "PhysicalAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "AttackAddedRatio"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "CriticalChanceBase",
+          "CriticalDamageBase"
+        ],
+        "foot": [
+          "SpeedDelta"
+        ],
+        "neck": [
+          "PhysicalAddedRatio"
+        ],
+        "object": [
+          "AttackAddedRatio"
+        ]
+      },
+      "subAffix": [
         "CriticalChanceBase",
         "CriticalDamageBase",
         "AttackAddedRatio",
         "SpeedDelta"
-      ],
-      "ScoreRankList": [
-        346,
-        287
       ]
     },
     "techType": "Restore"
@@ -4321,61 +3009,40 @@
     "damageType": "Physical",
     "baseType": "Warrior",
     "relics": {
-      "AvatarID": 8002,
-      "Set4IDList": [
+      "set4IDList": [
         105,
         122,
         102
       ],
-      "Set2IDList": [
+      "set2IDList": [
         309,
         301,
         306
       ],
-      "PropertyList3": [
-        "CriticalChanceBase",
-        "CriticalDamageBase"
+      "scoreRankList": [
+        346,
+        287
       ],
-      "PropertyList4": [
-        "SpeedDelta"
-      ],
-      "PropertyList5": [
-        "PhysicalAddedRatio"
-      ],
-      "PropertyList6": [
-        "AttackAddedRatio"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "CriticalChanceBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "PhysicalAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "AttackAddedRatio"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "CriticalChanceBase",
+          "CriticalDamageBase"
+        ],
+        "foot": [
+          "SpeedDelta"
+        ],
+        "neck": [
+          "PhysicalAddedRatio"
+        ],
+        "object": [
+          "AttackAddedRatio"
+        ]
+      },
+      "subAffix": [
         "CriticalChanceBase",
         "CriticalDamageBase",
         "AttackAddedRatio",
         "SpeedDelta"
-      ],
-      "ScoreRankList": [
-        346,
-        287
       ]
     },
     "techType": "Restore"
@@ -4384,59 +3051,38 @@
     "damageType": "Fire",
     "baseType": "Knight",
     "relics": {
-      "AvatarID": 8003,
-      "Set4IDList": [
+      "set4IDList": [
         103,
         106,
         102
       ],
-      "Set2IDList": [
+      "set2IDList": [
         304,
         310,
         302
       ],
-      "PropertyList3": [
-        "DefenceAddedRatio"
+      "scoreRankList": [
+        278,
+        215
       ],
-      "PropertyList4": [
-        "SpeedDelta"
-      ],
-      "PropertyList5": [
-        "DefenceAddedRatio"
-      ],
-      "PropertyList6": [
-        "DefenceAddedRatio"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "DefenceAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "DefenceAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "DefenceAddedRatio"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "DefenceAddedRatio"
+        ],
+        "foot": [
+          "SpeedDelta"
+        ],
+        "neck": [
+          "DefenceAddedRatio"
+        ],
+        "object": [
+          "DefenceAddedRatio"
+        ]
+      },
+      "subAffix": [
         "DefenceAddedRatio",
         "SpeedDelta",
         "StatusResistanceBase"
-      ],
-      "ScoreRankList": [
-        278,
-        215
       ]
     },
     "techType": "Defence"
@@ -4445,59 +3091,38 @@
     "damageType": "Fire",
     "baseType": "Knight",
     "relics": {
-      "AvatarID": 8004,
-      "Set4IDList": [
+      "set4IDList": [
         103,
         106,
         102
       ],
-      "Set2IDList": [
+      "set2IDList": [
         304,
         310,
         302
       ],
-      "PropertyList3": [
-        "DefenceAddedRatio"
+      "scoreRankList": [
+        278,
+        215
       ],
-      "PropertyList4": [
-        "SpeedDelta"
-      ],
-      "PropertyList5": [
-        "DefenceAddedRatio"
-      ],
-      "PropertyList6": [
-        "DefenceAddedRatio"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "DefenceAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "DefenceAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "DefenceAddedRatio"
-        }
-      ],
-      "SubAffixPropertyList": [
+      "mainAffix": {
+        "body": [
+          "DefenceAddedRatio"
+        ],
+        "foot": [
+          "SpeedDelta"
+        ],
+        "neck": [
+          "DefenceAddedRatio"
+        ],
+        "object": [
+          "DefenceAddedRatio"
+        ]
+      },
+      "subAffix": [
         "DefenceAddedRatio",
         "SpeedDelta",
         "StatusResistanceBase"
-      ],
-      "ScoreRankList": [
-        278,
-        215
       ]
     },
     "techType": "Defence"
@@ -4506,60 +3131,39 @@
     "damageType": "Imaginary",
     "baseType": "Shaman",
     "relics": {
-      "AvatarID": 8005,
-      "Set4IDList": [
+      "set4IDList": [
         118,
         111,
         114
       ],
-      "Set2IDList": [
+      "set2IDList": [
         307,
         316,
         302
       ],
-      "PropertyList3": [
-        "HPAddedRatio",
-        "DefenceAddedRatio"
-      ],
-      "PropertyList4": [
-        "SpeedDelta"
-      ],
-      "PropertyList5": [
-        "DefenceAddedRatio",
-        "HPAddedRatio"
-      ],
-      "PropertyList6": [
-        "BreakDamageAddedRatioBase"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "HPAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "DefenceAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "BreakDamageAddedRatioBase"
-        }
-      ],
-      "SubAffixPropertyList": [
-        "BreakDamageAddedRatioBase",
-        "SpeedDelta"
-      ],
-      "ScoreRankList": [
+      "scoreRankList": [
         243,
         191
+      ],
+      "mainAffix": {
+        "body": [
+          "HPAddedRatio",
+          "DefenceAddedRatio"
+        ],
+        "foot": [
+          "SpeedDelta"
+        ],
+        "neck": [
+          "DefenceAddedRatio",
+          "HPAddedRatio"
+        ],
+        "object": [
+          "BreakDamageAddedRatioBase"
+        ]
+      },
+      "subAffix": [
+        "BreakDamageAddedRatioBase",
+        "SpeedDelta"
       ]
     },
     "techType": "Support"
@@ -4568,60 +3172,39 @@
     "damageType": "Imaginary",
     "baseType": "Shaman",
     "relics": {
-      "AvatarID": 8006,
-      "Set4IDList": [
+      "set4IDList": [
         118,
         111,
         114
       ],
-      "Set2IDList": [
+      "set2IDList": [
         307,
         316,
         302
       ],
-      "PropertyList3": [
-        "HPAddedRatio",
-        "DefenceAddedRatio"
-      ],
-      "PropertyList4": [
-        "SpeedDelta"
-      ],
-      "PropertyList5": [
-        "DefenceAddedRatio",
-        "HPAddedRatio"
-      ],
-      "PropertyList6": [
-        "BreakDamageAddedRatioBase"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "HPAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "DefenceAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "BreakDamageAddedRatioBase"
-        }
-      ],
-      "SubAffixPropertyList": [
-        "BreakDamageAddedRatioBase",
-        "SpeedDelta"
-      ],
-      "ScoreRankList": [
+      "scoreRankList": [
         243,
         191
+      ],
+      "mainAffix": {
+        "body": [
+          "HPAddedRatio",
+          "DefenceAddedRatio"
+        ],
+        "foot": [
+          "SpeedDelta"
+        ],
+        "neck": [
+          "DefenceAddedRatio",
+          "HPAddedRatio"
+        ],
+        "object": [
+          "BreakDamageAddedRatioBase"
+        ]
+      },
+      "subAffix": [
+        "BreakDamageAddedRatioBase",
+        "SpeedDelta"
       ]
     },
     "techType": "Support"
@@ -4630,63 +3213,41 @@
     "damageType": "Ice",
     "baseType": "Memory",
     "relics": {
-      "AvatarID": 8007,
-      "Set4IDList": [
+      "set4IDList": [
         123,
         104,
         110
       ],
-      "Set2IDList": [
+      "set2IDList": [
         317,
         312,
         318
       ],
-      "PropertyList3": [
-        "CriticalDamageBase"
-      ],
-      "PropertyList4": [
-        "SpeedDelta",
-        "AttackAddedRatio"
-      ],
-      "PropertyList5": [
-        "IceAddedRatio"
-      ],
-      "PropertyList6": [
-        "SPRatioBase",
-        "AttackAddedRatio"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "CriticalDamageBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "IceAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "SPRatioBase"
-        }
-      ],
-      "SubAffixPropertyList": [
-        "CriticalDamageBase",
-        "SpeedDelta",
-        "AttackAddedRatio"
-      ],
-      "ScoreRankList": [
+      "scoreRankList": [
         294,
         237
       ],
-      "LocalCriticalChance": 1
+      "mainAffix": {
+        "body": [
+          "CriticalDamageBase"
+        ],
+        "foot": [
+          "SpeedDelta",
+          "AttackAddedRatio"
+        ],
+        "neck": [
+          "IceAddedRatio"
+        ],
+        "object": [
+          "SPRatioBase",
+          "AttackAddedRatio"
+        ]
+      },
+      "subAffix": [
+        "CriticalDamageBase",
+        "SpeedDelta",
+        "AttackAddedRatio"
+      ]
     },
     "techType": "Impair"
   },
@@ -4694,63 +3255,41 @@
     "damageType": "Ice",
     "baseType": "Memory",
     "relics": {
-      "AvatarID": 8008,
-      "Set4IDList": [
+      "set4IDList": [
         123,
         104,
         110
       ],
-      "Set2IDList": [
+      "set2IDList": [
         317,
         312,
         318
       ],
-      "PropertyList3": [
-        "CriticalDamageBase"
-      ],
-      "PropertyList4": [
-        "SpeedDelta",
-        "AttackAddedRatio"
-      ],
-      "PropertyList5": [
-        "IceAddedRatio"
-      ],
-      "PropertyList6": [
-        "SPRatioBase",
-        "AttackAddedRatio"
-      ],
-      "PropertyList": [
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "BODY",
-          "PropertyType": "CriticalDamageBase"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "FOOT",
-          "PropertyType": "SpeedDelta"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "NECK",
-          "PropertyType": "IceAddedRatio"
-        },
-        {
-          "$type": "RelicRecommendProperty",
-          "RelicType": "OBJECT",
-          "PropertyType": "SPRatioBase"
-        }
-      ],
-      "SubAffixPropertyList": [
-        "CriticalDamageBase",
-        "SpeedDelta",
-        "AttackAddedRatio"
-      ],
-      "ScoreRankList": [
+      "scoreRankList": [
         294,
         237
       ],
-      "LocalCriticalChance": 1
+      "mainAffix": {
+        "body": [
+          "CriticalDamageBase"
+        ],
+        "foot": [
+          "SpeedDelta",
+          "AttackAddedRatio"
+        ],
+        "neck": [
+          "IceAddedRatio"
+        ],
+        "object": [
+          "SPRatioBase",
+          "AttackAddedRatio"
+        ]
+      },
+      "subAffix": [
+        "CriticalDamageBase",
+        "SpeedDelta",
+        "AttackAddedRatio"
+      ]
     },
     "techType": "Impair"
   }

@@ -1,24 +1,30 @@
 {
   "lineups": {
-    "0": 1303,
-    "1": 1310,
-    "2": 8001,
-    "3": 1225
+    "0": 1408,
+    "1": 1101,
+    "2": 1313,
+    "3": 1309
   },
   "position": {
-    "x": -67793,
-    "z": -236628,
-    "y": 22075,
-    "rot_y": 24990
+    "x": -37317,
+    "z": 11924,
+    "y": -12212,
+    "rot_y": 81000
   },
   "scene": {
-    "plane_id": 20311,
-    "floor_id": 20311001,
-    "entry_id": 2031101
+    "plane_id": 10441,
+    "floor_id": 10441001,
+    "entry_id": 1044101
   },
   "char_path": {
-    "main": 8006,
+    "main": 8008,
     "march_7": 1224
+  },
+  "char_enhanced": {
+    "1005": 1,
+    "1006": 1,
+    "1205": 1,
+    "1212": 1
   },
   "battle": {
     "battle_id": 0,
@@ -33,11 +39,18 @@
   },
   "theory_craft": {
     "hp": {
-      "1": 700000,
+      "1": 600000,
       "2": 10000000
     },
     "cycle_count": 1,
     "log": false,
-    "mode": true
+    "mode": false
+  },
+  "profile_data": {
+    "cur_chat_bubble_id": 220008,
+    "cur_phone_theme_id": 221011,
+    "cur_phone_case_id": 254001,
+    "cur_pam_skin_id": 252000,
+    "cur_pet_id": 1002
   }
 }
