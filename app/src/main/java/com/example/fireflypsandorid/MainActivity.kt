@@ -32,22 +32,12 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         val appDataPath = filesDir.absolutePath
-        val resourceDir = File("$appDataPath/resources")
         val dataDir = File("$appDataPath/data")
-        val rootDir = File(appDataPath)
-        resourceDir.mkdirs()
         dataDir.mkdirs()
-
-        checkAndCreateFile(rootDir, ".env", R.raw.env)
-
-        checkAndCreateFile(resourceDir, "res.json", R.raw.res_json)
-        checkAndCreateFile(resourceDir, "avatar.json", R.raw.avatar_json)
-        checkAndCreateFile(resourceDir, "game_config.json", R.raw.game_config_json)
 
         checkAndCreateFile(dataDir, "data-in-game.json", R.raw.data_in_game_json)
         checkAndCreateFile(dataDir, "freesr-data.json", R.raw.freesr_data_json)
         checkAndCreateFile(dataDir, "version.json", R.raw.version_json)
-        checkAndCreateFile(dataDir, "challenge.json", R.raw.challenge_json)
 
         enableEdgeToEdge()
         setContent {
