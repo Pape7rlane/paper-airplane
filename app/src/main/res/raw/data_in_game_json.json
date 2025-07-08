@@ -1,20 +1,20 @@
 {
   "lineups": {
-    "0": 1015,
-    "1": 1306,
-    "2": 1403,
-    "3": 1006
+    "0": 1310,
+    "1": 1410,
+    "2": 1409,
+    "3": 1407
   },
   "position": {
-    "x": -4030,
-    "z": -13006,
-    "y": 0,
-    "rot_y": 270000
+    "x": -1115,
+    "z": -642542,
+    "y": -152077,
+    "rot_y": 195849
   },
   "scene": {
-    "plane_id": 10000,
-    "floor_id": 10000000,
-    "entry_id": 100000104
+    "plane_id": 10304,
+    "floor_id": 10304001,
+    "entry_id": 1030402
   },
   "char_path": {
     "main": 8008,
@@ -51,6 +51,12 @@
     "cur_phone_theme_id": 221011,
     "cur_phone_case_id": 254001,
     "cur_pam_skin_id": 252000,
-    "cur_pet_id": 1002
+    "cur_pet_id": 1002,
+    "cur_avatar_player_icon": 202034,
+    "cur_player_personal_card": 253001
+  },
+  "skin_data": {
+    "1001": 1100101,
+    "1310": 1131001
   }
 }
