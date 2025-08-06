@@ -10,6 +10,9 @@ import android.os.Build
 import android.os.IBinder
 import android.os.PowerManager
 import android.util.Log
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.core.app.NotificationCompat
 import libandroid.Libandroid
 
@@ -19,6 +22,7 @@ class GolangServerService : Service() {
         const val CHANNEL_ID = "GolangServerChannel"
         const val NOTIFICATION_ID = 1
         private const val TAG = "GolangServerService"
+        var isRunning by mutableStateOf(false)
     }
 
     private var wakeLock: PowerManager.WakeLock? = null
@@ -29,9 +33,13 @@ class GolangServerService : Service() {
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        if (isRunning) {
+            Log.d(TAG, "❗ Server is already running")
+            return START_STICKY
+        }
+        isRunning = true
         Log.d(TAG, "onStartCommand called")
 
-        // 1. Tạo intent để mở lại MainActivity khi người dùng click vào thông báo
         val notificationIntent = Intent(this, MainActivity::class.java)
         val pendingIntent = PendingIntent.getActivity(
             this,
@@ -40,18 +48,15 @@ class GolangServerService : Service() {
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
 
-        // 2. Tạo notification
         val notification = NotificationCompat.Builder(this, CHANNEL_ID)
-            .setContentTitle("Golang Server")
-            .setContentText("Server đang chạy")
+            .setContentTitle("FireflyGO Server")
+            .setContentText("FireflyGO is running...")
             .setSmallIcon(R.drawable.ic_launcher_foreground)
             .setContentIntent(pendingIntent)
             .build()
 
-        // 3. Chạy foreground
         startForeground(NOTIFICATION_ID, notification)
 
-        // 4. Giữ CPU không sleep (tùy chọn, nhưng hữu ích)
         try {
             val powerManager = getSystemService(POWER_SERVICE) as PowerManager
             wakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "GolangServer::WakeLock")
@@ -61,7 +66,6 @@ class GolangServerService : Service() {
             Log.e(TAG, "❌ WakeLock failed", e)
         }
 
-        // 5. Chạy server trong thread riêng
         Thread {
             try {
                 val appDataPath = intent?.getStringExtra("appDataPath")
@@ -69,15 +73,22 @@ class GolangServerService : Service() {
                     Libandroid.setPathDataLocal(appDataPath)
                     Log.d(TAG, "✅ Set path data: $appDataPath")
                 } else {
+                    isRunning = false
                     Log.e(TAG, "❌ appDataPath not received in intent")
+                    stopSelf()
+                    return@Thread
                 }
 
                 Libandroid.setServerRunning(true)
+                isRunning = true
                 Log.d(TAG, "✅ Server started")
             } catch (e: Exception) {
+                isRunning = false
                 Log.e(TAG, "❌ Error starting server", e)
+                stopSelf()
             }
         }.start()
+
 
         return START_STICKY
     }
@@ -89,6 +100,7 @@ class GolangServerService : Service() {
         // 1. Tắt server
         try {
             val result = Libandroid.setServerRunning(false)
+            isRunning = false
             Log.d(TAG, "Server shutdown result: $result")
         } catch (e: Exception) {
             Log.e(TAG, "Error shutting down server", e)
@@ -105,6 +117,7 @@ class GolangServerService : Service() {
         } catch (e: Exception) {
             Log.e(TAG, "❌ Failed to release WakeLock", e)
         }
+        isRunning = false
     }
 
     override fun onBind(intent: Intent?): IBinder? = null

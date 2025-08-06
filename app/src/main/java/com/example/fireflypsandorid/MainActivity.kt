@@ -72,9 +72,8 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun ServerControlScreen(appDataPath: String, modifier: Modifier = Modifier) {
     val context = LocalContext.current
-    var isServerRunning by remember { mutableStateOf(false) }
-
-    val serverImage = if (isServerRunning)
+    val isRunning = GolangServerService.isRunning
+    val serverImage = if (isRunning)
         painterResource(id = R.drawable.server_running)
     else
         painterResource(id = R.drawable.server_stopped)
@@ -115,8 +114,7 @@ fun ServerControlScreen(appDataPath: String, modifier: Modifier = Modifier) {
         Button(
             onClick = {
                 try {
-                    isServerRunning = !isServerRunning
-                    if (isServerRunning) {
+                    if (!isRunning) {
                         val intent = Intent(context, GolangServerService::class.java)
                         intent.putExtra("appDataPath", appDataPath)
                         context.startService(intent)
@@ -128,7 +126,7 @@ fun ServerControlScreen(appDataPath: String, modifier: Modifier = Modifier) {
                 }
             },
             colors = ButtonDefaults.buttonColors(
-                containerColor = if (isServerRunning) Color(0xFFB71C1C) else Color(0xFF2196F3),
+                containerColor = if (isRunning) Color(0xFFB71C1C) else Color(0xFF2196F3),
                 contentColor = Color.White
             ),
             shape = RoundedCornerShape(12.dp),
@@ -137,7 +135,7 @@ fun ServerControlScreen(appDataPath: String, modifier: Modifier = Modifier) {
                 .height(50.dp)
         ) {
             Text(
-                text = if (isServerRunning) "Stop Server" else "Start Server",
+                text = if (isRunning) "Stop Server" else "Start Server",
                 fontSize = 20.sp
             )
         }
@@ -146,9 +144,9 @@ fun ServerControlScreen(appDataPath: String, modifier: Modifier = Modifier) {
 
         // Server status text
         Text(
-            text = if (isServerRunning) "Server is running" else "Server is stopped",
+            text = if (isRunning) "Server is running" else "Server is stopped",
             fontSize = 24.sp,
-            color = if (isServerRunning) Color(0xFF4CAF50) else Color.Gray
+            color = if (isRunning) Color(0xFF4CAF50) else Color.Gray
         )
 
         Spacer(modifier = Modifier.height(24.dp))
