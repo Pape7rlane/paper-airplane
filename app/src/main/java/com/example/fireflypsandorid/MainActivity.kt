@@ -1,5 +1,6 @@
 package com.example.fireflypsandorid
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -8,13 +9,11 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.*
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
@@ -26,7 +25,7 @@ import com.example.fireflypsandorid.ui.theme.FireflyPsAndoridTheme
 import java.io.*
 
 class MainActivity : ComponentActivity() {
-    private val TAG = "AppInit"
+    private val tag = "AppInit"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,17 +57,18 @@ class MainActivity : ComponentActivity() {
                         input.copyTo(output)
                     }
                 }
-                Log.i(TAG, "✅ Copied $fileName to ${outFile.absolutePath}")
+                Log.i(tag, "✅ Copied $fileName to ${outFile.absolutePath}")
             } catch (e: Exception) {
-                Log.e(TAG, "❌ Failed to copy $fileName: ${e.message}")
+                Log.e(tag, "❌ Failed to copy $fileName: ${e.message}")
             }
         } else {
-            Log.i(TAG, "ℹ️ $fileName already exists at ${outFile.absolutePath}")
+            Log.i(tag, "ℹ️ $fileName already exists at ${outFile.absolutePath}")
         }
     }
 }
 
 
+@SuppressLint("ImplicitSamInstance")
 @Composable
 fun ServerControlScreen(appDataPath: String, modifier: Modifier = Modifier) {
     val context = LocalContext.current
@@ -128,7 +128,7 @@ fun ServerControlScreen(appDataPath: String, modifier: Modifier = Modifier) {
                 }
             },
             colors = ButtonDefaults.buttonColors(
-                containerColor = if (isServerRunning) Color(0xFFB71C1C) else Color(0xFFFF5722),
+                containerColor = if (isServerRunning) Color(0xFFB71C1C) else Color(0xFF2196F3),
                 contentColor = Color.White
             ),
             shape = RoundedCornerShape(12.dp),
