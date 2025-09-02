@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -5,12 +7,13 @@ plugins {
 }
 
 android {
-    namespace = "com.example.fireflypsandorid"
-    compileSdk = 35
+    namespace = "com.example.firefly_go_android"
+    compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.example.fireflypsandorid"
+        applicationId = "com.example.firefly_go_android"
         minSdk = 24
+        //noinspection OldTargetApi
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
@@ -44,42 +47,44 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.0"
     }
+    buildToolsVersion = "36.0.0"
+    ndkVersion = "27.2.12479018"
 }
 
 dependencies {
-    implementation("androidx.core:core-ktx:1.13.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.9.3")
-    implementation("androidx.activity:activity-compose:1.10.1")
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.lifecycle.runtime.ktx.v293)
+    implementation(libs.androidx.activity.compose.v1101)
     // Compose UI
-    implementation("androidx.compose.ui:ui:1.9.0")
-    implementation("androidx.compose.ui:ui-graphics:1.9.0")
-    implementation("androidx.compose.ui:ui-tooling-preview:1.9.0")
+    implementation(libs.ui)
+    implementation(libs.ui.graphics)
+    implementation(libs.ui.tooling.preview)
 
     // Foundation & Animation
-    implementation("androidx.compose.foundation:foundation:1.9.0")
-    implementation("androidx.compose.animation:animation:1.9.0")
-    implementation("androidx.compose.animation:animation-core:1.9.0")
+    implementation(libs.androidx.foundation)
+    implementation(libs.androidx.animation)
+    implementation(libs.androidx.animation.core)
 
     // Material & Material3
-    implementation("androidx.compose.material:material:1.9.0")
-    implementation("androidx.compose.material:material-icons-extended:1.7.8")
-    implementation("androidx.compose.material3:material3:1.3.2")
-    implementation("androidx.compose.material3:material3-window-size-class:1.3.2")
+    implementation(libs.androidx.material)
+    implementation(libs.androidx.material.icons.extended)
+    implementation(libs.material3)
+    implementation(libs.androidx.material3.window.size.class1)
 
     // Auto updater library
-    implementation("com.github.CSAbhiOnline:AutoUpdater:1.0.1")
+    implementation(libs.autoupdater)
 
     // Unit Test
     testImplementation(libs.junit)
 
     // Android Instrumentation Test
-    androidTestImplementation("androidx.test.ext:junit:1.3.0")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.7.0")
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.9.0")
+    androidTestImplementation(libs.androidx.junit.v130)
+    androidTestImplementation(libs.androidx.espresso.core.v370)
+    androidTestImplementation(libs.ui.test.junit4)
 
     // Debug
-    debugImplementation("androidx.compose.ui:ui-tooling:1.9.0")
-    debugImplementation("androidx.compose.ui:ui-test-manifest:1.9.0")
+    debugImplementation(libs.ui.tooling)
+    debugImplementation(libs.ui.test.manifest)
 
     // Local AAR library
     implementation(files("../library/firefly-go.aar"))

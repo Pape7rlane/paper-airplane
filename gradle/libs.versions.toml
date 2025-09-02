@@ -1,29 +1,46 @@
 [versions]
-agp = "8.9.1"
+activityComposeVersion = "1.10.1"
+agp = "8.9.3"
+androidxJunit = "1.3.0"
+animationCore = "1.9.0"
+autoupdater = "1.0.1"
+espressoCoreVersion = "3.7.0"
+foundation = "1.9.0"
 kotlin = "2.0.21"
-coreKtx = "1.10.1"
+coreKtx = "1.17.0"
 junit = "4.13.2"
-junitVersion = "1.1.5"
-espressoCore = "3.5.1"
-lifecycleRuntimeKtx = "2.6.1"
-activityCompose = "1.8.0"
-composeBom = "2024.09.00"
+lifecycleRuntimeKtxVersion = "2.9.3"
+material = "1.9.0"
+material3WindowSizeClass = "1.3.2"
+materialIconsExtended = "1.7.8"
+ui = "1.9.0"
+uiGraphics = "1.9.0"
+uiTestJunit4 = "1.9.0"
+uiTestManifest = "1.9.0"
+uiTooling = "1.9.0"
+uiToolingPreview = "1.9.0"
 
 [libraries]
+androidx-activity-compose-v1101 = { module = "androidx.activity:activity-compose", version.ref = "activityComposeVersion" }
+androidx-animation = { module = "androidx.compose.animation:animation", version.ref = "animationCore" }
+androidx-animation-core = { module = "androidx.compose.animation:animation-core", version.ref = "animationCore" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-espresso-core-v370 = { module = "androidx.test.espresso:espresso-core", version.ref = "espressoCoreVersion" }
+androidx-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "foundation" }
+androidx-junit-v130 = { module = "androidx.test.ext:junit", version.ref = "androidxJunit" }
+androidx-lifecycle-runtime-ktx-v293 = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtxVersion" }
+androidx-material = { module = "androidx.compose.material:material", version.ref = "material" }
+androidx-material-icons-extended = { module = "androidx.compose.material:material-icons-extended", version.ref = "materialIconsExtended" }
+androidx-material3-window-size-class1 = { module = "androidx.compose.material3:material3-window-size-class", version.ref = "material3WindowSizeClass" }
+autoupdater = { module = "com.github.CSAbhiOnline:AutoUpdater", version.ref = "autoupdater" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
-androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
-androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
-androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
-androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
-androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
-androidx-ui = { group = "androidx.compose.ui", name = "ui" }
-androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
-androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
-androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
-androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
-androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
-androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
+material3 = { module = "androidx.compose.material3:material3", version.ref = "material3WindowSizeClass" }
+ui = { module = "androidx.compose.ui:ui", version.ref = "ui" }
+ui-graphics = { module = "androidx.compose.ui:ui-graphics", version.ref = "uiGraphics" }
+ui-test-junit4 = { module = "androidx.compose.ui:ui-test-junit4", version.ref = "uiTestJunit4" }
+ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "uiTestManifest" }
+ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "uiTooling" }
+ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "uiToolingPreview" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

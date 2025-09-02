@@ -1,4 +1,4 @@
-package com.example.fireflypsandorid.ui.theme
+package com.example.firefly_go_android.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

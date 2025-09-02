@@ -1,4 +1,4 @@
-package com.example.fireflypsandorid.ui.theme
+package com.example.firefly_go_android.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

@@ -1,4 +1,4 @@
-package com.example.fireflypsandorid
+package com.example.firefly_go_android
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
