@@ -90,9 +90,9 @@
     },
     {
       "level": 80,
-      "item_id": 24003,
+      "item_id": 23029,
       "equip_avatar": 1218,
-      "rank": 5,
+      "rank": 1,
       "promotion": 6,
       "internal_uid": 11
     },
@@ -306,9 +306,9 @@
     },
     {
       "level": 80,
-      "item_id": 23047,
+      "item_id": 21008,
       "equip_avatar": 1410,
-      "rank": 1,
+      "rank": 5,
       "promotion": 6,
       "internal_uid": 38
     },
@@ -541,24 +541,24 @@
       "main_affix_id": 1,
       "sub_affixes": [
         {
+          "sub_affix_id": 2,
+          "count": 1,
+          "step": 2
+        },
+        {
           "sub_affix_id": 4,
-          "count": 30,
-          "step": 30
+          "count": 1,
+          "step": 0
         },
         {
           "sub_affix_id": 5,
           "count": 2,
-          "step": 0
+          "step": 4
         },
         {
           "sub_affix_id": 7,
           "count": 4,
-          "step": 4
-        },
-        {
-          "sub_affix_id": 3,
-          "count": 1,
-          "step": 1
+          "step": 2
         }
       ],
       "internal_uid": 6,
@@ -571,24 +571,24 @@
       "main_affix_id": 1,
       "sub_affixes": [
         {
-          "sub_affix_id": 6,
-          "count": 30,
-          "step": 30
-        },
-        {
           "sub_affix_id": 5,
-          "count": 4,
-          "step": 4
+          "count": 2,
+          "step": 3
         },
         {
           "sub_affix_id": 7,
-          "count": 2,
-          "step": 2
+          "count": 4,
+          "step": 3
         },
         {
           "sub_affix_id": 10,
           "count": 1,
-          "step": 1
+          "step": 0
+        },
+        {
+          "sub_affix_id": 11,
+          "count": 2,
+          "step": 4
         }
       ],
       "internal_uid": 7,
@@ -601,14 +601,14 @@
       "main_affix_id": 2,
       "sub_affixes": [
         {
-          "sub_affix_id": 1,
-          "count": 2,
-          "step": 4
+          "sub_affix_id": 2,
+          "count": 1,
+          "step": 2
         },
         {
-          "sub_affix_id": 10,
+          "sub_affix_id": 3,
           "count": 2,
-          "step": 2
+          "step": 4
         },
         {
           "sub_affix_id": 7,
@@ -616,9 +616,9 @@
           "step": 4
         },
         {
-          "sub_affix_id": 3,
+          "sub_affix_id": 11,
           "count": 1,
-          "step": 1
+          "step": 2
         }
       ],
       "internal_uid": 8,
@@ -631,24 +631,24 @@
       "main_affix_id": 4,
       "sub_affixes": [
         {
-          "sub_affix_id": 3,
-          "count": 2,
-          "step": 4
+          "sub_affix_id": 4,
+          "count": 1,
+          "step": 1
         },
         {
           "sub_affix_id": 5,
           "count": 2,
-          "step": 2
+          "step": 3
         },
         {
           "sub_affix_id": 8,
-          "count": 2,
-          "step": 2
+          "count": 3,
+          "step": 0
         },
         {
-          "sub_affix_id": 2,
+          "sub_affix_id": 10,
           "count": 2,
-          "step": 2
+          "step": 1
         }
       ],
       "internal_uid": 9,
@@ -656,29 +656,29 @@
     },
     {
       "level": 15,
-      "relic_id": 63175,
-      "relic_set_id": 317,
+      "relic_id": 63225,
+      "relic_set_id": 322,
       "main_affix_id": 7,
       "sub_affixes": [
         {
-          "sub_affix_id": 3,
+          "sub_affix_id": 5,
           "count": 2,
           "step": 2
         },
         {
           "sub_affix_id": 7,
           "count": 3,
-          "step": 3
+          "step": 4
         },
         {
-          "sub_affix_id": 4,
+          "sub_affix_id": 1,
           "count": 2,
           "step": 2
         },
         {
-          "sub_affix_id": 10,
-          "count": 1,
-          "step": 1
+          "sub_affix_id": 6,
+          "count": 2,
+          "step": 2
         }
       ],
       "internal_uid": 10,
@@ -686,29 +686,29 @@
     },
     {
       "level": 15,
-      "relic_id": 63176,
-      "relic_set_id": 317,
+      "relic_id": 63226,
+      "relic_set_id": 322,
       "main_affix_id": 2,
       "sub_affixes": [
         {
-          "sub_affix_id": 3,
+          "sub_affix_id": 12,
           "count": 2,
           "step": 3
         },
         {
-          "sub_affix_id": 7,
-          "count": 4,
+          "sub_affix_id": 9,
+          "count": 3,
           "step": 4
         },
         {
-          "sub_affix_id": 5,
-          "count": 1,
+          "sub_affix_id": 2,
+          "count": 2,
           "step": 1
         },
         {
           "sub_affix_id": 10,
           "count": 2,
-          "step": 2
+          "step": 3
         }
       ],
       "internal_uid": 11,
@@ -2696,29 +2696,29 @@
     },
     {
       "level": 15,
-      "relic_id": 61101,
-      "relic_set_id": 110,
+      "relic_id": 61161,
+      "relic_set_id": 116,
       "main_affix_id": 1,
       "sub_affixes": [
         {
           "sub_affix_id": 3,
-          "count": 2,
-          "step": 2
+          "count": 1,
+          "step": 0
         },
         {
-          "sub_affix_id": 7,
-          "count": 2,
-          "step": 4
+          "sub_affix_id": 5,
+          "count": 4,
+          "step": 3
+        },
+        {
+          "sub_affix_id": 6,
+          "count": 1,
+          "step": 1
         },
         {
           "sub_affix_id": 8,
           "count": 2,
           "step": 2
-        },
-        {
-          "sub_affix_id": 10,
-          "count": 3,
-          "step": 3
         }
       ],
       "internal_uid": 78,
@@ -2726,29 +2726,29 @@
     },
     {
       "level": 15,
-      "relic_id": 61102,
-      "relic_set_id": 110,
+      "relic_id": 61162,
+      "relic_set_id": 116,
       "main_affix_id": 1,
       "sub_affixes": [
         {
           "sub_affix_id": 4,
-          "count": 2,
+          "count": 3,
+          "step": 3
+        },
+        {
+          "sub_affix_id": 6,
+          "count": 1,
           "step": 2
         },
         {
-          "sub_affix_id": 5,
-          "count": 1,
-          "step": 1
-        },
-        {
           "sub_affix_id": 7,
-          "count": 3,
-          "step": 6
+          "count": 2,
+          "step": 3
         },
         {
           "sub_affix_id": 10,
           "count": 2,
-          "step": 2
+          "step": 3
         }
       ],
       "internal_uid": 79,
@@ -2756,29 +2756,29 @@
     },
     {
       "level": 15,
-      "relic_id": 61103,
-      "relic_set_id": 110,
+      "relic_id": 61163,
+      "relic_set_id": 116,
       "main_affix_id": 7,
       "sub_affixes": [
         {
-          "sub_affix_id": 1,
-          "count": 2,
-          "step": 4
-        },
-        {
-          "sub_affix_id": 2,
+          "sub_affix_id": 3,
           "count": 1,
           "step": 1
         },
         {
-          "sub_affix_id": 4,
+          "sub_affix_id": 6,
           "count": 2,
-          "step": 4
+          "step": 2
         },
         {
           "sub_affix_id": 7,
           "count": 3,
-          "step": 6
+          "step": 1
+        },
+        {
+          "sub_affix_id": 11,
+          "count": 2,
+          "step": 0
         }
       ],
       "internal_uid": 80,
@@ -2786,29 +2786,29 @@
     },
     {
       "level": 15,
-      "relic_id": 61104,
-      "relic_set_id": 110,
+      "relic_id": 61164,
+      "relic_set_id": 116,
       "main_affix_id": 4,
       "sub_affixes": [
         {
-          "sub_affix_id": 3,
-          "count": 2,
-          "step": 4
-        },
-        {
-          "sub_affix_id": 4,
-          "count": 2,
-          "step": 4
-        },
-        {
-          "sub_affix_id": 10,
+          "sub_affix_id": 2,
           "count": 2,
           "step": 2
         },
         {
-          "sub_affix_id": 11,
+          "sub_affix_id": 4,
+          "count": 3,
+          "step": 3
+        },
+        {
+          "sub_affix_id": 6,
           "count": 2,
-          "step": 4
+          "step": 2
+        },
+        {
+          "sub_affix_id": 8,
+          "count": 1,
+          "step": 2
         }
       ],
       "internal_uid": 81,
@@ -2821,24 +2821,24 @@
       "main_affix_id": 1,
       "sub_affixes": [
         {
-          "sub_affix_id": 1,
+          "sub_affix_id": 5,
           "count": 2,
           "step": 2
         },
         {
-          "sub_affix_id": 2,
-          "count": 2,
-          "step": 2
+          "sub_affix_id": 6,
+          "count": 1,
+          "step": 0
         },
         {
           "sub_affix_id": 7,
-          "count": 2,
+          "count": 3,
           "step": 4
         },
         {
-          "sub_affix_id": 10,
+          "sub_affix_id": 8,
           "count": 2,
-          "step": 2
+          "step": 4
         }
       ],
       "internal_uid": 82,
@@ -2851,24 +2851,24 @@
       "main_affix_id": 2,
       "sub_affixes": [
         {
-          "sub_affix_id": 1,
-          "count": 2,
-          "step": 2
+          "sub_affix_id": 3,
+          "count": 3,
+          "step": 6
         },
         {
           "sub_affix_id": 4,
-          "count": 2,
-          "step": 2
+          "count": 1,
+          "step": 1
         },
         {
-          "sub_affix_id": 7,
+          "sub_affix_id": 8,
           "count": 2,
-          "step": 2
+          "step": 1
         },
         {
           "sub_affix_id": 10,
           "count": 2,
-          "step": 4
+          "step": 1
         }
       ],
       "internal_uid": 83,
@@ -4316,29 +4316,29 @@
     },
     {
       "level": 15,
-      "relic_id": 61181,
-      "relic_set_id": 118,
+      "relic_id": 61111,
+      "relic_set_id": 111,
       "main_affix_id": 1,
       "sub_affixes": [
         {
-          "sub_affix_id": 6,
+          "sub_affix_id": 2,
+          "count": 2,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 7,
           "count": 2,
           "step": 3
         },
         {
-          "sub_affix_id": 7,
-          "count": 1,
-          "step": 0
-        },
-        {
           "sub_affix_id": 11,
-          "count": 1,
-          "step": 0
+          "count": 2,
+          "step": 2
         },
         {
           "sub_affix_id": 12,
-          "count": 4,
-          "step": 3
+          "count": 3,
+          "step": 2
         }
       ],
       "internal_uid": 132,
@@ -4346,28 +4346,28 @@
     },
     {
       "level": 15,
-      "relic_id": 61182,
-      "relic_set_id": 118,
+      "relic_id": 61112,
+      "relic_set_id": 111,
       "main_affix_id": 1,
       "sub_affixes": [
         {
           "sub_affix_id": 3,
-          "count": 1,
-          "step": 1
-        },
-        {
-          "sub_affix_id": 4,
-          "count": 1,
+          "count": 2,
           "step": 2
         },
         {
-          "sub_affix_id": 6,
-          "count": 2,
+          "sub_affix_id": 7,
+          "count": 3,
+          "step": 4
+        },
+        {
+          "sub_affix_id": 11,
+          "count": 1,
           "step": 1
         },
         {
           "sub_affix_id": 12,
-          "count": 4,
+          "count": 3,
           "step": 4
         }
       ],
@@ -4378,27 +4378,27 @@
       "level": 15,
       "relic_id": 61183,
       "relic_set_id": 118,
-      "main_affix_id": 2,
+      "main_affix_id": 3,
       "sub_affixes": [
         {
-          "sub_affix_id": 4,
-          "count": 1,
-          "step": 2
-        },
-        {
-          "sub_affix_id": 7,
-          "count": 2,
-          "step": 1
-        },
-        {
-          "sub_affix_id": 10,
+          "sub_affix_id": 1,
           "count": 1,
           "step": 0
         },
         {
+          "sub_affix_id": 2,
+          "count": 1,
+          "step": 0
+        },
+        {
+          "sub_affix_id": 9,
+          "count": 3,
+          "step": 3
+        },
+        {
           "sub_affix_id": 12,
           "count": 4,
-          "step": 8
+          "step": 6
         }
       ],
       "internal_uid": 134,
@@ -4411,9 +4411,9 @@
       "main_affix_id": 1,
       "sub_affixes": [
         {
-          "sub_affix_id": 2,
-          "count": 1,
-          "step": 0
+          "sub_affix_id": 6,
+          "count": 3,
+          "step": 4
         },
         {
           "sub_affix_id": 10,
@@ -4423,12 +4423,12 @@
         {
           "sub_affix_id": 11,
           "count": 2,
-          "step": 0
+          "step": 2
         },
         {
           "sub_affix_id": 12,
-          "count": 4,
-          "step": 5
+          "count": 2,
+          "step": 3
         }
       ],
       "internal_uid": 135,
@@ -4436,29 +4436,29 @@
     },
     {
       "level": 15,
-      "relic_id": 63105,
-      "relic_set_id": 310,
-      "main_affix_id": 2,
+      "relic_id": 63085,
+      "relic_set_id": 308,
+      "main_affix_id": 3,
       "sub_affixes": [
         {
           "sub_affix_id": 1,
+          "count": 2,
+          "step": 0
+        },
+        {
+          "sub_affix_id": 2,
           "count": 1,
-          "step": 2
+          "step": 0
+        },
+        {
+          "sub_affix_id": 5,
+          "count": 2,
+          "step": 1
         },
         {
           "sub_affix_id": 9,
-          "count": 2,
-          "step": 3
-        },
-        {
-          "sub_affix_id": 11,
-          "count": 2,
-          "step": 3
-        },
-        {
-          "sub_affix_id": 12,
           "count": 3,
-          "step": 4
+          "step": 1
         }
       ],
       "internal_uid": 136,
@@ -4466,29 +4466,29 @@
     },
     {
       "level": 15,
-      "relic_id": 63176,
-      "relic_set_id": 317,
+      "relic_id": 63086,
+      "relic_set_id": 308,
       "main_affix_id": 2,
       "sub_affixes": [
         {
-          "sub_affix_id": 3,
-          "count": 2,
+          "sub_affix_id": 5,
+          "count": 3,
           "step": 1
         },
         {
-          "sub_affix_id": 4,
-          "count": 1,
+          "sub_affix_id": 6,
+          "count": 2,
           "step": 0
         },
         {
           "sub_affix_id": 8,
-          "count": 3,
-          "step": 2
+          "count": 1,
+          "step": 0
         },
         {
-          "sub_affix_id": 12,
+          "sub_affix_id": 9,
           "count": 2,
-          "step": 4
+          "step": 1
         }
       ],
       "internal_uid": 137,
@@ -7561,24 +7561,24 @@
       "main_affix_id": 1,
       "sub_affixes": [
         {
-          "sub_affix_id": 6,
-          "count": 40,
-          "step": 40
-        },
-        {
-          "sub_affix_id": 4,
-          "count": 40,
-          "step": 40
+          "sub_affix_id": 3,
+          "count": 2,
+          "step": 3
         },
         {
           "sub_affix_id": 5,
-          "count": 4,
-          "step": 4
+          "count": 1,
+          "step": 1
+        },
+        {
+          "sub_affix_id": 7,
+          "count": 2,
+          "step": 2
         },
         {
           "sub_affix_id": 10,
-          "count": 2,
-          "step": 2
+          "count": 3,
+          "step": 3
         }
       ],
       "internal_uid": 240,
@@ -7591,14 +7591,9 @@
       "main_affix_id": 1,
       "sub_affixes": [
         {
-          "sub_affix_id": 1,
-          "count": 2,
-          "step": 2
-        },
-        {
           "sub_affix_id": 5,
           "count": 3,
-          "step": 3
+          "step": 4
         },
         {
           "sub_affix_id": 7,
@@ -7606,9 +7601,14 @@
           "step": 2
         },
         {
-          "sub_affix_id": 10,
+          "sub_affix_id": 8,
           "count": 1,
-          "step": 1
+          "step": 0
+        },
+        {
+          "sub_affix_id": 12,
+          "count": 2,
+          "step": 2
         }
       ],
       "internal_uid": 241,
@@ -7618,25 +7618,25 @@
       "level": 15,
       "relic_id": 61163,
       "relic_set_id": 116,
-      "main_affix_id": 2,
+      "main_affix_id": 7,
       "sub_affixes": [
         {
-          "sub_affix_id": 7,
+          "sub_affix_id": 12,
           "count": 1,
           "step": 1
         },
         {
-          "sub_affix_id": 10,
-          "count": 4,
-          "step": 4
-        },
-        {
-          "sub_affix_id": 2,
-          "count": 2,
+          "sub_affix_id": 5,
+          "count": 3,
           "step": 2
         },
         {
-          "sub_affix_id": 8,
+          "sub_affix_id": 11,
+          "count": 3,
+          "step": 3
+        },
+        {
+          "sub_affix_id": 3,
           "count": 1,
           "step": 1
         }
@@ -7651,23 +7651,23 @@
       "main_affix_id": 2,
       "sub_affixes": [
         {
-          "sub_affix_id": 1,
+          "sub_affix_id": 4,
+          "count": 1,
+          "step": 0
+        },
+        {
+          "sub_affix_id": 6,
           "count": 1,
           "step": 1
         },
         {
           "sub_affix_id": 10,
           "count": 4,
-          "step": 4
+          "step": 5
         },
         {
-          "sub_affix_id": 2,
+          "sub_affix_id": 11,
           "count": 2,
-          "step": 2
-        },
-        {
-          "sub_affix_id": 9,
-          "count": 1,
           "step": 1
         }
       ],
@@ -7678,27 +7678,27 @@
       "level": 15,
       "relic_id": 63225,
       "relic_set_id": 322,
-      "main_affix_id": 2,
+      "main_affix_id": 4,
       "sub_affixes": [
         {
-          "sub_affix_id": 2,
+          "sub_affix_id": 8,
           "count": 1,
-          "step": 1
+          "step": 0
         },
         {
-          "sub_affix_id": 7,
+          "sub_affix_id": 5,
+          "count": 3,
+          "step": 3
+        },
+        {
+          "sub_affix_id": 1,
           "count": 2,
-          "step": 2
+          "step": 0
         },
         {
-          "sub_affix_id": 10,
-          "count": 4,
-          "step": 4
-        },
-        {
-          "sub_affix_id": 9,
-          "count": 1,
-          "step": 1
+          "sub_affix_id": 2,
+          "count": 2,
+          "step": 3
         }
       ],
       "internal_uid": 244,
@@ -7711,24 +7711,24 @@
       "main_affix_id": 4,
       "sub_affixes": [
         {
-          "sub_affix_id": 7,
+          "sub_affix_id": 2,
+          "count": 3,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 9,
           "count": 1,
           "step": 1
         },
         {
-          "sub_affix_id": 10,
-          "count": 4,
+          "sub_affix_id": 3,
+          "count": 2,
+          "step": 0
+        },
+        {
+          "sub_affix_id": 7,
+          "count": 2,
           "step": 4
-        },
-        {
-          "sub_affix_id": 4,
-          "count": 2,
-          "step": 2
-        },
-        {
-          "sub_affix_id": 6,
-          "count": 2,
-          "step": 2
         }
       ],
       "internal_uid": 245,
@@ -8770,24 +8770,6 @@
       "data": {
         "rank": 0,
         "skills": {
-          "1005001": 6,
-          "1005002": 10,
-          "1005003": 10,
-          "1005004": 10,
-          "1005007": 1,
-          "1005101": 1,
-          "1005102": 1,
-          "1005103": 1,
-          "1005201": 1,
-          "1005202": 1,
-          "1005203": 1,
-          "1005204": 1,
-          "1005205": 1,
-          "1005206": 1,
-          "1005207": 1,
-          "1005208": 1,
-          "1005209": 1,
-          "1005210": 1,
           "11005001": 6,
           "11005002": 10,
           "11005003": 10,
@@ -9960,7 +9942,7 @@
       "owner_uid": 0,
       "avatar_id": 1218,
       "data": {
-        "rank": 0,
+        "rank": 1,
         "skills": {
           "1218001": 6,
           "1218002": 10,
@@ -10248,9 +10230,9 @@
       "owner_uid": 0,
       "avatar_id": 1303,
       "data": {
-        "rank": 6,
+        "rank": 1,
         "skills": {
-          "1303001": 3,
+          "1303001": 6,
           "1303002": 10,
           "1303003": 10,
           "1303004": 10,
@@ -10916,7 +10898,10 @@
       },
       "level": 80,
       "promotion": 6,
-      "techniques": [],
+      "techniques": [
+        140801,
+        140802
+      ],
       "sp_value": 6,
       "sp_max": 12
     },
@@ -10958,7 +10943,7 @@
       "owner_uid": 0,
       "avatar_id": 1410,
       "data": {
-        "rank": 0,
+        "rank": 2,
         "skills": {
           "1410001": 6,
           "1410002": 10,
@@ -11354,49 +11339,21 @@
     }
   },
   "battle_config": {
-    "battle_type": "PEAK",
-    "blessings": [
-      {
-        "level": 1,
-        "id": 3033010
-      },
-      {
-        "level": 1,
-        "id": 3033005
-      },
-      {
-        "level": 1,
-        "id": 3033017
-      },
-      {
-        "level": 1,
-        "id": 3033007
-      }
-    ],
+    "battle_type": "CE",
+    "blessings": [],
     "custom_stats": [],
-    "cycle_count": 6,
-    "stage_id": 30501021,
+    "cycle_count": 30,
+    "stage_id": 103202,
     "path_resonance_id": 0,
     "monsters": [
       [
         {
-          "monster_id": 4023010,
-          "level": 100,
-          "amount": 1
-        },
-        {
-          "monster_id": 4023020,
-          "level": 100,
+          "monster_id": 8034012,
+          "level": 95,
           "amount": 1
         }
       ],
-      [
-        {
-          "monster_id": 4044010,
-          "level": 100,
-          "amount": 1
-        }
-      ]
+      []
     ]
   }
 }

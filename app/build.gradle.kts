@@ -47,39 +47,39 @@ android {
 }
 
 dependencies {
-    implementation("androidx.core:core-ktx:1.12.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
-    implementation("androidx.activity:activity-compose:1.8.2")
+    implementation("androidx.core:core-ktx:1.13.0")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.9.3")
+    implementation("androidx.activity:activity-compose:1.10.1")
     // Compose UI
-    implementation("androidx.compose.ui:ui:1.5.3")
-    implementation("androidx.compose.ui:ui-graphics:1.5.3")
-    implementation("androidx.compose.ui:ui-tooling-preview:1.5.3")
+    implementation("androidx.compose.ui:ui:1.9.0")
+    implementation("androidx.compose.ui:ui-graphics:1.9.0")
+    implementation("androidx.compose.ui:ui-tooling-preview:1.9.0")
 
     // Foundation & Animation
-    implementation("androidx.compose.foundation:foundation:1.5.3")
-    implementation("androidx.compose.animation:animation:1.5.3")
-    implementation("androidx.compose.animation:animation-core:1.5.3")
+    implementation("androidx.compose.foundation:foundation:1.9.0")
+    implementation("androidx.compose.animation:animation:1.9.0")
+    implementation("androidx.compose.animation:animation-core:1.9.0")
 
     // Material & Material3
-    implementation("androidx.compose.material:material:1.5.3")
-    implementation("androidx.compose.material:material-icons-extended:1.5.3")
-    implementation("androidx.compose.material3:material3:1.2.0")
-    implementation("androidx.compose.material3:material3-window-size-class:1.2.0")
+    implementation("androidx.compose.material:material:1.9.0")
+    implementation("androidx.compose.material:material-icons-extended:1.7.8")
+    implementation("androidx.compose.material3:material3:1.3.2")
+    implementation("androidx.compose.material3:material3-window-size-class:1.3.2")
 
     // Auto updater library
     implementation("com.github.CSAbhiOnline:AutoUpdater:1.0.1")
 
     // Unit Test
-    testImplementation("junit:junit:4.13.2")
+    testImplementation(libs.junit)
 
     // Android Instrumentation Test
-    androidTestImplementation("androidx.test.ext:junit:1.2.1")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.5.3")
+    androidTestImplementation("androidx.test.ext:junit:1.3.0")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.7.0")
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.9.0")
 
     // Debug
-    debugImplementation("androidx.compose.ui:ui-tooling:1.5.3")
-    debugImplementation("androidx.compose.ui:ui-test-manifest:1.5.3")
+    debugImplementation("androidx.compose.ui:ui-tooling:1.9.0")
+    debugImplementation("androidx.compose.ui:ui-test-manifest:1.9.0")
 
     // Local AAR library
     implementation(files("../library/firefly-go.aar"))
