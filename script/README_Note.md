@@ -1,2 +1,2 @@
 # Changelog
-UPDATE: Update to 3.6.52
+UPDATE: Fix env
