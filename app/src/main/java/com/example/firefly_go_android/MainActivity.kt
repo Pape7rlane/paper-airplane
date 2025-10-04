@@ -16,7 +16,6 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -56,12 +55,17 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Shadow
+import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import kotlinx.coroutines.delay
 import org.json.JSONObject
+import androidx.compose.ui.graphics.Color
 
 data class AppVersion(
     val latestVersion: String,
@@ -98,7 +102,7 @@ class MainActivity : ComponentActivity() {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Box(modifier = Modifier.fillMaxSize()) {
                         ServerControlScreen(appDataPath, dataDir, appVersion, Modifier.padding(innerPadding))
-                        AutoUpdateDialog(onDismiss = {}, appVersion, true)
+                        AutoUpdateDialog(onDismiss = {}, appVersion, dataDir, true)
                     }
                 }
             }
@@ -125,6 +129,28 @@ fun copyRawToFile(context: Context, targetDir: File, fileName: String, resId: In
         Log.i("FileCopy", "ℹ️ $fileName already exists at ${outFile.absolutePath}")
     }
 }
+
+fun removeFile(targetDir: File, fileName: String): Boolean {
+    val file = File(targetDir, fileName)
+    return if (file.exists()) {
+        try {
+            if (file.delete()) {
+                Log.i("FileRemove", "🗑️ Removed $fileName from ${file.absolutePath}")
+                true
+            } else {
+                Log.e("FileRemove", "❌ Failed to remove $fileName from ${file.absolutePath}")
+                false
+            }
+        } catch (e: Exception) {
+            Log.e("FileRemove", "❌ Error removing $fileName: ${e.message}")
+            false
+        }
+    } else {
+        Log.i("FileRemove", "ℹ️ $fileName does not exist in ${targetDir.absolutePath}")
+        false
+    }
+}
+
 
 @SuppressLint("ImplicitSamInstance")
 @Composable
@@ -161,7 +187,7 @@ fun ServerControlScreen(appDataPath: String, dataDir: File, appVersion: AppVersi
         ) {
             // Title
             Text(
-                text = "Firefly Ps for Android",
+                text = "Firefly GO for Android",
                 fontSize = 26.sp,
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier.padding(top = 24.dp),
@@ -248,7 +274,6 @@ fun ServerControlScreen(appDataPath: String, dataDir: File, appVersion: AppVersi
                 horizontalArrangement = Arrangement.spacedBy(32.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                val context = LocalContext.current
 
                 // Check Update widget
                 Column(
@@ -381,7 +406,9 @@ fun ServerControlScreen(appDataPath: String, dataDir: File, appVersion: AppVersi
     // Auto Update Dialog
     if (showUpdateDialog) {
         AutoUpdateDialog(
-            onDismiss = { showUpdateDialog = false }, appVersion
+            onDismiss = { showUpdateDialog = false },
+            appVersion,
+            dataDir
         )
     }
 }
@@ -392,6 +419,63 @@ fun parseGoLogLine(line: String): String? {
     val content = match?.groupValues?.getOrNull(1)?.trim()
 
     return if (content.isNullOrBlank()) null else content
+}
+
+fun parseAnsi(text: String): AnnotatedString {
+    val regex = Regex("\u001B\\[(\\d+)(;\\d+)*m")
+    val builder = buildAnnotatedString {
+        var lastIndex = 0
+        var currentColor = Color.Black
+
+        for (match in regex.findAll(text)) {
+            val start = match.range.first
+            val before = text.substring(lastIndex, start)
+            withStyle(SpanStyle(color = currentColor)) {
+                append(before)
+            }
+
+            val code = match.groupValues[1].toInt()
+            currentColor = when (code) {
+                30 -> {
+                    Color.Black
+                }
+                31 -> {
+                    Color.Red
+                }
+                32 -> {
+                    Color(0xFF00C853)
+                }
+                33 -> {
+                    Color(0xFFFFD600)
+                }
+                34 -> {
+                    Color(0xFF2962FF)
+                }
+                35 -> {
+                    Color(0xFFD500F9)
+                }
+                36 -> {
+                    Color(0xFF00B8D4)
+                }
+
+                37 -> {
+                    Color.White
+                }
+                else -> {
+                    Color.Black
+                }
+            }
+
+            lastIndex = match.range.last + 1
+        }
+
+        val remain = text.substring(lastIndex)
+        withStyle(SpanStyle(color = currentColor)) {
+            append(remain)
+        }
+    }
+
+    return builder
 }
 
 
@@ -444,19 +528,16 @@ fun LogPopup(
                 )
                 Spacer(modifier = Modifier.height(8.dp))
 
-                LazyColumn(
-                    state = listState,
-                    modifier = Modifier.weight(1f)
-                ) {
+                LazyColumn(state = listState, modifier = Modifier.weight(1f)) {
                     items(logs.size) { index ->
                         Text(
-                            text = logs[index],
+                            text = parseAnsi(logs[index]),
                             fontSize = 12.sp,
-                            color = Color.Black,
                             modifier = Modifier.padding(vertical = 2.dp)
                         )
                     }
                 }
+
                 Spacer(modifier = Modifier.height(8.dp))
                 Button(
                     onClick = { onDismiss() },
@@ -475,6 +556,7 @@ fun LogPopup(
 fun AutoUpdateDialog(
     onDismiss: () -> Unit,
     appVersion: AppVersion,
+    dataDir: File,
     isFirstOpen: Boolean = false
 ) {
     val context = LocalContext.current
@@ -522,6 +604,10 @@ fun AutoUpdateDialog(
     LaunchedEffect(progress) {
         if (progress >= 100 && isDownloading) {
             downloadComplete = true
+
+            removeFile(dataDir, "data-in-game.json" )
+            removeFile(dataDir, "freesr-data.json")
+            removeFile(dataDir, "version.json")
             delay(500)
         }
     }
@@ -601,7 +687,7 @@ fun AutoUpdateDialog(
                                         autoUpdaterManager.downloadapk(
                                             context,
                                             update!!.apk_url,
-                                            "MyApp_${update!!.latestversion}.apk"
+                                            "FireflyGO_${update!!.latestversion}.apk"
                                         ) { prog -> progress = prog }
                                     }
                                 }

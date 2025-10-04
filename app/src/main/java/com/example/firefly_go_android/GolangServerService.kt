@@ -4,8 +4,8 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.app.Service
-import android.content.Context
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.os.Build
 import android.os.IBinder
 import android.os.PowerManager
@@ -14,6 +14,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.core.app.NotificationCompat
+import androidx.core.content.ContextCompat
 import libandroid.Libandroid
 
 class GolangServerService : Service() {
@@ -47,20 +48,29 @@ class GolangServerService : Service() {
             notificationIntent,
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
+        val largeIcon = BitmapFactory.decodeResource(resources, R.mipmap.ic_launcher)
 
         val notification = NotificationCompat.Builder(this, CHANNEL_ID)
+            .setSmallIcon(R.mipmap.ic_launcher_round)
+            .setLargeIcon(largeIcon)
             .setContentTitle("FireflyGO Server")
-            .setContentText("FireflyGO is running...")
-            .setSmallIcon(R.drawable.ic_launcher_foreground)
+            .setContentText("Server is running...")
+            .setColor(ContextCompat.getColor(this, R.color.teal_700))
+            .setOngoing(true)
+            .setOnlyAlertOnce(true)
             .setContentIntent(pendingIntent)
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setShowWhen(false)
+            .setCategory(NotificationCompat.CATEGORY_SERVICE)
             .build()
+
 
         startForeground(NOTIFICATION_ID, notification)
 
         try {
             val powerManager = getSystemService(POWER_SERVICE) as PowerManager
             wakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "GolangServer::WakeLock")
-            wakeLock?.acquire()
+            wakeLock?.acquire(10*60*1000L)
             Log.d(TAG, "✅ WakeLock acquired")
         } catch (e: Exception) {
             Log.e(TAG, "❌ WakeLock failed", e)
@@ -106,7 +116,6 @@ class GolangServerService : Service() {
             Log.e(TAG, "Error shutting down server", e)
         }
 
-        // 2. Giải phóng WakeLock nếu còn giữ
         try {
             wakeLock?.let {
                 if (it.isHeld) {
@@ -132,7 +141,7 @@ class GolangServerService : Service() {
                 description = "Channel for running Golang backend in foreground"
             }
 
-            val manager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            val manager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
             manager.createNotificationChannel(channel)
             Log.d(TAG, "✅ Notification channel created")
         }

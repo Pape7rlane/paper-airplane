@@ -1,2 +1,2 @@
 # Changelog
-## - UPDATE: New res
+## - UPDATE: Re-optimize performance
