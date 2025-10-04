@@ -1,2 +1,2 @@
 # Changelog
-## - UPDATE: Re-optimize performance
+## - FIX: Fix sync data
