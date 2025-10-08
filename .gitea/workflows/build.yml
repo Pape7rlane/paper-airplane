@@ -20,8 +20,10 @@ jobs:
         with:
           cache-disabled: true
 
-      - name: Grant execute permission for Gradle wrapper
-        run: chmod +x ./gradlew
+      - name: Grant execute permissions
+        run: |
+          chmod +x ./gradlew
+          chmod +x ./script/release-uploader
 
       - name: Download AAR manually
         run: |
@@ -42,6 +44,7 @@ jobs:
             -Pandroid.injected.signing.store.password=$KEYSTORE_PASSWORD \
             -Pandroid.injected.signing.key.alias=$KEY_ALIAS \
             -Pandroid.injected.signing.key.password=$KEY_PASSWORD
+
       - name: Find and rename release APK
         run: |
           APK_FILE=$(ls app/build/outputs/apk/release/*.apk | head -n 1)
