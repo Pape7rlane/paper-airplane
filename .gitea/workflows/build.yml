@@ -9,8 +9,9 @@ jobs:
     container: mingc/android-build-box:latest
 
     steps:
-      - uses: actions/checkout@v5
-
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
       - uses: actions/cache@v3
         with:
           path: /root/.gradle/caches
