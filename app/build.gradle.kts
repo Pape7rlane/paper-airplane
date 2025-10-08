@@ -87,6 +87,6 @@ dependencies {
     debugImplementation(libs.ui.test.manifest)
 
     // Local AAR library
-    implementation(files("../library/firefly-go.aar"))
+    implementation(files("libs/firefly-go.aar"))
 }
 
