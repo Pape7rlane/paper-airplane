@@ -27,5 +27,5 @@ dependencyResolutionManagement {
 
 }
 
-rootProject.name = "FireflyPsAndorid"
+rootProject.name = "FireflyGoAndroid"
 include(":app")
