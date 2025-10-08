@@ -15,7 +15,6 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: 17
-          cache: 'gradle'
 
       - name: Setup Android SDK
         uses: amyu/setup-android@v5
