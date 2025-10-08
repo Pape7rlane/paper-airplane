@@ -9,8 +9,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v5
-        with:
-          lfs: true
 
       - name: Set up JDK 21
         uses: actions/setup-java@v5
@@ -22,6 +20,15 @@ jobs:
 
       - name: Grant execute permission for Gradle wrapper
         run: chmod +x ./gradlew
+
+      - name: Check if AAR file exists
+        run: |
+          if [ ! -f "library/firefly-go.aar" ]; then
+            echo "❌ library/firefly-go.aar not found!"
+            exit 1
+          else
+            echo "✅ library/firefly-go.aar found."
+          fi
 
       - name: Build signed release APK
         env:
