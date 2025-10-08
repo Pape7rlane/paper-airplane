@@ -42,9 +42,13 @@ jobs:
             -Pandroid.injected.signing.store.password=$KEYSTORE_PASSWORD \
             -Pandroid.injected.signing.key.alias=$KEY_ALIAS \
             -Pandroid.injected.signing.key.password=$KEY_PASSWORD
+      - name: Find and rename release APK
+        run: |
+          APK_FILE=$(ls app/build/outputs/apk/release/*.apk | head -n 1)
+          echo "Found APK: $APK_FILE"
+          mv "$APK_FILE" app/build/outputs/apk/release/firefly_go_android.apk
 
-      - name: Upload APK artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: app-release
-          path: app/build/outputs/apk/release/*.apk
+      - name: Upload release
+        env:
+          REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
+        run: script/release-uploader -token=$REPO_TOKEN -release-url="https://git.kain.io.vn/api/v1/repos/Firefly-Shelter/Test/releases" -files="app/build/outputs/apk/release/firefly_go_android.apk"
