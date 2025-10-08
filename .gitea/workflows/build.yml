@@ -6,21 +6,26 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: mingc/android-build-box:latest
-
     steps:
       - uses: actions/checkout@v4
         with:
           lfs: true
-      - uses: actions/cache@v3
+
+      - name: Set Up JDK
+        uses: actions/setup-java@v4
         with:
-          path: /root/.gradle/caches
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-
+          distribution: 'zulu'
+          java-version: '21.0.7'
+          cache: 'gradle'
+
+      - name: Setup Android SDK
+        uses: amyu/setup-android@v5
+        with:
+          cache-disabled: true
 
       - name: Grant execute permission for Gradle wrapper
         run: chmod +x ./gradlew
+
 
       - name: Verify AAR File Integrity
         run: |
@@ -42,6 +47,12 @@ jobs:
       - name: Clean Gradle
         run: ./gradlew clean
 
+      - name: Run gradle tests
+        run: ./gradlew test
+
+      - name: Build gradle project
+        run: ./gradlew build
+
 #      - name: Build signed release APK
 #        env:
 #          KEYSTORE_PATH: KeyStore.jks
@@ -51,9 +62,7 @@ jobs:
 #        run: ./gradlew assembleRelease --stacktrace --debug -Pandroid.injected.signing.store.file=$KEYSTORE_PATH -Pandroid.injected.signing.store.password=$KEYSTORE_PASSWORD -Pandroid.injected.signing.key.alias=$KEY_ALIAS -Pandroid.injected.signing.key.password=$KEY_PASSWORD
 
       - name: Build Release APK
-        run: |
-          cd FireflyGo_Android
-          ./gradlew assembleRelease --stacktrace --debug
+        run: ./gradlew assembleRelease --stacktrace --debug
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
