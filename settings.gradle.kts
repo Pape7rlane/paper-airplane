@@ -1,5 +1,8 @@
 pluginManagement {
     repositories {
+        maven {
+            setUrl("https://mirrors.cloud.tencent.com/repository/maven/")
+        }
         google {
             content {
                 includeGroupByRegex("com\\.android.*")
@@ -9,17 +12,24 @@ pluginManagement {
         }
         mavenCentral()
         gradlePluginPortal()
+        maven {
+            setUrl("https://jitpack.io")
+        }
     }
 }
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
+        maven {
+            setUrl("https://mirrors.cloud.tencent.com/repository/maven/")
+        }
         google()
         mavenCentral()
-        maven{
-            url=uri("https://jitpack.io")
+        maven {
+            setUrl("https://jitpack.io")
         }
     }
+
 }
 
 rootProject.name = "FireflyPsAndorid"
