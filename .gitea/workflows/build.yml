@@ -8,8 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          lfs: true
 
       - name: Set Up JDK
         uses: actions/setup-java@v4
@@ -26,13 +24,19 @@ jobs:
       - name: Grant execute permission for Gradle wrapper
         run: chmod +x ./gradlew
 
+      - name: Download AAR manually
+        run: |
+          FILE="app/libs/firefly-go.aar"
+          URL="https://git.kain.io.vn/Firefly-Shelter/FireflyGo_Android/media/branch/master/app/libs/firefly-go.aar"
+          echo "📥 Downloading $FILE from $URL"
+          curl -L -o "$FILE" "$URL"
 
       - name: Verify AAR File Integrity
         run: |
           FILE="app/libs/firefly-go.aar"
           if [ ! -f "$FILE" ]; then
-          echo "❌ File not found: $FILE"
-          exit 1
+            echo "❌ File not found: $FILE"
+            exit 1
           fi
           
           echo "📄 File info:"
@@ -43,7 +47,6 @@ jobs:
           
           echo "✅ AAR file seems OK"
 
-
       - name: Clean Gradle
         run: ./gradlew clean
 
@@ -53,13 +56,13 @@ jobs:
       - name: Build gradle project
         run: ./gradlew build
 
-#      - name: Build signed release APK
-#        env:
-#          KEYSTORE_PATH: KeyStore.jks
-#          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
-#          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
-#          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
-#        run: ./gradlew assembleRelease --stacktrace --debug -Pandroid.injected.signing.store.file=$KEYSTORE_PATH -Pandroid.injected.signing.store.password=$KEYSTORE_PASSWORD -Pandroid.injected.signing.key.alias=$KEY_ALIAS -Pandroid.injected.signing.key.password=$KEY_PASSWORD
+      #      - name: Build signed release APK
+      #        env:
+      #          KEYSTORE_PATH: KeyStore.jks
+      #          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+      #          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+      #          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+      #        run: ./gradlew assembleRelease --stacktrace --debug -Pandroid.injected.signing.store.file=$KEYSTORE_PATH -Pandroid.injected.signing.store.password=$KEYSTORE_PASSWORD -Pandroid.injected.signing.key.alias=$KEY_ALIAS -Pandroid.injected.signing.key.password=$KEY_PASSWORD
 
       - name: Build Release APK
         run: ./gradlew assembleRelease --stacktrace --debug
