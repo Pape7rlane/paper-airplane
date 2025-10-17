@@ -1,12 +1,12 @@
 @file:Suppress("UnstableApiUsage")
 
-import com.android.build.api.dsl.Packaging
-
-
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+}
+kotlin {
+    jvmToolchain(17)
 }
 
 android {
@@ -24,28 +24,15 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    fun Packaging.() {
-        jniLibs {
-            useLegacyPackaging = true
-        }
-    }
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
         }
-    }
-
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
-    }
-
-    kotlinOptions {
-        jvmTarget = "17"
     }
 
     buildFeatures {
@@ -101,5 +88,7 @@ dependencies {
 
     // Local AAR library
     implementation(files("libs/firefly-go.aar"))
+
+    implementation("org.slf4j:slf4j-android:1.7.36")
 }
 

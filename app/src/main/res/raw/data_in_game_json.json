@@ -151,13 +151,13 @@
         200000
       ],
       "2": [
-        500000,
-        10000000,
-        500000
+        2000000000,
+        2000000000,
+        2000000000
       ]
     },
     "cycle_count": 1,
-    "mode": true
+    "mode": false
   },
   "profile_data": {
     "cur_chat_bubble_id": 220008,
@@ -180,5 +180,11 @@
   "skin_data": {
     "1001": 1100101,
     "1310": 1131001
+  },
+  "extra_setting": {
+    "censorship": false,
+    "cm": false,
+    "first_person": false,
+    "hide_ui": false
   }
 }

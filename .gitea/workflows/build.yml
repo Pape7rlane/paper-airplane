@@ -1,7 +1,11 @@
 name: Build
 run-name: ${{ gitea.actor }} build 🚀
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
+
 
 jobs:
   build:
