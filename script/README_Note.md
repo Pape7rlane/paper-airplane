@@ -1,2 +1,2 @@
 # Changelog
-## - FIX: Fix sync data
+## - UPDATE: Update to 3.6.54

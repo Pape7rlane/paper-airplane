@@ -54,4 +54,4 @@ jobs:
       - name: Upload release
         env:
           REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
-        run: script/release-uploader -token=$REPO_TOKEN -release-url="https://git.kain.io.vn/api/v1/repos/Firefly-Shelter/Test/releases" -files="app/build/outputs/apk/release/firefly_go_android.apk"
+        run: script/release-uploader -token=$REPO_TOKEN -release-url="https://git.kain.io.vn/api/v1/repos/Firefly-Shelter/FireflyGo_Android/releases" -files="app/build/outputs/apk/release/firefly_go_android.apk"
