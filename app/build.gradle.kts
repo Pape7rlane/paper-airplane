@@ -22,6 +22,8 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+
     }
 
     buildTypes {
@@ -32,6 +34,9 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            ndk {
+                abiFilters.addAll(listOf("arm64-v8a"))
+            }
         }
     }
 
@@ -89,6 +94,6 @@ dependencies {
     // Local AAR library
     implementation(files("libs/firefly-go.aar"))
 
-    implementation("org.slf4j:slf4j-android:1.7.36")
+    implementation(libs.slf4j.android)
 }
 

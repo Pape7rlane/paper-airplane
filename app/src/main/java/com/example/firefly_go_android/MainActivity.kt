@@ -66,6 +66,7 @@ import androidx.compose.ui.window.DialogProperties
 import kotlinx.coroutines.delay
 import org.json.JSONObject
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontFamily
 
 data class AppVersion(
     val latestVersion: String,
@@ -421,63 +422,59 @@ fun parseGoLogLine(line: String): String? {
     return if (content.isNullOrBlank()) null else content
 }
 
-fun parseAnsi(text: String): AnnotatedString {
+
+fun parseAnsi(text: String, defaultColor: Color): AnnotatedString {
     val regex = Regex("\u001B\\[(\\d+)(;\\d+)*m")
     val builder = buildAnnotatedString {
         var lastIndex = 0
-        var currentColor = Color.Black
+        var currentColor = defaultColor
 
         for (match in regex.findAll(text)) {
             val start = match.range.first
+
+            // 1. Thêm phần text TRƯỚC mã ANSI với màu HIỆN TẠI
             val before = text.substring(lastIndex, start)
-            withStyle(SpanStyle(color = currentColor)) {
-                append(before)
+            if (before.isNotEmpty()) {
+                withStyle(SpanStyle(color = currentColor)) {
+                    append(before)
+                }
             }
 
-            val code = match.groupValues[1].toInt()
-            currentColor = when (code) {
-                30 -> {
-                    Color.Black
-                }
-                31 -> {
-                    Color.Red
-                }
-                32 -> {
-                    Color(0xFF00C853)
-                }
-                33 -> {
-                    Color(0xFFFFD600)
-                }
-                34 -> {
-                    Color(0xFF2962FF)
-                }
-                35 -> {
-                    Color(0xFFD500F9)
-                }
-                36 -> {
-                    Color(0xFF00B8D4)
-                }
+            // 2. Lấy mã code (ví dụ 31, 36, hoặc 0)
+            val code = try {
+                match.groupValues[1].toInt()
+            } catch (e: NumberFormatException) {
+                0
+            }
 
-                37 -> {
-                    Color.White
-                }
-                else -> {
-                    Color.Black
-                }
+            currentColor = when (code) {
+                0 -> defaultColor
+                30 -> Color.Black
+                31 -> Color.Red
+                32 -> Color(0xFF00C853) // Green
+                33 -> Color(0xFFFFD600) // Yellow
+                34 -> Color(0xFF2962FF) // Blue
+                35 -> Color(0xFFD500F9) // Magenta
+                36 -> Color(0xFF00B8D4) // Cyan
+                37 -> Color.White
+                else -> currentColor
             }
 
             lastIndex = match.range.last + 1
         }
 
-        val remain = text.substring(lastIndex)
-        withStyle(SpanStyle(color = currentColor)) {
-            append(remain)
+        if (lastIndex < text.length) {
+            val remain = text.substring(lastIndex)
+            if (remain.isNotEmpty()) {
+                withStyle(SpanStyle(color = currentColor)) {
+                    append(remain)
+                }
+            }
         }
     }
 
     return builder
 }
-
 
 @Composable
 fun LogPopup(
@@ -512,6 +509,8 @@ fun LogPopup(
         }
     }
 
+    val defaultTextColor = LocalContentColor.current
+
     Dialog(onDismissRequest = { onDismiss() }) {
         Surface(
             shape = RoundedCornerShape(12.dp),
@@ -531,8 +530,15 @@ fun LogPopup(
                 LazyColumn(state = listState, modifier = Modifier.weight(1f)) {
                     items(logs.size) { index ->
                         Text(
-                            text = parseAnsi(logs[index]),
+                            text = parseAnsi(logs[index], defaultTextColor),
                             fontSize = 12.sp,
+
+                            // 2. DÙNG FONT MONOSPACE
+                            fontFamily = FontFamily.Monospace,
+
+                            // 3. (Tuỳ chọn) Giảm chiều cao dòng để logo liền mạch
+                            lineHeight = 14.sp,
+
                             modifier = Modifier.padding(vertical = 2.dp)
                         )
                     }
