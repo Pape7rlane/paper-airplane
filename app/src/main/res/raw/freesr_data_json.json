@@ -242,11 +242,19 @@
     },
     {
       "level": 80,
+      "item_id": 23050,
+      "equip_avatar": 1321,
+      "rank": 1,
+      "promotion": 6,
+      "internal_uid": 30
+    },
+    {
+      "level": 80,
       "item_id": 23037,
       "equip_avatar": 1401,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 30
+      "internal_uid": 31
     },
     {
       "level": 80,
@@ -254,7 +262,7 @@
       "equip_avatar": 1402,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 31
+      "internal_uid": 32
     },
     {
       "level": 80,
@@ -262,7 +270,7 @@
       "equip_avatar": 1403,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 32
+      "internal_uid": 33
     },
     {
       "level": 80,
@@ -270,7 +278,7 @@
       "equip_avatar": 1405,
       "rank": 5,
       "promotion": 6,
-      "internal_uid": 33
+      "internal_uid": 34
     },
     {
       "level": 80,
@@ -278,7 +286,7 @@
       "equip_avatar": 1406,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 34
+      "internal_uid": 35
     },
     {
       "level": 80,
@@ -286,7 +294,7 @@
       "equip_avatar": 1407,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 35
+      "internal_uid": 36
     },
     {
       "level": 80,
@@ -294,7 +302,7 @@
       "equip_avatar": 1408,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 36
+      "internal_uid": 37
     },
     {
       "level": 80,
@@ -302,7 +310,7 @@
       "equip_avatar": 1409,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 37
+      "internal_uid": 38
     },
     {
       "level": 80,
@@ -310,7 +318,7 @@
       "equip_avatar": 1410,
       "rank": 5,
       "promotion": 6,
-      "internal_uid": 38
+      "internal_uid": 39
     },
     {
       "level": 80,
@@ -318,7 +326,7 @@
       "equip_avatar": 1412,
       "rank": 5,
       "promotion": 6,
-      "internal_uid": 39
+      "internal_uid": 40
     },
     {
       "level": 80,
@@ -326,7 +334,7 @@
       "equip_avatar": 1413,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 40
+      "internal_uid": 41
     },
     {
       "level": 80,
@@ -334,15 +342,15 @@
       "equip_avatar": 1414,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 41
+      "internal_uid": 42
     },
     {
       "level": 80,
       "item_id": 23052,
       "equip_avatar": 1415,
-      "rank": 1,
+      "rank": 5,
       "promotion": 6,
-      "internal_uid": 42
+      "internal_uid": 43
     },
     {
       "level": 80,
@@ -350,7 +358,7 @@
       "equip_avatar": 8007,
       "rank": 5,
       "promotion": 6,
-      "internal_uid": 43
+      "internal_uid": 44
     },
     {
       "level": 80,
@@ -358,7 +366,7 @@
       "equip_avatar": 8008,
       "rank": 5,
       "promotion": 6,
-      "internal_uid": 44
+      "internal_uid": 45
     }
   ],
   "relics": [
@@ -6124,6 +6132,186 @@
     },
     {
       "level": 15,
+      "relic_id": 61191,
+      "relic_set_id": 119,
+      "main_affix_id": 1,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 5,
+          "count": 1,
+          "step": 1
+        },
+        {
+          "sub_affix_id": 7,
+          "count": 2,
+          "step": 0
+        },
+        {
+          "sub_affix_id": 11,
+          "count": 3,
+          "step": 3
+        },
+        {
+          "sub_affix_id": 12,
+          "count": 3,
+          "step": 3
+        }
+      ],
+      "internal_uid": 192,
+      "equip_avatar": 1321
+    },
+    {
+      "level": 15,
+      "relic_id": 61192,
+      "relic_set_id": 119,
+      "main_affix_id": 1,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 5,
+          "count": 1,
+          "step": 1
+        },
+        {
+          "sub_affix_id": 7,
+          "count": 2,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 11,
+          "count": 2,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 12,
+          "count": 3,
+          "step": 3
+        }
+      ],
+      "internal_uid": 193,
+      "equip_avatar": 1321
+    },
+    {
+      "level": 15,
+      "relic_id": 61193,
+      "relic_set_id": 119,
+      "main_affix_id": 2,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 4,
+          "count": 2,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 7,
+          "count": 1,
+          "step": 1
+        },
+        {
+          "sub_affix_id": 11,
+          "count": 2,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 12,
+          "count": 4,
+          "step": 4
+        }
+      ],
+      "internal_uid": 194,
+      "equip_avatar": 1321
+    },
+    {
+      "level": 15,
+      "relic_id": 61194,
+      "relic_set_id": 119,
+      "main_affix_id": 2,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 2,
+          "count": 2,
+          "step": 0
+        },
+        {
+          "sub_affix_id": 6,
+          "count": 1,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 7,
+          "count": 1,
+          "step": 1
+        },
+        {
+          "sub_affix_id": 12,
+          "count": 4,
+          "step": 4
+        }
+      ],
+      "internal_uid": 195,
+      "equip_avatar": 1321
+    },
+    {
+      "level": 15,
+      "relic_id": 63165,
+      "relic_set_id": 316,
+      "main_affix_id": 2,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 2,
+          "count": 1,
+          "step": 1
+        },
+        {
+          "sub_affix_id": 7,
+          "count": 2,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 11,
+          "count": 2,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 12,
+          "count": 3,
+          "step": 3
+        }
+      ],
+      "internal_uid": 196,
+      "equip_avatar": 1321
+    },
+    {
+      "level": 15,
+      "relic_id": 63166,
+      "relic_set_id": 316,
+      "main_affix_id": 1,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 4,
+          "count": 2,
+          "step": 4
+        },
+        {
+          "sub_affix_id": 5,
+          "count": 4,
+          "step": 4
+        },
+        {
+          "sub_affix_id": 7,
+          "count": 1,
+          "step": 1
+        },
+        {
+          "sub_affix_id": 11,
+          "count": 1,
+          "step": 1
+        }
+      ],
+      "internal_uid": 197,
+      "equip_avatar": 1321
+    },
+    {
+      "level": 15,
       "relic_id": 61261,
       "relic_set_id": 126,
       "main_affix_id": 1,
@@ -6149,7 +6337,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 192,
+      "internal_uid": 198,
       "equip_avatar": 1401
     },
     {
@@ -6179,7 +6367,7 @@
           "step": 0
         }
       ],
-      "internal_uid": 193,
+      "internal_uid": 199,
       "equip_avatar": 1401
     },
     {
@@ -6209,7 +6397,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 194,
+      "internal_uid": 200,
       "equip_avatar": 1401
     },
     {
@@ -6239,7 +6427,7 @@
           "step": 0
         }
       ],
-      "internal_uid": 195,
+      "internal_uid": 201,
       "equip_avatar": 1401
     },
     {
@@ -6269,7 +6457,7 @@
           "step": 0
         }
       ],
-      "internal_uid": 196,
+      "internal_uid": 202,
       "equip_avatar": 1401
     },
     {
@@ -6299,7 +6487,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 197,
+      "internal_uid": 203,
       "equip_avatar": 1401
     },
     {
@@ -6329,7 +6517,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 198,
+      "internal_uid": 204,
       "equip_avatar": 1402
     },
     {
@@ -6359,7 +6547,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 199,
+      "internal_uid": 205,
       "equip_avatar": 1402
     },
     {
@@ -6389,7 +6577,7 @@
           "step": 0
         }
       ],
-      "internal_uid": 200,
+      "internal_uid": 206,
       "equip_avatar": 1402
     },
     {
@@ -6419,7 +6607,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 201,
+      "internal_uid": 207,
       "equip_avatar": 1402
     },
     {
@@ -6449,7 +6637,7 @@
           "step": 4
         }
       ],
-      "internal_uid": 202,
+      "internal_uid": 208,
       "equip_avatar": 1402
     },
     {
@@ -6479,7 +6667,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 203,
+      "internal_uid": 209,
       "equip_avatar": 1402
     },
     {
@@ -6509,7 +6697,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 204,
+      "internal_uid": 210,
       "equip_avatar": 1403
     },
     {
@@ -6539,7 +6727,7 @@
           "step": 0
         }
       ],
-      "internal_uid": 205,
+      "internal_uid": 211,
       "equip_avatar": 1403
     },
     {
@@ -6569,7 +6757,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 206,
+      "internal_uid": 212,
       "equip_avatar": 1403
     },
     {
@@ -6599,7 +6787,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 207,
+      "internal_uid": 213,
       "equip_avatar": 1403
     },
     {
@@ -6629,7 +6817,7 @@
           "step": 0
         }
       ],
-      "internal_uid": 208,
+      "internal_uid": 214,
       "equip_avatar": 1403
     },
     {
@@ -6659,7 +6847,7 @@
           "step": 4
         }
       ],
-      "internal_uid": 209,
+      "internal_uid": 215,
       "equip_avatar": 1403
     },
     {
@@ -6689,7 +6877,7 @@
           "step": 0
         }
       ],
-      "internal_uid": 210,
+      "internal_uid": 216,
       "equip_avatar": 1405
     },
     {
@@ -6719,7 +6907,7 @@
           "step": 5
         }
       ],
-      "internal_uid": 211,
+      "internal_uid": 217,
       "equip_avatar": 1405
     },
     {
@@ -6749,7 +6937,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 212,
+      "internal_uid": 218,
       "equip_avatar": 1405
     },
     {
@@ -6779,7 +6967,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 213,
+      "internal_uid": 219,
       "equip_avatar": 1405
     },
     {
@@ -6809,7 +6997,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 214,
+      "internal_uid": 220,
       "equip_avatar": 1405
     },
     {
@@ -6839,7 +7027,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 215,
+      "internal_uid": 221,
       "equip_avatar": 1405
     },
     {
@@ -6869,7 +7057,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 216,
+      "internal_uid": 222,
       "equip_avatar": 1406
     },
     {
@@ -6899,7 +7087,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 217,
+      "internal_uid": 223,
       "equip_avatar": 1406
     },
     {
@@ -6929,7 +7117,7 @@
           "step": 5
         }
       ],
-      "internal_uid": 218,
+      "internal_uid": 224,
       "equip_avatar": 1406
     },
     {
@@ -6959,7 +7147,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 219,
+      "internal_uid": 225,
       "equip_avatar": 1406
     },
     {
@@ -6989,7 +7177,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 220,
+      "internal_uid": 226,
       "equip_avatar": 1406
     },
     {
@@ -7019,7 +7207,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 221,
+      "internal_uid": 227,
       "equip_avatar": 1406
     },
     {
@@ -7049,7 +7237,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 222,
+      "internal_uid": 228,
       "equip_avatar": 1407
     },
     {
@@ -7079,7 +7267,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 223,
+      "internal_uid": 229,
       "equip_avatar": 1407
     },
     {
@@ -7109,7 +7297,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 224,
+      "internal_uid": 230,
       "equip_avatar": 1407
     },
     {
@@ -7139,7 +7327,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 225,
+      "internal_uid": 231,
       "equip_avatar": 1407
     },
     {
@@ -7169,7 +7357,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 226,
+      "internal_uid": 232,
       "equip_avatar": 1407
     },
     {
@@ -7199,7 +7387,7 @@
           "step": 0
         }
       ],
-      "internal_uid": 227,
+      "internal_uid": 233,
       "equip_avatar": 1407
     },
     {
@@ -7229,7 +7417,7 @@
           "step": 4
         }
       ],
-      "internal_uid": 228,
+      "internal_uid": 234,
       "equip_avatar": 1408
     },
     {
@@ -7259,7 +7447,7 @@
           "step": 4
         }
       ],
-      "internal_uid": 229,
+      "internal_uid": 235,
       "equip_avatar": 1408
     },
     {
@@ -7289,7 +7477,7 @@
           "step": 5
         }
       ],
-      "internal_uid": 230,
+      "internal_uid": 236,
       "equip_avatar": 1408
     },
     {
@@ -7319,7 +7507,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 231,
+      "internal_uid": 237,
       "equip_avatar": 1408
     },
     {
@@ -7349,7 +7537,7 @@
           "step": 4
         }
       ],
-      "internal_uid": 232,
+      "internal_uid": 238,
       "equip_avatar": 1408
     },
     {
@@ -7379,7 +7567,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 233,
+      "internal_uid": 239,
       "equip_avatar": 1408
     },
     {
@@ -7409,7 +7597,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 234,
+      "internal_uid": 240,
       "equip_avatar": 1409
     },
     {
@@ -7439,7 +7627,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 235,
+      "internal_uid": 241,
       "equip_avatar": 1409
     },
     {
@@ -7469,7 +7657,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 236,
+      "internal_uid": 242,
       "equip_avatar": 1409
     },
     {
@@ -7499,7 +7687,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 237,
+      "internal_uid": 243,
       "equip_avatar": 1409
     },
     {
@@ -7529,7 +7717,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 238,
+      "internal_uid": 244,
       "equip_avatar": 1409
     },
     {
@@ -7559,7 +7747,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 239,
+      "internal_uid": 245,
       "equip_avatar": 1409
     },
     {
@@ -7589,7 +7777,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 240,
+      "internal_uid": 246,
       "equip_avatar": 1410
     },
     {
@@ -7619,7 +7807,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 241,
+      "internal_uid": 247,
       "equip_avatar": 1410
     },
     {
@@ -7649,7 +7837,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 242,
+      "internal_uid": 248,
       "equip_avatar": 1410
     },
     {
@@ -7679,7 +7867,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 243,
+      "internal_uid": 249,
       "equip_avatar": 1410
     },
     {
@@ -7709,7 +7897,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 244,
+      "internal_uid": 250,
       "equip_avatar": 1410
     },
     {
@@ -7739,7 +7927,7 @@
           "step": 4
         }
       ],
-      "internal_uid": 245,
+      "internal_uid": 251,
       "equip_avatar": 1410
     },
     {
@@ -7769,7 +7957,7 @@
           "step": 0
         }
       ],
-      "internal_uid": 246,
+      "internal_uid": 252,
       "equip_avatar": 1412
     },
     {
@@ -7799,7 +7987,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 247,
+      "internal_uid": 253,
       "equip_avatar": 1412
     },
     {
@@ -7829,7 +8017,7 @@
           "step": 4
         }
       ],
-      "internal_uid": 248,
+      "internal_uid": 254,
       "equip_avatar": 1412
     },
     {
@@ -7859,7 +8047,7 @@
           "step": 0
         }
       ],
-      "internal_uid": 249,
+      "internal_uid": 255,
       "equip_avatar": 1412
     },
     {
@@ -7889,7 +8077,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 250,
+      "internal_uid": 256,
       "equip_avatar": 1412
     },
     {
@@ -7919,7 +8107,7 @@
           "step": 0
         }
       ],
-      "internal_uid": 251,
+      "internal_uid": 257,
       "equip_avatar": 1412
     },
     {
@@ -7949,7 +8137,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 252,
+      "internal_uid": 258,
       "equip_avatar": 1413
     },
     {
@@ -7979,7 +8167,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 253,
+      "internal_uid": 259,
       "equip_avatar": 1413
     },
     {
@@ -8009,7 +8197,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 254,
+      "internal_uid": 260,
       "equip_avatar": 1413
     },
     {
@@ -8039,7 +8227,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 255,
+      "internal_uid": 261,
       "equip_avatar": 1413
     },
     {
@@ -8069,7 +8257,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 256,
+      "internal_uid": 262,
       "equip_avatar": 1413
     },
     {
@@ -8099,7 +8287,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 257,
+      "internal_uid": 263,
       "equip_avatar": 1413
     },
     {
@@ -8129,7 +8317,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 258,
+      "internal_uid": 264,
       "equip_avatar": 1414
     },
     {
@@ -8159,7 +8347,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 259,
+      "internal_uid": 265,
       "equip_avatar": 1414
     },
     {
@@ -8189,7 +8377,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 260,
+      "internal_uid": 266,
       "equip_avatar": 1414
     },
     {
@@ -8219,7 +8407,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 261,
+      "internal_uid": 267,
       "equip_avatar": 1414
     },
     {
@@ -8249,7 +8437,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 262,
+      "internal_uid": 268,
       "equip_avatar": 1414
     },
     {
@@ -8279,7 +8467,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 263,
+      "internal_uid": 269,
       "equip_avatar": 1414
     },
     {
@@ -8309,7 +8497,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 264,
+      "internal_uid": 270,
       "equip_avatar": 1415
     },
     {
@@ -8320,8 +8508,8 @@
       "sub_affixes": [
         {
           "sub_affix_id": 7,
-          "count": 3,
-          "step": 3
+          "count": 2,
+          "step": 2
         },
         {
           "sub_affix_id": 8,
@@ -8339,7 +8527,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 265,
+      "internal_uid": 271,
       "equip_avatar": 1415
     },
     {
@@ -8369,7 +8557,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 266,
+      "internal_uid": 272,
       "equip_avatar": 1415
     },
     {
@@ -8399,7 +8587,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 267,
+      "internal_uid": 273,
       "equip_avatar": 1415
     },
     {
@@ -8429,7 +8617,7 @@
           "step": 0
         }
       ],
-      "internal_uid": 268,
+      "internal_uid": 274,
       "equip_avatar": 1415
     },
     {
@@ -8459,7 +8647,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 269,
+      "internal_uid": 275,
       "equip_avatar": 1415
     },
     {
@@ -8489,7 +8677,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 270,
+      "internal_uid": 276,
       "equip_avatar": 8007
     },
     {
@@ -8519,7 +8707,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 271,
+      "internal_uid": 277,
       "equip_avatar": 8007
     },
     {
@@ -8549,7 +8737,7 @@
           "step": 0
         }
       ],
-      "internal_uid": 272,
+      "internal_uid": 278,
       "equip_avatar": 8007
     },
     {
@@ -8579,7 +8767,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 273,
+      "internal_uid": 279,
       "equip_avatar": 8007
     },
     {
@@ -8609,7 +8797,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 274,
+      "internal_uid": 280,
       "equip_avatar": 8007
     },
     {
@@ -8639,7 +8827,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 275,
+      "internal_uid": 281,
       "equip_avatar": 8007
     },
     {
@@ -8669,7 +8857,7 @@
           "step": 4
         }
       ],
-      "internal_uid": 276,
+      "internal_uid": 282,
       "equip_avatar": 8008
     },
     {
@@ -8699,7 +8887,7 @@
           "step": 0
         }
       ],
-      "internal_uid": 277,
+      "internal_uid": 283,
       "equip_avatar": 8008
     },
     {
@@ -8729,7 +8917,7 @@
           "step": 0
         }
       ],
-      "internal_uid": 278,
+      "internal_uid": 284,
       "equip_avatar": 8008
     },
     {
@@ -8759,7 +8947,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 279,
+      "internal_uid": 285,
       "equip_avatar": 8008
     },
     {
@@ -8789,7 +8977,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 280,
+      "internal_uid": 286,
       "equip_avatar": 8008
     },
     {
@@ -8819,7 +9007,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 281,
+      "internal_uid": 287,
       "equip_avatar": 8008
     }
   ],
@@ -10226,7 +10414,7 @@
       "owner_uid": 0,
       "avatar_id": 1222,
       "data": {
-        "rank": 6,
+        "rank": 0,
         "skills": {
           "1222001": 6,
           "1222002": 10,
@@ -10250,7 +10438,9 @@
       },
       "level": 80,
       "promotion": 6,
-      "techniques": [],
+      "techniques": [
+        122201
+      ],
       "sp_value": 55,
       "sp_max": 110
     },
@@ -10322,12 +10512,12 @@
       "owner_uid": 0,
       "avatar_id": 1225,
       "data": {
-        "rank": 6,
+        "rank": 1,
         "skills": {
-          "1225001": 1,
-          "1225002": 1,
-          "1225003": 1,
-          "1225004": 1,
+          "1225001": 6,
+          "1225002": 10,
+          "1225003": 10,
+          "1225004": 10,
           "1225007": 1,
           "1225101": 1,
           "1225102": 1,
@@ -10344,9 +10534,11 @@
           "1225210": 1
         }
       },
-      "level": 80,
-      "promotion": 6,
-      "techniques": [],
+      "level": 69,
+      "promotion": 5,
+      "techniques": [
+        122501
+      ],
       "sp_value": 65,
       "sp_max": 130
     },
@@ -10442,7 +10634,11 @@
       },
       "level": 80,
       "promotion": 6,
-      "techniques": [],
+      "techniques": [
+        130301,
+        130302,
+        130303
+      ],
       "sp_value": 65,
       "sp_max": 130
     },
@@ -10642,7 +10838,7 @@
       "owner_uid": 0,
       "avatar_id": 1310,
       "data": {
-        "rank": 6,
+        "rank": 2,
         "skills": {
           "1310001": 6,
           "1310002": 10,
@@ -10666,7 +10862,10 @@
       },
       "level": 80,
       "promotion": 6,
-      "techniques": [],
+      "techniques": [
+        131001,
+        131002
+      ],
       "sp_value": 120,
       "sp_max": 240
     },
@@ -10829,6 +11028,40 @@
       "techniques": [],
       "sp_value": 70,
       "sp_max": 140
+    },
+    "1321": {
+      "owner_uid": 0,
+      "avatar_id": 1321,
+      "data": {
+        "rank": 1,
+        "skills": {
+          "1321001": 6,
+          "1321002": 10,
+          "1321003": 10,
+          "1321004": 10,
+          "1321007": 1,
+          "1321101": 1,
+          "1321102": 1,
+          "1321103": 1,
+          "1321201": 1,
+          "1321202": 1,
+          "1321203": 1,
+          "1321204": 1,
+          "1321205": 1,
+          "1321206": 1,
+          "1321207": 1,
+          "1321208": 1,
+          "1321209": 1,
+          "1321210": 1
+        }
+      },
+      "level": 80,
+      "promotion": 6,
+      "techniques": [
+        132101
+      ],
+      "sp_value": 65,
+      "sp_max": 130
     },
     "1401": {
       "owner_uid": 0,
@@ -11199,7 +11432,7 @@
       "owner_uid": 0,
       "avatar_id": 1413,
       "data": {
-        "rank": 6,
+        "rank": 1,
         "skills": {
           "1413001": 6,
           "1413002": 10,
@@ -11563,39 +11796,34 @@
     }
   },
   "battle_config": {
-    "battle_type": "MOC",
+    "battle_type": "PEAK",
     "blessings": [
       {
         "level": 1,
-        "id": 3030141
+        "id": 3033029
+      },
+      {
+        "level": 1,
+        "id": 3033040
+      },
+      {
+        "level": 1,
+        "id": 3033036
+      },
+      {
+        "level": 1,
+        "id": 3033032
       }
     ],
     "custom_stats": [],
-    "cycle_count": 30,
-    "stage_id": 30118121,
+    "cycle_count": 6,
+    "stage_id": 30503022,
     "path_resonance_id": 0,
     "monsters": [
       [
         {
-          "monster_id": 2023030,
-          "level": 95,
-          "amount": 1
-        },
-        {
-          "monster_id": 4053020,
-          "level": 95,
-          "amount": 1
-        },
-        {
-          "monster_id": 2023030,
-          "level": 95,
-          "amount": 1
-        }
-      ],
-      [
-        {
-          "monster_id": 4014020,
-          "level": 95,
+          "monster_id": 3025016,
+          "level": 120,
           "amount": 1
         }
       ]

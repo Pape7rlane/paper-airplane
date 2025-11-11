@@ -1,5 +1,5 @@
 {
-  "leader": 0,
+  "leader": 1,
   "lineups": {
     "0": 1413,
     "1": 1415,
@@ -7,15 +7,15 @@
     "3": 1407
   },
   "position": {
-    "x": 218004,
-    "z": 259263,
-    "y": 53915,
-    "rot_y": 79863
+    "x": -4030,
+    "z": -13006,
+    "y": 0,
+    "rot_y": 270000
   },
   "scene": {
-    "plane_id": 20423,
-    "floor_id": 20423001,
-    "entry_id": 2042301
+    "plane_id": 10000,
+    "floor_id": 10000000,
+    "entry_id": 100000104
   },
   "player_outfit": [
     1001
@@ -35,15 +35,15 @@
     "skip_half": 0,
     "blessings": [],
     "is_in_challenge": false,
-    "current_stage_id": 30118121,
+    "current_stage_id": 30119122,
     "path_resonance_id": 0,
     "maze_buff": 0,
     "first_lineup": [],
     "second_lineup": []
   },
   "challenge_peak": {
-    "current_mode": "Knight",
-    "group_id": 2,
+    "current_mode": "Boss",
+    "group_id": 3,
     "is_in_challenge_peak": false,
     "challenge_peak_data": {
       "1": {
@@ -140,6 +140,46 @@
             }
           ]
         }
+      },
+      "3": {
+        "checkmate_data": {
+          "challenge_id": 304,
+          "blessing": 3033032,
+          "lineup": [
+            1222,
+            1225,
+            1310,
+            1321
+          ],
+          "stage_id": 30503021,
+          "is_hard_mode": false
+        },
+        "knight_data": {
+          "current_challenge_id": 302,
+          "details_data": [
+            {
+              "lineup": [
+                1003
+              ],
+              "stage_id": 30503011,
+              "challenge_id": 301
+            },
+            {
+              "lineup": [
+                1315
+              ],
+              "stage_id": 30503012,
+              "challenge_id": 302
+            },
+            {
+              "lineup": [
+                8001
+              ],
+              "stage_id": 30503013,
+              "challenge_id": 303
+            }
+          ]
+        }
       }
     }
   },
@@ -160,11 +200,11 @@
     "mode": false
   },
   "profile_data": {
-    "cur_chat_bubble_id": 220008,
+    "cur_chat_bubble_id": 220009,
     "cur_phone_theme_id": 221012,
     "cur_phone_case_id": 254001,
     "cur_pam_skin_id": 252000,
-    "cur_pet_id": 1003,
+    "cur_pet_id": 0,
     "cur_avatar_player_icon": 202034,
     "cur_player_personal_card": 253001,
     "cur_signature": "Firefly GO By Kain",

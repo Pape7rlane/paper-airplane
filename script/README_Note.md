@@ -1,7 +1,3 @@
 # Changelog
-## - UPDATE:
 
-* Support TCP
-* Apply Singleton pattern
-* Replace reflection with Type Factory + sync.Pool for optimization
-* Optimize file release process
+## - UPDATE: 3.7.52
