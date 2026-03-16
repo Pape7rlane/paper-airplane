@@ -1,24 +1,24 @@
 {
-  "leader": 1,
+  "leader": 2,
   "lineups": {
-    "0": 1413,
-    "1": 1415,
-    "2": 1409,
-    "3": 1407
+    "0": 1217,
+    "1": 1307,
+    "2": 1005,
+    "3": 1410
   },
   "position": {
-    "x": -4030,
-    "z": -13006,
-    "y": 0,
-    "rot_y": 270000
+    "x": -30,
+    "z": -22750,
+    "y": -15000,
+    "rot_y": 234288
   },
   "scene": {
     "plane_id": 10000,
-    "floor_id": 10000000,
-    "entry_id": 100000104
+    "floor_id": 10000003,
+    "entry_id": 100000352
   },
   "player_outfit": [
-    1001
+    1003
   ],
   "char_path": {
     "main": 8008,
@@ -28,14 +28,16 @@
     "1005": 1,
     "1006": 1,
     "1205": 1,
-    "1212": 1
+    "1212": 1,
+    "1306": 1,
+    "1307": 1
   },
   "challenge": {
     "challenge_id": 0,
     "skip_half": 0,
     "blessings": [],
     "is_in_challenge": false,
-    "current_stage_id": 30119122,
+    "current_stage_id": 30121122,
     "path_resonance_id": 0,
     "maze_buff": 0,
     "first_lineup": [],
@@ -43,7 +45,7 @@
   },
   "challenge_peak": {
     "current_mode": "Boss",
-    "group_id": 3,
+    "group_id": 5,
     "is_in_challenge_peak": false,
     "challenge_peak_data": {
       "1": {
@@ -180,6 +182,83 @@
             }
           ]
         }
+      },
+      "4": {
+        "checkmate_data": {
+          "challenge_id": 404,
+          "blessing": 3033045,
+          "lineup": [
+            1310
+          ],
+          "stage_id": 30504021,
+          "is_hard_mode": false
+        },
+        "knight_data": {
+          "current_challenge_id": 401,
+          "details_data": [
+            {
+              "lineup": [
+                1302
+              ],
+              "stage_id": 30504011,
+              "challenge_id": 401
+            },
+            {
+              "lineup": [
+                1321
+              ],
+              "stage_id": 30504012,
+              "challenge_id": 402
+            },
+            {
+              "lineup": [
+                1218
+              ],
+              "stage_id": 30504013,
+              "challenge_id": 403
+            }
+          ]
+        }
+      },
+      "5": {
+        "checkmate_data": {
+          "challenge_id": 504,
+          "blessing": 3033050,
+          "lineup": [
+            1415,
+            1413,
+            1407,
+            1409
+          ],
+          "stage_id": 30505021,
+          "is_hard_mode": false
+        },
+        "knight_data": {
+          "current_challenge_id": 501,
+          "details_data": [
+            {
+              "lineup": [
+                1310
+              ],
+              "stage_id": 30505011,
+              "challenge_id": 501
+            },
+            {
+              "lineup": [
+                1407
+              ],
+              "stage_id": 30505012,
+              "challenge_id": 502
+            },
+            {
+              "lineup": [
+                1502
+              ],
+              "stage_id": 30505013,
+              "challenge_id": 503
+            }
+          ]
+        }
       }
     }
   },
@@ -197,6 +276,7 @@
       ]
     },
     "cycle_count": 1,
+    "stage_id": 30118121,
     "mode": false
   },
   "profile_data": {

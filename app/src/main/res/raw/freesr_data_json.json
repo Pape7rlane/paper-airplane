@@ -90,11 +90,19 @@
     },
     {
       "level": 80,
+      "item_id": 23017,
+      "equip_avatar": 1217,
+      "rank": 1,
+      "promotion": 6,
+      "internal_uid": 11
+    },
+    {
+      "level": 80,
       "item_id": 23029,
       "equip_avatar": 1218,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 11
+      "internal_uid": 12
     },
     {
       "level": 80,
@@ -102,7 +110,7 @@
       "equip_avatar": 1220,
       "rank": 5,
       "promotion": 6,
-      "internal_uid": 12
+      "internal_uid": 13
     },
     {
       "level": 80,
@@ -110,7 +118,7 @@
       "equip_avatar": 1221,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 13
+      "internal_uid": 14
     },
     {
       "level": 80,
@@ -118,7 +126,7 @@
       "equip_avatar": 1222,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 14
+      "internal_uid": 15
     },
     {
       "level": 80,
@@ -126,7 +134,7 @@
       "equip_avatar": 1223,
       "rank": 5,
       "promotion": 6,
-      "internal_uid": 15
+      "internal_uid": 16
     },
     {
       "level": 80,
@@ -134,7 +142,7 @@
       "equip_avatar": 1224,
       "rank": 5,
       "promotion": 6,
-      "internal_uid": 16
+      "internal_uid": 17
     },
     {
       "level": 80,
@@ -142,7 +150,7 @@
       "equip_avatar": 1225,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 17
+      "internal_uid": 18
     },
     {
       "level": 80,
@@ -150,7 +158,7 @@
       "equip_avatar": 1301,
       "rank": 5,
       "promotion": 6,
-      "internal_uid": 18
+      "internal_uid": 19
     },
     {
       "level": 1,
@@ -158,7 +166,7 @@
       "equip_avatar": 1302,
       "rank": 5,
       "promotion": 0,
-      "internal_uid": 19
+      "internal_uid": 20
     },
     {
       "level": 80,
@@ -166,7 +174,7 @@
       "equip_avatar": 1303,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 20
+      "internal_uid": 21
     },
     {
       "level": 80,
@@ -174,7 +182,7 @@
       "equip_avatar": 1304,
       "rank": 5,
       "promotion": 6,
-      "internal_uid": 21
+      "internal_uid": 22
     },
     {
       "level": 80,
@@ -182,7 +190,7 @@
       "equip_avatar": 1305,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 22
+      "internal_uid": 23
     },
     {
       "level": 80,
@@ -190,7 +198,7 @@
       "equip_avatar": 1306,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 23
+      "internal_uid": 24
     },
     {
       "level": 80,
@@ -198,7 +206,7 @@
       "equip_avatar": 1307,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 24
+      "internal_uid": 25
     },
     {
       "level": 80,
@@ -206,7 +214,7 @@
       "equip_avatar": 1308,
       "rank": 5,
       "promotion": 6,
-      "internal_uid": 25
+      "internal_uid": 26
     },
     {
       "level": 80,
@@ -214,7 +222,7 @@
       "equip_avatar": 1309,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 26
+      "internal_uid": 27
     },
     {
       "level": 80,
@@ -222,7 +230,7 @@
       "equip_avatar": 1310,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 27
+      "internal_uid": 28
     },
     {
       "level": 80,
@@ -230,7 +238,7 @@
       "equip_avatar": 1313,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 28
+      "internal_uid": 29
     },
     {
       "level": 80,
@@ -238,7 +246,7 @@
       "equip_avatar": 1314,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 29
+      "internal_uid": 30
     },
     {
       "level": 80,
@@ -246,7 +254,7 @@
       "equip_avatar": 1321,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 30
+      "internal_uid": 31
     },
     {
       "level": 80,
@@ -254,7 +262,7 @@
       "equip_avatar": 1401,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 31
+      "internal_uid": 32
     },
     {
       "level": 80,
@@ -262,7 +270,7 @@
       "equip_avatar": 1402,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 32
+      "internal_uid": 33
     },
     {
       "level": 80,
@@ -270,7 +278,7 @@
       "equip_avatar": 1403,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 33
+      "internal_uid": 34
     },
     {
       "level": 80,
@@ -278,7 +286,7 @@
       "equip_avatar": 1405,
       "rank": 5,
       "promotion": 6,
-      "internal_uid": 34
+      "internal_uid": 35
     },
     {
       "level": 80,
@@ -286,7 +294,7 @@
       "equip_avatar": 1406,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 35
+      "internal_uid": 36
     },
     {
       "level": 80,
@@ -294,7 +302,7 @@
       "equip_avatar": 1407,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 36
+      "internal_uid": 37
     },
     {
       "level": 80,
@@ -302,7 +310,7 @@
       "equip_avatar": 1408,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 37
+      "internal_uid": 38
     },
     {
       "level": 80,
@@ -310,7 +318,7 @@
       "equip_avatar": 1409,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 38
+      "internal_uid": 39
     },
     {
       "level": 80,
@@ -318,7 +326,7 @@
       "equip_avatar": 1410,
       "rank": 5,
       "promotion": 6,
-      "internal_uid": 39
+      "internal_uid": 40
     },
     {
       "level": 80,
@@ -326,7 +334,7 @@
       "equip_avatar": 1412,
       "rank": 5,
       "promotion": 6,
-      "internal_uid": 40
+      "internal_uid": 41
     },
     {
       "level": 80,
@@ -334,7 +342,7 @@
       "equip_avatar": 1413,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 41
+      "internal_uid": 42
     },
     {
       "level": 80,
@@ -342,7 +350,7 @@
       "equip_avatar": 1414,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 42
+      "internal_uid": 43
     },
     {
       "level": 80,
@@ -350,7 +358,39 @@
       "equip_avatar": 1415,
       "rank": 5,
       "promotion": 6,
-      "internal_uid": 43
+      "internal_uid": 44
+    },
+    {
+      "level": 80,
+      "item_id": 23053,
+      "equip_avatar": 1501,
+      "rank": 1,
+      "promotion": 6,
+      "internal_uid": 45
+    },
+    {
+      "level": 80,
+      "item_id": 23054,
+      "equip_avatar": 1502,
+      "rank": 1,
+      "promotion": 6,
+      "internal_uid": 46
+    },
+    {
+      "level": 80,
+      "item_id": 23056,
+      "equip_avatar": 1504,
+      "rank": 1,
+      "promotion": 6,
+      "internal_uid": 47
+    },
+    {
+      "level": 80,
+      "item_id": 21018,
+      "equip_avatar": 8006,
+      "rank": 1,
+      "promotion": 6,
+      "internal_uid": 48
     },
     {
       "level": 80,
@@ -358,7 +398,7 @@
       "equip_avatar": 8007,
       "rank": 5,
       "promotion": 6,
-      "internal_uid": 44
+      "internal_uid": 49
     },
     {
       "level": 80,
@@ -366,7 +406,7 @@
       "equip_avatar": 8008,
       "rank": 5,
       "promotion": 6,
-      "internal_uid": 45
+      "internal_uid": 50
     }
   ],
   "relics": [
@@ -8652,6 +8692,726 @@
     },
     {
       "level": 15,
+      "relic_id": 61301,
+      "relic_set_id": 130,
+      "main_affix_id": 1,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 5,
+          "count": 2,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 8,
+          "count": 3,
+          "step": 3
+        },
+        {
+          "sub_affix_id": 9,
+          "count": 2,
+          "step": 3
+        },
+        {
+          "sub_affix_id": 7,
+          "count": 2,
+          "step": 3
+        }
+      ],
+      "internal_uid": 276,
+      "equip_avatar": 1501
+    },
+    {
+      "level": 15,
+      "relic_id": 61302,
+      "relic_set_id": 130,
+      "main_affix_id": 1,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 5,
+          "count": 3,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 8,
+          "count": 2,
+          "step": 1
+        },
+        {
+          "sub_affix_id": 9,
+          "count": 2,
+          "step": 0
+        },
+        {
+          "sub_affix_id": 7,
+          "count": 2,
+          "step": 2
+        }
+      ],
+      "internal_uid": 277,
+      "equip_avatar": 1501
+    },
+    {
+      "level": 15,
+      "relic_id": 61303,
+      "relic_set_id": 130,
+      "main_affix_id": 5,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 5,
+          "count": 3,
+          "step": 0
+        },
+        {
+          "sub_affix_id": 7,
+          "count": 2,
+          "step": 1
+        },
+        {
+          "sub_affix_id": 8,
+          "count": 3,
+          "step": 3
+        },
+        {
+          "sub_affix_id": 4,
+          "count": 1,
+          "step": 1
+        }
+      ],
+      "internal_uid": 278,
+      "equip_avatar": 1501
+    },
+    {
+      "level": 15,
+      "relic_id": 61304,
+      "relic_set_id": 130,
+      "main_affix_id": 4,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 2,
+          "count": 2,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 8,
+          "count": 2,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 5,
+          "count": 2,
+          "step": 4
+        },
+        {
+          "sub_affix_id": 9,
+          "count": 3,
+          "step": 2
+        }
+      ],
+      "internal_uid": 279,
+      "equip_avatar": 1501
+    },
+    {
+      "level": 15,
+      "relic_id": 63245,
+      "relic_set_id": 324,
+      "main_affix_id": 2,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 9,
+          "count": 3,
+          "step": 3
+        },
+        {
+          "sub_affix_id": 8,
+          "count": 2,
+          "step": 1
+        },
+        {
+          "sub_affix_id": 1,
+          "count": 3,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 7,
+          "count": 1,
+          "step": 2
+        }
+      ],
+      "internal_uid": 280,
+      "equip_avatar": 1501
+    },
+    {
+      "level": 15,
+      "relic_id": 63246,
+      "relic_set_id": 324,
+      "main_affix_id": 4,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 2,
+          "count": 2,
+          "step": 0
+        },
+        {
+          "sub_affix_id": 8,
+          "count": 3,
+          "step": 4
+        },
+        {
+          "sub_affix_id": 9,
+          "count": 3,
+          "step": 3
+        },
+        {
+          "sub_affix_id": 7,
+          "count": 1,
+          "step": 2
+        }
+      ],
+      "internal_uid": 281,
+      "equip_avatar": 1501
+    },
+    {
+      "level": 15,
+      "relic_id": 61301,
+      "relic_set_id": 130,
+      "main_affix_id": 1,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 5,
+          "count": 2,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 8,
+          "count": 3,
+          "step": 3
+        },
+        {
+          "sub_affix_id": 9,
+          "count": 2,
+          "step": 3
+        },
+        {
+          "sub_affix_id": 7,
+          "count": 2,
+          "step": 3
+        }
+      ],
+      "internal_uid": 282,
+      "equip_avatar": 1502
+    },
+    {
+      "level": 15,
+      "relic_id": 61302,
+      "relic_set_id": 130,
+      "main_affix_id": 1,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 5,
+          "count": 3,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 8,
+          "count": 2,
+          "step": 1
+        },
+        {
+          "sub_affix_id": 9,
+          "count": 2,
+          "step": 0
+        },
+        {
+          "sub_affix_id": 7,
+          "count": 2,
+          "step": 2
+        }
+      ],
+      "internal_uid": 283,
+      "equip_avatar": 1502
+    },
+    {
+      "level": 15,
+      "relic_id": 61303,
+      "relic_set_id": 130,
+      "main_affix_id": 5,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 5,
+          "count": 3,
+          "step": 0
+        },
+        {
+          "sub_affix_id": 7,
+          "count": 2,
+          "step": 1
+        },
+        {
+          "sub_affix_id": 8,
+          "count": 3,
+          "step": 3
+        },
+        {
+          "sub_affix_id": 4,
+          "count": 1,
+          "step": 1
+        }
+      ],
+      "internal_uid": 284,
+      "equip_avatar": 1502
+    },
+    {
+      "level": 15,
+      "relic_id": 61304,
+      "relic_set_id": 130,
+      "main_affix_id": 4,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 2,
+          "count": 2,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 8,
+          "count": 2,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 5,
+          "count": 2,
+          "step": 4
+        },
+        {
+          "sub_affix_id": 9,
+          "count": 3,
+          "step": 2
+        }
+      ],
+      "internal_uid": 285,
+      "equip_avatar": 1502
+    },
+    {
+      "level": 15,
+      "relic_id": 63245,
+      "relic_set_id": 324,
+      "main_affix_id": 2,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 9,
+          "count": 3,
+          "step": 3
+        },
+        {
+          "sub_affix_id": 8,
+          "count": 2,
+          "step": 1
+        },
+        {
+          "sub_affix_id": 1,
+          "count": 3,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 7,
+          "count": 1,
+          "step": 2
+        }
+      ],
+      "internal_uid": 286,
+      "equip_avatar": 1502
+    },
+    {
+      "level": 15,
+      "relic_id": 63246,
+      "relic_set_id": 324,
+      "main_affix_id": 4,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 2,
+          "count": 2,
+          "step": 0
+        },
+        {
+          "sub_affix_id": 8,
+          "count": 3,
+          "step": 4
+        },
+        {
+          "sub_affix_id": 9,
+          "count": 3,
+          "step": 3
+        },
+        {
+          "sub_affix_id": 7,
+          "count": 1,
+          "step": 2
+        }
+      ],
+      "internal_uid": 287,
+      "equip_avatar": 1502
+    },
+    {
+      "level": 15,
+      "relic_id": 61101,
+      "relic_set_id": 110,
+      "main_affix_id": 1,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 8,
+          "count": 4,
+          "step": 4
+        },
+        {
+          "sub_affix_id": 9,
+          "count": 1,
+          "step": 0
+        },
+        {
+          "sub_affix_id": 10,
+          "count": 1,
+          "step": 0
+        },
+        {
+          "sub_affix_id": 12,
+          "count": 2,
+          "step": 2
+        }
+      ],
+      "internal_uid": 288,
+      "equip_avatar": 1504
+    },
+    {
+      "level": 15,
+      "relic_id": 61102,
+      "relic_set_id": 110,
+      "main_affix_id": 1,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 1,
+          "count": 2,
+          "step": 1
+        },
+        {
+          "sub_affix_id": 4,
+          "count": 1,
+          "step": 0
+        },
+        {
+          "sub_affix_id": 8,
+          "count": 4,
+          "step": 5
+        },
+        {
+          "sub_affix_id": 9,
+          "count": 2,
+          "step": 2
+        }
+      ],
+      "internal_uid": 289,
+      "equip_avatar": 1504
+    },
+    {
+      "level": 15,
+      "relic_id": 61103,
+      "relic_set_id": 110,
+      "main_affix_id": 4,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 5,
+          "count": 1,
+          "step": 0
+        },
+        {
+          "sub_affix_id": 9,
+          "count": 4,
+          "step": 7
+        },
+        {
+          "sub_affix_id": 11,
+          "count": 2,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 12,
+          "count": 1,
+          "step": 1
+        }
+      ],
+      "internal_uid": 290,
+      "equip_avatar": 1504
+    },
+    {
+      "level": 15,
+      "relic_id": 61104,
+      "relic_set_id": 110,
+      "main_affix_id": 4,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 5,
+          "count": 1,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 6,
+          "count": 1,
+          "step": 1
+        },
+        {
+          "sub_affix_id": 8,
+          "count": 3,
+          "step": 1
+        },
+        {
+          "sub_affix_id": 11,
+          "count": 3,
+          "step": 3
+        }
+      ],
+      "internal_uid": 291,
+      "equip_avatar": 1504
+    },
+    {
+      "level": 15,
+      "relic_id": 63155,
+      "relic_set_id": 315,
+      "main_affix_id": 8,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 3,
+          "count": 1,
+          "step": 0
+        },
+        {
+          "sub_affix_id": 5,
+          "count": 2,
+          "step": 3
+        },
+        {
+          "sub_affix_id": 8,
+          "count": 3,
+          "step": 3
+        },
+        {
+          "sub_affix_id": 9,
+          "count": 2,
+          "step": 3
+        }
+      ],
+      "internal_uid": 292,
+      "equip_avatar": 1504
+    },
+    {
+      "level": 15,
+      "relic_id": 63156,
+      "relic_set_id": 315,
+      "main_affix_id": 4,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 2,
+          "count": 1,
+          "step": 0
+        },
+        {
+          "sub_affix_id": 3,
+          "count": 1,
+          "step": 0
+        },
+        {
+          "sub_affix_id": 8,
+          "count": 4,
+          "step": 3
+        },
+        {
+          "sub_affix_id": 9,
+          "count": 2,
+          "step": 2
+        }
+      ],
+      "internal_uid": 293,
+      "equip_avatar": 1504
+    },
+    {
+      "level": 15,
+      "relic_id": 61111,
+      "relic_set_id": 111,
+      "main_affix_id": 1,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 2,
+          "count": 2,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 7,
+          "count": 2,
+          "step": 3
+        },
+        {
+          "sub_affix_id": 11,
+          "count": 2,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 12,
+          "count": 3,
+          "step": 2
+        }
+      ],
+      "internal_uid": 294,
+      "equip_avatar": 8006
+    },
+    {
+      "level": 15,
+      "relic_id": 61112,
+      "relic_set_id": 111,
+      "main_affix_id": 1,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 3,
+          "count": 2,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 7,
+          "count": 3,
+          "step": 4
+        },
+        {
+          "sub_affix_id": 11,
+          "count": 1,
+          "step": 1
+        },
+        {
+          "sub_affix_id": 12,
+          "count": 3,
+          "step": 4
+        }
+      ],
+      "internal_uid": 295,
+      "equip_avatar": 8006
+    },
+    {
+      "level": 15,
+      "relic_id": 61183,
+      "relic_set_id": 118,
+      "main_affix_id": 3,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 1,
+          "count": 1,
+          "step": 0
+        },
+        {
+          "sub_affix_id": 2,
+          "count": 1,
+          "step": 0
+        },
+        {
+          "sub_affix_id": 9,
+          "count": 3,
+          "step": 3
+        },
+        {
+          "sub_affix_id": 12,
+          "count": 4,
+          "step": 6
+        }
+      ],
+      "internal_uid": 296,
+      "equip_avatar": 8006
+    },
+    {
+      "level": 15,
+      "relic_id": 61184,
+      "relic_set_id": 118,
+      "main_affix_id": 1,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 6,
+          "count": 3,
+          "step": 4
+        },
+        {
+          "sub_affix_id": 10,
+          "count": 1,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 11,
+          "count": 2,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 12,
+          "count": 2,
+          "step": 3
+        }
+      ],
+      "internal_uid": 297,
+      "equip_avatar": 8006
+    },
+    {
+      "level": 15,
+      "relic_id": 63085,
+      "relic_set_id": 308,
+      "main_affix_id": 3,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 1,
+          "count": 2,
+          "step": 0
+        },
+        {
+          "sub_affix_id": 2,
+          "count": 1,
+          "step": 0
+        },
+        {
+          "sub_affix_id": 5,
+          "count": 2,
+          "step": 1
+        },
+        {
+          "sub_affix_id": 9,
+          "count": 3,
+          "step": 1
+        }
+      ],
+      "internal_uid": 298,
+      "equip_avatar": 8006
+    },
+    {
+      "level": 15,
+      "relic_id": 63086,
+      "relic_set_id": 308,
+      "main_affix_id": 2,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 5,
+          "count": 3,
+          "step": 1
+        },
+        {
+          "sub_affix_id": 6,
+          "count": 2,
+          "step": 0
+        },
+        {
+          "sub_affix_id": 8,
+          "count": 1,
+          "step": 0
+        },
+        {
+          "sub_affix_id": 9,
+          "count": 2,
+          "step": 1
+        }
+      ],
+      "internal_uid": 299,
+      "equip_avatar": 8006
+    },
+    {
+      "level": 15,
       "relic_id": 61101,
       "relic_set_id": 110,
       "main_affix_id": 1,
@@ -8677,7 +9437,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 276,
+      "internal_uid": 300,
       "equip_avatar": 8007
     },
     {
@@ -8707,7 +9467,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 277,
+      "internal_uid": 301,
       "equip_avatar": 8007
     },
     {
@@ -8737,7 +9497,7 @@
           "step": 0
         }
       ],
-      "internal_uid": 278,
+      "internal_uid": 302,
       "equip_avatar": 8007
     },
     {
@@ -8767,7 +9527,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 279,
+      "internal_uid": 303,
       "equip_avatar": 8007
     },
     {
@@ -8797,7 +9557,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 280,
+      "internal_uid": 304,
       "equip_avatar": 8007
     },
     {
@@ -8827,7 +9587,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 281,
+      "internal_uid": 305,
       "equip_avatar": 8007
     },
     {
@@ -8857,7 +9617,7 @@
           "step": 4
         }
       ],
-      "internal_uid": 282,
+      "internal_uid": 306,
       "equip_avatar": 8008
     },
     {
@@ -8887,7 +9647,7 @@
           "step": 0
         }
       ],
-      "internal_uid": 283,
+      "internal_uid": 307,
       "equip_avatar": 8008
     },
     {
@@ -8917,7 +9677,7 @@
           "step": 0
         }
       ],
-      "internal_uid": 284,
+      "internal_uid": 308,
       "equip_avatar": 8008
     },
     {
@@ -8947,7 +9707,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 285,
+      "internal_uid": 309,
       "equip_avatar": 8008
     },
     {
@@ -8977,7 +9737,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 286,
+      "internal_uid": 310,
       "equip_avatar": 8008
     },
     {
@@ -9007,7 +9767,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 287,
+      "internal_uid": 311,
       "equip_avatar": 8008
     }
   ],
@@ -9036,6 +9796,26 @@
           "1001208": 1,
           "1001209": 1,
           "1001210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 10,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -9068,6 +9848,26 @@
           "1002208": 1,
           "1002209": 1,
           "1002210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 1,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 1,
+          "3": 1,
+          "4": 1,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -9100,6 +9900,26 @@
           "1003208": 1,
           "1003209": 1,
           "1003210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 1,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 1,
+          "3": 1,
+          "4": 1,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -9132,6 +9952,26 @@
           "1004208": 1,
           "1004209": 1,
           "1004210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 1,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 1,
+          "3": 1,
+          "4": 1,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -9164,6 +10004,26 @@
           "11005208": 1,
           "11005209": 1,
           "11005210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 10,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -9214,6 +10074,26 @@
           "11006208": 1,
           "11006209": 1,
           "11006210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 10,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -9246,6 +10126,26 @@
           "1008208": 1,
           "1008209": 1,
           "1008210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 1,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 1,
+          "3": 1,
+          "4": 1,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -9278,6 +10178,26 @@
           "1009208": 1,
           "1009209": 1,
           "1009210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 1,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 1,
+          "3": 1,
+          "4": 1,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -9310,6 +10230,26 @@
           "1013208": 1,
           "1013209": 1,
           "1013210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 10,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -9342,6 +10282,26 @@
           "1014208": 1,
           "1014209": 1,
           "1014210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 10,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -9374,6 +10334,26 @@
           "1015208": 1,
           "1015209": 1,
           "1015210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 10,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -9406,6 +10386,26 @@
           "1101208": 1,
           "1101209": 1,
           "1101210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 2,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 10,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -9438,6 +10438,26 @@
           "1102208": 1,
           "1102209": 1,
           "1102210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 1,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 1,
+          "3": 1,
+          "4": 1,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -9470,6 +10490,26 @@
           "1103208": 1,
           "1103209": 1,
           "1103210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 1,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 1,
+          "3": 1,
+          "4": 1,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -9502,6 +10542,26 @@
           "1104208": 1,
           "1104209": 1,
           "1104210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 10,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -9534,6 +10594,26 @@
           "1105208": 1,
           "1105209": 1,
           "1105210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 1,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 1,
+          "3": 1,
+          "4": 1,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -9566,6 +10646,26 @@
           "1106208": 1,
           "1106209": 1,
           "1106210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 10,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -9598,6 +10698,26 @@
           "1107208": 1,
           "1107209": 1,
           "1107210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 10,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -9630,6 +10750,26 @@
           "1108208": 1,
           "1108209": 1,
           "1108210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 1,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 1,
+          "3": 1,
+          "4": 1,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -9662,6 +10802,26 @@
           "1109208": 1,
           "1109209": 1,
           "1109210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 1,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 1,
+          "3": 1,
+          "4": 1,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -9694,6 +10854,26 @@
           "1110208": 1,
           "1110209": 1,
           "1110210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 1,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 1,
+          "3": 1,
+          "4": 1,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -9726,6 +10906,26 @@
           "1111208": 1,
           "1111209": 1,
           "1111210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 1,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 1,
+          "3": 1,
+          "4": 1,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -9758,6 +10958,26 @@
           "1112208": 1,
           "1112209": 1,
           "1112210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 1,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 1,
+          "3": 1,
+          "4": 1,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -9790,6 +11010,26 @@
           "1201208": 1,
           "1201209": 1,
           "1201210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 1,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 1,
+          "3": 1,
+          "4": 1,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -9822,6 +11062,26 @@
           "1202208": 1,
           "1202209": 1,
           "1202210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 10,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -9854,6 +11114,26 @@
           "1203208": 1,
           "1203209": 1,
           "1203210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 1,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 1,
+          "3": 1,
+          "4": 1,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -9886,6 +11166,26 @@
           "1204208": 1,
           "1204209": 1,
           "1204210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 1,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 1,
+          "3": 1,
+          "4": 1,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -9936,6 +11236,26 @@
           "1205208": 1,
           "1205209": 1,
           "1205210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 10,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -9968,6 +11288,26 @@
           "1206208": 1,
           "1206209": 1,
           "1206210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 1,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 1,
+          "3": 1,
+          "4": 1,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -10000,6 +11340,26 @@
           "1207208": 1,
           "1207209": 1,
           "1207210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 1,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 1,
+          "3": 1,
+          "4": 1,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -10032,6 +11392,26 @@
           "1208208": 1,
           "1208209": 1,
           "1208210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 1,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 1,
+          "3": 1,
+          "4": 1,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -10064,6 +11444,26 @@
           "1209208": 1,
           "1209209": 1,
           "1209210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 10,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -10096,6 +11496,26 @@
           "1210208": 1,
           "1210209": 1,
           "1210210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 1,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 1,
+          "3": 1,
+          "4": 1,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -10128,6 +11548,26 @@
           "1211208": 1,
           "1211209": 1,
           "1211210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 1,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 1,
+          "3": 1,
+          "4": 1,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -10178,6 +11618,26 @@
           "1212208": 1,
           "1212209": 1,
           "1212210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 10,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -10210,6 +11670,26 @@
           "1213208": 1,
           "1213209": 1,
           "1213210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 1,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 1,
+          "3": 1,
+          "4": 1,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -10242,6 +11722,26 @@
           "1214208": 1,
           "1214209": 1,
           "1214210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 1,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 1,
+          "3": 1,
+          "4": 1,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -10274,6 +11774,26 @@
           "1215208": 1,
           "1215209": 1,
           "1215210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 10,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -10306,6 +11826,26 @@
           "1217208": 1,
           "1217209": 1,
           "1217210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 10,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -10338,6 +11878,26 @@
           "1218208": 1,
           "1218209": 1,
           "1218210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 10,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -10370,6 +11930,26 @@
           "1220208": 1,
           "1220209": 1,
           "1220210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 10,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -10402,6 +11982,26 @@
           "1221208": 1,
           "1221209": 1,
           "1221210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 9,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -10434,13 +12034,31 @@
           "1222208": 1,
           "1222209": 1,
           "1222210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 10,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
       "promotion": 6,
-      "techniques": [
-        122201
-      ],
+      "techniques": [],
       "sp_value": 55,
       "sp_max": 110
     },
@@ -10468,6 +12086,26 @@
           "1223208": 1,
           "1223209": 1,
           "1223210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 2,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 10,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -10500,6 +12138,26 @@
           "1224208": 1,
           "1224209": 1,
           "1224210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 10,
+          "3": 9,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -10532,13 +12190,31 @@
           "1225208": 1,
           "1225209": 1,
           "1225210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 10,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
-      "level": 69,
-      "promotion": 5,
-      "techniques": [
-        122501
-      ],
+      "level": 80,
+      "promotion": 6,
+      "techniques": [],
       "sp_value": 65,
       "sp_max": 130
     },
@@ -10566,6 +12242,26 @@
           "1301208": 1,
           "1301209": 1,
           "1301210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 10,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -10598,6 +12294,26 @@
           "1302208": 1,
           "1302209": 1,
           "1302210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 10,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -10630,15 +12346,31 @@
           "1303208": 1,
           "1303209": 1,
           "1303210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 10,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
       "promotion": 6,
-      "techniques": [
-        130301,
-        130302,
-        130303
-      ],
+      "techniques": [],
       "sp_value": 65,
       "sp_max": 130
     },
@@ -10666,6 +12398,26 @@
           "1304208": 1,
           "1304209": 1,
           "1304210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 10,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -10698,6 +12450,26 @@
           "1305208": 1,
           "1305209": 1,
           "1305210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 2,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 10,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -10712,24 +12484,44 @@
       "data": {
         "rank": 2,
         "skills": {
-          "1306001": 6,
-          "1306002": 10,
-          "1306003": 10,
-          "1306004": 10,
-          "1306007": 1,
-          "1306101": 1,
-          "1306102": 1,
-          "1306103": 1,
-          "1306201": 1,
-          "1306202": 1,
-          "1306203": 1,
-          "1306204": 1,
-          "1306205": 1,
-          "1306206": 1,
-          "1306207": 1,
-          "1306208": 1,
-          "1306209": 1,
-          "1306210": 1
+          "11306001": 6,
+          "11306002": 10,
+          "11306003": 10,
+          "11306004": 10,
+          "11306007": 1,
+          "11306101": 1,
+          "11306102": 1,
+          "11306103": 1,
+          "11306201": 1,
+          "11306202": 1,
+          "11306203": 1,
+          "11306204": 1,
+          "11306205": 1,
+          "11306206": 1,
+          "11306207": 1,
+          "11306208": 1,
+          "11306209": 1,
+          "11306210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 10,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -10762,6 +12554,26 @@
           "1307208": 1,
           "1307209": 1,
           "1307210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 10,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -10794,6 +12606,26 @@
           "1308208": 1,
           "1308209": 1,
           "1308210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 10,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -10826,6 +12658,26 @@
           "1309208": 1,
           "1309209": 1,
           "1309210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 10,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -10858,14 +12710,31 @@
           "1310208": 1,
           "1310209": 1,
           "1310210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 10,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
       "promotion": 6,
-      "techniques": [
-        131001,
-        131002
-      ],
+      "techniques": [],
       "sp_value": 120,
       "sp_max": 240
     },
@@ -10893,6 +12762,26 @@
           "1312208": 1,
           "1312209": 1,
           "1312210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 1,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 1,
+          "3": 1,
+          "4": 1,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -10925,6 +12814,26 @@
           "1313208": 1,
           "1313209": 1,
           "1313210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 2,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 10,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -10957,6 +12866,26 @@
           "1314208": 1,
           "1314209": 1,
           "1314210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 10,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -10989,6 +12918,26 @@
           "1315208": 1,
           "1315209": 1,
           "1315210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 1,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 1,
+          "3": 1,
+          "4": 1,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -11021,6 +12970,26 @@
           "1317208": 1,
           "1317209": 1,
           "1317210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 1,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 1,
+          "3": 1,
+          "4": 1,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -11053,13 +13022,31 @@
           "1321208": 1,
           "1321209": 1,
           "1321210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 10,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
       "promotion": 6,
-      "techniques": [
-        132101
-      ],
+      "techniques": [],
       "sp_value": 65,
       "sp_max": 130
     },
@@ -11087,6 +13074,26 @@
           "1401208": 1,
           "1401209": 1,
           "1401210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 10,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -11121,6 +13128,28 @@
           "1402210": 1,
           "1402301": 6,
           "1402302": 5
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "19": 6,
+          "2": 4,
+          "20": 5,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -11153,6 +13182,26 @@
           "1403208": 1,
           "1403209": 1,
           "1403210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 10,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -11185,6 +13234,26 @@
           "1404208": 1,
           "1404209": 1,
           "1404210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 1,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 1,
+          "3": 1,
+          "4": 1,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -11217,6 +13286,26 @@
           "1405208": 1,
           "1405209": 1,
           "1405210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 10,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -11249,6 +13338,26 @@
           "1406208": 1,
           "1406209": 1,
           "1406210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 10,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -11261,7 +13370,7 @@
       "owner_uid": 0,
       "avatar_id": 1407,
       "data": {
-        "rank": 6,
+        "rank": 2,
         "skills": {
           "1407001": 1,
           "1407002": 10,
@@ -11283,6 +13392,28 @@
           "1407210": 1,
           "1407301": 6,
           "1407302": 6
+        },
+        "skills_by_anchor_type": {
+          "1": 1,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "19": 6,
+          "2": 10,
+          "20": 6,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -11315,14 +13446,31 @@
           "1408208": 1,
           "1408209": 1,
           "1408210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 10,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
       "promotion": 6,
-      "techniques": [
-        140801,
-        140802
-      ],
+      "techniques": [],
       "sp_value": 6,
       "sp_max": 12
     },
@@ -11330,7 +13478,7 @@
       "owner_uid": 0,
       "avatar_id": 1409,
       "data": {
-        "rank": 6,
+        "rank": 2,
         "skills": {
           "1409001": 6,
           "1409002": 10,
@@ -11352,6 +13500,28 @@
           "1409210": 1,
           "1409301": 6,
           "1409302": 6
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "19": 6,
+          "2": 10,
+          "20": 6,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -11384,6 +13554,26 @@
           "1410208": 1,
           "1410209": 1,
           "1410210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 10,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -11416,15 +13606,31 @@
           "1412208": 1,
           "1412209": 1,
           "1412210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 10,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
       "promotion": 6,
-      "techniques": [
-        141201,
-        141202,
-        141203
-      ],
+      "techniques": [],
       "sp_value": 65,
       "sp_max": 130
     },
@@ -11432,7 +13638,7 @@
       "owner_uid": 0,
       "avatar_id": 1413,
       "data": {
-        "rank": 1,
+        "rank": 2,
         "skills": {
           "1413001": 6,
           "1413002": 10,
@@ -11454,6 +13660,28 @@
           "1413210": 1,
           "1413301": 6,
           "1413302": 6
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "19": 6,
+          "2": 10,
+          "20": 6,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -11486,17 +13714,33 @@
           "1414208": 1,
           "1414209": 1,
           "1414210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 10,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
       "promotion": 6,
-      "techniques": [
-        141401,
-        141402,
-        141403
-      ],
-      "sp_value": 70,
-      "sp_max": 140
+      "techniques": [],
+      "sp_value": 68,
+      "sp_max": 135
     },
     "1415": {
       "owner_uid": 0,
@@ -11524,6 +13768,28 @@
           "1415210": 1,
           "1415301": 6,
           "1415302": 6
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "19": 6,
+          "2": 10,
+          "20": 6,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -11531,6 +13797,166 @@
       "techniques": [],
       "sp_value": 12,
       "sp_max": 24
+    },
+    "1501": {
+      "owner_uid": 0,
+      "avatar_id": 1501,
+      "data": {
+        "rank": 4,
+        "skills": {
+          "1501001": 6,
+          "1501002": 10,
+          "1501003": 10,
+          "1501004": 10,
+          "1501007": 1,
+          "1501101": 1,
+          "1501102": 1,
+          "1501103": 1,
+          "1501201": 1,
+          "1501202": 1,
+          "1501203": 1,
+          "1501204": 1,
+          "1501205": 1,
+          "1501206": 1,
+          "1501207": 1,
+          "1501208": 1,
+          "1501209": 1,
+          "1501210": 1,
+          "1501420": 10
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 10,
+          "22": 10,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
+        }
+      },
+      "level": 80,
+      "promotion": 6,
+      "techniques": [],
+      "sp_value": 80,
+      "sp_max": 160
+    },
+    "1502": {
+      "owner_uid": 0,
+      "avatar_id": 1502,
+      "data": {
+        "rank": 0,
+        "skills": {
+          "1502001": 6,
+          "1502002": 10,
+          "1502003": 10,
+          "1502004": 10,
+          "1502007": 1,
+          "1502101": 1,
+          "1502102": 1,
+          "1502103": 1,
+          "1502201": 1,
+          "1502202": 1,
+          "1502203": 1,
+          "1502204": 1,
+          "1502205": 1,
+          "1502206": 1,
+          "1502207": 1,
+          "1502208": 1,
+          "1502209": 1,
+          "1502210": 1,
+          "1502420": 10
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 10,
+          "22": 10,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
+        }
+      },
+      "level": 80,
+      "promotion": 6,
+      "techniques": [],
+      "sp_value": 90,
+      "sp_max": 180
+    },
+    "1504": {
+      "owner_uid": 0,
+      "avatar_id": 1504,
+      "data": {
+        "rank": 0,
+        "skills": {
+          "1504001": 6,
+          "1504002": 10,
+          "1504003": 10,
+          "1504004": 10,
+          "1504007": 1,
+          "1504101": 1,
+          "1504102": 1,
+          "1504103": 1,
+          "1504201": 1,
+          "1504202": 1,
+          "1504203": 1,
+          "1504204": 1,
+          "1504205": 1,
+          "1504206": 1,
+          "1504207": 1,
+          "1504208": 1,
+          "1504209": 1,
+          "1504210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 10,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
+        }
+      },
+      "level": 80,
+      "promotion": 6,
+      "techniques": [],
+      "sp_value": 80,
+      "sp_max": 160
     },
     "8001": {
       "owner_uid": 0,
@@ -11556,6 +13982,26 @@
           "8001208": 1,
           "8001209": 1,
           "8001210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 1,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 1,
+          "3": 1,
+          "4": 1,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -11588,6 +14034,26 @@
           "8002208": 1,
           "8002209": 1,
           "8002210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 1,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 1,
+          "3": 1,
+          "4": 1,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -11620,6 +14086,26 @@
           "8003208": 1,
           "8003209": 1,
           "8003210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 1,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 1,
+          "3": 1,
+          "4": 1,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -11652,6 +14138,26 @@
           "8004208": 1,
           "8004209": 1,
           "8004210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 1,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 1,
+          "3": 1,
+          "4": 1,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -11684,6 +14190,26 @@
           "8005208": 1,
           "8005209": 1,
           "8005210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 1,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 1,
+          "3": 1,
+          "4": 1,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -11716,6 +14242,26 @@
           "8006208": 1,
           "8006209": 1,
           "8006210": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 1,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 1,
+          "3": 1,
+          "4": 1,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -11751,6 +14297,29 @@
           "8007301": 6,
           "8007302": 6,
           "8007501": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "19": 6,
+          "2": 10,
+          "20": 6,
+          "21": 1,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -11786,6 +14355,29 @@
           "8008301": 6,
           "8008302": 6,
           "8008501": 1
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "19": 6,
+          "2": 10,
+          "20": 6,
+          "21": 1,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
         }
       },
       "level": 80,
@@ -11800,30 +14392,37 @@
     "blessings": [
       {
         "level": 1,
-        "id": 3033029
+        "id": 3033041
       },
       {
         "level": 1,
-        "id": 3033040
-      },
-      {
-        "level": 1,
-        "id": 3033036
-      },
-      {
-        "level": 1,
-        "id": 3033032
+        "id": 3033048
       }
     ],
     "custom_stats": [],
     "cycle_count": 6,
-    "stage_id": 30503022,
+    "stage_id": 30505011,
     "path_resonance_id": 0,
     "monsters": [
       [
         {
-          "monster_id": 3025016,
-          "level": 120,
+          "monster_id": 5012010,
+          "level": 95,
+          "amount": 1
+        },
+        {
+          "monster_id": 5013040,
+          "level": 95,
+          "amount": 1
+        },
+        {
+          "monster_id": 5012010,
+          "level": 95,
+          "amount": 1
+        },
+        {
+          "monster_id": 5012010,
+          "level": 95,
           "amount": 1
         }
       ]

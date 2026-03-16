@@ -1,3 +1,3 @@
 # Changelog
 
-## - UPDATE: 3.7.52
+## - UPDATE: Support 4.0.5X
