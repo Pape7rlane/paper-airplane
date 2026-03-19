@@ -11,10 +11,18 @@
     {
       "level": 80,
       "item_id": 22000,
-      "equip_avatar": 1005,
+      "equip_avatar": 1004,
       "rank": 5,
       "promotion": 6,
       "internal_uid": 1
+    },
+    {
+      "level": 80,
+      "item_id": 22000,
+      "equip_avatar": 1005,
+      "rank": 5,
+      "promotion": 6,
+      "internal_uid": 2
     },
     {
       "level": 80,
@@ -22,7 +30,7 @@
       "equip_avatar": 1006,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 2
+      "internal_uid": 3
     },
     {
       "level": 80,
@@ -30,7 +38,7 @@
       "equip_avatar": 1014,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 3
+      "internal_uid": 4
     },
     {
       "level": 80,
@@ -38,7 +46,7 @@
       "equip_avatar": 1015,
       "rank": 5,
       "promotion": 6,
-      "internal_uid": 4
+      "internal_uid": 5
     },
     {
       "level": 80,
@@ -46,7 +54,7 @@
       "equip_avatar": 1101,
       "rank": 5,
       "promotion": 6,
-      "internal_uid": 5
+      "internal_uid": 6
     },
     {
       "level": 80,
@@ -54,7 +62,7 @@
       "equip_avatar": 1106,
       "rank": 5,
       "promotion": 6,
-      "internal_uid": 6
+      "internal_uid": 7
     },
     {
       "level": 80,
@@ -62,7 +70,7 @@
       "equip_avatar": 1202,
       "rank": 5,
       "promotion": 6,
-      "internal_uid": 7
+      "internal_uid": 8
     },
     {
       "level": 80,
@@ -70,7 +78,7 @@
       "equip_avatar": 1205,
       "rank": 5,
       "promotion": 6,
-      "internal_uid": 8
+      "internal_uid": 9
     },
     {
       "level": 80,
@@ -78,7 +86,7 @@
       "equip_avatar": 1212,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 9
+      "internal_uid": 10
     },
     {
       "level": 80,
@@ -86,7 +94,7 @@
       "equip_avatar": 1215,
       "rank": 5,
       "promotion": 6,
-      "internal_uid": 10
+      "internal_uid": 11
     },
     {
       "level": 80,
@@ -94,7 +102,7 @@
       "equip_avatar": 1217,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 11
+      "internal_uid": 12
     },
     {
       "level": 80,
@@ -102,7 +110,7 @@
       "equip_avatar": 1218,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 12
+      "internal_uid": 13
     },
     {
       "level": 80,
@@ -110,7 +118,7 @@
       "equip_avatar": 1220,
       "rank": 5,
       "promotion": 6,
-      "internal_uid": 13
+      "internal_uid": 14
     },
     {
       "level": 80,
@@ -118,7 +126,7 @@
       "equip_avatar": 1221,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 14
+      "internal_uid": 15
     },
     {
       "level": 80,
@@ -126,7 +134,7 @@
       "equip_avatar": 1222,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 15
+      "internal_uid": 16
     },
     {
       "level": 80,
@@ -134,7 +142,7 @@
       "equip_avatar": 1223,
       "rank": 5,
       "promotion": 6,
-      "internal_uid": 16
+      "internal_uid": 17
     },
     {
       "level": 80,
@@ -142,7 +150,7 @@
       "equip_avatar": 1224,
       "rank": 5,
       "promotion": 6,
-      "internal_uid": 17
+      "internal_uid": 18
     },
     {
       "level": 80,
@@ -150,7 +158,7 @@
       "equip_avatar": 1225,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 18
+      "internal_uid": 19
     },
     {
       "level": 80,
@@ -158,7 +166,7 @@
       "equip_avatar": 1301,
       "rank": 5,
       "promotion": 6,
-      "internal_uid": 19
+      "internal_uid": 20
     },
     {
       "level": 1,
@@ -166,7 +174,7 @@
       "equip_avatar": 1302,
       "rank": 5,
       "promotion": 0,
-      "internal_uid": 20
+      "internal_uid": 21
     },
     {
       "level": 80,
@@ -174,7 +182,7 @@
       "equip_avatar": 1303,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 21
+      "internal_uid": 22
     },
     {
       "level": 80,
@@ -182,7 +190,7 @@
       "equip_avatar": 1304,
       "rank": 5,
       "promotion": 6,
-      "internal_uid": 22
+      "internal_uid": 23
     },
     {
       "level": 80,
@@ -190,7 +198,7 @@
       "equip_avatar": 1305,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 23
+      "internal_uid": 24
     },
     {
       "level": 80,
@@ -198,7 +206,7 @@
       "equip_avatar": 1306,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 24
+      "internal_uid": 25
     },
     {
       "level": 80,
@@ -206,7 +214,7 @@
       "equip_avatar": 1307,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 25
+      "internal_uid": 26
     },
     {
       "level": 80,
@@ -214,7 +222,7 @@
       "equip_avatar": 1308,
       "rank": 5,
       "promotion": 6,
-      "internal_uid": 26
+      "internal_uid": 27
     },
     {
       "level": 80,
@@ -222,7 +230,7 @@
       "equip_avatar": 1309,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 27
+      "internal_uid": 28
     },
     {
       "level": 80,
@@ -230,7 +238,7 @@
       "equip_avatar": 1310,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 28
+      "internal_uid": 29
     },
     {
       "level": 80,
@@ -238,7 +246,7 @@
       "equip_avatar": 1313,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 29
+      "internal_uid": 30
     },
     {
       "level": 80,
@@ -246,7 +254,7 @@
       "equip_avatar": 1314,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 30
+      "internal_uid": 31
     },
     {
       "level": 80,
@@ -254,7 +262,7 @@
       "equip_avatar": 1321,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 31
+      "internal_uid": 32
     },
     {
       "level": 80,
@@ -262,7 +270,7 @@
       "equip_avatar": 1401,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 32
+      "internal_uid": 33
     },
     {
       "level": 80,
@@ -270,7 +278,7 @@
       "equip_avatar": 1402,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 33
+      "internal_uid": 34
     },
     {
       "level": 80,
@@ -278,7 +286,7 @@
       "equip_avatar": 1403,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 34
+      "internal_uid": 35
     },
     {
       "level": 80,
@@ -286,7 +294,7 @@
       "equip_avatar": 1405,
       "rank": 5,
       "promotion": 6,
-      "internal_uid": 35
+      "internal_uid": 36
     },
     {
       "level": 80,
@@ -294,7 +302,7 @@
       "equip_avatar": 1406,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 36
+      "internal_uid": 37
     },
     {
       "level": 80,
@@ -302,7 +310,7 @@
       "equip_avatar": 1407,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 37
+      "internal_uid": 38
     },
     {
       "level": 80,
@@ -310,7 +318,7 @@
       "equip_avatar": 1408,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 38
+      "internal_uid": 39
     },
     {
       "level": 80,
@@ -318,7 +326,7 @@
       "equip_avatar": 1409,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 39
+      "internal_uid": 40
     },
     {
       "level": 80,
@@ -326,7 +334,7 @@
       "equip_avatar": 1410,
       "rank": 5,
       "promotion": 6,
-      "internal_uid": 40
+      "internal_uid": 41
     },
     {
       "level": 80,
@@ -334,7 +342,7 @@
       "equip_avatar": 1412,
       "rank": 5,
       "promotion": 6,
-      "internal_uid": 41
+      "internal_uid": 42
     },
     {
       "level": 80,
@@ -342,7 +350,7 @@
       "equip_avatar": 1413,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 42
+      "internal_uid": 43
     },
     {
       "level": 80,
@@ -350,7 +358,7 @@
       "equip_avatar": 1414,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 43
+      "internal_uid": 44
     },
     {
       "level": 80,
@@ -358,7 +366,7 @@
       "equip_avatar": 1415,
       "rank": 5,
       "promotion": 6,
-      "internal_uid": 44
+      "internal_uid": 45
     },
     {
       "level": 80,
@@ -366,7 +374,7 @@
       "equip_avatar": 1501,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 45
+      "internal_uid": 46
     },
     {
       "level": 80,
@@ -374,7 +382,7 @@
       "equip_avatar": 1502,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 46
+      "internal_uid": 47
     },
     {
       "level": 80,
@@ -382,7 +390,23 @@
       "equip_avatar": 1504,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 47
+      "internal_uid": 48
+    },
+    {
+      "level": 80,
+      "item_id": 23058,
+      "equip_avatar": 1505,
+      "rank": 1,
+      "promotion": 6,
+      "internal_uid": 49
+    },
+    {
+      "level": 80,
+      "item_id": 23057,
+      "equip_avatar": 1506,
+      "rank": 1,
+      "promotion": 6,
+      "internal_uid": 50
     },
     {
       "level": 80,
@@ -390,15 +414,15 @@
       "equip_avatar": 8006,
       "rank": 1,
       "promotion": 6,
-      "internal_uid": 48
+      "internal_uid": 51
     },
     {
       "level": 80,
-      "item_id": 21050,
+      "item_id": 22006,
       "equip_avatar": 8007,
       "rank": 5,
       "promotion": 6,
-      "internal_uid": 49
+      "internal_uid": 52
     },
     {
       "level": 80,
@@ -406,7 +430,15 @@
       "equip_avatar": 8008,
       "rank": 5,
       "promotion": 6,
-      "internal_uid": 50
+      "internal_uid": 53
+    },
+    {
+      "level": 80,
+      "item_id": 24006,
+      "equip_avatar": 8010,
+      "rank": 5,
+      "promotion": 6,
+      "internal_uid": 54
     }
   ],
   "relics": [
@@ -597,6 +629,126 @@
       "main_affix_id": 1,
       "sub_affixes": [
         {
+          "sub_affix_id": 4,
+          "count": 1,
+          "step": 1
+        },
+        {
+          "sub_affix_id": 10,
+          "count": 3,
+          "step": 4
+        },
+        {
+          "sub_affix_id": 7,
+          "count": 2,
+          "step": 0
+        },
+        {
+          "sub_affix_id": 11,
+          "count": 2,
+          "step": 3
+        }
+      ],
+      "internal_uid": 6,
+      "equip_avatar": 1004
+    },
+    {
+      "level": 15,
+      "relic_id": 61102,
+      "relic_set_id": 110,
+      "main_affix_id": 1,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 7,
+          "count": 3,
+          "step": 6
+        },
+        {
+          "sub_affix_id": 8,
+          "count": 3,
+          "step": 4
+        },
+        {
+          "sub_affix_id": 9,
+          "count": 1,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 10,
+          "count": 1,
+          "step": 2
+        }
+      ],
+      "internal_uid": 7,
+      "equip_avatar": 1004
+    },
+    {
+      "level": 15,
+      "relic_id": 61103,
+      "relic_set_id": 110,
+      "main_affix_id": 7,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 3,
+          "count": 3,
+          "step": 1
+        },
+        {
+          "sub_affix_id": 7,
+          "count": 2,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 4,
+          "count": 3,
+          "step": 6
+        },
+        {
+          "sub_affix_id": 11,
+          "count": 1,
+          "step": 0
+        }
+      ],
+      "internal_uid": 8,
+      "equip_avatar": 1004
+    },
+    {
+      "level": 15,
+      "relic_id": 61104,
+      "relic_set_id": 110,
+      "main_affix_id": 4,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 8,
+          "count": 1,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 10,
+          "count": 3,
+          "step": 4
+        },
+        {
+          "sub_affix_id": 5,
+          "count": 2,
+          "step": 0
+        },
+        {
+          "sub_affix_id": 4,
+          "count": 2,
+          "step": 2
+        }
+      ],
+      "internal_uid": 9,
+      "equip_avatar": 1004
+    },
+    {
+      "level": 15,
+      "relic_id": 61101,
+      "relic_set_id": 110,
+      "main_affix_id": 1,
+      "sub_affixes": [
+        {
           "sub_affix_id": 2,
           "count": 1,
           "step": 2
@@ -617,7 +769,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 6,
+      "internal_uid": 10,
       "equip_avatar": 1005
     },
     {
@@ -647,7 +799,7 @@
           "step": 4
         }
       ],
-      "internal_uid": 7,
+      "internal_uid": 11,
       "equip_avatar": 1005
     },
     {
@@ -677,7 +829,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 8,
+      "internal_uid": 12,
       "equip_avatar": 1005
     },
     {
@@ -707,7 +859,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 9,
+      "internal_uid": 13,
       "equip_avatar": 1005
     },
     {
@@ -737,7 +889,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 10,
+      "internal_uid": 14,
       "equip_avatar": 1005
     },
     {
@@ -767,7 +919,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 11,
+      "internal_uid": 15,
       "equip_avatar": 1005
     },
     {
@@ -797,7 +949,7 @@
           "step": 4
         }
       ],
-      "internal_uid": 12,
+      "internal_uid": 16,
       "equip_avatar": 1006
     },
     {
@@ -827,7 +979,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 13,
+      "internal_uid": 17,
       "equip_avatar": 1006
     },
     {
@@ -857,7 +1009,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 14,
+      "internal_uid": 18,
       "equip_avatar": 1006
     },
     {
@@ -887,7 +1039,7 @@
           "step": 4
         }
       ],
-      "internal_uid": 15,
+      "internal_uid": 19,
       "equip_avatar": 1006
     },
     {
@@ -917,7 +1069,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 16,
+      "internal_uid": 20,
       "equip_avatar": 1006
     },
     {
@@ -947,7 +1099,7 @@
           "step": 0
         }
       ],
-      "internal_uid": 17,
+      "internal_uid": 21,
       "equip_avatar": 1006
     },
     {
@@ -977,7 +1129,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 18,
+      "internal_uid": 22,
       "equip_avatar": 1014
     },
     {
@@ -1007,7 +1159,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 19,
+      "internal_uid": 23,
       "equip_avatar": 1014
     },
     {
@@ -1037,7 +1189,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 20,
+      "internal_uid": 24,
       "equip_avatar": 1014
     },
     {
@@ -1067,7 +1219,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 21,
+      "internal_uid": 25,
       "equip_avatar": 1014
     },
     {
@@ -1097,7 +1249,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 22,
+      "internal_uid": 26,
       "equip_avatar": 1014
     },
     {
@@ -1127,7 +1279,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 23,
+      "internal_uid": 27,
       "equip_avatar": 1014
     },
     {
@@ -1157,7 +1309,7 @@
           "step": 4
         }
       ],
-      "internal_uid": 24,
+      "internal_uid": 28,
       "equip_avatar": 1015
     },
     {
@@ -1187,7 +1339,7 @@
           "step": 4
         }
       ],
-      "internal_uid": 25,
+      "internal_uid": 29,
       "equip_avatar": 1015
     },
     {
@@ -1217,7 +1369,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 26,
+      "internal_uid": 30,
       "equip_avatar": 1015
     },
     {
@@ -1247,7 +1399,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 27,
+      "internal_uid": 31,
       "equip_avatar": 1015
     },
     {
@@ -1277,7 +1429,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 28,
+      "internal_uid": 32,
       "equip_avatar": 1015
     },
     {
@@ -1307,7 +1459,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 29,
+      "internal_uid": 33,
       "equip_avatar": 1015
     },
     {
@@ -1337,7 +1489,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 30,
+      "internal_uid": 34,
       "equip_avatar": 1101
     },
     {
@@ -1367,7 +1519,7 @@
           "step": 4
         }
       ],
-      "internal_uid": 31,
+      "internal_uid": 35,
       "equip_avatar": 1101
     },
     {
@@ -1397,7 +1549,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 32,
+      "internal_uid": 36,
       "equip_avatar": 1101
     },
     {
@@ -1427,7 +1579,7 @@
           "step": 0
         }
       ],
-      "internal_uid": 33,
+      "internal_uid": 37,
       "equip_avatar": 1101
     },
     {
@@ -1457,7 +1609,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 34,
+      "internal_uid": 38,
       "equip_avatar": 1101
     },
     {
@@ -1487,7 +1639,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 35,
+      "internal_uid": 39,
       "equip_avatar": 1101
     },
     {
@@ -1517,7 +1669,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 36,
+      "internal_uid": 40,
       "equip_avatar": 1106
     },
     {
@@ -1547,7 +1699,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 37,
+      "internal_uid": 41,
       "equip_avatar": 1106
     },
     {
@@ -1577,7 +1729,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 38,
+      "internal_uid": 42,
       "equip_avatar": 1106
     },
     {
@@ -1607,7 +1759,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 39,
+      "internal_uid": 43,
       "equip_avatar": 1106
     },
     {
@@ -1637,7 +1789,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 40,
+      "internal_uid": 44,
       "equip_avatar": 1106
     },
     {
@@ -1667,7 +1819,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 41,
+      "internal_uid": 45,
       "equip_avatar": 1106
     },
     {
@@ -1697,7 +1849,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 42,
+      "internal_uid": 46,
       "equip_avatar": 1107
     },
     {
@@ -1727,7 +1879,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 43,
+      "internal_uid": 47,
       "equip_avatar": 1107
     },
     {
@@ -1757,7 +1909,7 @@
           "step": 6
         }
       ],
-      "internal_uid": 44,
+      "internal_uid": 48,
       "equip_avatar": 1107
     },
     {
@@ -1787,7 +1939,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 45,
+      "internal_uid": 49,
       "equip_avatar": 1107
     },
     {
@@ -1817,7 +1969,7 @@
           "step": 6
         }
       ],
-      "internal_uid": 46,
+      "internal_uid": 50,
       "equip_avatar": 1107
     },
     {
@@ -1847,7 +1999,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 47,
+      "internal_uid": 51,
       "equip_avatar": 1107
     },
     {
@@ -1877,7 +2029,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 48,
+      "internal_uid": 52,
       "equip_avatar": 1202
     },
     {
@@ -1907,7 +2059,7 @@
           "step": 4
         }
       ],
-      "internal_uid": 49,
+      "internal_uid": 53,
       "equip_avatar": 1202
     },
     {
@@ -1937,7 +2089,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 50,
+      "internal_uid": 54,
       "equip_avatar": 1202
     },
     {
@@ -1967,7 +2119,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 51,
+      "internal_uid": 55,
       "equip_avatar": 1202
     },
     {
@@ -1997,7 +2149,7 @@
           "step": 0
         }
       ],
-      "internal_uid": 52,
+      "internal_uid": 56,
       "equip_avatar": 1202
     },
     {
@@ -2027,7 +2179,7 @@
           "step": 0
         }
       ],
-      "internal_uid": 53,
+      "internal_uid": 57,
       "equip_avatar": 1202
     },
     {
@@ -2057,7 +2209,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 54,
+      "internal_uid": 58,
       "equip_avatar": 1205
     },
     {
@@ -2087,7 +2239,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 55,
+      "internal_uid": 59,
       "equip_avatar": 1205
     },
     {
@@ -2117,7 +2269,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 56,
+      "internal_uid": 60,
       "equip_avatar": 1205
     },
     {
@@ -2147,7 +2299,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 57,
+      "internal_uid": 61,
       "equip_avatar": 1205
     },
     {
@@ -2177,7 +2329,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 58,
+      "internal_uid": 62,
       "equip_avatar": 1205
     },
     {
@@ -2207,7 +2359,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 59,
+      "internal_uid": 63,
       "equip_avatar": 1205
     },
     {
@@ -2237,7 +2389,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 60,
+      "internal_uid": 64,
       "equip_avatar": 1212
     },
     {
@@ -2267,7 +2419,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 61,
+      "internal_uid": 65,
       "equip_avatar": 1212
     },
     {
@@ -2297,7 +2449,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 62,
+      "internal_uid": 66,
       "equip_avatar": 1212
     },
     {
@@ -2327,7 +2479,7 @@
           "step": 4
         }
       ],
-      "internal_uid": 63,
+      "internal_uid": 67,
       "equip_avatar": 1212
     },
     {
@@ -2357,7 +2509,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 64,
+      "internal_uid": 68,
       "equip_avatar": 1212
     },
     {
@@ -2387,7 +2539,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 65,
+      "internal_uid": 69,
       "equip_avatar": 1212
     },
     {
@@ -2417,7 +2569,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 66,
+      "internal_uid": 70,
       "equip_avatar": 1215
     },
     {
@@ -2447,7 +2599,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 67,
+      "internal_uid": 71,
       "equip_avatar": 1215
     },
     {
@@ -2477,7 +2629,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 68,
+      "internal_uid": 72,
       "equip_avatar": 1215
     },
     {
@@ -2507,7 +2659,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 69,
+      "internal_uid": 73,
       "equip_avatar": 1215
     },
     {
@@ -2537,7 +2689,7 @@
           "step": 6
         }
       ],
-      "internal_uid": 70,
+      "internal_uid": 74,
       "equip_avatar": 1215
     },
     {
@@ -2567,7 +2719,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 71,
+      "internal_uid": 75,
       "equip_avatar": 1215
     },
     {
@@ -2597,7 +2749,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 72,
+      "internal_uid": 76,
       "equip_avatar": 1217
     },
     {
@@ -2627,7 +2779,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 73,
+      "internal_uid": 77,
       "equip_avatar": 1217
     },
     {
@@ -2657,7 +2809,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 74,
+      "internal_uid": 78,
       "equip_avatar": 1217
     },
     {
@@ -2687,7 +2839,7 @@
           "step": 0
         }
       ],
-      "internal_uid": 75,
+      "internal_uid": 79,
       "equip_avatar": 1217
     },
     {
@@ -2717,7 +2869,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 76,
+      "internal_uid": 80,
       "equip_avatar": 1217
     },
     {
@@ -2747,7 +2899,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 77,
+      "internal_uid": 81,
       "equip_avatar": 1217
     },
     {
@@ -2777,7 +2929,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 78,
+      "internal_uid": 82,
       "equip_avatar": 1218
     },
     {
@@ -2807,7 +2959,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 79,
+      "internal_uid": 83,
       "equip_avatar": 1218
     },
     {
@@ -2837,7 +2989,7 @@
           "step": 0
         }
       ],
-      "internal_uid": 80,
+      "internal_uid": 84,
       "equip_avatar": 1218
     },
     {
@@ -2867,7 +3019,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 81,
+      "internal_uid": 85,
       "equip_avatar": 1218
     },
     {
@@ -2897,7 +3049,7 @@
           "step": 4
         }
       ],
-      "internal_uid": 82,
+      "internal_uid": 86,
       "equip_avatar": 1218
     },
     {
@@ -2927,7 +3079,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 83,
+      "internal_uid": 87,
       "equip_avatar": 1218
     },
     {
@@ -2957,7 +3109,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 84,
+      "internal_uid": 88,
       "equip_avatar": 1220
     },
     {
@@ -2987,7 +3139,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 85,
+      "internal_uid": 89,
       "equip_avatar": 1220
     },
     {
@@ -3017,7 +3169,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 86,
+      "internal_uid": 90,
       "equip_avatar": 1220
     },
     {
@@ -3047,7 +3199,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 87,
+      "internal_uid": 91,
       "equip_avatar": 1220
     },
     {
@@ -3077,7 +3229,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 88,
+      "internal_uid": 92,
       "equip_avatar": 1220
     },
     {
@@ -3107,7 +3259,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 89,
+      "internal_uid": 93,
       "equip_avatar": 1220
     },
     {
@@ -3137,7 +3289,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 90,
+      "internal_uid": 94,
       "equip_avatar": 1221
     },
     {
@@ -3167,7 +3319,7 @@
           "step": 4
         }
       ],
-      "internal_uid": 91,
+      "internal_uid": 95,
       "equip_avatar": 1221
     },
     {
@@ -3197,7 +3349,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 92,
+      "internal_uid": 96,
       "equip_avatar": 1221
     },
     {
@@ -3227,7 +3379,7 @@
           "step": 0
         }
       ],
-      "internal_uid": 93,
+      "internal_uid": 97,
       "equip_avatar": 1221
     },
     {
@@ -3257,7 +3409,7 @@
           "step": 5
         }
       ],
-      "internal_uid": 94,
+      "internal_uid": 98,
       "equip_avatar": 1221
     },
     {
@@ -3287,7 +3439,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 95,
+      "internal_uid": 99,
       "equip_avatar": 1221
     },
     {
@@ -3317,7 +3469,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 96,
+      "internal_uid": 100,
       "equip_avatar": 1222
     },
     {
@@ -3347,7 +3499,7 @@
           "step": 4
         }
       ],
-      "internal_uid": 97,
+      "internal_uid": 101,
       "equip_avatar": 1222
     },
     {
@@ -3377,7 +3529,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 98,
+      "internal_uid": 102,
       "equip_avatar": 1222
     },
     {
@@ -3407,7 +3559,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 99,
+      "internal_uid": 103,
       "equip_avatar": 1222
     },
     {
@@ -3437,7 +3589,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 100,
+      "internal_uid": 104,
       "equip_avatar": 1222
     },
     {
@@ -3467,7 +3619,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 101,
+      "internal_uid": 105,
       "equip_avatar": 1222
     },
     {
@@ -3497,7 +3649,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 102,
+      "internal_uid": 106,
       "equip_avatar": 1223
     },
     {
@@ -3527,7 +3679,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 103,
+      "internal_uid": 107,
       "equip_avatar": 1223
     },
     {
@@ -3557,7 +3709,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 104,
+      "internal_uid": 108,
       "equip_avatar": 1223
     },
     {
@@ -3587,7 +3739,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 105,
+      "internal_uid": 109,
       "equip_avatar": 1223
     },
     {
@@ -3617,7 +3769,7 @@
           "step": 7
         }
       ],
-      "internal_uid": 106,
+      "internal_uid": 110,
       "equip_avatar": 1223
     },
     {
@@ -3647,7 +3799,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 107,
+      "internal_uid": 111,
       "equip_avatar": 1223
     },
     {
@@ -3677,7 +3829,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 108,
+      "internal_uid": 112,
       "equip_avatar": 1224
     },
     {
@@ -3707,7 +3859,7 @@
           "step": 0
         }
       ],
-      "internal_uid": 109,
+      "internal_uid": 113,
       "equip_avatar": 1224
     },
     {
@@ -3737,7 +3889,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 110,
+      "internal_uid": 114,
       "equip_avatar": 1224
     },
     {
@@ -3767,7 +3919,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 111,
+      "internal_uid": 115,
       "equip_avatar": 1224
     },
     {
@@ -3797,7 +3949,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 112,
+      "internal_uid": 116,
       "equip_avatar": 1224
     },
     {
@@ -3827,7 +3979,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 113,
+      "internal_uid": 117,
       "equip_avatar": 1224
     },
     {
@@ -3857,7 +4009,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 114,
+      "internal_uid": 118,
       "equip_avatar": 1225
     },
     {
@@ -3887,7 +4039,7 @@
           "step": 4
         }
       ],
-      "internal_uid": 115,
+      "internal_uid": 119,
       "equip_avatar": 1225
     },
     {
@@ -3917,7 +4069,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 116,
+      "internal_uid": 120,
       "equip_avatar": 1225
     },
     {
@@ -3947,7 +4099,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 117,
+      "internal_uid": 121,
       "equip_avatar": 1225
     },
     {
@@ -3977,7 +4129,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 118,
+      "internal_uid": 122,
       "equip_avatar": 1225
     },
     {
@@ -4007,7 +4159,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 119,
+      "internal_uid": 123,
       "equip_avatar": 1225
     },
     {
@@ -4037,7 +4189,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 120,
+      "internal_uid": 124,
       "equip_avatar": 1301
     },
     {
@@ -4067,7 +4219,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 121,
+      "internal_uid": 125,
       "equip_avatar": 1301
     },
     {
@@ -4097,7 +4249,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 122,
+      "internal_uid": 126,
       "equip_avatar": 1301
     },
     {
@@ -4127,7 +4279,7 @@
           "step": 0
         }
       ],
-      "internal_uid": 123,
+      "internal_uid": 127,
       "equip_avatar": 1301
     },
     {
@@ -4157,7 +4309,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 124,
+      "internal_uid": 128,
       "equip_avatar": 1301
     },
     {
@@ -4187,7 +4339,7 @@
           "step": 4
         }
       ],
-      "internal_uid": 125,
+      "internal_uid": 129,
       "equip_avatar": 1301
     },
     {
@@ -4217,7 +4369,7 @@
           "step": 4
         }
       ],
-      "internal_uid": 126,
+      "internal_uid": 130,
       "equip_avatar": 1302
     },
     {
@@ -4247,7 +4399,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 127,
+      "internal_uid": 131,
       "equip_avatar": 1302
     },
     {
@@ -4277,7 +4429,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 128,
+      "internal_uid": 132,
       "equip_avatar": 1302
     },
     {
@@ -4307,7 +4459,7 @@
           "step": 0
         }
       ],
-      "internal_uid": 129,
+      "internal_uid": 133,
       "equip_avatar": 1302
     },
     {
@@ -4337,7 +4489,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 130,
+      "internal_uid": 134,
       "equip_avatar": 1302
     },
     {
@@ -4367,7 +4519,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 131,
+      "internal_uid": 135,
       "equip_avatar": 1302
     },
     {
@@ -4397,7 +4549,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 132,
+      "internal_uid": 136,
       "equip_avatar": 1303
     },
     {
@@ -4427,7 +4579,7 @@
           "step": 4
         }
       ],
-      "internal_uid": 133,
+      "internal_uid": 137,
       "equip_avatar": 1303
     },
     {
@@ -4457,7 +4609,7 @@
           "step": 6
         }
       ],
-      "internal_uid": 134,
+      "internal_uid": 138,
       "equip_avatar": 1303
     },
     {
@@ -4487,7 +4639,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 135,
+      "internal_uid": 139,
       "equip_avatar": 1303
     },
     {
@@ -4517,7 +4669,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 136,
+      "internal_uid": 140,
       "equip_avatar": 1303
     },
     {
@@ -4547,7 +4699,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 137,
+      "internal_uid": 141,
       "equip_avatar": 1303
     },
     {
@@ -4577,7 +4729,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 138,
+      "internal_uid": 142,
       "equip_avatar": 1304
     },
     {
@@ -4607,7 +4759,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 139,
+      "internal_uid": 143,
       "equip_avatar": 1304
     },
     {
@@ -4637,7 +4789,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 140,
+      "internal_uid": 144,
       "equip_avatar": 1304
     },
     {
@@ -4667,7 +4819,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 141,
+      "internal_uid": 145,
       "equip_avatar": 1304
     },
     {
@@ -4697,7 +4849,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 142,
+      "internal_uid": 146,
       "equip_avatar": 1304
     },
     {
@@ -4727,7 +4879,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 143,
+      "internal_uid": 147,
       "equip_avatar": 1304
     },
     {
@@ -4757,7 +4909,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 144,
+      "internal_uid": 148,
       "equip_avatar": 1305
     },
     {
@@ -4787,7 +4939,7 @@
           "step": 0
         }
       ],
-      "internal_uid": 145,
+      "internal_uid": 149,
       "equip_avatar": 1305
     },
     {
@@ -4817,7 +4969,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 146,
+      "internal_uid": 150,
       "equip_avatar": 1305
     },
     {
@@ -4847,7 +4999,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 147,
+      "internal_uid": 151,
       "equip_avatar": 1305
     },
     {
@@ -4877,7 +5029,7 @@
           "step": 0
         }
       ],
-      "internal_uid": 148,
+      "internal_uid": 152,
       "equip_avatar": 1305
     },
     {
@@ -4907,7 +5059,7 @@
           "step": 0
         }
       ],
-      "internal_uid": 149,
+      "internal_uid": 153,
       "equip_avatar": 1305
     },
     {
@@ -4937,7 +5089,7 @@
           "step": 0
         }
       ],
-      "internal_uid": 150,
+      "internal_uid": 154,
       "equip_avatar": 1306
     },
     {
@@ -4967,7 +5119,7 @@
           "step": 0
         }
       ],
-      "internal_uid": 151,
+      "internal_uid": 155,
       "equip_avatar": 1306
     },
     {
@@ -4997,7 +5149,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 152,
+      "internal_uid": 156,
       "equip_avatar": 1306
     },
     {
@@ -5027,7 +5179,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 153,
+      "internal_uid": 157,
       "equip_avatar": 1306
     },
     {
@@ -5057,7 +5209,7 @@
           "step": 5
         }
       ],
-      "internal_uid": 154,
+      "internal_uid": 158,
       "equip_avatar": 1306
     },
     {
@@ -5087,7 +5239,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 155,
+      "internal_uid": 159,
       "equip_avatar": 1306
     },
     {
@@ -5117,7 +5269,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 156,
+      "internal_uid": 160,
       "equip_avatar": 1307
     },
     {
@@ -5147,7 +5299,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 157,
+      "internal_uid": 161,
       "equip_avatar": 1307
     },
     {
@@ -5177,7 +5329,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 158,
+      "internal_uid": 162,
       "equip_avatar": 1307
     },
     {
@@ -5207,7 +5359,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 159,
+      "internal_uid": 163,
       "equip_avatar": 1307
     },
     {
@@ -5237,7 +5389,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 160,
+      "internal_uid": 164,
       "equip_avatar": 1307
     },
     {
@@ -5267,7 +5419,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 161,
+      "internal_uid": 165,
       "equip_avatar": 1307
     },
     {
@@ -5297,7 +5449,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 162,
+      "internal_uid": 166,
       "equip_avatar": 1308
     },
     {
@@ -5327,7 +5479,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 163,
+      "internal_uid": 167,
       "equip_avatar": 1308
     },
     {
@@ -5357,7 +5509,7 @@
           "step": 4
         }
       ],
-      "internal_uid": 164,
+      "internal_uid": 168,
       "equip_avatar": 1308
     },
     {
@@ -5387,7 +5539,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 165,
+      "internal_uid": 169,
       "equip_avatar": 1308
     },
     {
@@ -5417,7 +5569,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 166,
+      "internal_uid": 170,
       "equip_avatar": 1308
     },
     {
@@ -5447,7 +5599,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 167,
+      "internal_uid": 171,
       "equip_avatar": 1308
     },
     {
@@ -5477,7 +5629,7 @@
           "step": 0
         }
       ],
-      "internal_uid": 168,
+      "internal_uid": 172,
       "equip_avatar": 1309
     },
     {
@@ -5507,7 +5659,7 @@
           "step": 0
         }
       ],
-      "internal_uid": 169,
+      "internal_uid": 173,
       "equip_avatar": 1309
     },
     {
@@ -5537,7 +5689,7 @@
           "step": 0
         }
       ],
-      "internal_uid": 170,
+      "internal_uid": 174,
       "equip_avatar": 1309
     },
     {
@@ -5567,7 +5719,7 @@
           "step": 0
         }
       ],
-      "internal_uid": 171,
+      "internal_uid": 175,
       "equip_avatar": 1309
     },
     {
@@ -5597,7 +5749,7 @@
           "step": 6
         }
       ],
-      "internal_uid": 172,
+      "internal_uid": 176,
       "equip_avatar": 1309
     },
     {
@@ -5627,7 +5779,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 173,
+      "internal_uid": 177,
       "equip_avatar": 1309
     },
     {
@@ -5657,7 +5809,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 174,
+      "internal_uid": 178,
       "equip_avatar": 1310
     },
     {
@@ -5687,7 +5839,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 175,
+      "internal_uid": 179,
       "equip_avatar": 1310
     },
     {
@@ -5717,7 +5869,7 @@
           "step": 4
         }
       ],
-      "internal_uid": 176,
+      "internal_uid": 180,
       "equip_avatar": 1310
     },
     {
@@ -5747,7 +5899,7 @@
           "step": 4
         }
       ],
-      "internal_uid": 177,
+      "internal_uid": 181,
       "equip_avatar": 1310
     },
     {
@@ -5777,7 +5929,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 178,
+      "internal_uid": 182,
       "equip_avatar": 1310
     },
     {
@@ -5807,7 +5959,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 179,
+      "internal_uid": 183,
       "equip_avatar": 1310
     },
     {
@@ -5837,7 +5989,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 180,
+      "internal_uid": 184,
       "equip_avatar": 1313
     },
     {
@@ -5867,7 +6019,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 181,
+      "internal_uid": 185,
       "equip_avatar": 1313
     },
     {
@@ -5897,7 +6049,7 @@
           "step": 4
         }
       ],
-      "internal_uid": 182,
+      "internal_uid": 186,
       "equip_avatar": 1313
     },
     {
@@ -5927,7 +6079,7 @@
           "step": 4
         }
       ],
-      "internal_uid": 183,
+      "internal_uid": 187,
       "equip_avatar": 1313
     },
     {
@@ -5957,7 +6109,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 184,
+      "internal_uid": 188,
       "equip_avatar": 1313
     },
     {
@@ -5987,7 +6139,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 185,
+      "internal_uid": 189,
       "equip_avatar": 1313
     },
     {
@@ -6017,7 +6169,7 @@
           "step": 4
         }
       ],
-      "internal_uid": 186,
+      "internal_uid": 190,
       "equip_avatar": 1314
     },
     {
@@ -6047,7 +6199,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 187,
+      "internal_uid": 191,
       "equip_avatar": 1314
     },
     {
@@ -6077,7 +6229,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 188,
+      "internal_uid": 192,
       "equip_avatar": 1314
     },
     {
@@ -6107,7 +6259,7 @@
           "step": 4
         }
       ],
-      "internal_uid": 189,
+      "internal_uid": 193,
       "equip_avatar": 1314
     },
     {
@@ -6137,7 +6289,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 190,
+      "internal_uid": 194,
       "equip_avatar": 1314
     },
     {
@@ -6167,7 +6319,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 191,
+      "internal_uid": 195,
       "equip_avatar": 1314
     },
     {
@@ -6197,7 +6349,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 192,
+      "internal_uid": 196,
       "equip_avatar": 1321
     },
     {
@@ -6227,7 +6379,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 193,
+      "internal_uid": 197,
       "equip_avatar": 1321
     },
     {
@@ -6257,7 +6409,7 @@
           "step": 4
         }
       ],
-      "internal_uid": 194,
+      "internal_uid": 198,
       "equip_avatar": 1321
     },
     {
@@ -6287,7 +6439,7 @@
           "step": 4
         }
       ],
-      "internal_uid": 195,
+      "internal_uid": 199,
       "equip_avatar": 1321
     },
     {
@@ -6317,7 +6469,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 196,
+      "internal_uid": 200,
       "equip_avatar": 1321
     },
     {
@@ -6347,7 +6499,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 197,
+      "internal_uid": 201,
       "equip_avatar": 1321
     },
     {
@@ -6377,7 +6529,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 198,
+      "internal_uid": 202,
       "equip_avatar": 1401
     },
     {
@@ -6407,7 +6559,7 @@
           "step": 0
         }
       ],
-      "internal_uid": 199,
+      "internal_uid": 203,
       "equip_avatar": 1401
     },
     {
@@ -6437,7 +6589,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 200,
+      "internal_uid": 204,
       "equip_avatar": 1401
     },
     {
@@ -6467,7 +6619,7 @@
           "step": 0
         }
       ],
-      "internal_uid": 201,
+      "internal_uid": 205,
       "equip_avatar": 1401
     },
     {
@@ -6497,7 +6649,7 @@
           "step": 0
         }
       ],
-      "internal_uid": 202,
+      "internal_uid": 206,
       "equip_avatar": 1401
     },
     {
@@ -6527,7 +6679,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 203,
+      "internal_uid": 207,
       "equip_avatar": 1401
     },
     {
@@ -6557,7 +6709,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 204,
+      "internal_uid": 208,
       "equip_avatar": 1402
     },
     {
@@ -6587,7 +6739,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 205,
+      "internal_uid": 209,
       "equip_avatar": 1402
     },
     {
@@ -6617,7 +6769,7 @@
           "step": 0
         }
       ],
-      "internal_uid": 206,
+      "internal_uid": 210,
       "equip_avatar": 1402
     },
     {
@@ -6647,7 +6799,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 207,
+      "internal_uid": 211,
       "equip_avatar": 1402
     },
     {
@@ -6677,7 +6829,7 @@
           "step": 4
         }
       ],
-      "internal_uid": 208,
+      "internal_uid": 212,
       "equip_avatar": 1402
     },
     {
@@ -6707,7 +6859,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 209,
+      "internal_uid": 213,
       "equip_avatar": 1402
     },
     {
@@ -6737,7 +6889,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 210,
+      "internal_uid": 214,
       "equip_avatar": 1403
     },
     {
@@ -6767,7 +6919,7 @@
           "step": 0
         }
       ],
-      "internal_uid": 211,
+      "internal_uid": 215,
       "equip_avatar": 1403
     },
     {
@@ -6797,7 +6949,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 212,
+      "internal_uid": 216,
       "equip_avatar": 1403
     },
     {
@@ -6827,7 +6979,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 213,
+      "internal_uid": 217,
       "equip_avatar": 1403
     },
     {
@@ -6857,7 +7009,7 @@
           "step": 0
         }
       ],
-      "internal_uid": 214,
+      "internal_uid": 218,
       "equip_avatar": 1403
     },
     {
@@ -6887,7 +7039,7 @@
           "step": 4
         }
       ],
-      "internal_uid": 215,
+      "internal_uid": 219,
       "equip_avatar": 1403
     },
     {
@@ -6917,7 +7069,7 @@
           "step": 0
         }
       ],
-      "internal_uid": 216,
+      "internal_uid": 220,
       "equip_avatar": 1405
     },
     {
@@ -6947,7 +7099,7 @@
           "step": 5
         }
       ],
-      "internal_uid": 217,
+      "internal_uid": 221,
       "equip_avatar": 1405
     },
     {
@@ -6977,7 +7129,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 218,
+      "internal_uid": 222,
       "equip_avatar": 1405
     },
     {
@@ -7007,7 +7159,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 219,
+      "internal_uid": 223,
       "equip_avatar": 1405
     },
     {
@@ -7037,7 +7189,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 220,
+      "internal_uid": 224,
       "equip_avatar": 1405
     },
     {
@@ -7067,7 +7219,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 221,
+      "internal_uid": 225,
       "equip_avatar": 1405
     },
     {
@@ -7097,7 +7249,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 222,
+      "internal_uid": 226,
       "equip_avatar": 1406
     },
     {
@@ -7127,7 +7279,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 223,
+      "internal_uid": 227,
       "equip_avatar": 1406
     },
     {
@@ -7157,7 +7309,7 @@
           "step": 5
         }
       ],
-      "internal_uid": 224,
+      "internal_uid": 228,
       "equip_avatar": 1406
     },
     {
@@ -7187,7 +7339,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 225,
+      "internal_uid": 229,
       "equip_avatar": 1406
     },
     {
@@ -7217,7 +7369,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 226,
+      "internal_uid": 230,
       "equip_avatar": 1406
     },
     {
@@ -7247,7 +7399,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 227,
+      "internal_uid": 231,
       "equip_avatar": 1406
     },
     {
@@ -7277,7 +7429,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 228,
+      "internal_uid": 232,
       "equip_avatar": 1407
     },
     {
@@ -7307,7 +7459,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 229,
+      "internal_uid": 233,
       "equip_avatar": 1407
     },
     {
@@ -7337,7 +7489,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 230,
+      "internal_uid": 234,
       "equip_avatar": 1407
     },
     {
@@ -7367,7 +7519,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 231,
+      "internal_uid": 235,
       "equip_avatar": 1407
     },
     {
@@ -7397,7 +7549,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 232,
+      "internal_uid": 236,
       "equip_avatar": 1407
     },
     {
@@ -7427,7 +7579,7 @@
           "step": 0
         }
       ],
-      "internal_uid": 233,
+      "internal_uid": 237,
       "equip_avatar": 1407
     },
     {
@@ -7457,7 +7609,7 @@
           "step": 4
         }
       ],
-      "internal_uid": 234,
+      "internal_uid": 238,
       "equip_avatar": 1408
     },
     {
@@ -7487,7 +7639,7 @@
           "step": 4
         }
       ],
-      "internal_uid": 235,
+      "internal_uid": 239,
       "equip_avatar": 1408
     },
     {
@@ -7517,7 +7669,7 @@
           "step": 5
         }
       ],
-      "internal_uid": 236,
+      "internal_uid": 240,
       "equip_avatar": 1408
     },
     {
@@ -7547,7 +7699,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 237,
+      "internal_uid": 241,
       "equip_avatar": 1408
     },
     {
@@ -7577,7 +7729,7 @@
           "step": 4
         }
       ],
-      "internal_uid": 238,
+      "internal_uid": 242,
       "equip_avatar": 1408
     },
     {
@@ -7607,7 +7759,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 239,
+      "internal_uid": 243,
       "equip_avatar": 1408
     },
     {
@@ -7637,7 +7789,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 240,
+      "internal_uid": 244,
       "equip_avatar": 1409
     },
     {
@@ -7667,7 +7819,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 241,
+      "internal_uid": 245,
       "equip_avatar": 1409
     },
     {
@@ -7697,7 +7849,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 242,
+      "internal_uid": 246,
       "equip_avatar": 1409
     },
     {
@@ -7727,7 +7879,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 243,
+      "internal_uid": 247,
       "equip_avatar": 1409
     },
     {
@@ -7757,7 +7909,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 244,
+      "internal_uid": 248,
       "equip_avatar": 1409
     },
     {
@@ -7787,7 +7939,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 245,
+      "internal_uid": 249,
       "equip_avatar": 1409
     },
     {
@@ -7817,7 +7969,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 246,
+      "internal_uid": 250,
       "equip_avatar": 1410
     },
     {
@@ -7847,7 +7999,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 247,
+      "internal_uid": 251,
       "equip_avatar": 1410
     },
     {
@@ -7877,7 +8029,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 248,
+      "internal_uid": 252,
       "equip_avatar": 1410
     },
     {
@@ -7907,7 +8059,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 249,
+      "internal_uid": 253,
       "equip_avatar": 1410
     },
     {
@@ -7937,7 +8089,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 250,
+      "internal_uid": 254,
       "equip_avatar": 1410
     },
     {
@@ -7967,7 +8119,7 @@
           "step": 4
         }
       ],
-      "internal_uid": 251,
+      "internal_uid": 255,
       "equip_avatar": 1410
     },
     {
@@ -7997,7 +8149,7 @@
           "step": 0
         }
       ],
-      "internal_uid": 252,
+      "internal_uid": 256,
       "equip_avatar": 1412
     },
     {
@@ -8027,7 +8179,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 253,
+      "internal_uid": 257,
       "equip_avatar": 1412
     },
     {
@@ -8057,7 +8209,7 @@
           "step": 4
         }
       ],
-      "internal_uid": 254,
+      "internal_uid": 258,
       "equip_avatar": 1412
     },
     {
@@ -8087,7 +8239,7 @@
           "step": 0
         }
       ],
-      "internal_uid": 255,
+      "internal_uid": 259,
       "equip_avatar": 1412
     },
     {
@@ -8117,7 +8269,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 256,
+      "internal_uid": 260,
       "equip_avatar": 1412
     },
     {
@@ -8147,7 +8299,7 @@
           "step": 0
         }
       ],
-      "internal_uid": 257,
+      "internal_uid": 261,
       "equip_avatar": 1412
     },
     {
@@ -8177,7 +8329,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 258,
+      "internal_uid": 262,
       "equip_avatar": 1413
     },
     {
@@ -8207,7 +8359,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 259,
+      "internal_uid": 263,
       "equip_avatar": 1413
     },
     {
@@ -8237,7 +8389,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 260,
+      "internal_uid": 264,
       "equip_avatar": 1413
     },
     {
@@ -8267,7 +8419,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 261,
+      "internal_uid": 265,
       "equip_avatar": 1413
     },
     {
@@ -8297,7 +8449,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 262,
+      "internal_uid": 266,
       "equip_avatar": 1413
     },
     {
@@ -8327,7 +8479,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 263,
+      "internal_uid": 267,
       "equip_avatar": 1413
     },
     {
@@ -8357,7 +8509,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 264,
+      "internal_uid": 268,
       "equip_avatar": 1414
     },
     {
@@ -8387,7 +8539,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 265,
+      "internal_uid": 269,
       "equip_avatar": 1414
     },
     {
@@ -8417,7 +8569,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 266,
+      "internal_uid": 270,
       "equip_avatar": 1414
     },
     {
@@ -8447,7 +8599,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 267,
+      "internal_uid": 271,
       "equip_avatar": 1414
     },
     {
@@ -8477,7 +8629,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 268,
+      "internal_uid": 272,
       "equip_avatar": 1414
     },
     {
@@ -8507,7 +8659,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 269,
+      "internal_uid": 273,
       "equip_avatar": 1414
     },
     {
@@ -8537,7 +8689,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 270,
+      "internal_uid": 274,
       "equip_avatar": 1415
     },
     {
@@ -8567,7 +8719,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 271,
+      "internal_uid": 275,
       "equip_avatar": 1415
     },
     {
@@ -8597,7 +8749,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 272,
+      "internal_uid": 276,
       "equip_avatar": 1415
     },
     {
@@ -8627,7 +8779,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 273,
+      "internal_uid": 277,
       "equip_avatar": 1415
     },
     {
@@ -8657,7 +8809,7 @@
           "step": 0
         }
       ],
-      "internal_uid": 274,
+      "internal_uid": 278,
       "equip_avatar": 1415
     },
     {
@@ -8687,154 +8839,34 @@
           "step": 1
         }
       ],
-      "internal_uid": 275,
+      "internal_uid": 279,
       "equip_avatar": 1415
     },
     {
       "level": 15,
-      "relic_id": 61301,
-      "relic_set_id": 130,
+      "relic_id": 61291,
+      "relic_set_id": 129,
       "main_affix_id": 1,
       "sub_affixes": [
-        {
-          "sub_affix_id": 5,
-          "count": 2,
-          "step": 2
-        },
-        {
-          "sub_affix_id": 8,
-          "count": 3,
-          "step": 3
-        },
-        {
-          "sub_affix_id": 9,
-          "count": 2,
-          "step": 3
-        },
-        {
-          "sub_affix_id": 7,
-          "count": 2,
-          "step": 3
-        }
-      ],
-      "internal_uid": 276,
-      "equip_avatar": 1501
-    },
-    {
-      "level": 15,
-      "relic_id": 61302,
-      "relic_set_id": 130,
-      "main_affix_id": 1,
-      "sub_affixes": [
-        {
-          "sub_affix_id": 5,
-          "count": 3,
-          "step": 2
-        },
-        {
-          "sub_affix_id": 8,
-          "count": 2,
-          "step": 1
-        },
-        {
-          "sub_affix_id": 9,
-          "count": 2,
-          "step": 0
-        },
-        {
-          "sub_affix_id": 7,
-          "count": 2,
-          "step": 2
-        }
-      ],
-      "internal_uid": 277,
-      "equip_avatar": 1501
-    },
-    {
-      "level": 15,
-      "relic_id": 61303,
-      "relic_set_id": 130,
-      "main_affix_id": 5,
-      "sub_affixes": [
-        {
-          "sub_affix_id": 5,
-          "count": 3,
-          "step": 0
-        },
-        {
-          "sub_affix_id": 7,
-          "count": 2,
-          "step": 1
-        },
-        {
-          "sub_affix_id": 8,
-          "count": 3,
-          "step": 3
-        },
         {
           "sub_affix_id": 4,
-          "count": 1,
-          "step": 1
-        }
-      ],
-      "internal_uid": 278,
-      "equip_avatar": 1501
-    },
-    {
-      "level": 15,
-      "relic_id": 61304,
-      "relic_set_id": 130,
-      "main_affix_id": 4,
-      "sub_affixes": [
-        {
-          "sub_affix_id": 2,
           "count": 2,
           "step": 2
-        },
-        {
-          "sub_affix_id": 8,
-          "count": 2,
-          "step": 2
-        },
-        {
-          "sub_affix_id": 5,
-          "count": 2,
-          "step": 4
         },
         {
           "sub_affix_id": 9,
-          "count": 3,
-          "step": 2
-        }
-      ],
-      "internal_uid": 279,
-      "equip_avatar": 1501
-    },
-    {
-      "level": 15,
-      "relic_id": 63245,
-      "relic_set_id": 324,
-      "main_affix_id": 2,
-      "sub_affixes": [
-        {
-          "sub_affix_id": 9,
-          "count": 3,
+          "count": 2,
           "step": 3
         },
         {
           "sub_affix_id": 8,
-          "count": 2,
-          "step": 1
-        },
-        {
-          "sub_affix_id": 1,
           "count": 3,
-          "step": 2
+          "step": 0
         },
         {
-          "sub_affix_id": 7,
+          "sub_affix_id": 11,
           "count": 1,
-          "step": 2
+          "step": 1
         }
       ],
       "internal_uid": 280,
@@ -8842,29 +8874,29 @@
     },
     {
       "level": 15,
-      "relic_id": 63246,
-      "relic_set_id": 324,
-      "main_affix_id": 4,
+      "relic_id": 61292,
+      "relic_set_id": 129,
+      "main_affix_id": 1,
       "sub_affixes": [
         {
-          "sub_affix_id": 2,
+          "sub_affix_id": 11,
+          "count": 1,
+          "step": 1
+        },
+        {
+          "sub_affix_id": 7,
           "count": 2,
-          "step": 0
+          "step": 3
+        },
+        {
+          "sub_affix_id": 5,
+          "count": 2,
+          "step": 4
         },
         {
           "sub_affix_id": 8,
           "count": 3,
-          "step": 4
-        },
-        {
-          "sub_affix_id": 9,
-          "count": 3,
-          "step": 3
-        },
-        {
-          "sub_affix_id": 7,
-          "count": 1,
-          "step": 2
+          "step": 0
         }
       ],
       "internal_uid": 281,
@@ -8872,285 +8904,40 @@
     },
     {
       "level": 15,
-      "relic_id": 61301,
-      "relic_set_id": 130,
-      "main_affix_id": 1,
+      "relic_id": 61293,
+      "relic_set_id": 129,
+      "main_affix_id": 4,
       "sub_affixes": [
-        {
-          "sub_affix_id": 5,
-          "count": 2,
-          "step": 2
-        },
-        {
-          "sub_affix_id": 8,
-          "count": 3,
-          "step": 3
-        },
-        {
-          "sub_affix_id": 9,
-          "count": 2,
-          "step": 3
-        },
-        {
-          "sub_affix_id": 7,
-          "count": 2,
-          "step": 3
-        }
-      ],
-      "internal_uid": 282,
-      "equip_avatar": 1502
-    },
-    {
-      "level": 15,
-      "relic_id": 61302,
-      "relic_set_id": 130,
-      "main_affix_id": 1,
-      "sub_affixes": [
-        {
-          "sub_affix_id": 5,
-          "count": 3,
-          "step": 2
-        },
-        {
-          "sub_affix_id": 8,
-          "count": 2,
-          "step": 1
-        },
-        {
-          "sub_affix_id": 9,
-          "count": 2,
-          "step": 0
-        },
-        {
-          "sub_affix_id": 7,
-          "count": 2,
-          "step": 2
-        }
-      ],
-      "internal_uid": 283,
-      "equip_avatar": 1502
-    },
-    {
-      "level": 15,
-      "relic_id": 61303,
-      "relic_set_id": 130,
-      "main_affix_id": 5,
-      "sub_affixes": [
-        {
-          "sub_affix_id": 5,
-          "count": 3,
-          "step": 0
-        },
-        {
-          "sub_affix_id": 7,
-          "count": 2,
-          "step": 1
-        },
-        {
-          "sub_affix_id": 8,
-          "count": 3,
-          "step": 3
-        },
         {
           "sub_affix_id": 4,
-          "count": 1,
-          "step": 1
-        }
-      ],
-      "internal_uid": 284,
-      "equip_avatar": 1502
-    },
-    {
-      "level": 15,
-      "relic_id": 61304,
-      "relic_set_id": 130,
-      "main_affix_id": 4,
-      "sub_affixes": [
-        {
-          "sub_affix_id": 2,
-          "count": 2,
-          "step": 2
-        },
-        {
-          "sub_affix_id": 8,
-          "count": 2,
-          "step": 2
-        },
-        {
-          "sub_affix_id": 5,
-          "count": 2,
-          "step": 4
-        },
-        {
-          "sub_affix_id": 9,
-          "count": 3,
-          "step": 2
-        }
-      ],
-      "internal_uid": 285,
-      "equip_avatar": 1502
-    },
-    {
-      "level": 15,
-      "relic_id": 63245,
-      "relic_set_id": 324,
-      "main_affix_id": 2,
-      "sub_affixes": [
-        {
-          "sub_affix_id": 9,
-          "count": 3,
-          "step": 3
-        },
-        {
-          "sub_affix_id": 8,
-          "count": 2,
-          "step": 1
-        },
-        {
-          "sub_affix_id": 1,
           "count": 3,
           "step": 2
         },
         {
           "sub_affix_id": 7,
-          "count": 1,
-          "step": 2
-        }
-      ],
-      "internal_uid": 286,
-      "equip_avatar": 1502
-    },
-    {
-      "level": 15,
-      "relic_id": 63246,
-      "relic_set_id": 324,
-      "main_affix_id": 4,
-      "sub_affixes": [
-        {
-          "sub_affix_id": 2,
-          "count": 2,
-          "step": 0
-        },
-        {
-          "sub_affix_id": 8,
           "count": 3,
-          "step": 4
-        },
-        {
-          "sub_affix_id": 9,
-          "count": 3,
-          "step": 3
-        },
-        {
-          "sub_affix_id": 7,
-          "count": 1,
-          "step": 2
-        }
-      ],
-      "internal_uid": 287,
-      "equip_avatar": 1502
-    },
-    {
-      "level": 15,
-      "relic_id": 61101,
-      "relic_set_id": 110,
-      "main_affix_id": 1,
-      "sub_affixes": [
-        {
-          "sub_affix_id": 8,
-          "count": 4,
-          "step": 4
-        },
-        {
-          "sub_affix_id": 9,
-          "count": 1,
-          "step": 0
-        },
-        {
-          "sub_affix_id": 10,
-          "count": 1,
-          "step": 0
-        },
-        {
-          "sub_affix_id": 12,
-          "count": 2,
-          "step": 2
-        }
-      ],
-      "internal_uid": 288,
-      "equip_avatar": 1504
-    },
-    {
-      "level": 15,
-      "relic_id": 61102,
-      "relic_set_id": 110,
-      "main_affix_id": 1,
-      "sub_affixes": [
-        {
-          "sub_affix_id": 1,
-          "count": 2,
-          "step": 1
-        },
-        {
-          "sub_affix_id": 4,
-          "count": 1,
-          "step": 0
-        },
-        {
-          "sub_affix_id": 8,
-          "count": 4,
-          "step": 5
+          "step": 6
         },
         {
           "sub_affix_id": 9,
           "count": 2,
-          "step": 2
-        }
-      ],
-      "internal_uid": 289,
-      "equip_avatar": 1504
-    },
-    {
-      "level": 15,
-      "relic_id": 61103,
-      "relic_set_id": 110,
-      "main_affix_id": 4,
-      "sub_affixes": [
-        {
-          "sub_affix_id": 5,
-          "count": 1,
           "step": 0
-        },
-        {
-          "sub_affix_id": 9,
-          "count": 4,
-          "step": 7
         },
         {
           "sub_affix_id": 11,
-          "count": 2,
-          "step": 2
-        },
-        {
-          "sub_affix_id": 12,
           "count": 1,
           "step": 1
         }
       ],
-      "internal_uid": 290,
-      "equip_avatar": 1504
+      "internal_uid": 282,
+      "equip_avatar": 1501
     },
     {
       "level": 15,
-      "relic_id": 61104,
-      "relic_set_id": 110,
+      "relic_id": 61294,
+      "relic_set_id": 129,
       "main_affix_id": 4,
       "sub_affixes": [
-        {
-          "sub_affix_id": 5,
-          "count": 1,
-          "step": 2
-        },
         {
           "sub_affix_id": 6,
           "count": 1,
@@ -9159,22 +8946,267 @@
         {
           "sub_affix_id": 8,
           "count": 3,
+          "step": 5
+        },
+        {
+          "sub_affix_id": 9,
+          "count": 2,
+          "step": 0
+        },
+        {
+          "sub_affix_id": 12,
+          "count": 2,
+          "step": 2
+        }
+      ],
+      "internal_uid": 283,
+      "equip_avatar": 1501
+    },
+    {
+      "level": 15,
+      "relic_id": 63245,
+      "relic_set_id": 324,
+      "main_affix_id": 2,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 12,
+          "count": 1,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 9,
+          "count": 3,
+          "step": 4
+        },
+        {
+          "sub_affix_id": 3,
+          "count": 3,
+          "step": 0
+        },
+        {
+          "sub_affix_id": 8,
+          "count": 1,
+          "step": 2
+        }
+      ],
+      "internal_uid": 284,
+      "equip_avatar": 1501
+    },
+    {
+      "level": 15,
+      "relic_id": 63246,
+      "relic_set_id": 324,
+      "main_affix_id": 4,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 1,
+          "count": 1,
+          "step": 0
+        },
+        {
+          "sub_affix_id": 2,
+          "count": 2,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 8,
+          "count": 3,
           "step": 1
         },
         {
+          "sub_affix_id": 9,
+          "count": 3,
+          "step": 4
+        }
+      ],
+      "internal_uid": 285,
+      "equip_avatar": 1501
+    },
+    {
+      "level": 15,
+      "relic_id": 61301,
+      "relic_set_id": 130,
+      "main_affix_id": 1,
+      "sub_affixes": [
+        {
           "sub_affix_id": 11,
+          "count": 3,
+          "step": 5
+        },
+        {
+          "sub_affix_id": 4,
+          "count": 1,
+          "step": 1
+        },
+        {
+          "sub_affix_id": 7,
+          "count": 3,
+          "step": 5
+        },
+        {
+          "sub_affix_id": 9,
+          "count": 1,
+          "step": 0
+        }
+      ],
+      "internal_uid": 286,
+      "equip_avatar": 1502
+    },
+    {
+      "level": 15,
+      "relic_id": 61302,
+      "relic_set_id": 130,
+      "main_affix_id": 1,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 7,
+          "count": 3,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 5,
+          "count": 2,
+          "step": 1
+        },
+        {
+          "sub_affix_id": 1,
+          "count": 2,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 6,
+          "count": 2,
+          "step": 0
+        }
+      ],
+      "internal_uid": 287,
+      "equip_avatar": 1502
+    },
+    {
+      "level": 15,
+      "relic_id": 61303,
+      "relic_set_id": 130,
+      "main_affix_id": 4,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 6,
+          "count": 2,
+          "step": 1
+        },
+        {
+          "sub_affix_id": 9,
+          "count": 2,
+          "step": 3
+        },
+        {
+          "sub_affix_id": 2,
+          "count": 1,
+          "step": 0
+        },
+        {
+          "sub_affix_id": 7,
           "count": 3,
           "step": 3
         }
       ],
-      "internal_uid": 291,
-      "equip_avatar": 1504
+      "internal_uid": 288,
+      "equip_avatar": 1502
     },
     {
       "level": 15,
-      "relic_id": 63155,
-      "relic_set_id": 315,
-      "main_affix_id": 8,
+      "relic_id": 61304,
+      "relic_set_id": 130,
+      "main_affix_id": 4,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 5,
+          "count": 2,
+          "step": 3
+        },
+        {
+          "sub_affix_id": 9,
+          "count": 2,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 12,
+          "count": 1,
+          "step": 1
+        },
+        {
+          "sub_affix_id": 8,
+          "count": 3,
+          "step": 3
+        }
+      ],
+      "internal_uid": 289,
+      "equip_avatar": 1502
+    },
+    {
+      "level": 15,
+      "relic_id": 63085,
+      "relic_set_id": 308,
+      "main_affix_id": 1,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 10,
+          "count": 1,
+          "step": 0
+        },
+        {
+          "sub_affix_id": 2,
+          "count": 1,
+          "step": 1
+        },
+        {
+          "sub_affix_id": 7,
+          "count": 3,
+          "step": 6
+        },
+        {
+          "sub_affix_id": 3,
+          "count": 4,
+          "step": 4
+        }
+      ],
+      "internal_uid": 290,
+      "equip_avatar": 1502
+    },
+    {
+      "level": 15,
+      "relic_id": 63086,
+      "relic_set_id": 308,
+      "main_affix_id": 2,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 7,
+          "count": 3,
+          "step": 1
+        },
+        {
+          "sub_affix_id": 6,
+          "count": 2,
+          "step": 1
+        },
+        {
+          "sub_affix_id": 1,
+          "count": 2,
+          "step": 0
+        },
+        {
+          "sub_affix_id": 4,
+          "count": 2,
+          "step": 1
+        }
+      ],
+      "internal_uid": 291,
+      "equip_avatar": 1502
+    },
+    {
+      "level": 15,
+      "relic_id": 61151,
+      "relic_set_id": 115,
+      "main_affix_id": 1,
       "sub_affixes": [
         {
           "sub_affix_id": 3,
@@ -9184,16 +9216,16 @@
         {
           "sub_affix_id": 5,
           "count": 2,
-          "step": 3
+          "step": 2
         },
         {
           "sub_affix_id": 8,
           "count": 3,
-          "step": 3
+          "step": 5
         },
         {
           "sub_affix_id": 9,
-          "count": 2,
+          "count": 3,
           "step": 3
         }
       ],
@@ -9202,33 +9234,483 @@
     },
     {
       "level": 15,
-      "relic_id": 63156,
-      "relic_set_id": 315,
+      "relic_id": 61152,
+      "relic_set_id": 115,
+      "main_affix_id": 1,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 3,
+          "count": 2,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 5,
+          "count": 2,
+          "step": 3
+        },
+        {
+          "sub_affix_id": 8,
+          "count": 3,
+          "step": 6
+        },
+        {
+          "sub_affix_id": 4,
+          "count": 2,
+          "step": 0
+        }
+      ],
+      "internal_uid": 293,
+      "equip_avatar": 1504
+    },
+    {
+      "level": 15,
+      "relic_id": 61153,
+      "relic_set_id": 115,
       "main_affix_id": 4,
       "sub_affixes": [
         {
           "sub_affix_id": 2,
           "count": 1,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 9,
+          "count": 2,
+          "step": 3
+        },
+        {
+          "sub_affix_id": 5,
+          "count": 3,
+          "step": 3
+        },
+        {
+          "sub_affix_id": 11,
+          "count": 2,
+          "step": 2
+        }
+      ],
+      "internal_uid": 294,
+      "equip_avatar": 1504
+    },
+    {
+      "level": 15,
+      "relic_id": 61154,
+      "relic_set_id": 115,
+      "main_affix_id": 2,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 3,
+          "count": 1,
+          "step": 1
+        },
+        {
+          "sub_affix_id": 6,
+          "count": 1,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 8,
+          "count": 4,
+          "step": 6
+        },
+        {
+          "sub_affix_id": 11,
+          "count": 3,
+          "step": 0
+        }
+      ],
+      "internal_uid": 295,
+      "equip_avatar": 1504
+    },
+    {
+      "level": 15,
+      "relic_id": 63155,
+      "relic_set_id": 315,
+      "main_affix_id": 2,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 8,
+          "count": 2,
           "step": 0
         },
         {
+          "sub_affix_id": 9,
+          "count": 3,
+          "step": 4
+        },
+        {
           "sub_affix_id": 3,
+          "count": 2,
+          "step": 0
+        },
+        {
+          "sub_affix_id": 7,
+          "count": 1,
+          "step": 2
+        }
+      ],
+      "internal_uid": 296,
+      "equip_avatar": 1504
+    },
+    {
+      "level": 15,
+      "relic_id": 61261,
+      "relic_set_id": 126,
+      "main_affix_id": 1,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 4,
+          "count": 2,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 5,
+          "count": 1,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 9,
+          "count": 4,
+          "step": 4
+        },
+        {
+          "sub_affix_id": 11,
+          "count": 2,
+          "step": 3
+        }
+      ],
+      "internal_uid": 297,
+      "equip_avatar": 1505
+    },
+    {
+      "level": 15,
+      "relic_id": 61262,
+      "relic_set_id": 126,
+      "main_affix_id": 1,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 11,
+          "count": 1,
+          "step": 1
+        },
+        {
+          "sub_affix_id": 5,
+          "count": 3,
+          "step": 3
+        },
+        {
+          "sub_affix_id": 4,
+          "count": 1,
+          "step": 0
+        },
+        {
+          "sub_affix_id": 9,
+          "count": 3,
+          "step": 4
+        }
+      ],
+      "internal_uid": 298,
+      "equip_avatar": 1505
+    },
+    {
+      "level": 15,
+      "relic_id": 61263,
+      "relic_set_id": 126,
+      "main_affix_id": 5,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 4,
+          "count": 3,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 7,
+          "count": 1,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 8,
+          "count": 3,
+          "step": 6
+        },
+        {
+          "sub_affix_id": 11,
+          "count": 1,
+          "step": 1
+        }
+      ],
+      "internal_uid": 299,
+      "equip_avatar": 1505
+    },
+    {
+      "level": 15,
+      "relic_id": 61264,
+      "relic_set_id": 126,
+      "main_affix_id": 2,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 7,
+          "count": 2,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 8,
+          "count": 1,
+          "step": 1
+        },
+        {
+          "sub_affix_id": 9,
+          "count": 2,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 12,
+          "count": 3,
+          "step": 6
+        }
+      ],
+      "internal_uid": 300,
+      "equip_avatar": 1505
+    },
+    {
+      "level": 15,
+      "relic_id": 63255,
+      "relic_set_id": 325,
+      "main_affix_id": 4,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 12,
+          "count": 2,
+          "step": 3
+        },
+        {
+          "sub_affix_id": 8,
+          "count": 3,
+          "step": 5
+        },
+        {
+          "sub_affix_id": 9,
+          "count": 2,
+          "step": 4
+        },
+        {
+          "sub_affix_id": 5,
+          "count": 1,
+          "step": 1
+        }
+      ],
+      "internal_uid": 301,
+      "equip_avatar": 1505
+    },
+    {
+      "level": 15,
+      "relic_id": 63256,
+      "relic_set_id": 325,
+      "main_affix_id": 2,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 1,
+          "count": 1,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 10,
+          "count": 2,
+          "step": 1
+        },
+        {
+          "sub_affix_id": 5,
           "count": 1,
           "step": 0
         },
         {
           "sub_affix_id": 8,
           "count": 4,
+          "step": 4
+        }
+      ],
+      "internal_uid": 302,
+      "equip_avatar": 1505
+    },
+    {
+      "level": 15,
+      "relic_id": 61291,
+      "relic_set_id": 129,
+      "main_affix_id": 1,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 4,
+          "count": 2,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 5,
+          "count": 2,
+          "step": 4
+        },
+        {
+          "sub_affix_id": 8,
+          "count": 3,
+          "step": 0
+        },
+        {
+          "sub_affix_id": 11,
+          "count": 1,
+          "step": 1
+        }
+      ],
+      "internal_uid": 303,
+      "equip_avatar": 1506
+    },
+    {
+      "level": 15,
+      "relic_id": 61292,
+      "relic_set_id": 129,
+      "main_affix_id": 1,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 11,
+          "count": 1,
+          "step": 1
+        },
+        {
+          "sub_affix_id": 5,
+          "count": 3,
           "step": 3
         },
         {
+          "sub_affix_id": 4,
+          "count": 1,
+          "step": 0
+        },
+        {
+          "sub_affix_id": 8,
+          "count": 4,
+          "step": 7
+        }
+      ],
+      "internal_uid": 304,
+      "equip_avatar": 1506
+    },
+    {
+      "level": 15,
+      "relic_id": 61293,
+      "relic_set_id": 129,
+      "main_affix_id": 4,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 4,
+          "count": 3,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 7,
+          "count": 1,
+          "step": 2
+        },
+        {
           "sub_affix_id": 9,
+          "count": 3,
+          "step": 4
+        },
+        {
+          "sub_affix_id": 11,
+          "count": 1,
+          "step": 1
+        }
+      ],
+      "internal_uid": 305,
+      "equip_avatar": 1506
+    },
+    {
+      "level": 15,
+      "relic_id": 61294,
+      "relic_set_id": 129,
+      "main_affix_id": 2,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 6,
+          "count": 1,
+          "step": 1
+        },
+        {
+          "sub_affix_id": 8,
           "count": 2,
+          "step": 0
+        },
+        {
+          "sub_affix_id": 9,
+          "count": 4,
+          "step": 4
+        },
+        {
+          "sub_affix_id": 12,
+          "count": 1,
+          "step": 1
+        }
+      ],
+      "internal_uid": 306,
+      "equip_avatar": 1506
+    },
+    {
+      "level": 15,
+      "relic_id": 63255,
+      "relic_set_id": 325,
+      "main_affix_id": 2,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 12,
+          "count": 1,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 9,
+          "count": 3,
+          "step": 4
+        },
+        {
+          "sub_affix_id": 3,
+          "count": 3,
+          "step": 0
+        },
+        {
+          "sub_affix_id": 8,
+          "count": 1,
           "step": 2
         }
       ],
-      "internal_uid": 293,
-      "equip_avatar": 1504
+      "internal_uid": 307,
+      "equip_avatar": 1506
+    },
+    {
+      "level": 15,
+      "relic_id": 63256,
+      "relic_set_id": 325,
+      "main_affix_id": 4,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 1,
+          "count": 1,
+          "step": 0
+        },
+        {
+          "sub_affix_id": 2,
+          "count": 2,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 8,
+          "count": 3,
+          "step": 1
+        },
+        {
+          "sub_affix_id": 9,
+          "count": 3,
+          "step": 4
+        }
+      ],
+      "internal_uid": 308,
+      "equip_avatar": 1506
     },
     {
       "level": 15,
@@ -9257,7 +9739,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 294,
+      "internal_uid": 309,
       "equip_avatar": 8006
     },
     {
@@ -9287,7 +9769,7 @@
           "step": 4
         }
       ],
-      "internal_uid": 295,
+      "internal_uid": 310,
       "equip_avatar": 8006
     },
     {
@@ -9317,7 +9799,7 @@
           "step": 6
         }
       ],
-      "internal_uid": 296,
+      "internal_uid": 311,
       "equip_avatar": 8006
     },
     {
@@ -9347,7 +9829,7 @@
           "step": 3
         }
       ],
-      "internal_uid": 297,
+      "internal_uid": 312,
       "equip_avatar": 8006
     },
     {
@@ -9377,7 +9859,7 @@
           "step": 1
         }
       ],
-      "internal_uid": 298,
+      "internal_uid": 313,
       "equip_avatar": 8006
     },
     {
@@ -9407,19 +9889,49 @@
           "step": 1
         }
       ],
-      "internal_uid": 299,
+      "internal_uid": 314,
       "equip_avatar": 8006
     },
     {
       "level": 15,
-      "relic_id": 61101,
-      "relic_set_id": 110,
+      "relic_id": 61271,
+      "relic_set_id": 127,
       "main_affix_id": 1,
       "sub_affixes": [
         {
-          "sub_affix_id": 5,
+          "sub_affix_id": 6,
           "count": 2,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 7,
+          "count": 1,
           "step": 1
+        },
+        {
+          "sub_affix_id": 9,
+          "count": 4,
+          "step": 5
+        },
+        {
+          "sub_affix_id": 11,
+          "count": 2,
+          "step": 3
+        }
+      ],
+      "internal_uid": 315,
+      "equip_avatar": 8007
+    },
+    {
+      "level": 15,
+      "relic_id": 61272,
+      "relic_set_id": 127,
+      "main_affix_id": 1,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 3,
+          "count": 2,
+          "step": 2
         },
         {
           "sub_affix_id": 6,
@@ -9428,166 +9940,136 @@
         },
         {
           "sub_affix_id": 7,
-          "count": 3,
-          "step": 6
+          "count": 1,
+          "step": 1
         },
         {
           "sub_affix_id": 9,
-          "count": 2,
-          "step": 2
+          "count": 4,
+          "step": 7
         }
       ],
-      "internal_uid": 300,
+      "internal_uid": 316,
       "equip_avatar": 8007
     },
     {
       "level": 15,
-      "relic_id": 61102,
-      "relic_set_id": 110,
-      "main_affix_id": 1,
-      "sub_affixes": [
-        {
-          "sub_affix_id": 1,
-          "count": 2,
-          "step": 2
-        },
-        {
-          "sub_affix_id": 4,
-          "count": 3,
-          "step": 3
-        },
-        {
-          "sub_affix_id": 7,
-          "count": 3,
-          "step": 3
-        },
-        {
-          "sub_affix_id": 9,
-          "count": 2,
-          "step": 2
-        }
-      ],
-      "internal_uid": 301,
-      "equip_avatar": 8007
-    },
-    {
-      "level": 15,
-      "relic_id": 61103,
-      "relic_set_id": 110,
+      "relic_id": 61273,
+      "relic_set_id": 127,
       "main_affix_id": 5,
       "sub_affixes": [
         {
-          "sub_affix_id": 2,
+          "sub_affix_id": 4,
           "count": 2,
-          "step": 3
+          "step": 0
         },
         {
-          "sub_affix_id": 4,
-          "count": 3,
-          "step": 3
+          "sub_affix_id": 5,
+          "count": 2,
+          "step": 4
         },
         {
           "sub_affix_id": 7,
           "count": 3,
-          "step": 3
+          "step": 5
         },
         {
-          "sub_affix_id": 11,
+          "sub_affix_id": 10,
           "count": 1,
           "step": 0
         }
       ],
-      "internal_uid": 302,
+      "internal_uid": 317,
       "equip_avatar": 8007
     },
     {
       "level": 15,
-      "relic_id": 61104,
-      "relic_set_id": 110,
+      "relic_id": 61274,
+      "relic_set_id": 127,
       "main_affix_id": 4,
       "sub_affixes": [
         {
-          "sub_affix_id": 1,
+          "sub_affix_id": 3,
           "count": 1,
           "step": 2
         },
         {
           "sub_affix_id": 4,
+          "count": 3,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 5,
+          "count": 1,
+          "step": 0
+        },
+        {
+          "sub_affix_id": 9,
+          "count": 3,
+          "step": 3
+        }
+      ],
+      "internal_uid": 318,
+      "equip_avatar": 8007
+    },
+    {
+      "level": 15,
+      "relic_id": 63235,
+      "relic_set_id": 323,
+      "main_affix_id": 3,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 7,
           "count": 2,
+          "step": 1
+        },
+        {
+          "sub_affix_id": 8,
+          "count": 1,
           "step": 2
         },
         {
           "sub_affix_id": 9,
           "count": 4,
-          "step": 4
+          "step": 2
         },
         {
-          "sub_affix_id": 11,
-          "count": 2,
-          "step": 2
-        }
-      ],
-      "internal_uid": 303,
-      "equip_avatar": 8007
-    },
-    {
-      "level": 15,
-      "relic_id": 63085,
-      "relic_set_id": 308,
-      "main_affix_id": 1,
-      "sub_affixes": [
-        {
-          "sub_affix_id": 2,
+          "sub_affix_id": 10,
           "count": 1,
           "step": 1
-        },
-        {
-          "sub_affix_id": 6,
-          "count": 2,
-          "step": 2
-        },
-        {
-          "sub_affix_id": 7,
-          "count": 3,
-          "step": 3
-        },
-        {
-          "sub_affix_id": 9,
-          "count": 2,
-          "step": 2
         }
       ],
-      "internal_uid": 304,
+      "internal_uid": 319,
       "equip_avatar": 8007
     },
     {
       "level": 15,
-      "relic_id": 63086,
-      "relic_set_id": 308,
+      "relic_id": 63236,
+      "relic_set_id": 323,
       "main_affix_id": 2,
       "sub_affixes": [
         {
           "sub_affix_id": 4,
-          "count": 3,
+          "count": 2,
           "step": 3
         },
         {
           "sub_affix_id": 5,
-          "count": 1,
-          "step": 1
-        },
-        {
-          "sub_affix_id": 7,
-          "count": 3,
-          "step": 3
+          "count": 2,
+          "step": 4
         },
         {
           "sub_affix_id": 8,
-          "count": 2,
+          "count": 1,
           "step": 2
+        },
+        {
+          "sub_affix_id": 9,
+          "count": 3,
+          "step": 5
         }
       ],
-      "internal_uid": 305,
+      "internal_uid": 320,
       "equip_avatar": 8007
     },
     {
@@ -9617,7 +10099,7 @@
           "step": 4
         }
       ],
-      "internal_uid": 306,
+      "internal_uid": 321,
       "equip_avatar": 8008
     },
     {
@@ -9647,7 +10129,7 @@
           "step": 0
         }
       ],
-      "internal_uid": 307,
+      "internal_uid": 322,
       "equip_avatar": 8008
     },
     {
@@ -9677,7 +10159,7 @@
           "step": 0
         }
       ],
-      "internal_uid": 308,
+      "internal_uid": 323,
       "equip_avatar": 8008
     },
     {
@@ -9707,7 +10189,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 309,
+      "internal_uid": 324,
       "equip_avatar": 8008
     },
     {
@@ -9737,7 +10219,7 @@
           "step": 2
         }
       ],
-      "internal_uid": 310,
+      "internal_uid": 325,
       "equip_avatar": 8008
     },
     {
@@ -9767,8 +10249,188 @@
           "step": 3
         }
       ],
-      "internal_uid": 311,
+      "internal_uid": 326,
       "equip_avatar": 8008
+    },
+    {
+      "level": 15,
+      "relic_id": 61291,
+      "relic_set_id": 129,
+      "main_affix_id": 1,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 4,
+          "count": 2,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 5,
+          "count": 2,
+          "step": 4
+        },
+        {
+          "sub_affix_id": 9,
+          "count": 2,
+          "step": 0
+        },
+        {
+          "sub_affix_id": 11,
+          "count": 2,
+          "step": 3
+        }
+      ],
+      "internal_uid": 327,
+      "equip_avatar": 8010
+    },
+    {
+      "level": 15,
+      "relic_id": 61292,
+      "relic_set_id": 129,
+      "main_affix_id": 1,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 11,
+          "count": 1,
+          "step": 1
+        },
+        {
+          "sub_affix_id": 5,
+          "count": 3,
+          "step": 3
+        },
+        {
+          "sub_affix_id": 4,
+          "count": 1,
+          "step": 0
+        },
+        {
+          "sub_affix_id": 8,
+          "count": 4,
+          "step": 7
+        }
+      ],
+      "internal_uid": 328,
+      "equip_avatar": 8010
+    },
+    {
+      "level": 15,
+      "relic_id": 61293,
+      "relic_set_id": 129,
+      "main_affix_id": 4,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 4,
+          "count": 3,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 7,
+          "count": 1,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 9,
+          "count": 3,
+          "step": 3
+        },
+        {
+          "sub_affix_id": 11,
+          "count": 1,
+          "step": 1
+        }
+      ],
+      "internal_uid": 329,
+      "equip_avatar": 8010
+    },
+    {
+      "level": 15,
+      "relic_id": 61294,
+      "relic_set_id": 129,
+      "main_affix_id": 4,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 5,
+          "count": 3,
+          "step": 4
+        },
+        {
+          "sub_affix_id": 8,
+          "count": 1,
+          "step": 1
+        },
+        {
+          "sub_affix_id": 9,
+          "count": 2,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 12,
+          "count": 3,
+          "step": 6
+        }
+      ],
+      "internal_uid": 330,
+      "equip_avatar": 8010
+    },
+    {
+      "level": 15,
+      "relic_id": 63085,
+      "relic_set_id": 308,
+      "main_affix_id": 1,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 3,
+          "count": 1,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 7,
+          "count": 1,
+          "step": 2
+        },
+        {
+          "sub_affix_id": 9,
+          "count": 2,
+          "step": 4
+        },
+        {
+          "sub_affix_id": 2,
+          "count": 4,
+          "step": 5
+        }
+      ],
+      "internal_uid": 331,
+      "equip_avatar": 8010
+    },
+    {
+      "level": 15,
+      "relic_id": 63086,
+      "relic_set_id": 308,
+      "main_affix_id": 2,
+      "sub_affixes": [
+        {
+          "sub_affix_id": 3,
+          "count": 1,
+          "step": 0
+        },
+        {
+          "sub_affix_id": 2,
+          "count": 1,
+          "step": 1
+        },
+        {
+          "sub_affix_id": 7,
+          "count": 3,
+          "step": 0
+        },
+        {
+          "sub_affix_id": 8,
+          "count": 3,
+          "step": 3
+        }
+      ],
+      "internal_uid": 332,
+      "equip_avatar": 8010
     }
   ],
   "avatars": {
@@ -9932,29 +10594,29 @@
       "owner_uid": 0,
       "avatar_id": 1004,
       "data": {
-        "rank": 0,
+        "rank": 2,
         "skills": {
-          "1004001": 1,
-          "1004002": 1,
-          "1004003": 1,
-          "1004004": 1,
-          "1004007": 1,
-          "1004101": 1,
-          "1004102": 1,
-          "1004103": 1,
-          "1004201": 1,
-          "1004202": 1,
-          "1004203": 1,
-          "1004204": 1,
-          "1004205": 1,
-          "1004206": 1,
-          "1004207": 1,
-          "1004208": 1,
-          "1004209": 1,
-          "1004210": 1
+          "11004001": 6,
+          "11004002": 10,
+          "11004003": 10,
+          "11004004": 10,
+          "11004007": 1,
+          "11004101": 1,
+          "11004102": 1,
+          "11004103": 1,
+          "11004201": 1,
+          "11004202": 1,
+          "11004203": 1,
+          "11004204": 1,
+          "11004205": 1,
+          "11004206": 1,
+          "11004207": 1,
+          "11004208": 1,
+          "11004209": 1,
+          "11004210": 1
         },
         "skills_by_anchor_type": {
-          "1": 1,
+          "1": 6,
           "10": 1,
           "11": 1,
           "12": 1,
@@ -9964,9 +10626,9 @@
           "16": 1,
           "17": 1,
           "18": 1,
-          "2": 1,
-          "3": 1,
-          "4": 1,
+          "2": 10,
+          "3": 10,
+          "4": 10,
           "5": 1,
           "6": 1,
           "7": 1,
@@ -10038,24 +10700,6 @@
       "data": {
         "rank": 2,
         "skills": {
-          "1006001": 1,
-          "1006002": 1,
-          "1006003": 1,
-          "1006004": 1,
-          "1006007": 1,
-          "1006101": 1,
-          "1006102": 1,
-          "1006103": 1,
-          "1006201": 1,
-          "1006202": 1,
-          "1006203": 1,
-          "1006204": 1,
-          "1006205": 1,
-          "1006206": 1,
-          "1006207": 1,
-          "1006208": 1,
-          "1006209": 1,
-          "1006210": 1,
           "11006001": 6,
           "11006002": 10,
           "11006003": 10,
@@ -10098,7 +10742,9 @@
       },
       "level": 80,
       "promotion": 6,
-      "techniques": [],
+      "techniques": [
+        100601
+      ],
       "sp_value": 55,
       "sp_max": 110
     },
@@ -11416,7 +12062,10 @@
       },
       "level": 80,
       "promotion": 6,
-      "techniques": [],
+      "techniques": [
+        120801,
+        120802
+      ],
       "sp_value": 68,
       "sp_max": 135
     },
@@ -11902,7 +12551,9 @@
       },
       "level": 80,
       "promotion": 6,
-      "techniques": [],
+      "techniques": [
+        121801
+      ],
       "sp_value": 50,
       "sp_max": 100
     },
@@ -12058,7 +12709,9 @@
       },
       "level": 80,
       "promotion": 6,
-      "techniques": [],
+      "techniques": [
+        122201
+      ],
       "sp_value": 55,
       "sp_max": 110
     },
@@ -12214,7 +12867,9 @@
       },
       "level": 80,
       "promotion": 6,
-      "techniques": [],
+      "techniques": [
+        122501
+      ],
       "sp_value": 65,
       "sp_max": 130
     },
@@ -12526,7 +13181,10 @@
       },
       "level": 80,
       "promotion": 6,
-      "techniques": [],
+      "techniques": [
+        130601,
+        130602
+      ],
       "sp_value": 55,
       "sp_max": 110
     },
@@ -12734,7 +13392,10 @@
       },
       "level": 80,
       "promotion": 6,
-      "techniques": [],
+      "techniques": [
+        131001,
+        131002
+      ],
       "sp_value": 120,
       "sp_max": 240
     },
@@ -13046,7 +13707,9 @@
       },
       "level": 80,
       "promotion": 6,
-      "techniques": [],
+      "techniques": [
+        132101
+      ],
       "sp_value": 65,
       "sp_max": 130
     },
@@ -13362,7 +14025,12 @@
       },
       "level": 80,
       "promotion": 6,
-      "techniques": [],
+      "techniques": [
+        140601,
+        140602,
+        140603,
+        140604
+      ],
       "sp_value": 65,
       "sp_max": 130
     },
@@ -13526,7 +14194,9 @@
       },
       "level": 80,
       "promotion": 6,
-      "techniques": [],
+      "techniques": [
+        140901
+      ],
       "sp_value": 70,
       "sp_max": 140
     },
@@ -13686,7 +14356,9 @@
       },
       "level": 80,
       "promotion": 6,
-      "techniques": [],
+      "techniques": [
+        141301
+      ],
       "sp_value": 120,
       "sp_max": 240
     },
@@ -13794,7 +14466,11 @@
       },
       "level": 80,
       "promotion": 6,
-      "techniques": [],
+      "techniques": [
+        141501,
+        141502,
+        141503
+      ],
       "sp_value": 12,
       "sp_max": 24
     },
@@ -13802,7 +14478,7 @@
       "owner_uid": 0,
       "avatar_id": 1501,
       "data": {
-        "rank": 4,
+        "rank": 0,
         "skills": {
           "1501001": 6,
           "1501002": 10,
@@ -13848,7 +14524,9 @@
       },
       "level": 80,
       "promotion": 6,
-      "techniques": [],
+      "techniques": [
+        150101
+      ],
       "sp_value": 80,
       "sp_max": 160
     },
@@ -13902,7 +14580,10 @@
       },
       "level": 80,
       "promotion": 6,
-      "techniques": [],
+      "techniques": [
+        150201,
+        150202
+      ],
       "sp_value": 90,
       "sp_max": 180
     },
@@ -13957,6 +14638,120 @@
       "techniques": [],
       "sp_value": 80,
       "sp_max": 160
+    },
+    "1505": {
+      "owner_uid": 0,
+      "avatar_id": 1505,
+      "data": {
+        "rank": 0,
+        "skills": {
+          "1505001": 6,
+          "1505002": 10,
+          "1505003": 10,
+          "1505004": 10,
+          "1505007": 1,
+          "1505101": 1,
+          "1505102": 1,
+          "1505103": 1,
+          "1505201": 1,
+          "1505202": 1,
+          "1505203": 1,
+          "1505204": 1,
+          "1505205": 1,
+          "1505206": 1,
+          "1505207": 1,
+          "1505208": 1,
+          "1505209": 1,
+          "1505210": 1,
+          "1505420": 10
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 10,
+          "22": 10,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
+        }
+      },
+      "level": 80,
+      "promotion": 6,
+      "techniques": [
+        150501
+      ],
+      "sp_value": 240,
+      "sp_max": 480
+    },
+    "1506": {
+      "owner_uid": 0,
+      "avatar_id": 1506,
+      "data": {
+        "rank": 0,
+        "skills": {
+          "1506001": 6,
+          "1506002": 10,
+          "1506003": 10,
+          "1506004": 10,
+          "1506007": 1,
+          "1506101": 1,
+          "1506102": 1,
+          "1506103": 1,
+          "1506201": 1,
+          "1506202": 1,
+          "1506203": 1,
+          "1506204": 1,
+          "1506205": 1,
+          "1506206": 1,
+          "1506207": 1,
+          "1506208": 1,
+          "1506209": 1,
+          "1506210": 1,
+          "1506420": 10
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 10,
+          "22": 10,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
+        }
+      },
+      "level": 80,
+      "promotion": 6,
+      "techniques": [
+        150601,
+        150602,
+        150603
+      ],
+      "sp_value": 40,
+      "sp_max": 80
     },
     "8001": {
       "owner_uid": 0,
@@ -14214,7 +15009,9 @@
       },
       "level": 80,
       "promotion": 6,
-      "techniques": [],
+      "techniques": [
+        800501
+      ],
       "sp_value": 70,
       "sp_max": 140
     },
@@ -14266,7 +15063,9 @@
       },
       "level": 80,
       "promotion": 6,
-      "techniques": [],
+      "techniques": [
+        800501
+      ],
       "sp_value": 70,
       "sp_max": 140
     },
@@ -14385,43 +15184,154 @@
       "techniques": [],
       "sp_value": 80,
       "sp_max": 160
+    },
+    "8009": {
+      "owner_uid": 0,
+      "avatar_id": 8009,
+      "data": {
+        "rank": 0,
+        "skills": {
+          "8009001": 6,
+          "8009002": 10,
+          "8009003": 10,
+          "8009004": 10,
+          "8009007": 1,
+          "8009101": 1,
+          "8009102": 1,
+          "8009103": 1,
+          "8009201": 1,
+          "8009202": 1,
+          "8009203": 1,
+          "8009204": 1,
+          "8009205": 1,
+          "8009206": 1,
+          "8009207": 1,
+          "8009208": 1,
+          "8009209": 1,
+          "8009210": 1,
+          "8009420": 10
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 10,
+          "22": 10,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
+        }
+      },
+      "level": 80,
+      "promotion": 6,
+      "techniques": [],
+      "sp_value": 80,
+      "sp_max": 160
+    },
+    "8010": {
+      "owner_uid": 0,
+      "avatar_id": 8010,
+      "data": {
+        "rank": 6,
+        "skills": {
+          "8010001": 6,
+          "8010002": 10,
+          "8010003": 10,
+          "8010004": 10,
+          "8010007": 1,
+          "8010101": 1,
+          "8010102": 1,
+          "8010103": 1,
+          "8010201": 1,
+          "8010202": 1,
+          "8010203": 1,
+          "8010204": 1,
+          "8010205": 1,
+          "8010206": 1,
+          "8010207": 1,
+          "8010208": 1,
+          "8010209": 1,
+          "8010210": 1,
+          "8010420": 10
+        },
+        "skills_by_anchor_type": {
+          "1": 6,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "2": 10,
+          "22": 10,
+          "3": 10,
+          "4": 10,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1
+        }
+      },
+      "level": 80,
+      "promotion": 6,
+      "techniques": [],
+      "sp_value": 80,
+      "sp_max": 160
     }
   },
   "battle_config": {
-    "battle_type": "PEAK",
-    "blessings": [
-      {
-        "level": 1,
-        "id": 3033041
-      },
-      {
-        "level": 1,
-        "id": 3033048
-      }
-    ],
+    "battle_type": "CE",
+    "blessings": [],
     "custom_stats": [],
-    "cycle_count": 6,
-    "stage_id": 30505011,
+    "cycle_count": 30,
+    "stage_id": 0,
     "path_resonance_id": 0,
     "monsters": [
       [
         {
-          "monster_id": 5012010,
+          "monster_id": 101302009,
           "level": 95,
           "amount": 1
         },
         {
-          "monster_id": 5013040,
+          "monster_id": 101302009,
           "level": 95,
           "amount": 1
         },
         {
-          "monster_id": 5012010,
+          "monster_id": 101302009,
+          "level": 95,
+          "amount": 1
+        }
+      ],
+      [
+        {
+          "monster_id": 101302009,
           "level": 95,
           "amount": 1
         },
         {
-          "monster_id": 5012010,
+          "monster_id": 101302009,
+          "level": 95,
+          "amount": 1
+        },
+        {
+          "monster_id": 101302009,
           "level": 95,
           "amount": 1
         }

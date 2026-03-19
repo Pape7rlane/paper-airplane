@@ -1,5 +1,5 @@
 {
-  "leader": 2,
+  "leader": 3,
   "lineups": {
     "0": 1217,
     "1": 1307,
@@ -21,31 +21,35 @@
     1003
   ],
   "char_path": {
-    "main": 8008,
+    "main": 8010,
     "march_7": 1224
   },
   "char_enhanced": {
+    "1004": 1,
     "1005": 1,
     "1006": 1,
+    "1102": 1,
     "1205": 1,
     "1212": 1,
+    "1217": 1,
     "1306": 1,
-    "1307": 1
+    "1307": 1,
+    "1310": 1
   },
   "challenge": {
     "challenge_id": 0,
     "skip_half": 0,
     "blessings": [],
     "is_in_challenge": false,
-    "current_stage_id": 30121122,
+    "current_stage_id": 30122121,
     "path_resonance_id": 0,
     "maze_buff": 0,
     "first_lineup": [],
     "second_lineup": []
   },
   "challenge_peak": {
-    "current_mode": "Boss",
-    "group_id": 5,
+    "current_mode": "Knight",
+    "group_id": 6,
     "is_in_challenge_peak": false,
     "challenge_peak_data": {
       "1": {
@@ -259,6 +263,52 @@
             }
           ]
         }
+      },
+      "6": {
+        "checkmate_data": {
+          "challenge_id": 604,
+          "blessing": 3033053,
+          "lineup": [
+            1501,
+            1506,
+            1502,
+            1217
+          ],
+          "stage_id": 30506021,
+          "is_hard_mode": false
+        },
+        "knight_data": {
+          "current_challenge_id": 603,
+          "details_data": [
+            {
+              "lineup": [
+                1309
+              ],
+              "stage_id": 30506011,
+              "challenge_id": 601
+            },
+            {
+              "lineup": [
+                1321,
+                1310,
+                1225,
+                1303
+              ],
+              "stage_id": 30506012,
+              "challenge_id": 602
+            },
+            {
+              "lineup": [
+                1415,
+                1413,
+                1409,
+                1407
+              ],
+              "stage_id": 30506013,
+              "challenge_id": 603
+            }
+          ]
+        }
       }
     }
   },
@@ -273,7 +323,8 @@
         2000000000,
         2000000000,
         2000000000
-      ]
+      ],
+      "3": []
     },
     "cycle_count": 1,
     "stage_id": 30118121,

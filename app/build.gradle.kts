@@ -9,6 +9,11 @@ kotlin {
     jvmToolchain(17)
 }
 
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(17))
+    }
+}
 android {
     namespace = "com.example.firefly_go_android"
     compileSdk = 36
