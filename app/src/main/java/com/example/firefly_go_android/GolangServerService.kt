@@ -1,10 +1,12 @@
 package com.example.firefly_go_android
 
+import android.annotation.SuppressLint
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.app.Service
 import android.content.Intent
+import android.content.pm.ServiceInfo
 import android.graphics.BitmapFactory
 import android.os.Build
 import android.os.IBinder
@@ -16,6 +18,7 @@ import androidx.compose.runtime.setValue
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import libandroid.Libandroid
+import androidx.core.content.edit
 
 class GolangServerService : Service() {
 
@@ -33,9 +36,10 @@ class GolangServerService : Service() {
         createNotificationChannel()
     }
 
+    @SuppressLint("WakelockTimeout")
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         if (isRunning) {
-            Log.d(TAG, "❗ Server is already running")
+            Log.d(TAG, "Server is already running")
             return START_STICKY
         }
         isRunning = true
@@ -64,41 +68,62 @@ class GolangServerService : Service() {
             .setCategory(NotificationCompat.CATEGORY_SERVICE)
             .build()
 
+        if (Build.VERSION.SDK_INT >= 34) {
+            startForeground(
+                NOTIFICATION_ID,
+                notification,
+                ServiceInfo.FOREGROUND_SERVICE_TYPE_SPECIAL_USE
+            )
+        } else if (Build.VERSION.SDK_INT >= 29) {
+            startForeground(
+                NOTIFICATION_ID,
+                notification,
+                ServiceInfo.FOREGROUND_SERVICE_TYPE_MANIFEST
+            )
+        } else {
+            startForeground(NOTIFICATION_ID, notification)
+        }
 
-        startForeground(NOTIFICATION_ID, notification)
-
+        // Khởi tạo WakeLock và WifiLock
         try {
             val powerManager = getSystemService(POWER_SERVICE) as PowerManager
             wakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "GolangServer::WakeLock")
-            wakeLock?.acquire(10*60*1000L)
-            Log.d(TAG, "✅ WakeLock acquired")
+            wakeLock?.acquire()
+            Log.d(TAG, "WakeLock acquired")
         } catch (e: Exception) {
-            Log.e(TAG, "❌ WakeLock failed", e)
+            Log.e(TAG, "Lock failed", e)
         }
 
         Thread {
             try {
-                val appDataPath = intent?.getStringExtra("appDataPath")
+                val sharedPrefs = getSharedPreferences("AppPrefs", MODE_PRIVATE)
+                var appDataPath = intent?.getStringExtra("appDataPath")
+
+                if (appDataPath != null) {
+                    sharedPrefs.edit { putString("saved_app_data_path", appDataPath) }
+                } else {
+                    appDataPath = sharedPrefs.getString("saved_app_data_path", null)
+                }
+
                 if (appDataPath != null) {
                     Libandroid.setPathDataLocal(appDataPath)
-                    Log.d(TAG, "✅ Set path data: $appDataPath")
+                    Log.d(TAG, "Set path data: $appDataPath")
                 } else {
                     isRunning = false
-                    Log.e(TAG, "❌ appDataPath not received in intent")
+                    Log.e(TAG, "appDataPath not received and not found in SharedPreferences")
                     stopSelf()
                     return@Thread
                 }
 
                 Libandroid.setServerRunning(true)
                 isRunning = true
-                Log.d(TAG, "✅ Server started")
+                Log.d(TAG, "Server started")
             } catch (e: Exception) {
                 isRunning = false
-                Log.e(TAG, "❌ Error starting server", e)
+                Log.e(TAG, "Error starting server", e)
                 stopSelf()
             }
         }.start()
-
 
         return START_STICKY
     }
@@ -107,7 +132,6 @@ class GolangServerService : Service() {
         super.onDestroy()
         Log.d(TAG, "onDestroy called")
 
-        // 1. Tắt server
         try {
             val result = Libandroid.setServerRunning(false)
             isRunning = false
@@ -116,15 +140,16 @@ class GolangServerService : Service() {
             Log.e(TAG, "Error shutting down server", e)
         }
 
+        // Nhả các khóa tài nguyên
         try {
             wakeLock?.let {
                 if (it.isHeld) {
                     it.release()
-                    Log.d(TAG, "✅ WakeLock released")
+                    Log.d(TAG, "WakeLock released")
                 }
             }
         } catch (e: Exception) {
-            Log.e(TAG, "❌ Failed to release WakeLock", e)
+            Log.e(TAG, "Failed to release Locks", e)
         }
         isRunning = false
     }
@@ -143,7 +168,7 @@ class GolangServerService : Service() {
 
             val manager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
             manager.createNotificationChannel(channel)
-            Log.d(TAG, "✅ Notification channel created")
+            Log.d(TAG, "Notification channel created")
         }
     }
 }

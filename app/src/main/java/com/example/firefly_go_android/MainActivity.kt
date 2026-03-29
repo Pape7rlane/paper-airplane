@@ -4,8 +4,9 @@ import AutoUpdaterManager
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
-
+import android.os.Environment
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.ComponentActivity
@@ -67,6 +68,11 @@ import kotlinx.coroutines.delay
 import org.json.JSONObject
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
+import android.os.PowerManager
+import android.provider.Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS
+import androidx.core.content.ContextCompat
+import androidx.core.net.toUri
+import android.provider.Settings
 
 data class AppVersion(
     val latestVersion: String,
@@ -77,14 +83,14 @@ data class AppVersion(
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        requestBatteryExemption(this)
+        requestInstallPermission(this)
 
-        val appDataPath = filesDir.absolutePath
+        val appDataPath = File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "FireflyGo").absolutePath
         val dataDir = File("$appDataPath/data")
-        dataDir.mkdirs()
+        if (!dataDir.exists()) dataDir.mkdirs()
 
-        copyRawToFile(this, dataDir, "data-in-game.json", R.raw.data_in_game_json)
-        copyRawToFile(this, dataDir, "freesr-data.json", R.raw.freesr_data_json)
-        copyRawToFile(this, dataDir, "version.json", R.raw.version_json)
+        copyRawToFile(dataDir)
 
         val jsonString = resources.openRawResource(R.raw.app_version_json).use { input ->
             input.bufferedReader().use { it.readText() }
@@ -112,22 +118,61 @@ class MainActivity : ComponentActivity() {
     }
 
 }
+@SuppressLint("BatteryLife")
 
-fun copyRawToFile(context: Context, targetDir: File, fileName: String, resId: Int, override: Boolean = false) {
-    val outFile = File(targetDir, fileName)
-    if (!outFile.exists() || override) {
-        try {
-            context.resources.openRawResource(resId).use { input ->
+fun requestBatteryExemption(context: Context) {
+    val powerManager = context.getSystemService(Context.POWER_SERVICE) as PowerManager
+    if (!powerManager.isIgnoringBatteryOptimizations(context.packageName)) {
+        val intent = Intent().apply {
+            action = ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS
+            data = "package:${context.packageName}".toUri()
+        }
+        context.startActivity(intent)
+    }
+}
+
+fun requestInstallPermission(context: Context) {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        if (!context.packageManager.canRequestPackageInstalls()) {
+            val intent = Intent(Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES).apply {
+                data = "package:${context.packageName}".toUri()
+            }
+            context.startActivity(intent)
+            Toast.makeText(context, "Please allow installing unknown apps to update", Toast.LENGTH_LONG).show()
+        }
+    }
+}
+fun copyRawToFile(targetDir: File, override: Boolean = false): Boolean {
+    val files = listOf(
+        "assets/data-in-game.json" to "data-in-game.json",
+        "assets/freesr-data.json" to "freesr-data.json",
+        "assets/version.json" to "version.json"
+    )
+
+    return try {
+        if (!targetDir.exists()) targetDir.mkdirs()
+
+        for ((assetPath, name) in files) {
+            val outFile = File(targetDir, name)
+
+            if (outFile.exists() && !override) continue
+
+            val inputStream =
+                MainActivity::class.java.classLoader
+                    ?.getResourceAsStream(assetPath)
+                    ?: return false
+
+            inputStream.use { input ->
                 FileOutputStream(outFile).use { output ->
                     input.copyTo(output)
+                    output.fd.sync()
                 }
             }
-            Log.i("FileCopy", "${if (override) "✅ Overridden" else "✅ Copied"} $fileName to ${outFile.absolutePath}")
-        } catch (e: Exception) {
-            Log.e("FileCopy", "❌ Failed to copy $fileName: ${e.message}")
         }
-    } else {
-        Log.i("FileCopy", "ℹ️ $fileName already exists at ${outFile.absolutePath}")
+
+        true
+    } catch (e: Exception) {
+        false
     }
 }
 
@@ -136,18 +181,18 @@ fun removeFile(targetDir: File, fileName: String): Boolean {
     return if (file.exists()) {
         try {
             if (file.delete()) {
-                Log.i("FileRemove", "🗑️ Removed $fileName from ${file.absolutePath}")
+                Log.i("FileRemove", "Removed $fileName from ${file.absolutePath}")
                 true
             } else {
-                Log.e("FileRemove", "❌ Failed to remove $fileName from ${file.absolutePath}")
+                Log.e("FileRemove", "Failed to remove $fileName from ${file.absolutePath}")
                 false
             }
         } catch (e: Exception) {
-            Log.e("FileRemove", "❌ Error removing $fileName: ${e.message}")
+            Log.e("FileRemove", "Error removing $fileName: ${e.message}")
             false
         }
     } else {
-        Log.i("FileRemove", "ℹ️ $fileName does not exist in ${targetDir.absolutePath}")
+        Log.i("FileRemove", "$fileName does not exist in ${targetDir.absolutePath}")
         false
     }
 }
@@ -239,7 +284,7 @@ fun ServerControlScreen(appDataPath: String, dataDir: File, appVersion: AppVersi
                         if (!isRunning) {
                             val intent = Intent(context, GolangServerService::class.java)
                             intent.putExtra("appDataPath", appDataPath)
-                            context.startService(intent)
+                            ContextCompat.startForegroundService(context, intent)
                         } else {
                             context.stopService(Intent(context, GolangServerService::class.java))
                         }
@@ -382,9 +427,7 @@ fun ServerControlScreen(appDataPath: String, dataDir: File, appVersion: AppVersi
                     onClick = {
                         showResetDialog = false
                         try {
-                            copyRawToFile(context, dataDir, "data-in-game.json", R.raw.data_in_game_json, true)
-                            copyRawToFile(context, dataDir, "freesr-data.json", R.raw.freesr_data_json, true)
-                            copyRawToFile(context, dataDir, "version.json", R.raw.version_json, true)
+                            copyRawToFile(dataDir, true)
                             Toast.makeText(context, "Data has been reset successfully", Toast.LENGTH_SHORT).show()
                         } catch (e: Exception) {
                             Toast.makeText(context, "Reset failed: ${e.message}", Toast.LENGTH_SHORT).show()

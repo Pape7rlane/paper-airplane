@@ -15189,7 +15189,7 @@
       "owner_uid": 0,
       "avatar_id": 8009,
       "data": {
-        "rank": 0,
+        "rank": 6,
         "skills": {
           "8009001": 6,
           "8009002": 10,
@@ -15295,43 +15295,33 @@
     }
   },
   "battle_config": {
-    "battle_type": "CE",
-    "blessings": [],
+    "battle_type": "MOC",
+    "blessings": [
+      {
+        "level": 1,
+        "id": 3030145
+      }
+    ],
     "custom_stats": [],
     "cycle_count": 30,
-    "stage_id": 0,
+    "stage_id": 30122121,
     "path_resonance_id": 0,
     "monsters": [
       [
         {
-          "monster_id": 101302009,
+          "monster_id": 4053010,
           "level": 95,
           "amount": 1
         },
         {
-          "monster_id": 101302009,
-          "level": 95,
-          "amount": 1
-        },
-        {
-          "monster_id": 101302009,
+          "monster_id": 4033020,
           "level": 95,
           "amount": 1
         }
       ],
       [
         {
-          "monster_id": 101302009,
-          "level": 95,
-          "amount": 1
-        },
-        {
-          "monster_id": 101302009,
-          "level": 95,
-          "amount": 1
-        },
-        {
-          "monster_id": 101302009,
+          "monster_id": 3024030,
           "level": 95,
           "amount": 1
         }
