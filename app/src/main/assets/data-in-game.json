@@ -1,21 +1,21 @@
 {
-  "leader": 2,
+  "leader": 0,
   "lineups": {
-    "0": 1308,
-    "1": 1406,
-    "2": 1218,
-    "3": 1304
+    "0": 1415,
+    "1": 1407,
+    "2": 1409,
+    "3": 1413
   },
   "position": {
-    "x": -30,
-    "z": -22750,
-    "y": -15000,
-    "rot_y": 234288
+    "x": -3960,
+    "z": 10370,
+    "y": 182047,
+    "rot_y": 250782
   },
   "scene": {
-    "plane_id": 10000,
-    "floor_id": 10000003,
-    "entry_id": 100000352
+    "plane_id": 20521,
+    "floor_id": 20521001,
+    "entry_id": 2052101
   },
   "player_outfit": [
     1003
@@ -339,6 +339,7 @@
     "cur_avatar_player_icon": 202034,
     "cur_player_personal_card": 253001,
     "cur_signature": "Firefly GO By Kain",
+    "cur_nickname": "Superme",
     "cur_display_avatar": [
       1310,
       1309,

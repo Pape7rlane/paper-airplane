@@ -1,5 +1,5 @@
 {
-  "latest_version": "4.1.3-01",
-  "changelog": "UPDATE: 4.1.53",
-  "apk_url": "https://git.kain.io.vn/Firefly-Shelter/FireflyGo_Android/releases/download/4.1.3-01/firefly_go_android.apk"
+  "latest_version": "4.1.3-02",
+  "changelog": "UPDATE: Fix load map, add change nickname",
+  "apk_url": "https://git.kain.io.vn/Firefly-Shelter/FireflyGo_Android/releases/download/4.1.3-02/firefly_go_android.apk"
 }
