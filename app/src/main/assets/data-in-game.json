@@ -7,15 +7,15 @@
     "3": 1413
   },
   "position": {
-    "x": -3960,
-    "z": 10370,
-    "y": 182047,
-    "rot_y": 250782
+    "x": -38,
+    "z": 91788,
+    "y": -2052,
+    "rot_y": 0
   },
   "scene": {
-    "plane_id": 20521,
-    "floor_id": 20521001,
-    "entry_id": 2052101
+    "plane_id": 10341,
+    "floor_id": 10341001,
+    "entry_id": 1034102
   },
   "player_outfit": [
     1003
@@ -48,7 +48,7 @@
     "second_lineup": []
   },
   "challenge_peak": {
-    "current_mode": "Knight",
+    "current_mode": "Boss",
     "group_id": 6,
     "is_in_challenge_peak": false,
     "challenge_peak_data": {
@@ -269,10 +269,10 @@
           "challenge_id": 604,
           "blessing": 3033053,
           "lineup": [
-            1501,
-            1506,
+            1505,
+            1217,
             1502,
-            1217
+            8001
           ],
           "stage_id": 30506021,
           "is_hard_mode": false
@@ -339,7 +339,7 @@
     "cur_avatar_player_icon": 202034,
     "cur_player_personal_card": 253001,
     "cur_signature": "Firefly GO By Kain",
-    "cur_nickname": "Superme",
+    "cur_nickname": "Firefly GO",
     "cur_display_avatar": [
       1310,
       1309,
