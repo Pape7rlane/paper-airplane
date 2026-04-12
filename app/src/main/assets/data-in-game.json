@@ -2,9 +2,9 @@
   "leader": 0,
   "lineups": {
     "0": 1415,
-    "1": 1407,
+    "1": 1413,
     "2": 1409,
-    "3": 1413
+    "3": 1407
   },
   "position": {
     "x": -38,
@@ -328,7 +328,8 @@
     },
     "cycle_count": 1,
     "stage_id": 30118121,
-    "mode": false
+    "mode": false,
+    "custom_lineup": []
   },
   "profile_data": {
     "cur_chat_bubble_id": 220009,

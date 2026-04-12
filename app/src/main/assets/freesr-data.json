@@ -15299,45 +15299,50 @@
     "blessings": [
       {
         "level": 1,
-        "id": 3033025
+        "id": 3033056
+      },
+      {
+        "level": 1,
+        "id": 3033041
+      },
+      {
+        "level": 1,
+        "id": 3033053
       }
     ],
     "custom_stats": [],
     "cycle_count": 6,
-    "stage_id": 30505013,
+    "stage_id": 30506021,
     "path_resonance_id": 0,
     "monsters": [
       [
         {
-          "monster_id": 4012010,
-          "level": 95,
+          "monster_id": 5012100,
+          "level": 100,
           "amount": 1
         },
         {
-          "monster_id": 4012030,
-          "level": 95,
+          "monster_id": 3003020,
+          "level": 100,
           "amount": 1
         },
         {
-          "monster_id": 4032030,
-          "level": 95,
-          "amount": 1
-        },
-        {
-          "monster_id": 4032030,
-          "level": 95,
-          "amount": 1
-        },
-        {
-          "monster_id": 4052020,
-          "level": 95,
+          "monster_id": 5012100,
+          "level": 100,
           "amount": 1
         }
       ],
       [
         {
-          "monster_id": 4044010,
-          "level": 95,
+          "monster_id": 5023010,
+          "level": 100,
+          "amount": 1
+        }
+      ],
+      [
+        {
+          "monster_id": 5024010,
+          "level": 100,
           "amount": 1
         }
       ]
