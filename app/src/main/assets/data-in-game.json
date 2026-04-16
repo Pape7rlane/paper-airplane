@@ -39,6 +39,7 @@
   "challenge": {
     "challenge_id": 0,
     "skip_half": 0,
+    "random_seed": 0,
     "blessings": [],
     "is_in_challenge": false,
     "current_stage_id": 30122121,
