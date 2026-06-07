@@ -85,12 +85,31 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         requestBatteryExemption(this)
         requestInstallPermission(this)
+        requestStoragePermission(this)
 
         val appDataPath = File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "FireflyGo").absolutePath
         val dataDir = File("$appDataPath/data")
         if (!dataDir.exists()) dataDir.mkdirs()
 
-        copyRawToFile(dataDir)
+        val sharedPrefs = getSharedPreferences("AppPrefs", MODE_PRIVATE)
+        val currentVersion = try {
+            if (Build.VERSION.SDK_INT >= 33) {
+                packageManager.getPackageInfo(packageName, android.content.pm.PackageManager.PackageInfoFlags.of(0)).longVersionCode
+            } else {
+                @Suppress("DEPRECATION")
+                packageManager.getPackageInfo(packageName, 0).versionCode.toLong()
+            }
+        } catch (e: Exception) {
+            1L
+        }
+        val lastVersion = sharedPrefs.getLong("last_version_code", 0L)
+        val shouldOverride = currentVersion > lastVersion
+
+        copyRawToFile(dataDir, shouldOverride)
+
+        if (shouldOverride) {
+            sharedPrefs.edit().putLong("last_version_code", currentVersion).apply()
+        }
 
         val jsonString = resources.openRawResource(R.raw.app_version_json).use { input ->
             input.bufferedReader().use { it.readText() }
@@ -139,6 +158,27 @@ fun requestInstallPermission(context: Context) {
             }
             context.startActivity(intent)
             Toast.makeText(context, "Please allow installing unknown apps to update", Toast.LENGTH_LONG).show()
+        }
+    }
+}
+
+fun requestStoragePermission(context: Context) {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+        if (!Environment.isExternalStorageManager()) {
+            try {
+                val intent = Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION).apply {
+                    data = "package:${context.packageName}".toUri()
+                }
+                context.startActivity(intent)
+                Toast.makeText(context, "Please allow All Files Access to load game data", Toast.LENGTH_LONG).show()
+            } catch (e: Exception) {
+                try {
+                    val intent = Intent(Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION)
+                    context.startActivity(intent)
+                } catch (ex: Exception) {
+                    Log.e("StoragePermission", "Failed to open settings", ex)
+                }
+            }
         }
     }
 }
@@ -317,7 +357,8 @@ fun ServerControlScreen(appDataPath: String, dataDir: File, appVersion: AppVersi
 
             // Widget icons row
             Row(
-                horizontalArrangement = Arrangement.spacedBy(32.dp),
+                modifier = Modifier.fillMaxWidth(0.85f),
+                horizontalArrangement = Arrangement.SpaceEvenly,
                 verticalAlignment = Alignment.CenterVertically
             ) {
 
@@ -325,6 +366,7 @@ fun ServerControlScreen(appDataPath: String, dataDir: File, appVersion: AppVersi
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     modifier = Modifier
+                        .width(80.dp)
                         .clickable { showUpdateDialog = true }
                         .background(
                             Color.White.copy(alpha = 0.8f),
@@ -352,6 +394,7 @@ fun ServerControlScreen(appDataPath: String, dataDir: File, appVersion: AppVersi
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     modifier = Modifier
+                        .width(80.dp)
                         .clickable { showResetDialog = true }
                         .background(
                             Color.White.copy(alpha = 0.8f),
@@ -379,6 +422,7 @@ fun ServerControlScreen(appDataPath: String, dataDir: File, appVersion: AppVersi
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     modifier = Modifier
+                        .width(80.dp)
                         .clickable {
                             showLogs = true // mở popup log
                         }
