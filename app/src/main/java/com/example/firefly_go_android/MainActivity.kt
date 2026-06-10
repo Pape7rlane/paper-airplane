@@ -92,33 +92,53 @@ class MainActivity : ComponentActivity() {
         if (!dataDir.exists()) dataDir.mkdirs()
 
         val sharedPrefs = getSharedPreferences("AppPrefs", MODE_PRIVATE)
-        val currentVersion = try {
-            if (Build.VERSION.SDK_INT >= 33) {
-                packageManager.getPackageInfo(packageName, android.content.pm.PackageManager.PackageInfoFlags.of(0)).longVersionCode
-            } else {
-                @Suppress("DEPRECATION")
-                packageManager.getPackageInfo(packageName, 0).versionCode.toLong()
+
+        // Lấy thông tin Package
+        val packageInfo = if (Build.VERSION.SDK_INT >= 33) {
+            packageManager.getPackageInfo(packageName, android.content.pm.PackageManager.PackageInfoFlags.of(0))
+        } else {
+            @Suppress("DEPRECATION")
+            packageManager.getPackageInfo(packageName, 0)
+        }
+
+        val currentVersionCode = if (Build.VERSION.SDK_INT >= 33) packageInfo.longVersionCode else packageInfo.versionCode.toLong()
+        val currentLastUpdateTime = packageInfo.lastUpdateTime
+
+        val savedVersionCode = sharedPrefs.getLong("last_version_code", 0L)
+        val savedLastUpdateTime = sharedPrefs.getLong("last_update_time", 0L)
+
+        val isFolderEmpty = dataDir.listFiles()?.isEmpty() ?: true
+
+        val shouldOverride = currentVersionCode > savedVersionCode || 
+                           currentLastUpdateTime > savedLastUpdateTime || 
+                           isFolderEmpty
+
+        Log.i("AppUpdate", "Code: $currentVersionCode, LastUpdate: $currentLastUpdateTime")
+        Log.i("AppUpdate", "SavedCode: $savedVersionCode, SavedUpdate: $savedLastUpdateTime")
+        Log.i("AppUpdate", "Should Override: $shouldOverride")
+
+        if (copyRawToFile(this, dataDir, shouldOverride)) {
+            if (shouldOverride) {
+                sharedPrefs.edit()
+                    .putLong("last_version_code", currentVersionCode)
+                    .putLong("last_update_time", currentLastUpdateTime)
+                    .apply()
+                Log.i("AppUpdate", "Updated SharedPreferences with new version and time")
+            }
+        }
+
+        val jsonString = try {
+            resources.openRawResource(R.raw.app_version_json).use { input ->
+                input.bufferedReader().use { it.readText() }
             }
         } catch (e: Exception) {
-            1L
-        }
-        val lastVersion = sharedPrefs.getLong("last_version_code", 0L)
-        val shouldOverride = currentVersion > lastVersion
-
-        copyRawToFile(dataDir, shouldOverride)
-
-        if (shouldOverride) {
-            sharedPrefs.edit().putLong("last_version_code", currentVersion).apply()
+            "{}"
         }
 
-        val jsonString = resources.openRawResource(R.raw.app_version_json).use { input ->
-            input.bufferedReader().use { it.readText() }
-        }
-
-        val jsonObject = JSONObject(jsonString)
-        val latestVersion = jsonObject.getString("latest_version")
-        val changelog = jsonObject.getString("changelog")
-        val apkUrl = jsonObject.getString("apk_url")
+        val jsonObject = if (jsonString.isNotEmpty()) JSONObject(jsonString) else JSONObject()
+        val latestVersion = jsonObject.optString("latest_version", "1.0.0")
+        val changelog = jsonObject.optString("changelog", "")
+        val apkUrl = jsonObject.optString("apk_url", "")
 
         val appVersion = AppVersion(latestVersion, changelog, apkUrl)
 
@@ -182,27 +202,26 @@ fun requestStoragePermission(context: Context) {
         }
     }
 }
-fun copyRawToFile(targetDir: File, override: Boolean = false): Boolean {
+fun copyRawToFile(context: Context, targetDir: File, override: Boolean = false): Boolean {
     val files = listOf(
-        "assets/data-in-game.json" to "data-in-game.json",
-        "assets/freesr-data.json" to "freesr-data.json",
-        "assets/version.json" to "version.json"
+        "data-in-game.json" to "data-in-game.json",
+        "freesr-data.json" to "freesr-data.json",
+        "version.json" to "version.json"
     )
 
     return try {
         if (!targetDir.exists()) targetDir.mkdirs()
 
-        for ((assetPath, name) in files) {
-            val outFile = File(targetDir, name)
+        for ((assetFile, outName) in files) {
+            val outFile = File(targetDir, outName)
 
-            if (outFile.exists() && !override) continue
+            if (outFile.exists() && !override) {
+                Log.i("CopyRaw", "Skipping $outName (already exists and no override)")
+                continue
+            }
 
-            val inputStream =
-                MainActivity::class.java.classLoader
-                    ?.getResourceAsStream(assetPath)
-                    ?: return false
-
-            inputStream.use { input ->
+            Log.i("CopyRaw", "Copying $assetFile to ${outFile.absolutePath} (Override: $override)")
+            context.assets.open(assetFile).use { input ->
                 FileOutputStream(outFile).use { output ->
                     input.copyTo(output)
                     output.fd.sync()
@@ -212,6 +231,7 @@ fun copyRawToFile(targetDir: File, override: Boolean = false): Boolean {
 
         true
     } catch (e: Exception) {
+        Log.e("CopyRaw", "Error copying asset file: ${e.message}", e)
         false
     }
 }
@@ -471,7 +491,7 @@ fun ServerControlScreen(appDataPath: String, dataDir: File, appVersion: AppVersi
                     onClick = {
                         showResetDialog = false
                         try {
-                            copyRawToFile(dataDir, true)
+                            copyRawToFile(context, dataDir, true)
                             Toast.makeText(context, "Data has been reset successfully", Toast.LENGTH_SHORT).show()
                         } catch (e: Exception) {
                             Toast.makeText(context, "Reset failed: ${e.message}", Toast.LENGTH_SHORT).show()
@@ -655,7 +675,7 @@ fun AutoUpdateDialog(
     val context = LocalContext.current
     val autoUpdaterManager = AutoUpdaterManager(context)
     var update by remember { mutableStateOf<UpdateFeatures?>(null) }
-    var progress by remember { mutableIntStateOf(0) }
+    var progress by remember { mutableStateOf(0) }
     var showDialog by remember { mutableStateOf(false) }
     var isDownloading by remember { mutableStateOf(false) }
     var downloadComplete by remember { mutableStateOf(false) }
@@ -697,11 +717,6 @@ fun AutoUpdateDialog(
     LaunchedEffect(progress) {
         if (progress >= 100 && isDownloading) {
             downloadComplete = true
-
-            removeFile(dataDir, "data-in-game.json" )
-            removeFile(dataDir, "freesr-data.json")
-            removeFile(dataDir, "version.json")
-            delay(500)
         }
     }
 
