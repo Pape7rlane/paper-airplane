@@ -1,0 +1,57 @@
+<resources>
+    <string name="app_name">Firefly Go</string>
+    <string name="android_edition">안드로이드 버전</string>
+    <string name="sign_in">로그인</string>
+    <string name="server_running">서버 실행 중</string>
+    <string name="server_stopped">서버 정지됨</string>
+    <string name="start_server">서버 시작</string>
+    <string name="stop_server">서버 정지</string>
+    <string name="update">업데이트</string>
+    <string name="reset">초기화</string>
+    <string name="logs">로그</string>
+    <string name="reset_data_title">데이터 초기화</string>
+    <string name="reset_data_confirm">모든 데이터를 초기화하시겠습니까? 이 작업은 취소할 수 없습니다.</string>
+    <string name="no">아니오</string>
+    <string name="yes">예</string>
+    
+    <!-- Scam Warning -->
+    <string name="scam_warning_title">보안 경고</string>
+    <string name="scam_warning_text">이것은 오픈 소스 프로젝트입니다. 누군가로부터 이 앱을 구매하셨다면, 귀하는 사기를 당한 것입니다.</string>
+    <string name="i_understand">확인했습니다</string>
+
+    <!-- LoginDialog -->
+    <string name="account_profile">계정 프로필</string>
+    <string name="logged_in_as">로그인 계정:</string>
+    <string name="auto_update_status">자동 업데이트 상태:</string>
+    <string name="unlocked_player">잠금 해제 (PLAYER)</string>
+    <string name="locked_no_permission">잠김 (권한 없음)</string>
+    <string name="back">뒤로</string>
+    <string name="logout">로그아웃</string>
+    <string name="email">이메일</string>
+    <string name="password">비밀번호</string>
+    <string name="cancel">취소</string>
+    <string name="login">로그인</string>
+    <string name="or">또는</string>
+    <string name="login_with_discord">Discord로 로그인</string>
+    <string name="please_enter_both">이메일과 비밀번호를 모두 입력하세요</string>
+    <string name="login_failed">로그인 실패</string>
+    <string name="failed_to_fetch_profile">프로필을 불러오지 못했습니다</string>
+
+    <!-- AutoUpdateDialog -->
+    <string name="update_available">업데이트 가능</string>
+    <string name="no_update_available">업데이트 없음</string>
+    <string name="app_up_to_date">앱이 최신 상태입니다</string>
+    <string name="ok">확인</string>
+    <string name="latest_version">최신 버전</string>
+    <string name="whats_new">업데이트 내역</string>
+    <string name="downloading">다운로드 중...</string>
+    <string name="installation_ready">설치 준비 완료</string>
+    <string name="later">나중에</string>
+    <string name="install_now">지금 설치</string>
+
+    <!-- LogPopup -->
+    <string name="golog_output">GoLog 출력</string>
+    <string name="auto_scroll">자동 스크롤</string>
+    <string name="clear">지우기</string>
+    <string name="close">닫기</string>
+</resources>

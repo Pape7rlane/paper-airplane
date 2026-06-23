@@ -1,0 +1,61 @@
+name: Build
+run-name: ${{ gitea.actor }} build 🚀
+
+on:
+  push:
+    branches:
+      - master
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Set Up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+      - name: Setup Android SDK
+        uses: amyu/setup-android@v5
+        with:
+          cache-disabled: true
+
+      - name: Grant execute permissions
+        run: |
+          chmod +x ./gradlew
+          chmod +x ./script/release-uploader
+
+      - name: Download AAR manually
+        run: |
+          FILE="app/libs/firefly-go.aar"
+          URL="https://git.kain.io.vn/Firefly-Shelter/FireflyGo_Android/media/branch/master/app/libs/firefly-go.aar"
+          echo "📥 Downloading $FILE from $URL"
+          curl -L -o "$FILE" "$URL"
+
+      - name: Build signed release APK
+        env:
+          KEYSTORE_PATH: ${{ github.workspace }}/KeyStore.jks
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+        run: |
+          ./gradlew assembleRelease \
+            -Pandroid.injected.signing.store.file=$KEYSTORE_PATH \
+            -Pandroid.injected.signing.store.password=$KEYSTORE_PASSWORD \
+            -Pandroid.injected.signing.key.alias=$KEY_ALIAS \
+            -Pandroid.injected.signing.key.password=$KEY_PASSWORD
+
+      - name: Find and rename release APK
+        run: |
+          APK_FILE=$(ls app/build/outputs/apk/release/*.apk | head -n 1)
+          echo "Found APK: $APK_FILE"
+          mv "$APK_FILE" app/build/outputs/apk/release/firefly_go_android.apk
+
+      - name: Upload release
+        env:
+          REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
+        run: script/release-uploader -token=$REPO_TOKEN -release-url="https://git.kain.io.vn/api/v1/repos/Firefly-Shelter/FireflyGo_Android/releases" -files="app/build/outputs/apk/release/firefly_go_android.apk"

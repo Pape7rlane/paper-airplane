@@ -1,0 +1,57 @@
+<resources>
+    <string name="app_name">Firefly Go</string>
+    <string name="android_edition">Android Edition</string>
+    <string name="sign_in">Sign In</string>
+    <string name="server_running">Server is running</string>
+    <string name="server_stopped">Server is stopped</string>
+    <string name="start_server">Start Server</string>
+    <string name="stop_server">Stop Server</string>
+    <string name="update">Update</string>
+    <string name="reset">Reset</string>
+    <string name="logs">Logs</string>
+    <string name="reset_data_title">Reset Data</string>
+    <string name="reset_data_confirm">Do you want to reset all data? This action cannot be rolled back.</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+    
+    <!-- Scam Warning -->
+    <string name="scam_warning_title">Security Warning</string>
+    <string name="scam_warning_text">This is an open-source project. If you bought this application from someone, you have been scammed (fraud).</string>
+    <string name="i_understand">I Understand</string>
+
+    <!-- LoginDialog -->
+    <string name="account_profile">Account Profile</string>
+    <string name="logged_in_as">Logged in as:</string>
+    <string name="auto_update_status">Auto-Update Status:</string>
+    <string name="unlocked_player">Unlocked (PLAYER)</string>
+    <string name="locked_no_permission">Locked (No permission)</string>
+    <string name="back">Back</string>
+    <string name="logout">Logout</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="cancel">Cancel</string>
+    <string name="login">Login</string>
+    <string name="or">OR</string>
+    <string name="login_with_discord">Login with Discord</string>
+    <string name="please_enter_both">Please enter both Email and Password</string>
+    <string name="login_failed">Login failed</string>
+    <string name="failed_to_fetch_profile">Failed to fetch profile</string>
+
+    <!-- AutoUpdateDialog -->
+    <string name="update_available">Update Available</string>
+    <string name="no_update_available">No Update Available</string>
+    <string name="app_up_to_date">Your app is up to date</string>
+    <string name="ok">OK</string>
+    <string name="latest_version">Latest Version</string>
+    <string name="whats_new">What\'s New</string>
+    <string name="downloading">Downloading...</string>
+    <string name="installation_ready">Installation Ready</string>
+    <string name="later">Later</string>
+    <string name="install_now">Install Now</string>
+
+    <!-- LogPopup -->
+    <string name="golog_output">GoLog Output</string>
+    <string name="auto_scroll">Auto-Scroll</string>
+    <string name="clear">Clear</string>
+    <string name="close">Close</string>
+</resources>
