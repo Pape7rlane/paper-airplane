@@ -83,15 +83,12 @@ dependencies {
     // Auto updater library
     implementation(libs.autoupdater)
 
-<<<<<<< HEAD
-=======
     // OkHttp Client
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
 
     // Chrome Custom Tabs
     implementation("androidx.browser:browser:1.8.0")
 
->>>>>>> 2459650 (feat: v4)
     // Unit Test
     testImplementation(libs.junit)
 

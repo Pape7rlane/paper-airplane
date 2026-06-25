@@ -33,16 +33,11 @@ import androidx.compose.animation.*
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-<<<<<<< HEAD
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.rememberLazyListState
-=======
 import androidx.compose.foundation.border
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsPressedAsState
->>>>>>> 2459650 (feat: v4)
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.BugReport
@@ -82,14 +77,11 @@ import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import android.provider.Settings
 
-<<<<<<< HEAD
-=======
 import com.example.firefly_go_android.network.AuthManager
 import com.example.firefly_go_android.ui.ScamWarningDialog
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
 
->>>>>>> 2459650 (feat: v4)
 data class AppVersion(
     val latestVersion: String,
     val changelog: String,
@@ -97,33 +89,23 @@ data class AppVersion(
 )
 
 class MainActivity : ComponentActivity() {
-<<<<<<< HEAD
-=======
     private lateinit var authManager: AuthManager
     private var onAuthStatusChanged: (() -> Unit)? = null
 
->>>>>>> 2459650 (feat: v4)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requestBatteryExemption(this)
         requestInstallPermission(this)
         requestStoragePermission(this)
 
-<<<<<<< HEAD
-=======
         authManager = AuthManager(this)
 
->>>>>>> 2459650 (feat: v4)
         val appDataPath = File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "FireflyGo").absolutePath
         val dataDir = File("$appDataPath/data")
         if (!dataDir.exists()) dataDir.mkdirs()
 
         val sharedPrefs = getSharedPreferences("AppPrefs", MODE_PRIVATE)
 
-<<<<<<< HEAD
-        // Lấy thông tin Package
-=======
->>>>>>> 2459650 (feat: v4)
         val packageInfo = if (Build.VERSION.SDK_INT >= 33) {
             packageManager.getPackageInfo(packageName, android.content.pm.PackageManager.PackageInfoFlags.of(0))
         } else {
@@ -172,15 +154,6 @@ class MainActivity : ComponentActivity() {
 
         val appVersion = AppVersion(latestVersion, changelog, apkUrl)
 
-<<<<<<< HEAD
-        enableEdgeToEdge()
-        setContent {
-            FireflyPsAndoridTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Box(modifier = Modifier.fillMaxSize()) {
-                        ServerControlScreen(appDataPath, dataDir, appVersion, Modifier.padding(innerPadding))
-                        AutoUpdateDialog(onDismiss = {}, appVersion, dataDir, true)
-=======
         handleDeepLink(intent)
 
         enableEdgeToEdge()
@@ -223,7 +196,6 @@ class MainActivity : ComponentActivity() {
                         if (showScamWarning) {
                             ScamWarningDialog(onDismiss = { showScamWarning = false })
                         }
->>>>>>> 2459650 (feat: v4)
                     }
                 }
             }
@@ -231,8 +203,6 @@ class MainActivity : ComponentActivity() {
 
     }
 
-<<<<<<< HEAD
-=======
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
         handleDeepLink(intent)
@@ -257,7 +227,6 @@ class MainActivity : ComponentActivity() {
         }
     }
 
->>>>>>> 2459650 (feat: v4)
 }
 @SuppressLint("BatteryLife")
 
@@ -304,10 +273,7 @@ fun requestStoragePermission(context: Context) {
         }
     }
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> 2459650 (feat: v4)
 fun copyRawToFile(context: Context, targetDir: File, override: Boolean = false): Boolean {
     val files = listOf(
         "data-in-game.json" to "data-in-game.json",
@@ -364,10 +330,9 @@ fun removeFile(targetDir: File, fileName: String): Boolean {
 }
 
 
-<<<<<<< HEAD
 @SuppressLint("ImplicitSamInstance")
 @Composable
-fun ServerControlScreen(appDataPath: String, dataDir: File, appVersion: AppVersion, modifier: Modifier = Modifier) {
+fun ServerControlScreen(appDataPath: String, dataDir: File, appVersion: AppVersion, authManager: AuthManager, modifier: Modifier = Modifier) {
     val context = LocalContext.current
     val isRunning = GolangServerService.isRunning
 
@@ -1110,7 +1075,8 @@ fun ActionButtons(
             }
         }
     }
-=======
+}
+
 @Composable
 fun Modifier.bounceClick(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
@@ -1132,5 +1098,4 @@ fun Modifier.bounceClick(
             indication = null,
             onClick = onClick
         )
->>>>>>> 2459650 (feat: v4)
 }

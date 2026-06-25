@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name">Firefly Go</string>
-<<<<<<< HEAD
-=======
     <string name="android_edition">Android Edition</string>
     <string name="sign_in">Sign In</string>
     <string name="server_running">Server is running</string>
@@ -56,5 +54,4 @@
     <string name="auto_scroll">Auto-Scroll</string>
     <string name="clear">Clear</string>
     <string name="close">Close</string>
->>>>>>> 2459650 (feat: v4)
 </resources>
