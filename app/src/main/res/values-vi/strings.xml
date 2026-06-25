@@ -1,0 +1,57 @@
+<resources>
+    <string name="app_name">Firefly Go</string>
+    <string name="android_edition">Phiên bản Android</string>
+    <string name="sign_in">Đăng nhập</string>
+    <string name="server_running">Máy chủ đang chạy</string>
+    <string name="server_stopped">Máy chủ đã dừng</string>
+    <string name="start_server">Khởi động máy chủ</string>
+    <string name="stop_server">Dừng máy chủ</string>
+    <string name="update">Cập nhật</string>
+    <string name="reset">Đặt lại</string>
+    <string name="logs">Nhật ký</string>
+    <string name="reset_data_title">Đặt lại dữ liệu</string>
+    <string name="reset_data_confirm">Bạn có muốn đặt lại tất cả dữ liệu? Hành động này không thể hoàn tác.</string>
+    <string name="no">Không</string>
+    <string name="yes">Có</string>
+    
+    <!-- Scam Warning -->
+    <string name="scam_warning_title">Cảnh báo bảo mật</string>
+    <string name="scam_warning_text">Đây là dự án mã nguồn mở. Nếu bạn mua ứng dụng này từ bất kỳ ai, bạn đã bị lừa đảo (scam).</string>
+    <string name="i_understand">Tôi đã hiểu</string>
+
+    <!-- LoginDialog -->
+    <string name="account_profile">Thông tin tài khoản</string>
+    <string name="logged_in_as">Đăng nhập bằng:</string>
+    <string name="auto_update_status">Trạng thái tự cập nhật:</string>
+    <string name="unlocked_player">Đã mở khóa (PLAYER)</string>
+    <string name="locked_no_permission">Bị khóa (Không có quyền)</string>
+    <string name="back">Quay lại</string>
+    <string name="logout">Đăng xuất</string>
+    <string name="email">Email</string>
+    <string name="password">Mật khẩu</string>
+    <string name="cancel">Hủy</string>
+    <string name="login">Đăng nhập</string>
+    <string name="or">HOẶC</string>
+    <string name="login_with_discord">Đăng nhập bằng Discord</string>
+    <string name="please_enter_both">Vui lòng nhập cả Email và Mật khẩu</string>
+    <string name="login_failed">Đăng nhập thất bại</string>
+    <string name="failed_to_fetch_profile">Không thể tải thông tin cá nhân</string>
+
+    <!-- AutoUpdateDialog -->
+    <string name="update_available">Có bản cập nhật mới</string>
+    <string name="no_update_available">Không có bản cập nhật</string>
+    <string name="app_up_to_date">Ứng dụng đã được cập nhật mới nhất</string>
+    <string name="ok">Đồng ý</string>
+    <string name="latest_version">Phiên bản mới nhất</string>
+    <string name="whats_new">Có gì mới</string>
+    <string name="downloading">Đang tải xuống...</string>
+    <string name="installation_ready">Sẵn sàng cài đặt</string>
+    <string name="later">Để sau</string>
+    <string name="install_now">Cài đặt ngay</string>
+
+    <!-- LogPopup -->
+    <string name="golog_output">Nhật ký GoLog</string>
+    <string name="auto_scroll">Tự động cuộn</string>
+    <string name="clear">Xóa</string>
+    <string name="close">Đóng</string>
+</resources>

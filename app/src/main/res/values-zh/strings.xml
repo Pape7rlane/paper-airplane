@@ -1,0 +1,57 @@
+<resources>
+    <string name="app_name">Firefly Go</string>
+    <string name="android_edition">安卓版</string>
+    <string name="sign_in">登录</string>
+    <string name="server_running">服务器正在运行</string>
+    <string name="server_stopped">服务器已停止</string>
+    <string name="start_server">启动服务器</string>
+    <string name="stop_server">停止服务器</string>
+    <string name="update">更新</string>
+    <string name="reset">重置</string>
+    <string name="logs">日志</string>
+    <string name="reset_data_title">重置数据</string>
+    <string name="reset_data_confirm">您确定要重置所有数据吗？此操作无法撤销。</string>
+    <string name="no">取消</string>
+    <string name="yes">确定</string>
+    
+    <!-- Scam Warning -->
+    <string name="scam_warning_title">安全警告</string>
+    <string name="scam_warning_text">这是一个开源项目。如果您是从别人那里购买的这个应用，您就被骗了（欺诈）。</string>
+    <string name="i_understand">我已知晓</string>
+
+    <!-- LoginDialog -->
+    <string name="account_profile">账户信息</string>
+    <string name="logged_in_as">已登录为:</string>
+    <string name="auto_update_status">自动更新状态:</string>
+    <string name="unlocked_player">已解锁 (PLAYER)</string>
+    <string name="locked_no_permission">已锁定 (无权限)</string>
+    <string name="back">返回</string>
+    <string name="logout">退出登录</string>
+    <string name="email">邮箱</string>
+    <string name="password">密码</string>
+    <string name="cancel">取消</string>
+    <string name="login">登录</string>
+    <string name="or">或</string>
+    <string name="login_with_discord">使用 Discord 登录</string>
+    <string name="please_enter_both">请输入邮箱和密码</string>
+    <string name="login_failed">登录失败</string>
+    <string name="failed_to_fetch_profile">获取个人资料失败</string>
+
+    <!-- AutoUpdateDialog -->
+    <string name="update_available">有可用更新</string>
+    <string name="no_update_available">没有可用更新</string>
+    <string name="app_up_to_date">您的应用已是最新版本</string>
+    <string name="ok">确定</string>
+    <string name="latest_version">最新版本</string>
+    <string name="whats_new">更新日志</string>
+    <string name="downloading">正在下载...</string>
+    <string name="installation_ready">准备安装</string>
+    <string name="later">稍后</string>
+    <string name="install_now">立即安装</string>
+
+    <!-- LogPopup -->
+    <string name="golog_output">GoLog 输出</string>
+    <string name="auto_scroll">自动滚动</string>
+    <string name="clear">清除</string>
+    <string name="close">关闭</string>
+</resources>

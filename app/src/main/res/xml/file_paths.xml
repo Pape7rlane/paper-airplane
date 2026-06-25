@@ -1,0 +1,9 @@
+<<<<<<< HEAD
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <external-files-path name="downloads" path="Download/"/>
+</paths>
+=======
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <external-files-path name="downloads" path="Download/"/>
+</paths>
+>>>>>>> 2459650 (feat: v4)

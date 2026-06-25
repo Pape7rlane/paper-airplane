@@ -1,0 +1,170 @@
+{
+  "CNBETAAndroid4.3.51": {
+    "asset_bundle_url": "https://autopatchos.starrails.com/asb/BetaLive/output_15261247_f6e6db2125cf_369da465b36faf",
+    "asset_bundle_url_b": "https://autopatchos.starrails.com/asb/BetaLive/output_15235885_6091fd15561a_83828f542dc1f3",
+    "ex_resource_url": "https://autopatchos.starrails.com/design_data/BetaLive/output_15265964_c2fbb1eb05fc_f2238199ee2b6e",
+    "lua_url": "https://autopatchos.starrails.com/lua/BetaLive/output_15242148_d40f856defc0_599b68a0adf7bd",
+    "ifix_url": "https://autopatchos.starrails.com/ifix/BetaLive/output_15265964_799df4f0ecef_5a94550ba64cff"
+  },
+  "CNBETAAndroid4.3.52": {
+    "asset_bundle_url": "https://autopatchos.starrails.com/asb/BetaLive/output_15305566_fea016d35145_54bbf8ab4009f5",
+    "asset_bundle_url_b": "https://autopatchos.starrails.com/asb/BetaLive/output_15305566_fea016d35145_54bbf8ab4009f5",
+    "ex_resource_url": "https://autopatchos.starrails.com/design_data/BetaLive/output_15318724_a7af31327e74_b3328eb95329b2",
+    "lua_url": "https://autopatchos.starrails.com/lua/BetaLive/output_15305751_09783637ccc4_d16f9c81138ab3",
+    "ifix_url": "https://autopatchos.starrails.com/ifix/BetaLive/output_15265964_799df4f0ecef_5a94550ba64cff"
+  },
+  "CNBETAAndroid4.3.53": {
+    "asset_bundle_url": "https://autopatchos.starrails.com/asb/BetaLive/output_15378434_99bffafdeff7_5d97713dcef07f",
+    "asset_bundle_url_b": "https://autopatchos.starrails.com/asb/BetaLive/output_15378434_99bffafdeff7_5d97713dcef07f",
+    "ex_resource_url": "https://autopatchos.starrails.com/design_data/BetaLive/output_15385668_07011a79dadf_1111728953724e",
+    "lua_url": "https://autopatchos.starrails.com/lua/BetaLive/output_15378559_7514340ac82f_70dad6c56b8bc7",
+    "ifix_url": "https://autopatchos.starrails.com/ifix/BetaLive/output_15384138_4e4be8cf97ac_1e3fcfa0a93bef"
+  },
+  "CNBETAAndroid4.3.54": {
+    "asset_bundle_url": "https://autopatchos.starrails.com/asb/BetaLive/output_15440751_fb99372e1e48_fd11e486274779",
+    "asset_bundle_url_b": "https://autopatchos.starrails.com/asb/BetaLive/output_15440751_fb99372e1e48_fd11e486274779",
+    "ex_resource_url": "https://autopatchos.starrails.com/design_data/BetaLive/output_15497648_6ef97acf9b45_ea8ed0ff303308",
+    "lua_url": "https://autopatchos.starrails.com/lua/BetaLive/output_15440843_4201511c48d0_34717e44c82e30",
+    "ifix_url": "https://autopatchos.starrails.com/ifix/BetaLive/output_0_40d2ce0253_6d871f8bca6eb4"
+  },
+  "CNBETAWin4.3.51": {
+    "asset_bundle_url": "https://autopatchos.starrails.com/asb/BetaLive/output_15261247_f6e6db2125cf_369da465b36faf",
+    "asset_bundle_url_b": "https://autopatchos.starrails.com/asb/BetaLive/output_15235885_6091fd15561a_83828f542dc1f3",
+    "ex_resource_url": "https://autopatchos.starrails.com/design_data/BetaLive/output_15265964_c2fbb1eb05fc_f2238199ee2b6e",
+    "lua_url": "https://autopatchos.starrails.com/lua/BetaLive/output_15242148_d40f856defc0_599b68a0adf7bd",
+    "ifix_url": "https://autopatchos.starrails.com/ifix/BetaLive/output_15265964_799df4f0ecef_5a94550ba64cff"
+  },
+  "CNBETAWin4.3.52": {
+    "asset_bundle_url": "https://autopatchos.starrails.com/asb/BetaLive/output_15305566_fea016d35145_54bbf8ab4009f5",
+    "asset_bundle_url_b": "https://autopatchos.starrails.com/asb/BetaLive/output_15305566_fea016d35145_54bbf8ab4009f5",
+    "ex_resource_url": "https://autopatchos.starrails.com/design_data/BetaLive/output_15318724_a7af31327e74_b3328eb95329b2",
+    "lua_url": "https://autopatchos.starrails.com/lua/BetaLive/output_15305751_09783637ccc4_d16f9c81138ab3",
+    "ifix_url": "https://autopatchos.starrails.com/ifix/BetaLive/output_15265964_799df4f0ecef_5a94550ba64cff"
+  },
+  "CNBETAWin4.3.53": {
+    "asset_bundle_url": "https://autopatchos.starrails.com/asb/BetaLive/output_15378434_99bffafdeff7_5d97713dcef07f",
+    "asset_bundle_url_b": "https://autopatchos.starrails.com/asb/BetaLive/output_15378434_99bffafdeff7_5d97713dcef07f",
+    "ex_resource_url": "https://autopatchos.starrails.com/design_data/BetaLive/output_15385668_07011a79dadf_1111728953724e",
+    "lua_url": "https://autopatchos.starrails.com/lua/BetaLive/output_15378559_7514340ac82f_70dad6c56b8bc7",
+    "ifix_url": "https://autopatchos.starrails.com/ifix/BetaLive/output_15384138_4e4be8cf97ac_1e3fcfa0a93bef"
+  },
+  "CNBETAWin4.3.54": {
+    "asset_bundle_url": "https://autopatchos.starrails.com/asb/BetaLive/output_15440751_fb99372e1e48_fd11e486274779",
+    "asset_bundle_url_b": "https://autopatchos.starrails.com/asb/BetaLive/output_15440751_fb99372e1e48_fd11e486274779",
+    "ex_resource_url": "https://autopatchos.starrails.com/design_data/BetaLive/output_15497648_6ef97acf9b45_ea8ed0ff303308",
+    "lua_url": "https://autopatchos.starrails.com/lua/BetaLive/output_15440843_4201511c48d0_34717e44c82e30",
+    "ifix_url": "https://autopatchos.starrails.com/ifix/BetaLive/output_0_40d2ce0253_6d871f8bca6eb4"
+  },
+  "CNBETAiOS4.3.51": {
+    "asset_bundle_url": "https://autopatchos.starrails.com/asb/BetaLive/output_15261247_f6e6db2125cf_369da465b36faf",
+    "asset_bundle_url_b": "https://autopatchos.starrails.com/asb/BetaLive/output_15235885_6091fd15561a_83828f542dc1f3",
+    "ex_resource_url": "https://autopatchos.starrails.com/design_data/BetaLive/output_15265964_c2fbb1eb05fc_f2238199ee2b6e",
+    "lua_url": "https://autopatchos.starrails.com/lua/BetaLive/output_15242148_d40f856defc0_599b68a0adf7bd",
+    "ifix_url": "https://autopatchos.starrails.com/ifix/BetaLive/output_15265964_799df4f0ecef_5a94550ba64cff"
+  },
+  "CNBETAiOS4.3.52": {
+    "asset_bundle_url": "https://autopatchos.starrails.com/asb/BetaLive/output_15305566_fea016d35145_54bbf8ab4009f5",
+    "asset_bundle_url_b": "https://autopatchos.starrails.com/asb/BetaLive/output_15305566_fea016d35145_54bbf8ab4009f5",
+    "ex_resource_url": "https://autopatchos.starrails.com/design_data/BetaLive/output_15318724_a7af31327e74_b3328eb95329b2",
+    "lua_url": "https://autopatchos.starrails.com/lua/BetaLive/output_15305751_09783637ccc4_d16f9c81138ab3",
+    "ifix_url": "https://autopatchos.starrails.com/ifix/BetaLive/output_15265964_799df4f0ecef_5a94550ba64cff"
+  },
+  "CNBETAiOS4.3.53": {
+    "asset_bundle_url": "https://autopatchos.starrails.com/asb/BetaLive/output_15378434_99bffafdeff7_5d97713dcef07f",
+    "asset_bundle_url_b": "https://autopatchos.starrails.com/asb/BetaLive/output_15378434_99bffafdeff7_5d97713dcef07f",
+    "ex_resource_url": "https://autopatchos.starrails.com/design_data/BetaLive/output_15385668_07011a79dadf_1111728953724e",
+    "lua_url": "https://autopatchos.starrails.com/lua/BetaLive/output_15378559_7514340ac82f_70dad6c56b8bc7",
+    "ifix_url": "https://autopatchos.starrails.com/ifix/BetaLive/output_15384138_4e4be8cf97ac_1e3fcfa0a93bef"
+  },
+  "CNBETAiOS4.3.54": {
+    "asset_bundle_url": "https://autopatchos.starrails.com/asb/BetaLive/output_15440751_fb99372e1e48_fd11e486274779",
+    "asset_bundle_url_b": "https://autopatchos.starrails.com/asb/BetaLive/output_15440751_fb99372e1e48_fd11e486274779",
+    "ex_resource_url": "https://autopatchos.starrails.com/design_data/BetaLive/output_15497648_6ef97acf9b45_ea8ed0ff303308",
+    "lua_url": "https://autopatchos.starrails.com/lua/BetaLive/output_15440843_4201511c48d0_34717e44c82e30",
+    "ifix_url": "https://autopatchos.starrails.com/ifix/BetaLive/output_0_40d2ce0253_6d871f8bca6eb4"
+  },
+  "OSBETAAndroid4.3.51": {
+    "asset_bundle_url": "https://autopatchos.starrails.com/asb/BetaLive/output_15261247_f6e6db2125cf_369da465b36faf",
+    "asset_bundle_url_b": "https://autopatchos.starrails.com/asb/BetaLive/output_15235885_6091fd15561a_83828f542dc1f3",
+    "ex_resource_url": "https://autopatchos.starrails.com/design_data/BetaLive/output_15265964_c2fbb1eb05fc_f2238199ee2b6e",
+    "lua_url": "https://autopatchos.starrails.com/lua/BetaLive/output_15242148_d40f856defc0_599b68a0adf7bd",
+    "ifix_url": "https://autopatchos.starrails.com/ifix/BetaLive/output_15265964_799df4f0ecef_5a94550ba64cff"
+  },
+  "OSBETAAndroid4.3.52": {
+    "asset_bundle_url": "https://autopatchos.starrails.com/asb/BetaLive/output_15305566_fea016d35145_54bbf8ab4009f5",
+    "asset_bundle_url_b": "https://autopatchos.starrails.com/asb/BetaLive/output_15305566_fea016d35145_54bbf8ab4009f5",
+    "ex_resource_url": "https://autopatchos.starrails.com/design_data/BetaLive/output_15318724_a7af31327e74_b3328eb95329b2",
+    "lua_url": "https://autopatchos.starrails.com/lua/BetaLive/output_15305751_09783637ccc4_d16f9c81138ab3",
+    "ifix_url": "https://autopatchos.starrails.com/ifix/BetaLive/output_15265964_799df4f0ecef_5a94550ba64cff"
+  },
+  "OSBETAAndroid4.3.53": {
+    "asset_bundle_url": "https://autopatchos.starrails.com/asb/BetaLive/output_15378434_99bffafdeff7_5d97713dcef07f",
+    "asset_bundle_url_b": "https://autopatchos.starrails.com/asb/BetaLive/output_15378434_99bffafdeff7_5d97713dcef07f",
+    "ex_resource_url": "https://autopatchos.starrails.com/design_data/BetaLive/output_15385668_07011a79dadf_1111728953724e",
+    "lua_url": "https://autopatchos.starrails.com/lua/BetaLive/output_15378559_7514340ac82f_70dad6c56b8bc7",
+    "ifix_url": "https://autopatchos.starrails.com/ifix/BetaLive/output_15384138_4e4be8cf97ac_1e3fcfa0a93bef"
+  },
+  "OSBETAAndroid4.3.54": {
+    "asset_bundle_url": "https://autopatchos.starrails.com/asb/BetaLive/output_15440751_fb99372e1e48_fd11e486274779",
+    "asset_bundle_url_b": "https://autopatchos.starrails.com/asb/BetaLive/output_15440751_fb99372e1e48_fd11e486274779",
+    "ex_resource_url": "https://autopatchos.starrails.com/design_data/BetaLive/output_15497648_6ef97acf9b45_ea8ed0ff303308",
+    "lua_url": "https://autopatchos.starrails.com/lua/BetaLive/output_15440843_4201511c48d0_34717e44c82e30",
+    "ifix_url": "https://autopatchos.starrails.com/ifix/BetaLive/output_0_40d2ce0253_6d871f8bca6eb4"
+  },
+  "OSBETAWin4.3.51": {
+    "asset_bundle_url": "https://autopatchos.starrails.com/asb/BetaLive/output_15261247_f6e6db2125cf_369da465b36faf",
+    "asset_bundle_url_b": "https://autopatchos.starrails.com/asb/BetaLive/output_15235885_6091fd15561a_83828f542dc1f3",
+    "ex_resource_url": "https://autopatchos.starrails.com/design_data/BetaLive/output_15265964_c2fbb1eb05fc_f2238199ee2b6e",
+    "lua_url": "https://autopatchos.starrails.com/lua/BetaLive/output_15242148_d40f856defc0_599b68a0adf7bd",
+    "ifix_url": "https://autopatchos.starrails.com/ifix/BetaLive/output_15265964_799df4f0ecef_5a94550ba64cff"
+  },
+  "OSBETAWin4.3.52": {
+    "asset_bundle_url": "https://autopatchos.starrails.com/asb/BetaLive/output_15305566_fea016d35145_54bbf8ab4009f5",
+    "asset_bundle_url_b": "https://autopatchos.starrails.com/asb/BetaLive/output_15305566_fea016d35145_54bbf8ab4009f5",
+    "ex_resource_url": "https://autopatchos.starrails.com/design_data/BetaLive/output_15318724_a7af31327e74_b3328eb95329b2",
+    "lua_url": "https://autopatchos.starrails.com/lua/BetaLive/output_15305751_09783637ccc4_d16f9c81138ab3",
+    "ifix_url": "https://autopatchos.starrails.com/ifix/BetaLive/output_15265964_799df4f0ecef_5a94550ba64cff"
+  },
+  "OSBETAWin4.3.53": {
+    "asset_bundle_url": "https://autopatchos.starrails.com/asb/BetaLive/output_15378434_99bffafdeff7_5d97713dcef07f",
+    "asset_bundle_url_b": "https://autopatchos.starrails.com/asb/BetaLive/output_15378434_99bffafdeff7_5d97713dcef07f",
+    "ex_resource_url": "https://autopatchos.starrails.com/design_data/BetaLive/output_15385668_07011a79dadf_1111728953724e",
+    "lua_url": "https://autopatchos.starrails.com/lua/BetaLive/output_15378559_7514340ac82f_70dad6c56b8bc7",
+    "ifix_url": "https://autopatchos.starrails.com/ifix/BetaLive/output_15384138_4e4be8cf97ac_1e3fcfa0a93bef"
+  },
+  "OSBETAWin4.3.54": {
+    "asset_bundle_url": "https://autopatchos.starrails.com/asb/BetaLive/output_15440751_fb99372e1e48_fd11e486274779",
+    "asset_bundle_url_b": "https://autopatchos.starrails.com/asb/BetaLive/output_15440751_fb99372e1e48_fd11e486274779",
+    "ex_resource_url": "https://autopatchos.starrails.com/design_data/BetaLive/output_15497648_6ef97acf9b45_ea8ed0ff303308",
+    "lua_url": "https://autopatchos.starrails.com/lua/BetaLive/output_15440843_4201511c48d0_34717e44c82e30",
+    "ifix_url": "https://autopatchos.starrails.com/ifix/BetaLive/output_0_40d2ce0253_6d871f8bca6eb4"
+  },
+  "OSBETAiOS4.3.51": {
+    "asset_bundle_url": "https://autopatchos.starrails.com/asb/BetaLive/output_15261247_f6e6db2125cf_369da465b36faf",
+    "asset_bundle_url_b": "https://autopatchos.starrails.com/asb/BetaLive/output_15235885_6091fd15561a_83828f542dc1f3",
+    "ex_resource_url": "https://autopatchos.starrails.com/design_data/BetaLive/output_15265964_c2fbb1eb05fc_f2238199ee2b6e",
+    "lua_url": "https://autopatchos.starrails.com/lua/BetaLive/output_15242148_d40f856defc0_599b68a0adf7bd",
+    "ifix_url": "https://autopatchos.starrails.com/ifix/BetaLive/output_15265964_799df4f0ecef_5a94550ba64cff"
+  },
+  "OSBETAiOS4.3.52": {
+    "asset_bundle_url": "https://autopatchos.starrails.com/asb/BetaLive/output_15305566_fea016d35145_54bbf8ab4009f5",
+    "asset_bundle_url_b": "https://autopatchos.starrails.com/asb/BetaLive/output_15305566_fea016d35145_54bbf8ab4009f5",
+    "ex_resource_url": "https://autopatchos.starrails.com/design_data/BetaLive/output_15318724_a7af31327e74_b3328eb95329b2",
+    "lua_url": "https://autopatchos.starrails.com/lua/BetaLive/output_15305751_09783637ccc4_d16f9c81138ab3",
+    "ifix_url": "https://autopatchos.starrails.com/ifix/BetaLive/output_15265964_799df4f0ecef_5a94550ba64cff"
+  },
+  "OSBETAiOS4.3.53": {
+    "asset_bundle_url": "https://autopatchos.starrails.com/asb/BetaLive/output_15378434_99bffafdeff7_5d97713dcef07f",
+    "asset_bundle_url_b": "https://autopatchos.starrails.com/asb/BetaLive/output_15378434_99bffafdeff7_5d97713dcef07f",
+    "ex_resource_url": "https://autopatchos.starrails.com/design_data/BetaLive/output_15385668_07011a79dadf_1111728953724e",
+    "lua_url": "https://autopatchos.starrails.com/lua/BetaLive/output_15378559_7514340ac82f_70dad6c56b8bc7",
+    "ifix_url": "https://autopatchos.starrails.com/ifix/BetaLive/output_15384138_4e4be8cf97ac_1e3fcfa0a93bef"
+  },
+  "OSBETAiOS4.3.54": {
+    "asset_bundle_url": "https://autopatchos.starrails.com/asb/BetaLive/output_15440751_fb99372e1e48_fd11e486274779",
+    "asset_bundle_url_b": "https://autopatchos.starrails.com/asb/BetaLive/output_15440751_fb99372e1e48_fd11e486274779",
+    "ex_resource_url": "https://autopatchos.starrails.com/design_data/BetaLive/output_15497648_6ef97acf9b45_ea8ed0ff303308",
+    "lua_url": "https://autopatchos.starrails.com/lua/BetaLive/output_15440843_4201511c48d0_34717e44c82e30",
+    "ifix_url": "https://autopatchos.starrails.com/ifix/BetaLive/output_0_40d2ce0253_6d871f8bca6eb4"
+  }
+}
