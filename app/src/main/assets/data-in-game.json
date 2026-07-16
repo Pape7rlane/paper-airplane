@@ -61,7 +61,7 @@
           "blessing": 3031361,
           "cycle_count": 0,
           "battle_status": 1,
-          "DeadCount": 0,
+          "dead_count": 0,
           "score": 40000,
           "lineup": [
             1407,
@@ -74,7 +74,7 @@
           "blessing": 3031361,
           "cycle_count": 0,
           "battle_status": 1,
-          "DeadCount": 0,
+          "dead_count": 0,
           "score": 40000,
           "lineup": [
             1310,
@@ -87,7 +87,7 @@
           "blessing": 3031362,
           "cycle_count": 0,
           "battle_status": 1,
-          "DeadCount": 0,
+          "dead_count": 0,
           "score": 40000,
           "lineup": [
             1506,
@@ -102,7 +102,7 @@
           "blessing": 3111090,
           "cycle_count": 0,
           "battle_status": 1,
-          "DeadCount": 0,
+          "dead_count": 0,
           "score": 3932,
           "lineup": [
             1501,
@@ -115,7 +115,7 @@
           "blessing": 3111085,
           "cycle_count": 0,
           "battle_status": 1,
-          "DeadCount": 0,
+          "dead_count": 0,
           "score": 3913,
           "lineup": [
             1310,
@@ -128,7 +128,7 @@
           "blessing": 3111071,
           "cycle_count": 0,
           "battle_status": 1,
-          "DeadCount": 0,
+          "dead_count": 0,
           "score": 4000,
           "lineup": [
             1415,
@@ -143,7 +143,7 @@
           "blessing": 0,
           "cycle_count": 0,
           "battle_status": 1,
-          "DeadCount": 0,
+          "dead_count": 0,
           "score": 0,
           "lineup": [
             1407,
@@ -156,7 +156,7 @@
           "blessing": 0,
           "cycle_count": 1,
           "battle_status": 1,
-          "DeadCount": 0,
+          "dead_count": 0,
           "score": 0,
           "lineup": [
             1310,
@@ -169,7 +169,7 @@
           "blessing": 0,
           "cycle_count": 0,
           "battle_status": 1,
-          "DeadCount": 0,
+          "dead_count": 0,
           "score": 0,
           "lineup": [
             1506,
@@ -184,7 +184,7 @@
           "blessing": 0,
           "cycle_count": 0,
           "battle_status": 3,
-          "DeadCount": 0,
+          "dead_count": 0,
           "score": 0,
           "lineup": [
             1510,
@@ -197,7 +197,7 @@
           "blessing": 0,
           "cycle_count": 0,
           "battle_status": 0,
-          "DeadCount": 0,
+          "dead_count": 0,
           "score": 0,
           "lineup": [
             1302
@@ -207,7 +207,7 @@
           "blessing": 0,
           "cycle_count": 0,
           "battle_status": 0,
-          "DeadCount": 0,
+          "dead_count": 0,
           "score": 0,
           "lineup": [
             1321

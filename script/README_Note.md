@@ -1,3 +1,3 @@
 # Changelog
 
-## - UPDATE: Support 4.3.5X
+## - UPDATE: Support 4.4.5X
