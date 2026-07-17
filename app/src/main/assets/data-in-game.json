@@ -7,15 +7,15 @@
     "3": 1403
   },
   "position": {
-    "x": -4030,
-    "z": -13006,
-    "y": 0,
-    "rot_y": 270000
+    "x": -30,
+    "z": -22750,
+    "y": -15000,
+    "rot_y": 234288
   },
   "scene": {
     "plane_id": 10000,
-    "floor_id": 10000000,
-    "entry_id": 100000104
+    "floor_id": 10000003,
+    "entry_id": 100000352
   },
   "player_outfit": [
     1003
@@ -218,7 +218,7 @@
   },
   "challenge_peak": {
     "current_mode": "Knight",
-    "group_id": 8,
+    "group_id": 9,
     "is_in_challenge_peak": false,
     "challenge_peak_data": {
       "1": {
@@ -521,6 +521,19 @@
         }
       },
       "8": {
+        "checkmate_data": {
+          "challenge_id": 0,
+          "blessing": 0,
+          "lineup": null,
+          "stage_id": 0,
+          "is_hard_mode": false
+        },
+        "knight_data": {
+          "current_challenge_id": 0,
+          "details_data": null
+        }
+      },
+      "9": {
         "checkmate_data": {
           "challenge_id": 0,
           "blessing": 0,
