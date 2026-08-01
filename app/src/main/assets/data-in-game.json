@@ -7,15 +7,15 @@
     "3": 1403
   },
   "position": {
-    "x": -30,
-    "z": -22750,
-    "y": -15000,
-    "rot_y": 234288
+    "x": 28515,
+    "z": 1080,
+    "y": -4933,
+    "rot_y": 45000
   },
   "scene": {
-    "plane_id": 10000,
-    "floor_id": 10000003,
-    "entry_id": 100000352
+    "plane_id": 10202,
+    "floor_id": 10202001,
+    "entry_id": 102020107
   },
   "player_outfit": [
     1003
@@ -54,7 +54,7 @@
     "maze_buff": 0,
     "path_resonance_id": 0,
     "is_in_challenge": false,
-    "is_single_stage": false,
+    "is_single_stage": true,
     "challenge_tierce_data": {
       "20245": {
         "stage_1": {
@@ -94,6 +94,38 @@
             1502,
             1501,
             1217
+          ]
+        }
+      },
+      "20265": {
+        "stage_1": {
+          "blessing": 3031366,
+          "cycle_count": 0,
+          "battle_status": 1,
+          "dead_count": 0,
+          "score": 0,
+          "lineup": [
+            1507
+          ]
+        },
+        "stage_2": {
+          "blessing": 3031354,
+          "cycle_count": 0,
+          "battle_status": 0,
+          "dead_count": 0,
+          "score": 0,
+          "lineup": [
+            1315
+          ]
+        },
+        "stage_3": {
+          "blessing": 3031366,
+          "cycle_count": 0,
+          "battle_status": 0,
+          "dead_count": 0,
+          "score": 0,
+          "lineup": [
+            1225
           ]
         }
       },
