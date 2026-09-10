@@ -249,8 +249,8 @@
     }
   },
   "challenge_peak": {
-    "current_mode": "Knight",
-    "group_id": 9,
+    "current_mode": "Boss",
+    "group_id": 10,
     "is_in_challenge_peak": false,
     "challenge_peak_data": {
       "1": {
@@ -298,6 +298,43 @@
               ],
               "stage_id": 30501013,
               "challenge_id": 103
+            }
+          ]
+        }
+      },
+      "10": {
+        "checkmate_data": {
+          "challenge_id": 1004,
+          "blessing": 3033083,
+          "lineup": [
+            1414
+          ],
+          "stage_id": 30510021,
+          "is_hard_mode": false
+        },
+        "knight_data": {
+          "current_challenge_id": 1001,
+          "details_data": [
+            {
+              "lineup": [
+                1408
+              ],
+              "stage_id": 30510011,
+              "challenge_id": 1001
+            },
+            {
+              "lineup": [
+                1507
+              ],
+              "stage_id": 30510012,
+              "challenge_id": 1002
+            },
+            {
+              "lineup": [
+                1310
+              ],
+              "stage_id": 30510013,
+              "challenge_id": 1003
             }
           ]
         }
@@ -597,7 +634,7 @@
     "cycle_count": 1,
     "stage_id": 30118121,
     "mode": false,
-    "custom_lineup": []
+    "custom_lineup": null
   },
   "profile_data": {
     "cur_chat_bubble_id": 220009,
