@@ -1,65 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#101114">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:gravity="center_vertical"
-        android:paddingLeft="14dp"
-        android:paddingRight="8dp"
-        android:background="#161820">
+    android:background="#000000">
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="SRTools"
-            android:textColor="#FFFFFF"
-            android:textSize="19sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/reloadButton"
-            android:layout_width="70dp"
-            android:layout_height="40dp"
-            android:gravity="center"
-            android:text="刷新"
-            android:textColor="#FFFFFF"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:background="@drawable/bg_button"
-            android:clickable="true"
-            android:focusable="true" />
-
-        <TextView
-            android:id="@+id/closeButton"
-            android:layout_width="70dp"
-            android:layout_height="40dp"
-            android:layout_marginLeft="6dp"
-            android:gravity="center"
-            android:text="关闭"
-            android:textColor="#FFFFFF"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:background="@drawable/bg_button"
-            android:clickable="true"
-            android:focusable="true" />
-    </LinearLayout>
-
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="match_parent"
-        android:layout_height="3dp"
-        android:visibility="gone" />
+    <!-- ===================================================== -->
+    <!-- SRTools 网页 -->
+    <!-- ===================================================== -->
 
     <WebView
         android:id="@+id/webView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
 
-</LinearLayout>
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:background="#000000"
+
+        android:overScrollMode="never" />
+
+
+    <!-- ===================================================== -->
+    <!-- 加载进度 -->
+    <!-- ===================================================== -->
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+
+        android:layout_gravity="center"
+
+        android:visibility="gone" />
+
+
+    <!-- ===================================================== -->
+    <!-- 横竖屏切换 -->
+    <!-- ===================================================== -->
+
+    <Button
+        android:id="@+id/orientationButton"
+
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+
+        android:layout_gravity="top|end"
+
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="116dp"
+
+        android:minWidth="0dp"
+        android:minHeight="0dp"
+
+        android:padding="0dp"
+
+        android:text="横"
+        android:textSize="18sp"
+        android:textColor="@android:color/white"
+
+        android:backgroundTint="#CC222222"
+
+        android:elevation="8dp" />
+
+
+    <!-- ===================================================== -->
+    <!-- 刷新 -->
+    <!-- ===================================================== -->
+
+    <Button
+        android:id="@+id/reloadButton"
+
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+
+        android:layout_gravity="top|end"
+
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="60dp"
+
+        android:minWidth="0dp"
+        android:minHeight="0dp"
+
+        android:padding="0dp"
+
+        android:text="↻"
+        android:textSize="22sp"
+        android:textColor="@android:color/white"
+
+        android:backgroundTint="#CC222222"
+
+        android:elevation="8dp" />
+
+
+    <!-- ===================================================== -->
+    <!-- 关闭 -->
+    <!-- ===================================================== -->
+
+    <Button
+        android:id="@+id/closeButton"
+
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+
+        android:layout_gravity="top|end"
+
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="4dp"
+
+        android:minWidth="0dp"
+        android:minHeight="0dp"
+
+        android:padding="0dp"
+
+        android:text="×"
+        android:textSize="24sp"
+        android:textColor="@android:color/white"
+
+        android:backgroundTint="#CC222222"
+
+        android:elevation="8dp" />
+
+</FrameLayout>
