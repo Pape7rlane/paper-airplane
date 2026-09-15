@@ -2,15 +2,20 @@
 
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:id="@+id/srtoolsRoot"
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    android:background="#000000">
+    android:background="#000000"
 
-    <!-- ===================================================== -->
-    <!-- SRTools 网页 -->
-    <!-- ===================================================== -->
+    tools:context=".SRToolsActivity">
+
+    <!-- ================================================= -->
+    <!-- WebView：必须真正占满整个 Activity -->
+    <!-- ================================================= -->
 
     <WebView
         android:id="@+id/webView"
@@ -18,14 +23,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 
+        android:layout_gravity="fill"
+
         android:background="#000000"
 
-        android:overScrollMode="never" />
+        android:overScrollMode="never"
+
+        android:scrollbars="none" />
 
 
-    <!-- ===================================================== -->
-    <!-- 加载进度 -->
-    <!-- ===================================================== -->
+    <!-- ================================================= -->
+    <!-- Loading -->
+    <!-- ================================================= -->
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -38,20 +47,20 @@
         android:visibility="gone" />
 
 
-    <!-- ===================================================== -->
-    <!-- 横竖屏切换 -->
-    <!-- ===================================================== -->
+    <!-- ================================================= -->
+    <!-- 横竖屏 -->
+    <!-- ================================================= -->
 
     <Button
         android:id="@+id/orientationButton"
 
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
 
         android:layout_gravity="top|end"
 
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="116dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="120dp"
 
         android:minWidth="0dp"
         android:minHeight="0dp"
@@ -59,28 +68,30 @@
         android:padding="0dp"
 
         android:text="横"
-        android:textSize="18sp"
-        android:textColor="@android:color/white"
+        android:textSize="19sp"
+        android:textStyle="bold"
+
+        android:textColor="#FFFFFF"
 
         android:backgroundTint="#CC222222"
 
-        android:elevation="8dp" />
+        android:elevation="10dp" />
 
 
-    <!-- ===================================================== -->
+    <!-- ================================================= -->
     <!-- 刷新 -->
-    <!-- ===================================================== -->
+    <!-- ================================================= -->
 
     <Button
         android:id="@+id/reloadButton"
 
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
 
         android:layout_gravity="top|end"
 
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="60dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="62dp"
 
         android:minWidth="0dp"
         android:minHeight="0dp"
@@ -88,27 +99,28 @@
         android:padding="0dp"
 
         android:text="↻"
-        android:textSize="22sp"
-        android:textColor="@android:color/white"
+        android:textSize="25sp"
+
+        android:textColor="#FFFFFF"
 
         android:backgroundTint="#CC222222"
 
-        android:elevation="8dp" />
+        android:elevation="10dp" />
 
 
-    <!-- ===================================================== -->
+    <!-- ================================================= -->
     <!-- 关闭 -->
-    <!-- ===================================================== -->
+    <!-- ================================================= -->
 
     <Button
         android:id="@+id/closeButton"
 
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
 
         android:layout_gravity="top|end"
 
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="4dp"
 
         android:minWidth="0dp"
@@ -117,11 +129,12 @@
         android:padding="0dp"
 
         android:text="×"
-        android:textSize="24sp"
-        android:textColor="@android:color/white"
+        android:textSize="30sp"
+
+        android:textColor="#FFFFFF"
 
         android:backgroundTint="#CC222222"
 
-        android:elevation="8dp" />
+        android:elevation="10dp" />
 
 </FrameLayout>
