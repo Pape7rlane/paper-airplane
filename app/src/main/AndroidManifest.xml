@@ -1,21 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- 网络访问 -->
-    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- =====================================================
+         网络访问
+         ===================================================== -->
 
-    <!-- 安装 APK -->
+    <uses-permission
+        android:name="android.permission.INTERNET" />
+
+
+    <!-- =====================================================
+         安装 APK
+         ===================================================== -->
+
     <uses-permission
         android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
 
-    <!-- 忽略电池优化 -->
+
+    <!-- =====================================================
+         忽略电池优化
+         ===================================================== -->
+
     <uses-permission
         android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
 
-    <!--
-        Android 9（API 28）及以下使用公共 Download 目录时需要。
-        Android 10+ 使用 MediaStore，不需要这个权限。
-    -->
+
+    <!-- =====================================================
+         Android 9（API 28）及以下
+         公共 Download 目录需要
+         ===================================================== -->
+
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="28" />
@@ -31,19 +45,25 @@
         android:usesCleartextTraffic="true">
 
 
-        <!-- =====================================================
+        <!-- =================================================
              SRTools
-             ===================================================== -->
+             
+             ★ 不再锁定 portrait
+             ★ 允许 Java 动态切换横屏/竖屏
+             ================================================= -->
 
         <activity
             android:name=".SRToolsActivity"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
+            android:configChanges="orientation|screenSize|keyboardHidden"
             android:exported="false" />
 
 
-        <!-- =====================================================
+        <!-- =================================================
              License
-             ===================================================== -->
+             
+             保持竖屏
+             ================================================= -->
 
         <activity
             android:name=".LicenseActivity"
@@ -51,16 +71,23 @@
             android:exported="true">
 
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+
+                <action
+                    android:name="android.intent.action.MAIN" />
+
+                <category
+                    android:name="android.intent.category.LAUNCHER" />
+
             </intent-filter>
 
         </activity>
 
 
-        <!-- =====================================================
+        <!-- =================================================
              MainActivity
-             ===================================================== -->
+             
+             保持竖屏
+             ================================================= -->
 
         <activity
             android:name=".MainActivity"
@@ -68,9 +95,9 @@
             android:exported="false" />
 
 
-        <!-- =====================================================
+        <!-- =================================================
              FileProvider
-             ===================================================== -->
+             ================================================= -->
 
         <provider
             android:name="androidx.core.content.FileProvider"
