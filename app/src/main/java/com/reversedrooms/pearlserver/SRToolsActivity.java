@@ -34,7 +34,6 @@ import android.widget.Toast;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
-import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 import java.util.Locale;
 
@@ -52,6 +51,15 @@ public class SRToolsActivity extends Activity {
 
     private static final int FILE_CHOOSER_REQUEST = 1001;
     private static final int WRITE_REQUEST = 1002;
+
+    /*
+     * SRTools 浏览器式桌面宽度。
+     *
+     * 重点：
+     * 不再使用 width=device-width。
+     * 这样横屏和竖屏都会保持“桌面网页整体缩放”的效果。
+     */
+    private static final int WEB_PAGE_WIDTH = 1280;
 
     // ============================================================
     // Views
@@ -106,7 +114,7 @@ public class SRToolsActivity extends Activity {
         orientationButton = findViewById(R.id.orientationButton);
 
         // --------------------------------------------------------
-        // WebView 强制铺满
+        // WebView 强制铺满 Activity
         // --------------------------------------------------------
 
         if (webView != null) {
@@ -166,7 +174,9 @@ public class SRToolsActivity extends Activity {
         // Load
         // --------------------------------------------------------
 
-        webView.loadUrl(SRTOOLS_URL);
+        if (webView != null) {
+            webView.loadUrl(SRTOOLS_URL);
+        }
     }
 
     // ============================================================
@@ -186,7 +196,6 @@ public class SRToolsActivity extends Activity {
                 if (webView != null) {
                     webView.reload();
                 }
-
             });
         }
 
@@ -241,17 +250,11 @@ public class SRToolsActivity extends Activity {
 
     private void applyFullscreenForOrientation() {
 
-        boolean landscape =
-                getResources()
-                        .getConfiguration()
-                        .orientation
-                        == Configuration.ORIENTATION_LANDSCAPE;
-
         Window window = getWindow();
 
-        // --------------------------------------------------------
+        // ========================================================
         // Android 11+
-        // --------------------------------------------------------
+        // ========================================================
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
 
@@ -260,44 +263,28 @@ public class SRToolsActivity extends Activity {
 
             if (controller != null) {
 
-                if (landscape) {
+                /*
+                 * 横屏 / 竖屏都隐藏系统栏。
+                 *
+                 * 这样 WebView 获得完整可用区域，
+                 * 网页再由自己的 viewport 决定缩放比例。
+                 */
+                controller.hide(
+                        WindowInsets.Type.statusBars()
+                                | WindowInsets.Type.navigationBars()
+                );
 
-                    // 横屏：
-                    // 隐藏状态栏
-                    // 隐藏导航栏
-
-                    controller.hide(
-                            WindowInsets.Type.statusBars()
-                                    | WindowInsets.Type.navigationBars()
-                    );
-
-                    controller.setSystemBarsBehavior(
-                            WindowInsetsController
-                                    .BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
-                    );
-
-                } else {
-
-                    // 竖屏：
-                    // 也隐藏系统栏，让网页完整使用屏幕
-
-                    controller.hide(
-                            WindowInsets.Type.statusBars()
-                                    | WindowInsets.Type.navigationBars()
-                    );
-
-                    controller.setSystemBarsBehavior(
-                            WindowInsetsController
-                                    .BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
-                    );
-                }
+                controller.setSystemBarsBehavior(
+                        WindowInsetsController
+                                .BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+                );
             }
 
         } else {
 
-            // ----------------------------------------------------
+            // ====================================================
             // Android 10 及以下
-            // ----------------------------------------------------
+            // ====================================================
 
             window.getDecorView().setSystemUiVisibility(
 
@@ -373,10 +360,10 @@ public class SRToolsActivity extends Activity {
 
         updateOrientationButton();
 
-        // --------------------------------------------------------
-        // 屏幕变化后通知网页重新计算布局
-        // --------------------------------------------------------
-
+        /*
+         * 不 reload。
+         * 只通知网页重新计算 viewport / layout。
+         */
         if (webView != null) {
 
             webView.postDelayed(() -> {
@@ -393,7 +380,7 @@ public class SRToolsActivity extends Activity {
                 } catch (Exception ignored) {
                 }
 
-            }, 150);
+            }, 200);
         }
     }
 
@@ -410,37 +397,51 @@ public class SRToolsActivity extends Activity {
         WebSettings settings =
                 webView.getSettings();
 
-        // --------------------------------------------------------
+        // ========================================================
         // JavaScript
-        // --------------------------------------------------------
+        // ========================================================
 
         settings.setJavaScriptEnabled(true);
 
-        // --------------------------------------------------------
+        // ========================================================
         // DOM / Storage
-        // --------------------------------------------------------
+        // ========================================================
 
         settings.setDomStorageEnabled(true);
 
         settings.setDatabaseEnabled(true);
 
-        // --------------------------------------------------------
-        // 缩放
-        // --------------------------------------------------------
+        // ========================================================
+        // 浏览器式缩放
+        // ========================================================
 
         settings.setSupportZoom(true);
 
         settings.setBuiltInZoomControls(true);
 
+        // 不显示传统 +/- 按钮
         settings.setDisplayZoomControls(false);
 
+        /*
+         * 关键：
+         * 使用宽 viewport。
+         */
         settings.setUseWideViewPort(true);
 
-        settings.setLoadWithOverviewMode(false);
+        /*
+         * 关键：
+         * 允许 WebView 自动缩小到完整页面宽度。
+         */
+        settings.setLoadWithOverviewMode(true);
 
-        // --------------------------------------------------------
+        /*
+         * 页面文字倍率保持正常。
+         */
+        settings.setTextZoom(100);
+
+        // ========================================================
         // File / Content
-        // --------------------------------------------------------
+        // ========================================================
 
         settings.setAllowFileAccess(true);
 
@@ -450,9 +451,9 @@ public class SRToolsActivity extends Activity {
 
         settings.setSupportMultipleWindows(false);
 
-        // --------------------------------------------------------
+        // ========================================================
         // HTTPS -> HTTP
-        // --------------------------------------------------------
+        // ========================================================
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 
@@ -461,9 +462,19 @@ public class SRToolsActivity extends Activity {
             );
         }
 
-        // --------------------------------------------------------
+        // ========================================================
+        // 桌面浏览器 User-Agent
+        // ========================================================
+
+        settings.setUserAgentString(
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                        + "AppleWebKit/537.36 (KHTML, like Gecko) "
+                        + "Chrome/140.0.0.0 Safari/537.36"
+        );
+
+        // ========================================================
         // Cookie
-        // --------------------------------------------------------
+        // ========================================================
 
         CookieManager cookieManager =
                 CookieManager.getInstance();
@@ -475,9 +486,9 @@ public class SRToolsActivity extends Activity {
                 true
         );
 
-        // --------------------------------------------------------
+        // ========================================================
         // Blob Bridge
-        // --------------------------------------------------------
+        // ========================================================
 
         webView.addJavascriptInterface(
                 new BlobDownloadBridge(),
@@ -522,22 +533,21 @@ public class SRToolsActivity extends Activity {
                             );
                         }
 
-                        // ------------------------------------------------
-                        // 修复网页 viewport
-                        // ------------------------------------------------
-
+                        /*
+                         * 关键：
+                         * 浏览器式 viewport。
+                         */
                         injectZoomFix(view);
 
-                        // ------------------------------------------------
-                        // 强制网页内容使用完整屏幕
-                        // ------------------------------------------------
+                        /*
+                         * 只重新通知 resize，
+                         * 不再强行修改 body / 子元素尺寸。
+                         */
+                        injectResizeFix(view);
 
-                        injectFullscreenWebFix(view);
-
-                        // ------------------------------------------------
-                        // Blob
-                        // ------------------------------------------------
-
+                        /*
+                         * Blob
+                         */
                         injectBlobInterceptor(view);
                     }
 
@@ -656,9 +666,9 @@ public class SRToolsActivity extends Activity {
                             return;
                         }
 
-                        // ------------------------------------------------
+                        // =================================================
                         // Blob
-                        // ------------------------------------------------
+                        // =================================================
 
                         if (url.startsWith("blob:")) {
 
@@ -682,9 +692,9 @@ public class SRToolsActivity extends Activity {
                             return;
                         }
 
-                        // ------------------------------------------------
+                        // =================================================
                         // HTTP / HTTPS
-                        // ------------------------------------------------
+                        // =================================================
 
                         downloadHttpFile(
                                 url,
@@ -697,93 +707,7 @@ public class SRToolsActivity extends Activity {
     }
 
     // ============================================================
-    // 网页全屏修复
-    // ============================================================
-
-    private void injectFullscreenWebFix(WebView view) {
-
-        String javascript =
-
-                "(function(){"
-
-                        + "try{"
-
-                        // ------------------------------------------------
-                        // html
-                        // ------------------------------------------------
-
-                        + "document.documentElement.style.width='100%';"
-
-                        + "document.documentElement.style.height='100%';"
-
-                        + "document.documentElement.style.minHeight='100%';"
-
-                        + "document.documentElement.style.margin='0';"
-
-                        // ------------------------------------------------
-                        // body
-                        // ------------------------------------------------
-
-                        + "document.body.style.width='100%';"
-
-                        + "document.body.style.height='100%';"
-
-                        + "document.body.style.minHeight='100%';"
-
-                        + "document.body.style.margin='0';"
-
-                        // ------------------------------------------------
-                        // body 一级容器
-                        // ------------------------------------------------
-
-                        + "var children="
-                        + "document.body.children;"
-
-                        + "for(var i=0;i<children.length;i++){"
-
-                        + "var el=children[i];"
-
-                        + "var rect=el.getBoundingClientRect();"
-
-                        + "if(rect.width>0){"
-
-                        + "el.style.width='100%';"
-
-                        + "el.style.minWidth='100%';"
-
-                        + "el.style.minHeight='100vh';"
-
-                        + "}"
-
-                        + "}"
-
-                        // ------------------------------------------------
-                        // 通知 resize
-                        // ------------------------------------------------
-
-                        + "window.dispatchEvent("
-                        + "new Event('resize')"
-                        + ");"
-
-                        + "}catch(e){"
-
-                        + "console.error("
-                        + "'Pearl SR fullscreen fix',"
-                        + "e"
-                        + ");"
-
-                        + "}"
-
-                        + "})();";
-
-        view.evaluateJavascript(
-                javascript,
-                null
-        );
-    }
-
-    // ============================================================
-    // WebView viewport
+    // 浏览器式 viewport
     // ============================================================
 
     private void injectZoomFix(WebView view) {
@@ -791,8 +715,11 @@ public class SRToolsActivity extends Activity {
         String javascript =
 
                 "(function(){"
-
                         + "try{"
+
+                        // =================================================
+                        // 找 viewport
+                        // =================================================
 
                         + "var metas="
                         + "document.getElementsByTagName('meta');"
@@ -805,12 +732,14 @@ public class SRToolsActivity extends Activity {
                         + "metas[i].name.toLowerCase()==='viewport'){"
 
                         + "viewport=metas[i];"
-
                         + "break;"
-
                         + "}"
 
                         + "}"
+
+                        // =================================================
+                        // 创建 viewport
+                        // =================================================
 
                         + "if(!viewport){"
 
@@ -825,17 +754,64 @@ public class SRToolsActivity extends Activity {
 
                         + "}"
 
+                        // =================================================
+                        // 重点：
+                        // 不再使用 width=device-width
+                        //
+                        // 固定成桌面网页宽度
+                        // =================================================
+
                         + "viewport.setAttribute("
                         + "'content',"
-                        + "'width=device-width,"
+                        + "'width=" + WEB_PAGE_WIDTH + ","
                         + "initial-scale=1.0,"
-                        + "minimum-scale=0.25,"
+                        + "minimum-scale=0.1,"
                         + "maximum-scale=5.0,"
                         + "user-scalable=yes'"
                         + ");"
 
-                        + "}catch(e){}"
+                        + "}catch(e){"
 
+                        + "console.error("
+                        + "'Pearl SR viewport error',"
+                        + "e"
+                        + ");"
+
+                        + "}"
+
+                        + "})();";
+
+        view.evaluateJavascript(
+                javascript,
+                null
+        );
+    }
+
+    // ============================================================
+    // 只通知网页 resize
+    // ============================================================
+
+    private void injectResizeFix(WebView view) {
+
+        String javascript =
+
+                "(function(){"
+                        + "try{"
+
+                        + "window.dispatchEvent("
+                        + "new Event('resize')"
+                        + ");"
+
+                        + "if(document.documentElement){"
+                        + "document.documentElement"
+                        + ".style.margin='0';"
+                        + "}"
+
+                        + "if(document.body){"
+                        + "document.body.style.margin='0';"
+                        + "}"
+
+                        + "}catch(e){}"
                         + "})();";
 
         view.evaluateJavascript(
@@ -858,9 +834,9 @@ public class SRToolsActivity extends Activity {
 
                         + "try{"
 
-                        // ------------------------------------------------
+                        // =================================================
                         // 防重复
-                        // ------------------------------------------------
+                        // =================================================
 
                         + "if(window.__pearlBlobHookInstalled)"
                         + "return;"
@@ -871,9 +847,9 @@ public class SRToolsActivity extends Activity {
 
                         + "window.__pearlLastDownloadName='';"
 
-                        // ------------------------------------------------
-                        // 记录真正的 download 文件名
-                        // ------------------------------------------------
+                        // =================================================
+                        // 记录 download 文件名
+                        // =================================================
 
                         + "document.addEventListener("
                         + "'click',"
@@ -898,20 +874,18 @@ public class SRToolsActivity extends Activity {
                         + "}"
 
                         + "break;"
-
                         + "}"
 
                         + "element=element.parentElement;"
-
                         + "}"
 
                         + "}catch(e){}"
 
                         + "},true);"
 
-                        // ------------------------------------------------
-                        // createObjectURL
-                        // ------------------------------------------------
+                        // =================================================
+                        // URL.createObjectURL
+                        // =================================================
 
                         + "var oldCreate="
                         + "URL.createObjectURL;"
@@ -933,12 +907,11 @@ public class SRToolsActivity extends Activity {
                         + "}catch(e){}"
 
                         + "return u;"
-
                         + "};"
 
-                        // ------------------------------------------------
-                        // revokeObjectURL
-                        // ------------------------------------------------
+                        // =================================================
+                        // URL.revokeObjectURL
+                        // =================================================
 
                         + "URL.revokeObjectURL="
                         + "function(u){"
@@ -954,7 +927,7 @@ public class SRToolsActivity extends Activity {
                         + "};"
 
                         // =================================================
-                        // Blob 下载
+                        // 下载 Blob
                         // =================================================
 
                         + "window.__pearlDownloadBlob="
@@ -962,16 +935,16 @@ public class SRToolsActivity extends Activity {
 
                         + "try{"
 
-                        // ------------------------------------------------
-                        // 找 Blob
-                        // ------------------------------------------------
+                        // -------------------------------------------------
+                        // 从 Map 获取 Blob
+                        // -------------------------------------------------
 
                         + "var blob="
                         + "window.__pearlBlobMap.get(url);"
 
-                        // ------------------------------------------------
-                        // Map 没找到
-                        // ------------------------------------------------
+                        // -------------------------------------------------
+                        // fallback
+                        // -------------------------------------------------
 
                         + "if(!blob){"
 
@@ -990,16 +963,14 @@ public class SRToolsActivity extends Activity {
                         + "}"
 
                         + "break;"
-
                         + "}"
 
                         + "}"
-
                         + "}"
 
-                        // ------------------------------------------------
+                        // -------------------------------------------------
                         // Blob 不存在
-                        // ------------------------------------------------
+                        // -------------------------------------------------
 
                         + "if(!blob){"
 
@@ -1008,12 +979,11 @@ public class SRToolsActivity extends Activity {
                         + ");"
 
                         + "return;"
-
                         + "}"
 
-                        // ------------------------------------------------
+                        // -------------------------------------------------
                         // 文件名
-                        // ------------------------------------------------
+                        // -------------------------------------------------
 
                         + "var fileName="
                         + "window.__pearlLastDownloadName||'';"
@@ -1032,16 +1002,14 @@ public class SRToolsActivity extends Activity {
                         + "links2[j].download;"
 
                         + "break;"
-
                         + "}"
 
                         + "}"
-
                         + "}"
 
-                        // ------------------------------------------------
+                        // -------------------------------------------------
                         // 默认文件名
-                        // ------------------------------------------------
+                        // -------------------------------------------------
 
                         + "if(!fileName){"
 
@@ -1049,9 +1017,9 @@ public class SRToolsActivity extends Activity {
 
                         + "}"
 
-                        // ------------------------------------------------
-                        // Java begin
-                        // ------------------------------------------------
+                        // -------------------------------------------------
+                        // Java beginBlob
+                        // -------------------------------------------------
 
                         + "AndroidBlob.beginBlob("
                         + "fileName,"
@@ -1060,9 +1028,9 @@ public class SRToolsActivity extends Activity {
                         + "blob.size"
                         + ");"
 
-                        // ------------------------------------------------
-                        // Blob Stream
-                        // ------------------------------------------------
+                        // -------------------------------------------------
+                        // Blob stream
+                        // -------------------------------------------------
 
                         + "var reader="
                         + "blob.stream().getReader();"
@@ -1077,7 +1045,6 @@ public class SRToolsActivity extends Activity {
                         + "AndroidBlob.finishBlob();"
 
                         + "return;"
-
                         + "}"
 
                         + "var bytes=x.value;"
@@ -1113,7 +1080,6 @@ public class SRToolsActivity extends Activity {
                         + "return read();"
 
                         + "});"
-
                         + "}"
 
                         + "read();"
@@ -1162,8 +1128,7 @@ public class SRToolsActivity extends Activity {
         if (fileName == null ||
                 fileName.trim().isEmpty()) {
 
-            fileName =
-                    "download.bin";
+            fileName = "download.bin";
         }
 
         fileName =
@@ -1204,8 +1169,7 @@ public class SRToolsActivity extends Activity {
 
             Uri uri =
                     getContentResolver().insert(
-                            MediaStore.Downloads
-                                    .EXTERNAL_CONTENT_URI,
+                            MediaStore.Downloads.EXTERNAL_CONTENT_URI,
                             values
                     );
 
@@ -1244,21 +1208,14 @@ public class SRToolsActivity extends Activity {
 
                 dm.enqueue(request);
 
-                ContentValues done =
-                        new ContentValues();
-
-                done.put(
-                        MediaStore.Downloads.IS_PENDING,
-                        0
-                );
-
-                getContentResolver().update(
-                        uri,
-                        done,
-                        null,
-                        null
-                );
-
+                /*
+                 * 注意：
+                 * 这里不需要自己立即写 IS_PENDING=0。
+                 *
+                 * DownloadManager 负责实际下载，
+                 * 提前设置为 0 可能导致某些设备上出现
+                 * “文件还没下完就显示完成”的情况。
+                 */
                 Toast.makeText(
                         this,
                         "已开始下载：Download/"
@@ -1278,8 +1235,7 @@ public class SRToolsActivity extends Activity {
 
                 Toast.makeText(
                         this,
-                        "下载失败："
-                                + e.getMessage(),
+                        "下载失败：" + e.getMessage(),
                         Toast.LENGTH_LONG
                 ).show();
             }
@@ -1295,8 +1251,7 @@ public class SRToolsActivity extends Activity {
                 new File(
                         Environment
                                 .getExternalStoragePublicDirectory(
-                                        Environment
-                                                .DIRECTORY_DOWNLOADS
+                                        Environment.DIRECTORY_DOWNLOADS
                                 ),
                         DOWNLOAD_FOLDER
                 );
@@ -1327,9 +1282,7 @@ public class SRToolsActivity extends Activity {
 
         request.setDestinationInExternalPublicDir(
                 Environment.DIRECTORY_DOWNLOADS,
-                DOWNLOAD_FOLDER
-                        + "/"
-                        + fileName
+                DOWNLOAD_FOLDER + "/" + fileName
         );
 
         try {
@@ -1355,8 +1308,7 @@ public class SRToolsActivity extends Activity {
 
             Toast.makeText(
                     this,
-                    "下载失败："
-                            + e.getMessage(),
+                    "下载失败：" + e.getMessage(),
                     Toast.LENGTH_LONG
             ).show();
         }
@@ -1383,9 +1335,7 @@ public class SRToolsActivity extends Activity {
                 // filename*=
 
                 int p =
-                        lower.indexOf(
-                                "filename*="
-                        );
+                        lower.indexOf("filename*=");
 
                 if (p >= 0) {
 
@@ -1412,9 +1362,7 @@ public class SRToolsActivity extends Activity {
                     if (apos >= 0) {
 
                         value =
-                                value.substring(
-                                        apos + 2
-                                );
+                                value.substring(apos + 2);
                     }
 
                     value =
@@ -1427,18 +1375,14 @@ public class SRToolsActivity extends Activity {
 
                     if (!value.isEmpty()) {
 
-                        return sanitizeFileName(
-                                value
-                        );
+                        return sanitizeFileName(value);
                     }
                 }
 
                 // filename=
 
                 p =
-                        lower.indexOf(
-                                "filename="
-                        );
+                        lower.indexOf("filename=");
 
                 if (p >= 0) {
 
@@ -1470,16 +1414,12 @@ public class SRToolsActivity extends Activity {
 
                     if (!value.isEmpty()) {
 
-                        return sanitizeFileName(
-                                value
-                        );
+                        return sanitizeFileName(value);
                     }
                 }
             }
 
-            // ----------------------------------------------------
-            // URL
-            // ----------------------------------------------------
+            // URL 文件名
 
             Uri uri =
                     Uri.parse(url);
@@ -1553,22 +1493,10 @@ public class SRToolsActivity extends Activity {
 
         return "'"
                 + value
-                .replace(
-                        "\\",
-                        "\\\\"
-                )
-                .replace(
-                        "'",
-                        "\\'"
-                )
-                .replace(
-                        "\r",
-                        "\\r"
-                )
-                .replace(
-                        "\n",
-                        "\\n"
-                )
+                .replace("\\", "\\\\")
+                .replace("'", "\\'")
+                .replace("\r", "\\r")
+                .replace("\n", "\\n")
                 + "'";
     }
 
@@ -1584,8 +1512,7 @@ public class SRToolsActivity extends Activity {
                 new File(
                         Environment
                                 .getExternalStoragePublicDirectory(
-                                        Environment
-                                                .DIRECTORY_DOWNLOADS
+                                        Environment.DIRECTORY_DOWNLOADS
                                 ),
                         DOWNLOAD_FOLDER
                 );
@@ -1621,9 +1548,7 @@ public class SRToolsActivity extends Activity {
                     );
 
             ext =
-                    fileName.substring(
-                            dot
-                    );
+                    fileName.substring(dot);
         }
 
         while (file.exists()) {
@@ -1641,8 +1566,7 @@ public class SRToolsActivity extends Activity {
             i++;
         }
 
-        blobTempFile =
-                file;
+        blobTempFile = file;
 
         return Uri.fromFile(file);
     }
@@ -1684,8 +1608,7 @@ public class SRToolsActivity extends Activity {
         );
 
         return getContentResolver().insert(
-                MediaStore.Downloads
-                        .EXTERNAL_CONTENT_URI,
+                MediaStore.Downloads.EXTERNAL_CONTENT_URI,
                 values
         );
     }
@@ -1699,17 +1622,17 @@ public class SRToolsActivity extends Activity {
         try {
 
             if (blobOutputStream != null) {
-
                 blobOutputStream.close();
             }
 
         } catch (Exception ignored) {
         }
 
-        blobOutputStream =
-                null;
+        blobOutputStream = null;
 
+        // --------------------------------------------------------
         // MediaStore
+        // --------------------------------------------------------
 
         if (blobMediaStoreUri != null) {
 
@@ -1725,10 +1648,11 @@ public class SRToolsActivity extends Activity {
             }
         }
 
-        blobMediaStoreUri =
-                null;
+        blobMediaStoreUri = null;
 
+        // --------------------------------------------------------
         // Android 9-
+        // --------------------------------------------------------
 
         if (blobTempFile != null &&
                 blobTempFile.exists()) {
@@ -1737,14 +1661,9 @@ public class SRToolsActivity extends Activity {
             blobTempFile.delete();
         }
 
-        blobTempFile =
-                null;
-
-        blobFileName =
-                null;
-
-        blobMimeType =
-                null;
+        blobTempFile = null;
+        blobFileName = null;
+        blobMimeType = null;
     }
 
     // ============================================================
@@ -1767,9 +1686,7 @@ public class SRToolsActivity extends Activity {
             cleanupBlobDownload();
 
             blobFileName =
-                    sanitizeFileName(
-                            fileName
-                    );
+                    sanitizeFileName(fileName);
 
             blobMimeType =
                     mimeType == null
@@ -1926,11 +1843,9 @@ public class SRToolsActivity extends Activity {
             try {
 
                 blobOutputStream.flush();
-
                 blobOutputStream.close();
 
-                blobOutputStream =
-                        null;
+                blobOutputStream = null;
 
                 // Android 10+
 
@@ -1943,8 +1858,7 @@ public class SRToolsActivity extends Activity {
                                 new ContentValues();
 
                         values.put(
-                                MediaStore.Downloads
-                                        .IS_PENDING,
+                                MediaStore.Downloads.IS_PENDING,
                                 0
                         );
 
@@ -1957,17 +1871,10 @@ public class SRToolsActivity extends Activity {
                     }
                 }
 
-                blobMediaStoreUri =
-                        null;
-
-                blobTempFile =
-                        null;
-
-                blobFileName =
-                        null;
-
-                blobMimeType =
-                        null;
+                blobMediaStoreUri = null;
+                blobTempFile = null;
+                blobFileName = null;
+                blobMimeType = null;
 
                 runOnUiThread(() ->
                         Toast.makeText(
@@ -2014,8 +1921,7 @@ public class SRToolsActivity extends Activity {
             runOnUiThread(() ->
                     Toast.makeText(
                             SRToolsActivity.this,
-                            "Blob 下载失败："
-                                    + reason,
+                            "Blob 下载失败：" + reason,
                             Toast.LENGTH_LONG
                     ).show()
             );
@@ -2043,15 +1949,12 @@ public class SRToolsActivity extends Activity {
             return;
         }
 
-        Uri[] results =
-                null;
+        Uri[] results = null;
 
         if (resultCode == Activity.RESULT_OK &&
                 data != null) {
 
-            // ----------------------------------------------------
             // 多选
-            // ----------------------------------------------------
 
             if (data.getClipData() != null) {
 
@@ -2074,9 +1977,7 @@ public class SRToolsActivity extends Activity {
 
             }
 
-            // ----------------------------------------------------
             // 单选
-            // ----------------------------------------------------
 
             else if (data.getData() != null) {
 
@@ -2092,8 +1993,7 @@ public class SRToolsActivity extends Activity {
             filePathCallback
                     .onReceiveValue(results);
 
-            filePathCallback =
-                    null;
+            filePathCallback = null;
         }
     }
 
@@ -2127,8 +2027,7 @@ public class SRToolsActivity extends Activity {
             filePathCallback
                     .onReceiveValue(null);
 
-            filePathCallback =
-                    null;
+            filePathCallback = null;
         }
 
         cleanupBlobDownload();
@@ -2137,9 +2036,7 @@ public class SRToolsActivity extends Activity {
 
             webView.stopLoading();
 
-            webView.loadUrl(
-                    "about:blank"
-            );
+            webView.loadUrl("about:blank");
 
             webView.clearHistory();
 
@@ -2147,8 +2044,7 @@ public class SRToolsActivity extends Activity {
 
             webView.destroy();
 
-            webView =
-                    null;
+            webView = null;
         }
 
         super.onDestroy();
