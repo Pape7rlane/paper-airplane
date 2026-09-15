@@ -47,9 +47,6 @@ public class SRToolsActivity extends Activity {
     private static final String SRTOOLS_URL =
             "https://srtools.neonteam.dev/";
 
-    // 自动保存目录：
-    // Android 10+ -> Download/Pearl SR
-    // Android 9-  -> Download/Pearl SR
     private static final String DOWNLOAD_FOLDER =
             "Pearl SR";
 
@@ -109,6 +106,26 @@ public class SRToolsActivity extends Activity {
         orientationButton = findViewById(R.id.orientationButton);
 
         // --------------------------------------------------------
+        // WebView 强制铺满
+        // --------------------------------------------------------
+
+        if (webView != null) {
+
+            FrameLayout.LayoutParams params =
+                    new FrameLayout.LayoutParams(
+                            FrameLayout.LayoutParams.MATCH_PARENT,
+                            FrameLayout.LayoutParams.MATCH_PARENT
+                    );
+
+            params.leftMargin = 0;
+            params.topMargin = 0;
+            params.rightMargin = 0;
+            params.bottomMargin = 0;
+
+            webView.setLayoutParams(params);
+        }
+
+        // --------------------------------------------------------
         // System UI
         // --------------------------------------------------------
 
@@ -158,7 +175,10 @@ public class SRToolsActivity extends Activity {
 
     private void setupButtons() {
 
+        // --------------------------------------------------------
         // 刷新
+        // --------------------------------------------------------
+
         if (reloadButton != null) {
 
             reloadButton.setOnClickListener(v -> {
@@ -170,14 +190,19 @@ public class SRToolsActivity extends Activity {
             });
         }
 
+        // --------------------------------------------------------
         // 关闭
+        // --------------------------------------------------------
+
         if (closeButton != null) {
 
             closeButton.setOnClickListener(v -> finish());
-
         }
 
+        // --------------------------------------------------------
         // 横竖屏
+        // --------------------------------------------------------
+
         if (orientationButton != null) {
 
             orientationButton.setOnClickListener(v -> {
@@ -204,7 +229,6 @@ public class SRToolsActivity extends Activity {
                             ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
                     );
                 }
-
             });
         }
 
@@ -212,7 +236,7 @@ public class SRToolsActivity extends Activity {
     }
 
     // ============================================================
-    // 横竖屏 UI
+    // 全屏
     // ============================================================
 
     private void applyFullscreenForOrientation() {
@@ -241,7 +265,6 @@ public class SRToolsActivity extends Activity {
                     // 横屏：
                     // 隐藏状态栏
                     // 隐藏导航栏
-                    // WebView 铺满整个屏幕
 
                     controller.hide(
                             WindowInsets.Type.statusBars()
@@ -256,11 +279,16 @@ public class SRToolsActivity extends Activity {
                 } else {
 
                     // 竖屏：
-                    // 恢复系统栏
+                    // 也隐藏系统栏，让网页完整使用屏幕
 
-                    controller.show(
+                    controller.hide(
                             WindowInsets.Type.statusBars()
                                     | WindowInsets.Type.navigationBars()
+                    );
+
+                    controller.setSystemBarsBehavior(
+                            WindowInsetsController
+                                    .BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
                     );
                 }
             }
@@ -271,36 +299,27 @@ public class SRToolsActivity extends Activity {
             // Android 10 及以下
             // ----------------------------------------------------
 
-            if (landscape) {
+            window.getDecorView().setSystemUiVisibility(
 
-                window.getDecorView().setSystemUiVisibility(
+                    View.SYSTEM_UI_FLAG_FULLSCREEN
 
-                        View.SYSTEM_UI_FLAG_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
 
-                                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
 
-                                | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
 
-                                | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
 
-                                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-
-                                | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                );
-
-            } else {
-
-                window.getDecorView().setSystemUiVisibility(
-                        View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                );
-            }
+                            | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+            );
         }
 
         updateOrientationButton();
     }
 
     // ============================================================
-    // 横竖屏按钮文字
+    // 横竖屏按钮
     // ============================================================
 
     private void updateOrientationButton() {
@@ -318,7 +337,7 @@ public class SRToolsActivity extends Activity {
         if (landscape) {
 
             // 当前横屏
-            // 点击后切换竖屏
+            // 点击切换竖屏
 
             orientationButton.setText("竖");
 
@@ -329,7 +348,7 @@ public class SRToolsActivity extends Activity {
         } else {
 
             // 当前竖屏
-            // 点击后切换横屏
+            // 点击切换横屏
 
             orientationButton.setText("横");
 
@@ -353,6 +372,29 @@ public class SRToolsActivity extends Activity {
         applyFullscreenForOrientation();
 
         updateOrientationButton();
+
+        // --------------------------------------------------------
+        // 屏幕变化后通知网页重新计算布局
+        // --------------------------------------------------------
+
+        if (webView != null) {
+
+            webView.postDelayed(() -> {
+
+                try {
+
+                    webView.evaluateJavascript(
+                            "window.dispatchEvent(new Event('resize'));",
+                            null
+                    );
+
+                    webView.requestLayout();
+
+                } catch (Exception ignored) {
+                }
+
+            }, 150);
+        }
     }
 
     // ============================================================
@@ -360,6 +402,10 @@ public class SRToolsActivity extends Activity {
     // ============================================================
 
     private void setupWebView() {
+
+        if (webView == null) {
+            return;
+        }
 
         WebSettings settings =
                 webView.getSettings();
@@ -430,7 +476,7 @@ public class SRToolsActivity extends Activity {
         );
 
         // --------------------------------------------------------
-        // Blob Java Bridge
+        // Blob Bridge
         // --------------------------------------------------------
 
         webView.addJavascriptInterface(
@@ -453,12 +499,13 @@ public class SRToolsActivity extends Activity {
                     ) {
 
                         if (progressBar != null) {
+
                             progressBar.setVisibility(
                                     View.VISIBLE
                             );
                         }
 
-                        // 尽早注入 Blob Hook
+                        // 尽早安装 Blob Hook
                         injectBlobInterceptor(view);
                     }
 
@@ -469,15 +516,28 @@ public class SRToolsActivity extends Activity {
                     ) {
 
                         if (progressBar != null) {
+
                             progressBar.setVisibility(
                                     View.GONE
                             );
                         }
 
-                        // 网页缩放
+                        // ------------------------------------------------
+                        // 修复网页 viewport
+                        // ------------------------------------------------
+
                         injectZoomFix(view);
 
-                        // Blob 下载
+                        // ------------------------------------------------
+                        // 强制网页内容使用完整屏幕
+                        // ------------------------------------------------
+
+                        injectFullscreenWebFix(view);
+
+                        // ------------------------------------------------
+                        // Blob
+                        // ------------------------------------------------
+
                         injectBlobInterceptor(view);
                     }
 
@@ -514,7 +574,8 @@ public class SRToolsActivity extends Activity {
                                     .onReceiveValue(null);
                         }
 
-                        filePathCallback = callback;
+                        filePathCallback =
+                                callback;
 
                         Intent intent;
 
@@ -525,9 +586,10 @@ public class SRToolsActivity extends Activity {
 
                         } catch (Exception e) {
 
-                            intent = new Intent(
-                                    Intent.ACTION_OPEN_DOCUMENT
-                            );
+                            intent =
+                                    new Intent(
+                                            Intent.ACTION_OPEN_DOCUMENT
+                                    );
 
                             intent.addCategory(
                                     Intent.CATEGORY_OPENABLE
@@ -549,7 +611,8 @@ public class SRToolsActivity extends Activity {
 
                         } catch (ActivityNotFoundException e) {
 
-                            filePathCallback = null;
+                            filePathCallback =
+                                    null;
 
                             Toast.makeText(
                                     SRToolsActivity.this,
@@ -634,6 +697,92 @@ public class SRToolsActivity extends Activity {
     }
 
     // ============================================================
+    // 网页全屏修复
+    // ============================================================
+
+    private void injectFullscreenWebFix(WebView view) {
+
+        String javascript =
+
+                "(function(){"
+
+                        + "try{"
+
+                        // ------------------------------------------------
+                        // html
+                        // ------------------------------------------------
+
+                        + "document.documentElement.style.width='100%';"
+
+                        + "document.documentElement.style.height='100%';"
+
+                        + "document.documentElement.style.minHeight='100%';"
+
+                        + "document.documentElement.style.margin='0';"
+
+                        // ------------------------------------------------
+                        // body
+                        // ------------------------------------------------
+
+                        + "document.body.style.width='100%';"
+
+                        + "document.body.style.height='100%';"
+
+                        + "document.body.style.minHeight='100%';"
+
+                        + "document.body.style.margin='0';"
+
+                        // ------------------------------------------------
+                        // body 一级容器
+                        // ------------------------------------------------
+
+                        + "var children="
+                        + "document.body.children;"
+
+                        + "for(var i=0;i<children.length;i++){"
+
+                        + "var el=children[i];"
+
+                        + "var rect=el.getBoundingClientRect();"
+
+                        + "if(rect.width>0){"
+
+                        + "el.style.width='100%';"
+
+                        + "el.style.minWidth='100%';"
+
+                        + "el.style.minHeight='100vh';"
+
+                        + "}"
+
+                        + "}"
+
+                        // ------------------------------------------------
+                        // 通知 resize
+                        // ------------------------------------------------
+
+                        + "window.dispatchEvent("
+                        + "new Event('resize')"
+                        + ");"
+
+                        + "}catch(e){"
+
+                        + "console.error("
+                        + "'Pearl SR fullscreen fix',"
+                        + "e"
+                        + ");"
+
+                        + "}"
+
+                        + "})();";
+
+        view.evaluateJavascript(
+                javascript,
+                null
+        );
+    }
+
+    // ============================================================
     // WebView viewport
     // ============================================================
 
@@ -656,6 +805,7 @@ public class SRToolsActivity extends Activity {
                         + "metas[i].name.toLowerCase()==='viewport'){"
 
                         + "viewport=metas[i];"
+
                         + "break;"
 
                         + "}"
@@ -709,7 +859,7 @@ public class SRToolsActivity extends Activity {
                         + "try{"
 
                         // ------------------------------------------------
-                        // 防止重复安装
+                        // 防重复
                         // ------------------------------------------------
 
                         + "if(window.__pearlBlobHookInstalled)"
@@ -722,7 +872,7 @@ public class SRToolsActivity extends Activity {
                         + "window.__pearlLastDownloadName='';"
 
                         // ------------------------------------------------
-                        // 记录 <a download="xxx">
+                        // 记录真正的 download 文件名
                         // ------------------------------------------------
 
                         + "document.addEventListener("
@@ -760,7 +910,7 @@ public class SRToolsActivity extends Activity {
                         + "},true);"
 
                         // ------------------------------------------------
-                        // URL.createObjectURL
+                        // createObjectURL
                         // ------------------------------------------------
 
                         + "var oldCreate="
@@ -787,7 +937,7 @@ public class SRToolsActivity extends Activity {
                         + "};"
 
                         // ------------------------------------------------
-                        // revoke
+                        // revokeObjectURL
                         // ------------------------------------------------
 
                         + "URL.revokeObjectURL="
@@ -804,7 +954,7 @@ public class SRToolsActivity extends Activity {
                         + "};"
 
                         // =================================================
-                        // 真正下载 Blob
+                        // Blob 下载
                         // =================================================
 
                         + "window.__pearlDownloadBlob="
@@ -820,7 +970,7 @@ public class SRToolsActivity extends Activity {
                         + "window.__pearlBlobMap.get(url);"
 
                         // ------------------------------------------------
-                        // 如果 Map 没有，再扫描 a[download]
+                        // Map 没找到
                         // ------------------------------------------------
 
                         + "if(!blob){"
@@ -852,11 +1002,6 @@ public class SRToolsActivity extends Activity {
                         // ------------------------------------------------
 
                         + "if(!blob){"
-
-                        + "console.error("
-                        + "'Pearl SR: Blob not found',"
-                        + "url"
-                        + ");"
 
                         + "AndroidBlob.abortBlob("
                         + "'找不到 Blob 对象'"
@@ -895,7 +1040,7 @@ public class SRToolsActivity extends Activity {
                         + "}"
 
                         // ------------------------------------------------
-                        // 最终默认
+                        // 默认文件名
                         // ------------------------------------------------
 
                         + "if(!fileName){"
@@ -916,7 +1061,7 @@ public class SRToolsActivity extends Activity {
                         + ");"
 
                         // ------------------------------------------------
-                        // Blob stream
+                        // Blob Stream
                         // ------------------------------------------------
 
                         + "var reader="
@@ -1017,7 +1162,8 @@ public class SRToolsActivity extends Activity {
         if (fileName == null ||
                 fileName.trim().isEmpty()) {
 
-            fileName = "download.bin";
+            fileName =
+                    "download.bin";
         }
 
         fileName =
@@ -1234,50 +1380,9 @@ public class SRToolsActivity extends Activity {
                                 Locale.US
                         );
 
-                // filename=
-                int p =
-                        lower.indexOf(
-                                "filename="
-                        );
-
-                if (p >= 0) {
-
-                    String value =
-                            contentDisposition
-                                    .substring(p + 9)
-                                    .trim();
-
-                    value =
-                            value.replace(
-                                    "\"",
-                                    ""
-                            ).replace(
-                                    "'",
-                                    ""
-                            );
-
-                    int semi =
-                            value.indexOf(";");
-
-                    if (semi >= 0) {
-
-                        value =
-                                value.substring(
-                                        0,
-                                        semi
-                                ).trim();
-                    }
-
-                    if (!value.isEmpty()) {
-
-                        return sanitizeFileName(
-                                value
-                        );
-                    }
-                }
-
                 // filename*=
-                p =
+
+                int p =
                         lower.indexOf(
                                 "filename*="
                         );
@@ -1327,9 +1432,54 @@ public class SRToolsActivity extends Activity {
                         );
                     }
                 }
+
+                // filename=
+
+                p =
+                        lower.indexOf(
+                                "filename="
+                        );
+
+                if (p >= 0) {
+
+                    String value =
+                            contentDisposition
+                                    .substring(p + 9)
+                                    .trim();
+
+                    value =
+                            value.replace(
+                                    "\"",
+                                    ""
+                            ).replace(
+                                    "'",
+                                    ""
+                            );
+
+                    int semi =
+                            value.indexOf(";");
+
+                    if (semi >= 0) {
+
+                        value =
+                                value.substring(
+                                        0,
+                                        semi
+                                ).trim();
+                    }
+
+                    if (!value.isEmpty()) {
+
+                        return sanitizeFileName(
+                                value
+                        );
+                    }
+                }
             }
 
-            // URL 文件名
+            // ----------------------------------------------------
+            // URL
+            // ----------------------------------------------------
 
             Uri uri =
                     Uri.parse(url);
@@ -1423,7 +1573,7 @@ public class SRToolsActivity extends Activity {
     }
 
     // ============================================================
-    // 创建 Android 9- Blob 文件
+    // Android 9- Blob
     // ============================================================
 
     private Uri createLegacyBlobFile(
@@ -1498,7 +1648,7 @@ public class SRToolsActivity extends Activity {
     }
 
     // ============================================================
-    // Android 10+ Blob MediaStore
+    // Android 10+ Blob
     // ============================================================
 
     private Uri beginModernBlobFile(
@@ -1783,6 +1933,7 @@ public class SRToolsActivity extends Activity {
                         null;
 
                 // Android 10+
+
                 if (Build.VERSION.SDK_INT
                         >= Build.VERSION_CODES.Q) {
 
@@ -1898,7 +2049,9 @@ public class SRToolsActivity extends Activity {
         if (resultCode == Activity.RESULT_OK &&
                 data != null) {
 
+            // ----------------------------------------------------
             // 多选
+            // ----------------------------------------------------
 
             if (data.getClipData() != null) {
 
@@ -1921,7 +2074,9 @@ public class SRToolsActivity extends Activity {
 
             }
 
+            // ----------------------------------------------------
             // 单选
+            // ----------------------------------------------------
 
             else if (data.getData() != null) {
 
