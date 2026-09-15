@@ -5,49 +5,68 @@ import android.app.Activity;
 import android.app.DownloadManager;
 import android.content.ActivityNotFoundException;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
-import android.content.res.Configuration;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Looper;
 import android.provider.MediaStore;
 import android.view.View;
 import android.view.Window;
-import android.view.WindowInsets;
-import android.view.WindowInsetsController;
+import android.view.WindowManager;
 import android.webkit.CookieManager;
 import android.webkit.DownloadListener;
-import android.webkit.JavascriptInterface;
+import android.webkit.JsResult;
+import android.webkit.MimeTypeMap;
 import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.webkit.WebViewCompat;
 import androidx.webkit.WebViewFeature;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.OutputStream;
-import java.util.Base64;
-import java.util.Collections;
+import java.net.URLConnection;
 import java.util.Locale;
 
+/**
+ * Pearl SR - SRTools
+ *
+ * 主要功能：
+ * 1. WebView 打开 SRTools
+ * 2. 普通 HTTP/HTTPS 下载
+ * 3. Blob 下载
+ * 4. config.json / freesr-data.json 等 JSON 下载
+ * 5. Blob 分块传输到 Android
+ * 6. Android 10+ MediaStore
+ * 7. Android 9 以下 Download/Pearl SR
+ * 8. 文件选择器
+ * 9. 横竖屏切换
+ * 10. 刷新
+ * 11. 关闭
+ * 12. 全屏
+ * 13. WebView 缩放
+ */
 public class SRToolsActivity extends Activity {
 
-    // ============================================================
-    // SRTools
-    // ============================================================
+    private static final String TAG = "PearlSR-SRTools";
 
     private static final String SRTOOLS_URL =
             "https://srtools.neonteam.dev/";
@@ -56,763 +75,147 @@ public class SRToolsActivity extends Activity {
             "Pearl SR";
 
     private static final int FILE_CHOOSER_REQUEST = 1001;
+    private static final int WRITE_PERMISSION_REQUEST = 1002;
 
-    private static final int WRITE_REQUEST = 1002;
-
-    /*
-     * 浏览器式桌面网页宽度。
-     *
-     * 不使用 width=device-width。
-     * 让横屏/竖屏都保持类似桌面浏览器缩放效果。
-     */
     private static final int WEB_PAGE_WIDTH = 1280;
 
-    // ============================================================
-    // Views
-    // ============================================================
-
     private WebView webView;
-
     private ProgressBar progressBar;
 
-    private Button reloadButton;
-
-    private Button closeButton;
-
     private Button orientationButton;
-
-    // ============================================================
-    // File chooser
-    // ============================================================
+    private Button reloadButton;
+    private Button closeButton;
 
     private ValueCallback<Uri[]> filePathCallback;
 
-    // ============================================================
-    // Blob download
-    // ============================================================
+    private boolean landscape = false;
 
-    private OutputStream blobOutputStream;
-
-    private File blobTempFile;
-
-    private Uri blobMediaStoreUri;
-
-    private String blobFileName;
-
-    private String blobMimeType;
-
-    private long blobExpectedSize = -1L;
-
-    private long blobWrittenSize = 0L;
-
-    // ============================================================
-    // Document Start Blob Hook
-    // ============================================================
+    private final Handler mainHandler =
+            new Handler(Looper.getMainLooper());
 
     /*
-     * 这个脚本会在网页自己的 JS 之前执行。
-     *
-     * 作用：
-     *
-     * 1. 监听 URL.createObjectURL()
-     * 2. 保存 Blob -> blob: URL 的对应关系
-     * 3. 监听 a[download] 的文件名
-     * 4. 提供 window.__pearlDownloadBlob()
-     * 5. 通过 AndroidBlob Bridge 分块写入 Android
-     *
-     * 这样即使网站很早就创建 Blob URL，
-     * Android 也可以提前捕获。
+     * ============================================================
+     * Activity
+     * ============================================================
      */
-    private static final String DOCUMENT_START_BLOB_SCRIPT =
-
-            "(function(){"
-
-                    // =================================================
-                    // 防止重复安装
-                    // =================================================
-
-                    + "if(window.__pearlBlobHookInstalled){return;}"
-
-                    + "window.__pearlBlobHookInstalled=true;"
-
-                    // =================================================
-                    // Blob Map
-                    // =================================================
-
-                    + "window.__pearlBlobMap=new Map();"
-
-                    // =================================================
-                    // 最近一次下载文件名
-                    // =================================================
-
-                    + "window.__pearlLastDownloadName='';"
-
-                    // =================================================
-                    // 保存原始 API
-                    // =================================================
-
-                    + "var __pearlOriginalCreateObjectURL="
-                    + "URL.createObjectURL.bind(URL);"
-
-                    + "var __pearlOriginalRevokeObjectURL="
-                    + "URL.revokeObjectURL.bind(URL);"
-
-                    // =================================================
-                    // Hook URL.createObjectURL
-                    // =================================================
-
-                    + "URL.createObjectURL=function(object){"
-
-                    + "try{"
-
-                    + "var url="
-                    + "__pearlOriginalCreateObjectURL(object);"
-
-                    + "try{"
-                    + "window.__pearlBlobMap.set(url,object);"
-                    + "}catch(e){}"
-
-                    + "return url;"
-
-                    + "}catch(e){"
-
-                    + "return __pearlOriginalCreateObjectURL(object);"
-
-                    + "}"
-
-                    + "};"
-
-                    // =================================================
-                    // Hook URL.revokeObjectURL
-                    // =================================================
-
-                    + "URL.revokeObjectURL=function(url){"
-
-                    + "try{"
-                    + "window.__pearlBlobMap.delete(url);"
-                    + "}catch(e){}"
-
-                    + "try{"
-                    + "return __pearlOriginalRevokeObjectURL(url);"
-                    + "}catch(e){"
-
-                    + "return undefined;"
-
-                    + "}"
-
-                    + "};"
-
-                    // =================================================
-                    // 获取下载文件名
-                    // =================================================
-
-                    + "window.__pearlGetDownloadName=function(){"
-
-                    + "try{"
-
-                    + "if(window.__pearlLastDownloadName){"
-                    + "return window.__pearlLastDownloadName;"
-                    + "}"
-
-                    + "var links="
-                    + "document.querySelectorAll('a[download]');"
-
-                    + "for(var i=0;i<links.length;i++){"
-
-                    + "if(links[i].download){"
-                    + "return links[i].download;"
-                    + "}"
-
-                    + "}"
-
-                    + "}catch(e){}"
-
-                    + "return 'download.bin';"
-
-                    + "};"
-
-                    // =================================================
-                    // 监听点击
-                    // =================================================
-
-                    + "document.addEventListener("
-                    + "'click',"
-                    + "function(event){"
-
-                    + "try{"
-
-                    + "var element=event.target;"
-
-                    + "while(element && element!==document){"
-
-                    + "if(element.tagName==='A'){"
-
-                    + "if(element.href && "
-                    + "element.href.indexOf('blob:')===0){"
-
-                    + "if(element.download){"
-
-                    + "window.__pearlLastDownloadName="
-                    + "element.download;"
-
-                    + "}"
-
-                    + "}"
-
-                    + "break;"
-
-                    + "}"
-
-                    + "element=element.parentElement;"
-
-                    + "}"
-
-                    + "}catch(e){}"
-
-                    + "},true);"
-
-                    // =================================================
-                    // Blob 下载函数
-                    // =================================================
-
-                    + "window.__pearlDownloadBlob="
-                    + "function(url,mimeType){"
-
-                    + "try{"
-
-                    + "var blob="
-                    + "window.__pearlBlobMap.get(url);"
-
-                    // -------------------------------------------------
-                    // 找不到 Blob
-                    // -------------------------------------------------
-
-                    + "if(!blob){"
-
-                    + "if(window.AndroidBlob && "
-                    + "window.AndroidBlob.abortBlob){"
-
-                    + "window.AndroidBlob.abortBlob("
-                    + "'找不到 Blob 对象: '+url"
-                    + ");"
-
-                    + "}"
-
-                    + "return false;"
-
-                    + "}"
-
-                    // -------------------------------------------------
-                    // 文件名
-                    // -------------------------------------------------
-
-                    + "var fileName="
-                    + "window.__pearlLastDownloadName||'';"
-
-                    + "if(!fileName){"
-
-                    + "fileName="
-                    + "window.__pearlGetDownloadName();"
-
-                    + "}"
-
-                    + "if(!fileName){"
-                    + "fileName='download.bin';"
-                    + "}"
-
-                    // -------------------------------------------------
-                    // Java Bridge
-                    // -------------------------------------------------
-
-                    + "if(!window.AndroidBlob || "
-                    + "!window.AndroidBlob.beginBlob){"
-
-                    + "return false;"
-
-                    + "}"
-
-                    + "window.AndroidBlob.beginBlob("
-                    + "fileName,"
-                    + "mimeType||blob.type||"
-                    + "'application/octet-stream',"
-                    + "blob.size"
-                    + ");"
-
-                    // -------------------------------------------------
-                    // Blob Stream
-                    // -------------------------------------------------
-
-                    + "if(blob.stream){"
-
-                    + "var reader="
-                    + "blob.stream().getReader();"
-
-                    + "var readNext=function(){"
-
-                    + "reader.read().then(function(result){"
-
-                    + "if(result.done){"
-
-                    + "window.AndroidBlob.finishBlob();"
-                    + "return;"
-                    + "}"
-
-                    + "var bytes=result.value;"
-
-                    + "var CHUNK=32768;"
-
-                    + "for(var start=0;"
-                    + "start<bytes.length;"
-                    + "start+=CHUNK){"
-
-                    + "var part="
-                    + "bytes.subarray("
-                    + "start,"
-                    + "Math.min(start+CHUNK,bytes.length)"
-                    + ");"
-
-                    + "var binary='';"
-
-                    + "for(var i=0;"
-                    + "i<part.length;"
-                    + "i++){"
-
-                    + "binary+="
-                    + "String.fromCharCode(part[i]);"
-
-                    + "}"
-
-                    + "window.AndroidBlob.receiveBlobChunk("
-                    + "btoa(binary)"
-                    + ");"
-
-                    + "}"
-
-                    + "readNext();"
-
-                    + "}).catch(function(error){"
-
-                    + "window.AndroidBlob.abortBlob("
-                    + "String(error)"
-                    + ");"
-
-                    + "});"
-
-                    + "};"
-
-                    + "readNext();"
-
-                    + "}else{"
-
-                    // -------------------------------------------------
-                    // FileReader fallback
-                    // -------------------------------------------------
-
-                    + "var reader="
-                    + "new FileReader();"
-
-                    + "reader.onloadend=function(){"
-
-                    + "try{"
-
-                    + "var result="
-                    + "reader.result;"
-
-                    + "var base64="
-                    + "result.split(',')[1];"
-
-                    + "var STEP=65536;"
-
-                    + "for(var p=0;"
-                    + "p<base64.length;"
-                    + "p+=STEP){"
-
-                    + "window.AndroidBlob.receiveBase64Chunk("
-                    + "base64.substring(p,p+STEP)"
-                    + ");"
-
-                    + "}"
-
-                    + "window.AndroidBlob.finishBlob();"
-
-                    + "}catch(error){"
-
-                    + "window.AndroidBlob.abortBlob("
-                    + "String(error)"
-                    + ");"
-
-                    + "}"
-
-                    + "};"
-
-                    + "reader.onerror=function(){"
-
-                    + "window.AndroidBlob.abortBlob("
-                    + "'FileReader error'"
-                    + ");"
-
-                    + "};"
-
-                    + "reader.readAsDataURL(blob);"
-
-                    + "}"
-
-                    + "return true;"
-
-                    + "}catch(error){"
-
-                    + "if(window.AndroidBlob && "
-                    + "window.AndroidBlob.abortBlob){"
-
-                    + "window.AndroidBlob.abortBlob("
-                    + "String(error)"
-                    + ");"
-
-                    + "}"
-
-                    + "return false;"
-
-                    + "}"
-
-                    + "};"
-
-                    + "})();";
-
-    // ============================================================
-    // Activity
-    // ============================================================
 
     @Override
-    protected void onCreate(
-            Bundle savedInstanceState
-    ) {
-
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(
-                R.layout.activity_srtools
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+        getWindow().setFlags(
+                WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN
         );
 
-        webView =
-                findViewById(
-                        R.id.webView
-                );
+        setContentView(R.layout.activity_srtools);
 
-        progressBar =
-                findViewById(
-                        R.id.progressBar
-                );
+        webView = findViewById(R.id.webView);
+        progressBar = findViewById(R.id.progressBar);
 
-        reloadButton =
-                findViewById(
-                        R.id.reloadButton
-                );
-
-        closeButton =
-                findViewById(
-                        R.id.closeButton
-                );
-
-        orientationButton =
-                findViewById(
-                        R.id.orientationButton
-                );
-
-        // ========================================================
-        // WebView Layout
-        // ========================================================
-
-        if (webView != null) {
-
-            FrameLayout.LayoutParams params =
-                    new FrameLayout.LayoutParams(
-                            FrameLayout.LayoutParams.MATCH_PARENT,
-                            FrameLayout.LayoutParams.MATCH_PARENT
-                    );
-
-            params.leftMargin = 0;
-            params.topMargin = 0;
-            params.rightMargin = 0;
-            params.bottomMargin = 0;
-
-            webView.setLayoutParams(params);
-        }
-
-        // ========================================================
-        // Fullscreen
-        // ========================================================
-
-        applyFullscreenForOrientation();
-
-        // ========================================================
-        // WebView
-        // ========================================================
-
-        setupWebView();
-
-        // ========================================================
-        // Buttons
-        // ========================================================
+        orientationButton = findViewById(R.id.orientationButton);
+        reloadButton = findViewById(R.id.reloadButton);
+        closeButton = findViewById(R.id.closeButton);
 
         setupButtons();
+        setupWebView();
 
-        // ========================================================
-        // Android 9-
-        // ========================================================
-
-        if (
-                Build.VERSION.SDK_INT
-                        <= Build.VERSION_CODES.P
-        ) {
-
-            if (
-                    checkSelfPermission(
-                            Manifest.permission.WRITE_EXTERNAL_STORAGE
-                    )
-                            != PackageManager.PERMISSION_GRANTED
-            ) {
-
-                requestPermissions(
-                        new String[]{
-                                Manifest.permission.WRITE_EXTERNAL_STORAGE
-                        },
-                        WRITE_REQUEST
-                );
-            }
-        }
-
-        // ========================================================
-        // Load SRTools
-        // ========================================================
-
-        if (webView != null) {
-
-            webView.loadUrl(
-                    SRTOOLS_URL
-            );
-        }
+        webView.loadUrl(SRTOOLS_URL);
     }
 
-    // ============================================================
-    // Buttons
-    // ============================================================
+    /*
+     * ============================================================
+     * Buttons
+     * ============================================================
+     */
 
     private void setupButtons() {
 
-        if (reloadButton != null) {
-
-            reloadButton.setOnClickListener(
-                    v -> {
-
-                        if (webView != null) {
-
-                            webView.reload();
-                        }
-                    }
+        if (orientationButton != null) {
+            orientationButton.setOnClickListener(v ->
+                    toggleOrientation()
             );
+        }
+
+        if (reloadButton != null) {
+            reloadButton.setOnClickListener(v -> {
+                if (webView != null) {
+                    webView.reload();
+                }
+            });
         }
 
         if (closeButton != null) {
-
-            closeButton.setOnClickListener(
-                    v -> finish()
-            );
-        }
-
-        if (orientationButton != null) {
-
-            orientationButton.setOnClickListener(
-                    v -> {
-
-                        boolean landscape =
-                                getResources()
-                                        .getConfiguration()
-                                        .orientation
-                                        == Configuration.ORIENTATION_LANDSCAPE;
-
-                        if (landscape) {
-
-                            setRequestedOrientation(
-                                    ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-                            );
-
-                        } else {
-
-                            setRequestedOrientation(
-                                    ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
-                            );
-                        }
-                    }
+            closeButton.setOnClickListener(v ->
+                    finish()
             );
         }
 
         updateOrientationButton();
     }
 
-    // ============================================================
-    // Fullscreen
-    // ============================================================
+    private void toggleOrientation() {
 
-    private void applyFullscreenForOrientation() {
+        if (landscape) {
+            landscape = false;
 
-        Window window =
-                getWindow();
-
-        if (
-                Build.VERSION.SDK_INT
-                        >= Build.VERSION_CODES.R
-        ) {
-
-            WindowInsetsController controller =
-                    window.getInsetsController();
-
-            if (controller != null) {
-
-                controller.hide(
-                        WindowInsets.Type.statusBars()
-                                | WindowInsets.Type.navigationBars()
-                );
-
-                controller.setSystemBarsBehavior(
-                        WindowInsetsController
-                                .BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
-                );
-            }
+            setRequestedOrientation(
+                    ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+            );
 
         } else {
+            landscape = true;
 
-            window.getDecorView()
-                    .setSystemUiVisibility(
-
-                            View.SYSTEM_UI_FLAG_FULLSCREEN
-
-                                    | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-
-                                    | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-
-                                    | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-
-                                    | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-
-                                    | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                    );
+            setRequestedOrientation(
+                    ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+            );
         }
 
         updateOrientationButton();
     }
-
-    // ============================================================
-    // Orientation Button
-    // ============================================================
 
     private void updateOrientationButton() {
 
         if (orientationButton == null) {
-
             return;
         }
 
-        boolean landscape =
-                getResources()
-                        .getConfiguration()
-                        .orientation
-                        == Configuration.ORIENTATION_LANDSCAPE;
-
-        if (landscape) {
-
-            orientationButton.setText("竖");
-
-            orientationButton.setContentDescription(
-                    "切换到竖屏"
-            );
-
-        } else {
-
-            orientationButton.setText("横");
-
-            orientationButton.setContentDescription(
-                    "切换到横屏"
-            );
-        }
+        orientationButton.setText(
+                landscape ? "竖" : "横"
+        );
     }
 
-    // ============================================================
-    // Configuration Changed
-    // ============================================================
-
-    @Override
-    public void onConfigurationChanged(
-            Configuration newConfig
-    ) {
-
-        super.onConfigurationChanged(newConfig);
-
-        applyFullscreenForOrientation();
-
-        updateOrientationButton();
-
-        if (webView != null) {
-
-            webView.postDelayed(
-                    () -> {
-
-                        try {
-
-                            webView.evaluateJavascript(
-                                    "window.dispatchEvent("
-                                            + "new Event('resize')"
-                                            + ");",
-                                    null
-                            );
-
-                            webView.requestLayout();
-
-                        } catch (Exception ignored) {
-                        }
-
-                    },
-                    200
-            );
-        }
-    }
-
-    // ============================================================
-    // WebView
-    // ============================================================
+    /*
+     * ============================================================
+     * WebView
+     * ============================================================
+     */
 
     private void setupWebView() {
 
-        if (webView == null) {
-
-            return;
-        }
-
-        WebSettings settings =
-                webView.getSettings();
-
-        // ========================================================
-        // JavaScript
-        // ========================================================
+        WebSettings settings = webView.getSettings();
 
         settings.setJavaScriptEnabled(true);
-
-        // ========================================================
-        // Storage
-        // ========================================================
 
         settings.setDomStorageEnabled(true);
 
         settings.setDatabaseEnabled(true);
 
-        // ========================================================
-        // Zoom
-        // ========================================================
+        settings.setAllowFileAccess(true);
 
-        settings.setSupportZoom(true);
+        settings.setAllowContentAccess(true);
+
+        settings.setJavaScriptCanOpenWindowsAutomatically(true);
+
+        settings.setSupportMultipleWindows(true);
 
         settings.setBuiltInZoomControls(true);
 
         settings.setDisplayZoomControls(false);
+
+        settings.setSupportZoom(true);
 
         settings.setUseWideViewPort(true);
 
@@ -820,240 +223,243 @@ public class SRToolsActivity extends Activity {
 
         settings.setTextZoom(100);
 
-        // ========================================================
-        // Content
-        // ========================================================
-
-        settings.setAllowFileAccess(true);
-
-        settings.setAllowContentAccess(true);
-
-        settings.setJavaScriptCanOpenWindowsAutomatically(
-                true
-        );
-
-        settings.setSupportMultipleWindows(false);
-
-        // ========================================================
-        // Mixed Content
-        // ========================================================
-
-        if (
-                Build.VERSION.SDK_INT
-                        >= Build.VERSION_CODES.LOLLIPOP
-        ) {
-
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             settings.setMixedContentMode(
-                    WebSettings
-                            .MIXED_CONTENT_COMPATIBILITY_MODE
+                    WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE
             );
         }
 
-        // ========================================================
-        // Desktop User Agent
-        // ========================================================
+        /*
+         * Desktop Chrome UA
+         */
+        String desktopUA =
+                "Mozilla/5.0 (X11; Linux x86_64) " +
+                "AppleWebKit/537.36 (KHTML, like Gecko) " +
+                "Chrome/140.0.0.0 Safari/537.36";
 
-        settings.setUserAgentString(
-                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-                        + "AppleWebKit/537.36 "
-                        + "(KHTML, like Gecko) "
-                        + "Chrome/140.0.0.0 "
-                        + "Safari/537.36"
-        );
+        settings.setUserAgentString(desktopUA);
 
-        // ========================================================
-        // Cookie
-        // ========================================================
-
+        /*
+         * Cookies
+         */
         CookieManager cookieManager =
                 CookieManager.getInstance();
 
-        cookieManager.setAcceptCookie(
-                true
-        );
+        cookieManager.setAcceptCookie(true);
 
-        cookieManager.setAcceptThirdPartyCookies(
-                webView,
-                true
-        );
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            cookieManager.setAcceptThirdPartyCookies(
+                    webView,
+                    true
+            );
+        }
 
-        // ========================================================
-        // JavaScript Bridge
-        //
-        // 必须在 loadUrl() 前注册。
-        // ========================================================
-
+        /*
+         * Blob JS Bridge
+         *
+         * 必须在 Document Start Hook 前注册。
+         */
         webView.addJavascriptInterface(
                 new BlobDownloadBridge(),
                 "AndroidBlob"
         );
 
-        // ========================================================
-        // Document Start Blob Hook
-        //
-        // 注册在 loadUrl() 前。
-        // ========================================================
-
+        /*
+         * 安装 Document Start Blob Hook
+         */
         installDocumentStartBlobHook();
 
-        // ========================================================
-        // WebViewClient
-        // ========================================================
+        /*
+         * WebViewClient
+         */
+        webView.setWebViewClient(new WebViewClient() {
 
-        webView.setWebViewClient(
-                new WebViewClient() {
+            @Override
+            public void onPageStarted(
+                    WebView view,
+                    String url,
+                    android.graphics.Bitmap favicon
+            ) {
+                super.onPageStarted(view, url, favicon);
 
-                    @Override
-                    public void onPageStarted(
-                            WebView view,
-                            String url,
-                            Bitmap favicon
-                    ) {
+                showProgress(true);
 
-                        if (progressBar != null) {
-
-                            progressBar.setVisibility(
-                                    View.VISIBLE
-                            );
-                        }
-
-                        /*
-                         * DOCUMENT_START_SCRIPT 不支持时，
-                         * 使用后备注入。
-                         */
-                        if (
-                                !isDocumentStartSupported()
-                        ) {
-
-                            injectBlobInterceptorFallback(
-                                    view
-                            );
-                        }
-                    }
-
-                    @Override
-                    public void onPageFinished(
-                            WebView view,
-                            String url
-                    ) {
-
-                        if (progressBar != null) {
-
-                            progressBar.setVisibility(
-                                    View.GONE
-                            );
-                        }
-
-                        injectZoomFix(view);
-
-                        injectResizeFix(view);
-
-                        if (
-                                !isDocumentStartSupported()
-                        ) {
-
-                            injectBlobInterceptorFallback(
-                                    view
-                            );
-                        }
-                    }
-
-                    @Override
-                    public boolean shouldOverrideUrlLoading(
-                            WebView view,
-                            WebResourceRequest request
-                    ) {
-
-                        return false;
-                    }
+                /*
+                 * 如果当前 WebView 不支持 Document Start JavaScript，
+                 * 退回到页面开始时注入。
+                 */
+                if (!supportsDocumentStartJavaScript()) {
+                    injectBlobHook(view);
                 }
-        );
+            }
 
-        // ========================================================
-        // WebChromeClient
-        // ========================================================
+            @Override
+            public void onPageFinished(
+                    WebView view,
+                    String url
+            ) {
+                super.onPageFinished(view, url);
 
+                showProgress(false);
+
+                /*
+                 * 某些 WebView / ROM 对 Document Start 支持不完整，
+                 * 页面完成后再补一次。
+                 */
+                if (!supportsDocumentStartJavaScript()) {
+                    injectBlobHook(view);
+                }
+
+                injectViewport(view);
+            }
+
+            @Override
+            public boolean shouldOverrideUrlLoading(
+                    WebView view,
+                    WebResourceRequest request
+            ) {
+
+                Uri uri = request.getUrl();
+
+                if (uri == null) {
+                    return false;
+                }
+
+                String scheme =
+                        uri.getScheme();
+
+                if (scheme == null) {
+                    return false;
+                }
+
+                /*
+                 * blob / http / https 都交给 WebView。
+                 */
+                if ("blob".equalsIgnoreCase(scheme)
+                        || "http".equalsIgnoreCase(scheme)
+                        || "https".equalsIgnoreCase(scheme)) {
+
+                    return false;
+                }
+
+                /*
+                 * 其他 scheme 尝试交给系统。
+                 */
+                try {
+
+                    Intent intent =
+                            new Intent(
+                                    Intent.ACTION_VIEW,
+                                    uri
+                            );
+
+                    startActivity(intent);
+
+                    return true;
+
+                } catch (ActivityNotFoundException e) {
+
+                    Toast.makeText(
+                            SRToolsActivity.this,
+                            "无法打开链接",
+                            Toast.LENGTH_SHORT
+                    ).show();
+
+                    return true;
+                }
+            }
+
+            @Override
+            public WebResourceResponse shouldInterceptRequest(
+                    WebView view,
+                    WebResourceRequest request
+            ) {
+                return super.shouldInterceptRequest(
+                        view,
+                        request
+                );
+            }
+        });
+
+        /*
+         * WebChromeClient
+         */
         webView.setWebChromeClient(
                 new WebChromeClient() {
 
                     @Override
-                    public boolean onShowFileChooser(
-                            WebView webView,
-                            ValueCallback<Uri[]> callback,
-                            FileChooserParams params
+                    public void onProgressChanged(
+                            WebView view,
+                            int newProgress
                     ) {
 
-                        if (
-                                filePathCallback != null
-                        ) {
-
-                            filePathCallback
-                                    .onReceiveValue(
-                                            null
-                                    );
-                        }
-
-                        filePathCallback =
-                                callback;
-
-                        Intent intent;
-
-                        try {
-
-                            intent =
-                                    params.createIntent();
-
-                        } catch (Exception e) {
-
-                            intent =
-                                    new Intent(
-                                            Intent.ACTION_OPEN_DOCUMENT
-                                    );
-
-                            intent.addCategory(
-                                    Intent.CATEGORY_OPENABLE
-                            );
-
-                            intent.setType(
-                                    "*/*"
-                            );
-                        }
-
-                        intent.addCategory(
-                                Intent.CATEGORY_OPENABLE
+                        super.onProgressChanged(
+                                view,
+                                newProgress
                         );
 
-                        try {
-
-                            startActivityForResult(
-                                    intent,
-                                    FILE_CHOOSER_REQUEST
-                            );
-
-                        } catch (
-                                ActivityNotFoundException e
-                        ) {
-
-                            filePathCallback = null;
-
-                            Toast.makeText(
-                                    SRToolsActivity.this,
-                                    "找不到文件选择器",
-                                    Toast.LENGTH_SHORT
-                            ).show();
-
-                            return false;
+                        if (newProgress >= 100) {
+                            showProgress(false);
+                        } else {
+                            showProgress(true);
                         }
+                    }
+
+                    @Override
+                    public boolean onJsAlert(
+                            WebView view,
+                            String url,
+                            String message,
+                            JsResult result
+                    ) {
+
+                        /*
+                         * 保持默认行为。
+                         */
+                        return super.onJsAlert(
+                                view,
+                                url,
+                                message,
+                                result
+                        );
+                    }
+
+                    @Override
+                    public boolean onShowFileChooser(
+                            WebView webView,
+                            ValueCallback<Uri[]> filePathCallback,
+                            FileChooserParams fileChooserParams
+                    ) {
+
+                        if (SRToolsActivity.this.filePathCallback
+                                != null) {
+
+                            SRToolsActivity.this.filePathCallback
+                                    .onReceiveValue(null);
+                        }
+
+                        SRToolsActivity.this.filePathCallback =
+                                filePathCallback;
+
+                        openFileChooser(
+                                fileChooserParams
+                        );
 
                         return true;
                     }
                 }
         );
 
-        // ========================================================
-        // Download Listener
-        // ========================================================
-
+        /*
+         * DownloadListener
+         *
+         * HTTP/HTTPS：
+         *   DownloadManager
+         *
+         * Blob：
+         *   JS Blob Hook
+         *   作为最后 fallback
+         */
         webView.setDownloadListener(
                 new DownloadListener() {
 
@@ -1066,39 +472,40 @@ public class SRToolsActivity extends Activity {
                             long contentLength
                     ) {
 
-                        if (
-                                url == null
-                                        || url.trim().isEmpty()
-                        ) {
-
-                            Toast.makeText(
-                                    SRToolsActivity.this,
-                                    "下载地址为空",
-                                    Toast.LENGTH_SHORT
-                            ).show();
-
+                        if (url == null) {
                             return;
                         }
 
-                        // =================================================
-                        // Blob
-                        // =================================================
+                        /*
+                         * Blob 下载
+                         */
+                        if (url.startsWith("blob:")) {
 
-                        if (
-                                url.startsWith("blob:")
-                        ) {
+                            String safeMime =
+                                    mimeType;
+
+                            if (safeMime == null
+                                    || safeMime.trim().isEmpty()) {
+
+                                safeMime =
+                                        "application/octet-stream";
+                            }
 
                             String js =
-                                    "window.__pearlDownloadBlob && "
-                                            + "window.__pearlDownloadBlob("
-                                            + quoteJs(url)
-                                            + ","
-                                            + quoteJs(
-                                            mimeType == null
-                                                    ? "application/octet-stream"
-                                                    : mimeType
-                                    )
-                                            + ");";
+                                    "javascript:(function(){"
+                                    + "try{"
+                                    + "if(window.__pearlDownloadBlob){"
+                                    + "window.__pearlDownloadBlob("
+                                    + JSONObjectEscape(url)
+                                    + ","
+                                    + JSONObjectEscape(safeMime)
+                                    + ",null"
+                                    + ");"
+                                    + "}"
+                                    + "}catch(e){"
+                                    + "console.error(e);"
+                                    + "}"
+                                    + "})()";
 
                             webView.evaluateJavascript(
                                     js,
@@ -1108,51 +515,509 @@ public class SRToolsActivity extends Activity {
                             return;
                         }
 
-                        // =================================================
-                        // HTTP / HTTPS
-                        // =================================================
+                        /*
+                         * 普通 HTTP / HTTPS
+                         */
+                        if (url.startsWith("http://")
+                                || url.startsWith("https://")) {
 
-                        downloadHttpFile(
-                                url,
-                                contentDisposition,
-                                mimeType
-                        );
+                            downloadHttpFile(
+                                    url,
+                                    userAgent,
+                                    contentDisposition,
+                                    mimeType
+                            );
+
+                            return;
+                        }
+
+                        Toast.makeText(
+                                SRToolsActivity.this,
+                                "不支持的下载地址",
+                                Toast.LENGTH_SHORT
+                        ).show();
                     }
                 }
         );
     }
 
-    // ============================================================
-    // Document Start Support
-    // ============================================================
+    /*
+     * ============================================================
+     * Document Start Blob Hook
+     *
+     * 这是本次修复的核心。
+     * ============================================================
+     */
 
-    private boolean isDocumentStartSupported() {
+    private static final String DOCUMENT_START_BLOB_SCRIPT =
 
-        try {
+            "(function(){"
 
-            return WebViewFeature.isFeatureSupported(
-                    WebViewFeature.DOCUMENT_START_SCRIPT
-            );
+            + "if(window.__pearlBlobHookInstalled){return;}"
+            + "window.__pearlBlobHookInstalled=true;"
 
-        } catch (Exception e) {
+            /*
+             * Blob URL -> Blob 映射
+             */
+            + "window.__pearlBlobMap=new Map();"
 
-            return false;
-        }
-    }
+            /*
+             * 防止重复下载
+             */
+            + "window.__pearlBlobActive=new Set();"
 
-    // ============================================================
-    // Install Document Start Script
-    // ============================================================
+            /*
+             * 安全转义辅助
+             */
+            + "window.__pearlBlobSafeName=function(name){"
+            + "try{"
+            + "name=String(name||'download.bin');"
+            + "name=name.replace(/[\\\\/:*?\"<>|]/g,'_');"
+            + "name=name.trim();"
+            + "if(!name){name='download.bin';}"
+            + "return name;"
+            + "}catch(e){"
+            + "return 'download.bin';"
+            + "}"
+            + "};"
+
+            /*
+             * 保存 Blob
+             */
+            + "var oldCreate=URL.createObjectURL;"
+            + "URL.createObjectURL=function(obj){"
+            + "var u=oldCreate.apply(this,arguments);"
+            + "try{"
+            + "if(obj instanceof Blob){"
+            + "window.__pearlBlobMap.set(u,obj);"
+            + "}"
+            + "}catch(e){}"
+            + "return u;"
+            + "};"
+
+            /*
+             * 不再因为 revokeObjectURL 立刻删除 Map。
+             *
+             * 这是重要修复：
+             * 有些网页会在 a.click() 后立即 revoke，
+             * 如果这里删除 Map，Android DownloadListener
+             * 稍后收到 blob URL 时就找不到 Blob。
+             */
+            + "var oldRevoke=URL.revokeObjectURL;"
+            + "URL.revokeObjectURL=function(u){"
+            + "try{"
+            + "setTimeout(function(){"
+            + "try{"
+            + "window.__pearlBlobMap.delete(u);"
+            + "}catch(e){}"
+            + "},30000);"
+            + "}catch(e){}"
+            + "return oldRevoke.apply(this,arguments);"
+            + "};"
+
+            /*
+             * 真正发送 Blob 给 Android
+             */
+            + "window.__pearlSendBlob=function(blob,name,mime){"
+
+            + "try{"
+
+            + "name=window.__pearlBlobSafeName(name);"
+
+            + "mime=mime||blob.type||'application/octet-stream';"
+
+            + "if(!window.AndroidBlob){"
+            + "throw new Error('AndroidBlob接口不存在');"
+            + "}"
+
+            /*
+             * beginBlob 必须同步调用。
+             */
+            + "AndroidBlob.beginBlob(name,mime,blob.size);"
+
+            /*
+             * 优先 Blob.stream()
+             */
+            + "if(blob.stream){"
+
+            + "var reader=blob.stream().getReader();"
+
+            + "var readNext=function(){"
+
+            + "reader.read().then(function(r){"
+
+            + "if(r.done){"
+            + "AndroidBlob.finishBlob();"
+            + "return;"
+            + "}"
+
+            + "var bytes=new Uint8Array(r.value);"
+
+            + "var chunkSize=32768;"
+
+            + "for(var i=0;i<bytes.length;i+=chunkSize){"
+
+            + "var end=Math.min(i+chunkSize,bytes.length);"
+
+            + "var part=bytes.slice(i,end);"
+
+            + "var binary='';"
+
+            + "for(var j=0;j<part.length;j++){"
+            + "binary+=String.fromCharCode(part[j]);"
+            + "}"
+
+            + "AndroidBlob.writeBlobChunk("
+            + "btoa(binary)"
+            + ");"
+
+            + "}"
+
+            + "readNext();"
+
+            + "}).catch(function(e){"
+
+            + "try{"
+            + "AndroidBlob.abortBlob(String(e));"
+            + "}catch(x){}"
+
+            + "});"
+
+            + "};"
+
+            + "readNext();"
+
+            + "return;"
+            + "}"
+
+            /*
+             * FileReader fallback
+             */
+            + "var fr=new FileReader();"
+
+            + "fr.onload=function(){"
+
+            + "try{"
+
+            + "var data=fr.result||'';"
+
+            + "var comma=data.indexOf(',');"
+
+            + "if(comma>=0){"
+            + "data=data.substring(comma+1);"
+            + "}"
+
+            + "var chunk=32768;"
+
+            + "for(var i=0;i<data.length;i+=chunk){"
+            + "AndroidBlob.writeBlobChunk("
+            + "data.substring(i,Math.min(i+chunk,data.length))"
+            + ");"
+            + "}"
+
+            + "AndroidBlob.finishBlob();"
+
+            + "}catch(e){"
+
+            + "try{"
+            + "AndroidBlob.abortBlob(String(e));"
+            + "}catch(x){}"
+
+            + "}"
+
+            + "};"
+
+            + "fr.onerror=function(){"
+            + "try{"
+            + "AndroidBlob.abortBlob('FileReader失败');"
+            + "}catch(e){}"
+            + "};"
+
+            + "fr.readAsDataURL(blob);"
+
+            + "}catch(e){"
+
+            + "try{"
+            + "AndroidBlob.abortBlob(String(e));"
+            + "}catch(x){}"
+
+            + "}"
+
+            + "};"
+
+            /*
+             * Blob URL 下载
+             *
+             * 第一优先级：
+             * Map 中直接拿 Blob
+             *
+             * 第二优先级：
+             * fetch(blobURL)
+             *
+             * 这样即使 Blob 是由 Worker 创建的，
+             * 只要主页面拿到了 blob URL，也能直接 fetch。
+             */
+            + "window.__pearlDownloadBlob=function(url,mime,name){"
+
+            + "try{"
+
+            + "if(!url||String(url).indexOf('blob:')!==0){"
+            + "throw new Error('不是Blob URL');"
+            + "}"
+
+            + "url=String(url);"
+
+            /*
+             * 防止同一 Blob 被 click hook +
+             * DownloadListener 重复处理。
+             */
+            + "if(window.__pearlBlobActive.has(url)){"
+            + "return;"
+            + "}"
+
+            + "window.__pearlBlobActive.add(url);"
+
+            + "var finishGuard=function(){"
+            + "setTimeout(function(){"
+            + "try{"
+            + "window.__pearlBlobActive.delete(url);"
+            + "}catch(e){}"
+            + "},10000);"
+            + "};"
+
+            /*
+             * 从 Map 获取
+             */
+            + "var mapped=null;"
+
+            + "try{"
+            + "mapped=window.__pearlBlobMap.get(url);"
+            + "}catch(e){}"
+
+            + "if(mapped){"
+
+            + "window.__pearlSendBlob("
+            + "mapped,"
+            + "name||'download.bin',"
+            + "mime||mapped.type"
+            + ");"
+
+            + "finishGuard();"
+            + "return;"
+            + "}"
+
+            /*
+             * Map 没找到，直接 fetch Blob URL。
+             */
+            + "fetch(url).then(function(resp){"
+
+            + "if(!resp.ok){"
+            + "throw new Error('Blob fetch失败: '+resp.status);"
+            + "}"
+
+            + "return resp.blob();"
+
+            + "}).then(function(blob){"
+
+            + "window.__pearlSendBlob("
+            + "blob,"
+            + "name||'download.bin',"
+            + "mime||blob.type"
+            + ");"
+
+            + "finishGuard();"
+
+            + "}).catch(function(e){"
+
+            + "finishGuard();"
+
+            + "try{"
+            + "AndroidBlob.abortBlob("
+            + "'Blob下载失败: '+String(e)"
+            + ");"
+            + "}catch(x){}"
+
+            + "});"
+
+            + "}catch(e){"
+
+            + "try{"
+            + "AndroidBlob.abortBlob(String(e));"
+            + "}catch(x){}"
+
+            + "}"
+
+            + "};"
+
+            /*
+             * 处理 <a href="blob:..." download="...">
+             */
+            + "window.__pearlHandleBlobAnchor=function(a){"
+
+            + "try{"
+
+            + "if(!a){return false;}"
+
+            + "var href=a.href||a.getAttribute('href')||'';"
+
+            + "if(!href||String(href).indexOf('blob:')!==0){"
+            + "return false;"
+            + "}"
+
+            + "var name="
+            + "a.download||"
+            + "a.getAttribute('download')||"
+            + "'download.bin';"
+
+            + "window.__pearlDownloadBlob("
+            + "href,"
+            + "a.type||'',"
+            + "name"
+            + ");"
+
+            + "return true;"
+
+            + "}catch(e){"
+
+            + "return false;"
+
+            + "}"
+
+            + "};"
+
+            /*
+             * 捕获阶段监听用户点击。
+             *
+             * 这是核心修复之一：
+             * 不再等 DownloadListener 才处理。
+             */
+            + "document.addEventListener('click',function(ev){"
+
+            + "try{"
+
+            + "var node=ev.target;"
+
+            + "while(node&&node!==document){"
+
+            + "if(node.tagName&&"
+            + "node.tagName.toLowerCase()==='a'){"
+
+            + "var href=node.href||"
+            + "node.getAttribute('href')||'';"
+
+            + "if(String(href).indexOf('blob:')===0){"
+
+            + "window.__pearlHandleBlobAnchor(node);"
+
+            + "ev.preventDefault();"
+            + "ev.stopImmediatePropagation();"
+
+            + "return;"
+
+            + "}"
+
+            + "break;"
+            + "}"
+
+            + "node=node.parentElement;"
+
+            + "}"
+
+            + "}catch(e){}"
+
+            + "},true);"
+
+            /*
+             * 拦截程序主动 a.click()
+             *
+             * 很多网页下载 JSON 的方式就是：
+             *
+             * const a=document.createElement('a');
+             * a.href=URL.createObjectURL(blob);
+             * a.download='freesr-data.json';
+             * a.click();
+             */
+            + "try{"
+
+            + "var oldAnchorClick="
+            + "HTMLAnchorElement.prototype.click;"
+
+            + "HTMLAnchorElement.prototype.click="
+            + "function(){"
+
+            + "try{"
+
+            + "var href=this.href||"
+            + "this.getAttribute('href')||'';"
+
+            + "if(String(href).indexOf('blob:')===0){"
+
+            + "var name="
+            + "this.download||"
+            + "this.getAttribute('download')||"
+            + "'download.bin';"
+
+            + "window.__pearlDownloadBlob("
+            + "href,"
+            + "this.type||'',"
+            + "name"
+            + ");"
+
+            + "return;"
+
+            + "}"
+
+            + "}catch(e){}"
+
+            + "return oldAnchorClick.apply(this,arguments);"
+
+            + "};"
+
+            + "}catch(e){}"
+
+            /*
+             * 记录页面中的 Blob anchor。
+             */
+            + "document.addEventListener('mousedown',function(ev){"
+
+            + "try{"
+
+            + "var node=ev.target;"
+
+            + "while(node&&node!==document){"
+
+            + "if(node.tagName&&"
+            + "node.tagName.toLowerCase()==='a'){"
+
+            + "var href=node.href||"
+            + "node.getAttribute('href')||'';"
+
+            + "if(String(href).indexOf('blob:')===0){"
+            + "return;"
+            + "}"
+
+            + "break;"
+            + "}"
+
+            + "node=node.parentElement;"
+
+            + "}"
+
+            + "}catch(e){}"
+
+            + "},true);"
+
+            + "})();";
+
+    /*
+     * ============================================================
+     * Document Start 安装
+     * ============================================================
+     */
 
     private void installDocumentStartBlobHook() {
 
-        if (webView == null) {
-
-            return;
-        }
-
-        if (!isDocumentStartSupported()) {
-
+        if (!supportsDocumentStartJavaScript()) {
             return;
         }
 
@@ -1161,555 +1026,321 @@ public class SRToolsActivity extends Activity {
             WebViewCompat.addDocumentStartJavaScript(
                     webView,
                     DOCUMENT_START_BLOB_SCRIPT,
-                    Collections.singleton("*")
+                    java.util.Collections.singleton(
+                            Uri.parse("https://srtools.neonteam.dev")
+                    )
             );
 
-        } catch (Exception ignored) {
+        } catch (Throwable e) {
 
             /*
-             * 注册失败时不阻止网页加载。
-             *
-             * onPageStarted / onPageFinished
-             * 仍然会使用 fallback。
+             * 某些旧 WebView / ROM 可能抛异常。
+             * 后面会使用 fallback injectBlobHook。
              */
+            e.printStackTrace();
         }
     }
 
-    // ============================================================
-    // Zoom Fix
-    // ============================================================
+    private boolean supportsDocumentStartJavaScript() {
 
-    private void injectZoomFix(
-            WebView view
-    ) {
+        try {
 
-        String javascript =
+            return WebViewFeature.isFeatureSupported(
+                    WebViewFeature.DOCUMENT_START_SCRIPT
+            );
+
+        } catch (Throwable e) {
+
+            return false;
+        }
+    }
+
+    private void injectBlobHook(WebView view) {
+
+        try {
+
+            view.evaluateJavascript(
+                    DOCUMENT_START_BLOB_SCRIPT,
+                    null
+            );
+
+        } catch (Throwable e) {
+
+            e.printStackTrace();
+        }
+    }
+
+    /*
+     * ============================================================
+     * Viewport
+     * ============================================================
+     */
+
+    private void injectViewport(WebView view) {
+
+        String js =
 
                 "(function(){"
 
-                        + "try{"
+                + "try{"
 
-                        + "var metas="
-                        + "document.getElementsByTagName('meta');"
+                + "var meta=document.querySelector("
+                + "'meta[name=\"viewport\"]'"
+                + ");"
 
-                        + "var viewport=null;"
+                + "if(!meta){"
 
-                        + "for(var i=0;i<metas.length;i++){"
+                + "meta=document.createElement('meta');"
 
-                        + "if(metas[i].name && "
-                        + "metas[i].name.toLowerCase()==='viewport'){"
+                + "meta.name='viewport';"
 
-                        + "viewport=metas[i];"
+                + "document.head.appendChild(meta);"
 
-                        + "break;"
+                + "}"
 
-                        + "}"
+                + "meta.content="
+                + "'width="
+                + WEB_PAGE_WIDTH
+                + ",initial-scale=1.0,"
+                + "minimum-scale=0.1,"
+                + "maximum-scale=5.0,"
+                + "user-scalable=yes';"
 
-                        + "}"
+                + "}catch(e){}"
 
-                        + "if(!viewport){"
+                + "})();";
 
-                        + "viewport="
-                        + "document.createElement('meta');"
+        try {
 
-                        + "viewport.name='viewport';"
+            view.evaluateJavascript(
+                    js,
+                    null
+            );
 
-                        + "(document.head || "
-                        + "document.documentElement)"
-                        + ".appendChild(viewport);"
+        } catch (Throwable e) {
 
-                        + "}"
-
-                        + "viewport.setAttribute("
-                        + "'content',"
-                        + "'width=" + WEB_PAGE_WIDTH + ","
-                        + "initial-scale=1.0,"
-                        + "minimum-scale=0.1,"
-                        + "maximum-scale=5.0,"
-                        + "user-scalable=yes'"
-                        + ");"
-
-                        + "}catch(e){}"
-
-                        + "})();";
-
-        view.evaluateJavascript(
-                javascript,
-                null
-        );
+            e.printStackTrace();
+        }
     }
 
-    // ============================================================
-    // Resize Fix
-    // ============================================================
+    /*
+     * ============================================================
+     * 文件选择器
+     * ============================================================
+     */
 
-    private void injectResizeFix(
-            WebView view
+    private void openFileChooser(
+            WebChromeClient.FileChooserParams params
     ) {
 
-        String javascript =
+        try {
 
-                "(function(){"
+            Intent intent;
 
-                        + "try{"
+            try {
 
-                        + "window.dispatchEvent("
-                        + "new Event('resize')"
-                        + ");"
+                intent =
+                        params.createIntent();
 
-                        + "if(document.documentElement){"
+            } catch (Throwable e) {
 
-                        + "document.documentElement.style.margin='0';"
+                intent =
+                        new Intent(
+                                Intent.ACTION_OPEN_DOCUMENT
+                        );
 
-                        + "}"
+                intent.addCategory(
+                        Intent.CATEGORY_OPENABLE
+                );
 
-                        + "if(document.body){"
+                intent.setType("*/*");
+            }
 
-                        + "document.body.style.margin='0';"
+            startActivityForResult(
+                    intent,
+                    FILE_CHOOSER_REQUEST
+            );
 
-                        + "}"
+        } catch (ActivityNotFoundException e) {
 
-                        + "}catch(e){}"
+            filePathCallback = null;
 
-                        + "})();";
-
-        view.evaluateJavascript(
-                javascript,
-                null
-        );
+            Toast.makeText(
+                    this,
+                    "没有可用的文件选择器",
+                    Toast.LENGTH_SHORT
+            ).show();
+        }
     }
 
-    // ============================================================
-    // Fallback Blob Hook
-    // ============================================================
-
-    private void injectBlobInterceptorFallback(
-            WebView view
+    @Override
+    protected void onActivityResult(
+            int requestCode,
+            int resultCode,
+            @Nullable Intent data
     ) {
 
-        String javascript =
-
-                "(function(){"
-
-                        + "try{"
-
-                        + "if(window.__pearlBlobHookInstalled){"
-                        + "return;"
-                        + "}"
-
-                        + "window.__pearlBlobHookInstalled=true;"
-
-                        + "window.__pearlBlobMap=new Map();"
-
-                        + "window.__pearlLastDownloadName='';"
-
-                        + "var oldCreate="
-                        + "URL.createObjectURL;"
-
-                        + "var oldRevoke="
-                        + "URL.revokeObjectURL;"
-
-                        + "URL.createObjectURL=function(obj){"
-
-                        + "var u="
-                        + "oldCreate.call(URL,obj);"
-
-                        + "try{"
-                        + "window.__pearlBlobMap.set(u,obj);"
-                        + "}catch(e){}"
-
-                        + "return u;"
-
-                        + "};"
-
-                        + "URL.revokeObjectURL=function(u){"
-
-                        + "try{"
-                        + "window.__pearlBlobMap.delete(u);"
-                        + "}catch(e){}"
-
-                        + "try{"
-                        + "return oldRevoke.call(URL,u);"
-                        + "}catch(e){"
-
-                        + "return undefined;"
-
-                        + "}"
-
-                        + "};"
-
-                        + "document.addEventListener("
-                        + "'click',"
-                        + "function(event){"
-
-                        + "try{"
-
-                        + "var element=event.target;"
-
-                        + "while(element && "
-                        + "element!==document){"
-
-                        + "if(element.tagName==='A'){"
-
-                        + "if(element.href && "
-                        + "element.href.indexOf('blob:')===0 && "
-                        + "element.download){"
-
-                        + "window.__pearlLastDownloadName="
-                        + "element.download;"
-
-                        + "}"
-
-                        + "break;"
-
-                        + "}"
-
-                        + "element=element.parentElement;"
-
-                        + "}"
-
-                        + "}catch(e){}"
-
-                        + "},true);"
-
-                        + "window.__pearlDownloadBlob="
-                        + "function(url,mimeType){"
-
-                        + "try{"
-
-                        + "var blob="
-                        + "window.__pearlBlobMap.get(url);"
-
-                        + "if(!blob){"
-
-                        + "AndroidBlob.abortBlob("
-                        + "'找不到 Blob 对象'"
-                        + ");"
-
-                        + "return false;"
-
-                        + "}"
-
-                        + "var fileName="
-                        + "window.__pearlLastDownloadName"
-                        + "||'download.bin';"
-
-                        + "AndroidBlob.beginBlob("
-                        + "fileName,"
-                        + "mimeType||blob.type||"
-                        + "'application/octet-stream',"
-                        + "blob.size"
-                        + ");"
-
-                        + "if(blob.stream){"
-
-                        + "var reader="
-                        + "blob.stream().getReader();"
-
-                        + "var next=function(){"
-
-                        + "reader.read().then(function(result){"
-
-                        + "if(result.done){"
-
-                        + "AndroidBlob.finishBlob();"
-
-                        + "return;"
-                        + "}"
-
-                        + "var bytes=result.value;"
-
-                        + "var step=32768;"
-
-                        + "for(var s=0;"
-                        + "s<bytes.length;"
-                        + "s+=step){"
-
-                        + "var part="
-                        + "bytes.subarray("
-                        + "s,"
-                        + "Math.min(s+step,bytes.length)"
-                        + ");"
-
-                        + "var binary='';"
-
-                        + "for(var i=0;"
-                        + "i<part.length;"
-                        + "i++){"
-
-                        + "binary+="
-                        + "String.fromCharCode(part[i]);"
-
-                        + "}"
-
-                        + "AndroidBlob.receiveBlobChunk("
-                        + "btoa(binary)"
-                        + ");"
-
-                        + "}"
-
-                        + "next();"
-
-                        + "}).catch(function(error){"
-
-                        + "AndroidBlob.abortBlob("
-                        + "String(error)"
-                        + ");"
-
-                        + "});"
-
-                        + "};"
-
-                        + "next();"
-
-                        + "}else{"
-
-                        + "var reader="
-                        + "new FileReader();"
-
-                        + "reader.onloadend=function(){"
-
-                        + "try{"
-
-                        + "var result="
-                        + "reader.result;"
-
-                        + "var base64="
-                        + "result.split(',')[1];"
-
-                        + "var step=65536;"
-
-                        + "for(var p=0;"
-                        + "p<base64.length;"
-                        + "p+=step){"
-
-                        + "AndroidBlob.receiveBase64Chunk("
-                        + "base64.substring(p,p+step)"
-                        + ");"
-
-                        + "}"
-
-                        + "AndroidBlob.finishBlob();"
-
-                        + "}catch(error){"
-
-                        + "AndroidBlob.abortBlob("
-                        + "String(error)"
-                        + ");"
-
-                        + "}"
-
-                        + "};"
-
-                        + "reader.onerror=function(){"
-
-                        + "AndroidBlob.abortBlob("
-                        + "'FileReader error'"
-                        + ");"
-
-                        + "};"
-
-                        + "reader.readAsDataURL(blob);"
-
-                        + "}"
-
-                        + "return true;"
-
-                        + "}catch(e){"
-
-                        + "AndroidBlob.abortBlob("
-                        + "String(e)"
-                        + ");"
-
-                        + "return false;"
-
-                        + "}"
-
-                        + "};"
-
-                        + "}catch(e){}"
-
-                        + "})();";
-
-        view.evaluateJavascript(
-                javascript,
-                null
+        super.onActivityResult(
+                requestCode,
+                resultCode,
+                data
         );
+
+        if (requestCode != FILE_CHOOSER_REQUEST) {
+            return;
+        }
+
+        if (filePathCallback == null) {
+            return;
+        }
+
+        Uri[] results = null;
+
+        if (resultCode == RESULT_OK
+                && data != null) {
+
+            Uri uri = data.getData();
+
+            if (uri != null) {
+                results = new Uri[]{uri};
+            }
+        }
+
+        filePathCallback.onReceiveValue(results);
+
+        filePathCallback = null;
     }
 
-    // ============================================================
-    // HTTP / HTTPS Download
-    // ============================================================
+    /*
+     * ============================================================
+     * HTTP / HTTPS 下载
+     * ============================================================
+     */
 
     private void downloadHttpFile(
             String url,
+            String userAgent,
             String contentDisposition,
             String mimeType
     ) {
 
-        String fileName =
-                extractFileName(
-                        contentDisposition,
-                        url
-                );
+        try {
 
-        if (
-                fileName == null
-                        || fileName.trim().isEmpty()
-        ) {
-
-            fileName = "download.bin";
-        }
-
-        fileName =
-                sanitizeFileName(
-                        fileName
-                );
-
-        // ========================================================
-        // Android 10+
-        // ========================================================
-
-        if (
-                Build.VERSION.SDK_INT
-                        >= Build.VERSION_CODES.Q
-        ) {
-
-            ContentValues values =
-                    new ContentValues();
-
-            values.put(
-                    MediaStore.Downloads.DISPLAY_NAME,
-                    fileName
-            );
-
-            values.put(
-                    MediaStore.Downloads.MIME_TYPE,
-                    mimeType == null
-                            ? "application/octet-stream"
-                            : mimeType
-            );
-
-            values.put(
-                    MediaStore.Downloads.RELATIVE_PATH,
-                    Environment.DIRECTORY_DOWNLOADS
-                            + "/"
-                            + DOWNLOAD_FOLDER
-            );
-
-            values.put(
-                    MediaStore.Downloads.IS_PENDING,
-                    1
-            );
-
-            Uri uri =
-                    getContentResolver().insert(
-                            MediaStore.Downloads.EXTERNAL_CONTENT_URI,
-                            values
+            String fileName =
+                    guessFileName(
+                            url,
+                            contentDisposition,
+                            mimeType
                     );
 
-            if (uri == null) {
+            if (Build.VERSION.SDK_INT >=
+                    Build.VERSION_CODES.Q) {
 
-                Toast.makeText(
-                        this,
-                        "创建下载文件失败",
-                        Toast.LENGTH_SHORT
-                ).show();
-
-                return;
-            }
-
-            try {
-
-                DownloadManager.Request request =
-                        new DownloadManager.Request(
-                                Uri.parse(url)
-                        );
-
-                request.setTitle(
-                        fileName
+                downloadWithMediaStore(
+                        url,
+                        userAgent,
+                        fileName,
+                        mimeType
                 );
 
-                request.setNotificationVisibility(
-                        DownloadManager.Request
-                                .VISIBILITY_VISIBLE_NOTIFY_COMPLETED
-                );
+            } else {
 
-                request.setDestinationUri(
-                        uri
-                );
+                if (checkSelfPermission(
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE
+                ) != PackageManager.PERMISSION_GRANTED) {
 
-                DownloadManager dm =
-                        (DownloadManager)
-                                getSystemService(
-                                        DOWNLOAD_SERVICE
-                                );
+                    pendingHttpUrl = url;
+                    pendingHttpUserAgent = userAgent;
+                    pendingHttpFileName = fileName;
+                    pendingHttpMimeType = mimeType;
 
-                if (dm == null) {
-
-                    throw new Exception(
-                            "DownloadManager 不可用"
+                    requestPermissions(
+                            new String[]{
+                                    Manifest.permission.WRITE_EXTERNAL_STORAGE
+                            },
+                            WRITE_PERMISSION_REQUEST
                     );
+
+                    return;
                 }
 
-                dm.enqueue(
-                        request
+                startLegacyDownload(
+                        url,
+                        userAgent,
+                        fileName,
+                        mimeType
                 );
-
-                Toast.makeText(
-                        this,
-                        "已开始下载：Download/"
-                                + DOWNLOAD_FOLDER
-                                + "/"
-                                + fileName,
-                        Toast.LENGTH_SHORT
-                ).show();
-
-            } catch (Exception e) {
-
-                getContentResolver().delete(
-                        uri,
-                        null,
-                        null
-                );
-
-                Toast.makeText(
-                        this,
-                        "下载失败："
-                                + safeMessage(e),
-                        Toast.LENGTH_LONG
-                ).show();
             }
 
-            return;
-        }
+        } catch (Throwable e) {
 
-        // ========================================================
-        // Android 9-
-        // ========================================================
-
-        File dir =
-                new File(
-                        Environment
-                                .getExternalStoragePublicDirectory(
-                                        Environment.DIRECTORY_DOWNLOADS
-                                ),
-                        DOWNLOAD_FOLDER
-                );
-
-        if (
-                !dir.exists()
-                        && !dir.mkdirs()
-        ) {
+            e.printStackTrace();
 
             Toast.makeText(
                     this,
-                    "无法创建下载目录",
-                    Toast.LENGTH_SHORT
+                    "下载失败：" + e.getMessage(),
+                    Toast.LENGTH_LONG
             ).show();
+        }
+    }
 
+    private String pendingHttpUrl;
+    private String pendingHttpUserAgent;
+    private String pendingHttpFileName;
+    private String pendingHttpMimeType;
+
+    @Override
+    public void onRequestPermissionsResult(
+            int requestCode,
+            String[] permissions,
+            int[] grantResults
+    ) {
+
+        super.onRequestPermissionsResult(
+                requestCode,
+                permissions,
+                grantResults
+        );
+
+        if (requestCode != WRITE_PERMISSION_REQUEST) {
             return;
         }
+
+        if (grantResults.length > 0
+                && grantResults[0] ==
+                PackageManager.PERMISSION_GRANTED) {
+
+            if (pendingHttpUrl != null) {
+
+                startLegacyDownload(
+                        pendingHttpUrl,
+                        pendingHttpUserAgent,
+                        pendingHttpFileName,
+                        pendingHttpMimeType
+                );
+            }
+
+        } else {
+
+            Toast.makeText(
+                    this,
+                    "没有存储权限，无法保存文件",
+                    Toast.LENGTH_SHORT
+            ).show();
+        }
+
+        pendingHttpUrl = null;
+        pendingHttpUserAgent = null;
+        pendingHttpFileName = null;
+        pendingHttpMimeType = null;
+    }
+
+    private void startLegacyDownload(
+            String url,
+            String userAgent,
+            String fileName,
+            String mimeType
+    ) {
 
         try {
 
@@ -1718,8 +1349,16 @@ public class SRToolsActivity extends Activity {
                             Uri.parse(url)
                     );
 
-            request.setTitle(
-                    fileName
+            if (mimeType != null
+                    && !mimeType.isEmpty()) {
+
+                request.setMimeType(mimeType);
+            }
+
+            request.setTitle(fileName);
+
+            request.setDescription(
+                    "Pearl SR 下载"
             );
 
             request.setNotificationVisibility(
@@ -1727,547 +1366,235 @@ public class SRToolsActivity extends Activity {
                             .VISIBILITY_VISIBLE_NOTIFY_COMPLETED
             );
 
+            request.setAllowedOverMetered(true);
+
+            request.setAllowedOverRoaming(true);
+
+            if (userAgent != null
+                    && !userAgent.isEmpty()) {
+
+                request.addRequestHeader(
+                        "User-Agent",
+                        userAgent
+                );
+            }
+
             request.setDestinationInExternalPublicDir(
-                    Environment.DIRECTORY_DOWNLOADS,
-                    DOWNLOAD_FOLDER
-                            + "/"
-                            + fileName
+                    Environment.DIRECTORY_DOWNLOADS
+                            + File.separator
+                            + DOWNLOAD_FOLDER,
+                    fileName
             );
 
-            DownloadManager dm =
+            DownloadManager manager =
                     (DownloadManager)
                             getSystemService(
                                     DOWNLOAD_SERVICE
                             );
 
-            if (dm == null) {
+            if (manager != null) {
 
-                throw new Exception(
-                        "DownloadManager 不可用"
-                );
+                manager.enqueue(request);
+
+                Toast.makeText(
+                        this,
+                        "开始下载：" + fileName,
+                        Toast.LENGTH_SHORT
+                ).show();
             }
 
-            dm.enqueue(
-                    request
-            );
+        } catch (Throwable e) {
+
+            e.printStackTrace();
 
             Toast.makeText(
                     this,
-                    "已开始下载：Download/"
-                            + DOWNLOAD_FOLDER
-                            + "/"
-                            + fileName,
-                    Toast.LENGTH_SHORT
-            ).show();
-
-        } catch (Exception e) {
-
-            Toast.makeText(
-                    this,
-                    "下载失败："
-                            + safeMessage(e),
+                    "下载失败：" + e.getMessage(),
                     Toast.LENGTH_LONG
             ).show();
         }
     }
 
-    // ============================================================
-    // Extract filename
-    // ============================================================
-
-    private String extractFileName(
-            String contentDisposition,
-            String url
-    ) {
-
-        try {
-
-            if (contentDisposition != null) {
-
-                String lower =
-                        contentDisposition.toLowerCase(
-                                Locale.US
-                        );
-
-                // ==================================================
-                // filename*
-                // ==================================================
-
-                int p =
-                        lower.indexOf(
-                                "filename*="
-                        );
-
-                if (p >= 0) {
-
-                    String value =
-                            contentDisposition
-                                    .substring(
-                                            p + 10
-                                    )
-                                    .trim();
-
-                    int semi =
-                            value.indexOf(";");
-
-                    if (semi >= 0) {
-
-                        value =
-                                value.substring(
-                                        0,
-                                        semi
-                                ).trim();
-                    }
-
-                    int apos =
-                            value.indexOf("''");
-
-                    if (apos >= 0) {
-
-                        value =
-                                value.substring(
-                                        apos + 2
-                                );
-                    }
-
-                    value =
-                            Uri.decode(
-                                    value.replace(
-                                            "\"",
-                                            ""
-                                    )
-                            );
-
-                    if (!value.isEmpty()) {
-
-                        return sanitizeFileName(
-                                value
-                        );
-                    }
-                }
-
-                // ==================================================
-                // filename
-                // ==================================================
-
-                p =
-                        lower.indexOf(
-                                "filename="
-                        );
-
-                if (p >= 0) {
-
-                    String value =
-                            contentDisposition
-                                    .substring(
-                                            p + 9
-                                    )
-                                    .trim();
-
-                    value =
-                            value.replace(
-                                    "\"",
-                                    ""
-                            ).replace(
-                                    "'",
-                                    ""
-                            );
-
-                    int semi =
-                            value.indexOf(";");
-
-                    if (semi >= 0) {
-
-                        value =
-                                value.substring(
-                                        0,
-                                        semi
-                                ).trim();
-                    }
-
-                    if (!value.isEmpty()) {
-
-                        return sanitizeFileName(
-                                value
-                        );
-                    }
-                }
-            }
-
-            // ======================================================
-            // URL path
-            // ======================================================
-
-            Uri uri =
-                    Uri.parse(url);
-
-            String path =
-                    uri.getPath();
-
-            if (path != null) {
-
-                int slash =
-                        path.lastIndexOf('/');
-
-                if (slash >= 0) {
-
-                    path =
-                            path.substring(
-                                    slash + 1
-                            );
-                }
-
-                if (!path.isEmpty()) {
-
-                    return sanitizeFileName(
-                            Uri.decode(path)
-                    );
-                }
-            }
-
-        } catch (Exception ignored) {
-        }
-
-        return "download.bin";
-    }
-
-    // ============================================================
-    // Sanitize filename
-    // ============================================================
-
-    private String sanitizeFileName(
-            String name
-    ) {
-
-        if (name == null) {
-
-            return "download.bin";
-        }
-
-        name =
-                name.replaceAll(
-                        "[\\\\/:*?\"<>|]",
-                        "_"
-                ).trim();
-
-        if (name.isEmpty()) {
-
-            return "download.bin";
-        }
-
-        return name;
-    }
-
-    // ============================================================
-    // JS Quote
-    // ============================================================
-
-    private String quoteJs(
-            String value
-    ) {
-
-        if (value == null) {
-
-            return "null";
-        }
-
-        return "'"
-                + value
-                .replace(
-                        "\\",
-                        "\\\\"
-                )
-                .replace(
-                        "'",
-                        "\\'"
-                )
-                .replace(
-                        "\r",
-                        "\\r"
-                )
-                .replace(
-                        "\n",
-                        "\\n"
-                )
-                + "'";
-    }
-
-    // ============================================================
-    // Safe Exception Message
-    // ============================================================
-
-    private String safeMessage(
-            Exception e
-    ) {
-
-        if (e == null) {
-
-            return "未知错误";
-        }
-
-        String message =
-                e.getMessage();
-
-        if (
-                message == null
-                        || message.trim().isEmpty()
-        ) {
-
-            return e.getClass()
-                    .getSimpleName();
-        }
-
-        return message;
-    }
-
-    // ============================================================
-    // Legacy Blob File
-    // ============================================================
-
-    private Uri createLegacyBlobFile(
-            String fileName
-    ) {
-
-        File dir =
-                new File(
-                        Environment
-                                .getExternalStoragePublicDirectory(
-                                        Environment.DIRECTORY_DOWNLOADS
-                                ),
-                        DOWNLOAD_FOLDER
-                );
-
-        if (
-                !dir.exists()
-                        && !dir.mkdirs()
-        ) {
-
-            return null;
-        }
-
-        File file =
-                new File(
-                        dir,
-                        fileName
-                );
-
-        int i = 1;
-
-        String base =
-                fileName;
-
-        String ext = "";
-
-        int dot =
-                fileName.lastIndexOf('.');
-
-        if (dot > 0) {
-
-            base =
-                    fileName.substring(
-                            0,
-                            dot
-                    );
-
-            ext =
-                    fileName.substring(
-                            dot
-                    );
-        }
-
-        while (file.exists()) {
-
-            file =
-                    new File(
-                            dir,
-                            base
-                                    + " ("
-                                    + i
-                                    + ")"
-                                    + ext
-                    );
-
-            i++;
-        }
-
-        blobTempFile =
-                file;
-
-        return Uri.fromFile(
-                file
-        );
-    }
-
-    // ============================================================
-    // Modern Blob File
-    // ============================================================
-
-    private Uri beginModernBlobFile(
+    private void downloadWithMediaStore(
+            String url,
+            String userAgent,
             String fileName,
             String mimeType
     ) {
 
-        ContentValues values =
-                new ContentValues();
-
-        values.put(
-                MediaStore.Downloads.DISPLAY_NAME,
-                fileName
-        );
-
-        values.put(
-                MediaStore.Downloads.MIME_TYPE,
-                mimeType == null
-                        ? "application/octet-stream"
-                        : mimeType
-        );
-
-        values.put(
-                MediaStore.Downloads.RELATIVE_PATH,
-                Environment.DIRECTORY_DOWNLOADS
-                        + "/"
-                        + DOWNLOAD_FOLDER
-        );
-
-        values.put(
-                MediaStore.Downloads.IS_PENDING,
-                1
-        );
-
-        return getContentResolver().insert(
-                MediaStore.Downloads.EXTERNAL_CONTENT_URI,
-                values
-        );
-    }
-
-    // ============================================================
-    // Cleanup Blob Download
-    // ============================================================
-
-    private synchronized void cleanupBlobDownload() {
-
         try {
 
-            if (blobOutputStream != null) {
+            DownloadManager.Request request =
+                    new DownloadManager.Request(
+                            Uri.parse(url)
+                    );
 
-                blobOutputStream.close();
+            if (mimeType != null
+                    && !mimeType.isEmpty()) {
+
+                request.setMimeType(mimeType);
             }
 
-        } catch (Exception ignored) {
-        }
+            request.setTitle(fileName);
 
-        blobOutputStream = null;
+            request.setDescription(
+                    "Pearl SR 下载"
+            );
 
-        // ========================================================
-        // MediaStore
-        // ========================================================
+            request.setNotificationVisibility(
+                    DownloadManager.Request
+                            .VISIBILITY_VISIBLE_NOTIFY_COMPLETED
+            );
 
-        if (blobMediaStoreUri != null) {
+            request.setAllowedOverMetered(true);
 
-            try {
+            request.setAllowedOverRoaming(true);
 
-                getContentResolver().delete(
-                        blobMediaStoreUri,
-                        null,
-                        null
+            if (userAgent != null
+                    && !userAgent.isEmpty()) {
+
+                request.addRequestHeader(
+                        "User-Agent",
+                        userAgent
                 );
-
-            } catch (Exception ignored) {
             }
+
+            request.setDestinationInExternalPublicDir(
+                    Environment.DIRECTORY_DOWNLOADS
+                            + File.separator
+                            + DOWNLOAD_FOLDER,
+                    fileName
+            );
+
+            DownloadManager manager =
+                    (DownloadManager)
+                            getSystemService(
+                                    DOWNLOAD_SERVICE
+                            );
+
+            if (manager != null) {
+
+                manager.enqueue(request);
+
+                Toast.makeText(
+                        this,
+                        "开始下载：" + fileName,
+                        Toast.LENGTH_SHORT
+                ).show();
+            }
+
+        } catch (Throwable e) {
+
+            e.printStackTrace();
+
+            Toast.makeText(
+                    this,
+                    "下载失败：" + e.getMessage(),
+                    Toast.LENGTH_LONG
+            ).show();
         }
-
-        blobMediaStoreUri = null;
-
-        // ========================================================
-        // Android 9-
-        // ========================================================
-
-        if (
-                blobTempFile != null
-                        && blobTempFile.exists()
-        ) {
-
-            //noinspection ResultOfMethodCallIgnored
-            blobTempFile.delete();
-        }
-
-        blobTempFile = null;
-
-        blobFileName = null;
-
-        blobMimeType = null;
-
-        blobExpectedSize = -1L;
-
-        blobWrittenSize = 0L;
     }
 
-    // ============================================================
-    // Blob Download Bridge
-    // ============================================================
+    /*
+     * ============================================================
+     * Blob Download Bridge
+     * ============================================================
+     */
 
     private class BlobDownloadBridge {
 
-        // ========================================================
-        // Begin
-        // ========================================================
+        private OutputStream blobOutputStream;
 
-        @JavascriptInterface
-        public synchronized void beginBlob(
+        private Uri blobMediaStoreUri;
+
+        private long blobExpectedSize = -1;
+
+        private long blobWrittenSize = 0;
+
+        private String blobFileName;
+
+        private String blobMimeType;
+
+        private boolean blobStarted = false;
+
+        /**
+         * 必须同步执行。
+         */
+        @android.webkit.JavascriptInterface
+        public synchronized boolean beginBlob(
                 String fileName,
                 String mimeType,
-                long size
+                long expectedSize
         ) {
-
-            /*
-             * 非常重要：
-             *
-             * 这里必须同步创建并打开文件。
-             *
-             * 不能切到 runOnUiThread 后再创建，
-             * 否则 JS 紧接着发送 chunk 时，
-             * blobOutputStream 可能还是 null。
-             */
-            cleanupBlobDownload();
-
-            blobFileName =
-                    sanitizeFileName(
-                            fileName
-                    );
-
-            blobMimeType =
-                    mimeType == null
-                            ? "application/octet-stream"
-                            : mimeType;
-
-            blobExpectedSize =
-                    size;
-
-            blobWrittenSize = 0L;
 
             try {
 
-                // ==================================================
-                // Android 10+
-                // ==================================================
+                cleanupBlobDownload();
 
-                if (
-                        Build.VERSION.SDK_INT
-                                >= Build.VERSION_CODES.Q
-                ) {
+                blobFileName =
+                        sanitizeFileName(
+                                fileName
+                        );
+
+                blobMimeType =
+                        (mimeType == null
+                                || mimeType.trim().isEmpty())
+                                ? "application/octet-stream"
+                                : mimeType;
+
+                blobExpectedSize =
+                        expectedSize;
+
+                blobWrittenSize = 0;
+
+                blobStarted = false;
+
+                /*
+                 * Android 10+
+                 */
+                if (Build.VERSION.SDK_INT >=
+                        Build.VERSION_CODES.Q) {
+
+                    ContentValues values =
+                            new ContentValues();
+
+                    values.put(
+                            MediaStore.Downloads.DISPLAY_NAME,
+                            blobFileName
+                    );
+
+                    values.put(
+                            MediaStore.Downloads.MIME_TYPE,
+                            blobMimeType
+                    );
+
+                    values.put(
+                            MediaStore.Downloads.RELATIVE_PATH,
+                            Environment.DIRECTORY_DOWNLOADS
+                                    + File.separator
+                                    + DOWNLOAD_FOLDER
+                    );
+
+                    values.put(
+                            MediaStore.Downloads.IS_PENDING,
+                            1
+                    );
+
+                    Uri collection =
+                            MediaStore.Downloads
+                                    .EXTERNAL_CONTENT_URI;
 
                     blobMediaStoreUri =
-                            beginModernBlobFile(
-                                    blobFileName,
-                                    blobMimeType
-                            );
+                            getContentResolver()
+                                    .insert(
+                                            collection,
+                                            values
+                                    );
 
-                    if (
-                            blobMediaStoreUri == null
-                    ) {
+                    if (blobMediaStoreUri == null) {
 
-                        throw new Exception(
-                                "无法创建 MediaStore 文件"
+                        throw new IOException(
+                                "创建 MediaStore 文件失败"
                         );
                     }
 
@@ -2279,200 +1606,173 @@ public class SRToolsActivity extends Activity {
 
                 } else {
 
-                    // ==================================================
-                    // Android 9-
-                    // ==================================================
+                    /*
+                     * Android 9 以下
+                     */
+                    File downloads =
+                            Environment
+                                    .getExternalStoragePublicDirectory(
+                                            Environment.DIRECTORY_DOWNLOADS
+                                    );
 
-                    Uri uri =
-                            createLegacyBlobFile(
-                                    blobFileName
+                    File folder =
+                            new File(
+                                    downloads,
+                                    DOWNLOAD_FOLDER
                             );
 
-                    if (
-                            uri == null
-                                    || blobTempFile == null
-                    ) {
+                    if (!folder.exists()
+                            && !folder.mkdirs()) {
 
-                        throw new Exception(
-                                "无法创建下载文件"
+                        throw new IOException(
+                                "无法创建下载目录"
                         );
                     }
 
+                    File file =
+                            new File(
+                                    folder,
+                                    blobFileName
+                            );
+
                     blobOutputStream =
                             new FileOutputStream(
-                                    blobTempFile
+                                    file
                             );
                 }
 
-                if (
-                        blobOutputStream == null
-                ) {
+                if (blobOutputStream == null) {
 
-                    throw new Exception(
-                            "下载文件没有打开"
+                    throw new IOException(
+                            "无法打开输出流"
                     );
                 }
 
-            } catch (Exception e) {
+                /*
+                 * 关键：
+                 * beginBlob 完成后才返回 JS。
+                 */
+                blobStarted = true;
+
+                showToast(
+                        "开始下载：" + blobFileName
+                );
+
+                return true;
+
+            } catch (Throwable e) {
+
+                e.printStackTrace();
 
                 cleanupBlobDownload();
 
-                String message =
-                        safeMessage(e);
-
-                runOnUiThread(
-                        () ->
-                                Toast.makeText(
-                                        SRToolsActivity.this,
-                                        "创建下载文件失败："
-                                                + message,
-                                        Toast.LENGTH_LONG
-                                ).show()
+                showToast(
+                        "Blob 下载失败：" +
+                        safeMessage(e)
                 );
+
+                return false;
             }
         }
 
-        // ========================================================
-        // Receive Blob Chunk
-        // ========================================================
-
-        @JavascriptInterface
-        public synchronized void receiveBlobChunk(
+        @android.webkit.JavascriptInterface
+        public synchronized boolean writeBlobChunk(
                 String base64
         ) {
 
-            if (
-                    blobOutputStream == null
-            ) {
+            if (!blobStarted
+                    || blobOutputStream == null) {
 
-                return;
+                return false;
             }
 
             try {
 
-                byte[] data;
+                byte[] data =
+                        android.util.Base64.decode(
+                                base64,
+                                android.util.Base64.DEFAULT
+                        );
 
-                if (
-                        Build.VERSION.SDK_INT
-                                >= Build.VERSION_CODES.O
-                ) {
-
-                    data =
-                            Base64.getDecoder()
-                                    .decode(
-                                            base64
-                                    );
-
-                } else {
-
-                    data =
-                            android.util.Base64.decode(
-                                    base64,
-                                    android.util.Base64.DEFAULT
-                            );
-                }
-
-                blobOutputStream.write(
-                        data
-                );
+                blobOutputStream.write(data);
 
                 blobWrittenSize +=
                         data.length;
 
-            } catch (Exception e) {
+                return true;
 
-                String message =
-                        safeMessage(e);
+            } catch (Throwable e) {
 
-                cleanupBlobDownload();
+                e.printStackTrace();
 
-                runOnUiThread(
-                        () ->
-                                Toast.makeText(
-                                        SRToolsActivity.this,
-                                        "写入下载文件失败："
-                                                + message,
-                                        Toast.LENGTH_LONG
-                                ).show()
+                abortBlob(
+                        safeMessage(e)
                 );
+
+                return false;
             }
         }
 
-        // ========================================================
-        // Base64 fallback
-        // ========================================================
-
-        @JavascriptInterface
-        public synchronized void receiveBase64Chunk(
-                String base64
-        ) {
-
-            receiveBlobChunk(
-                    base64
-            );
-        }
-
-        // ========================================================
-        // Finish
-        // ========================================================
-
-        @JavascriptInterface
+        @android.webkit.JavascriptInterface
         public synchronized void finishBlob() {
 
-            if (
-                    blobOutputStream == null
-            ) {
-
+            if (!blobStarted) {
                 return;
             }
 
-            String completedFileName =
-                    blobFileName == null
-                            ? "download.bin"
-                            : blobFileName;
-
             try {
 
-                // ==================================================
-                // Flush / Close
-                // ==================================================
+                if (blobOutputStream != null) {
 
-                blobOutputStream.flush();
+                    blobOutputStream.flush();
 
-                blobOutputStream.close();
+                    blobOutputStream.close();
 
-                blobOutputStream = null;
-
-                // ==================================================
-                // Size Check
-                // ==================================================
-
-                if (
-                        blobExpectedSize >= 0
-                                && blobWrittenSize
-                                != blobExpectedSize
-                ) {
-
-                    throw new Exception(
-                            "Blob 大小不一致："
-                                    + blobWrittenSize
-                                    + "/"
-                                    + blobExpectedSize
-                    );
+                    blobOutputStream = null;
                 }
 
-                // ==================================================
-                // Android 10+
-                // ==================================================
+                /*
+                 * 检查大小。
+                 */
+                if (blobExpectedSize >= 0
+                        && blobWrittenSize !=
+                        blobExpectedSize) {
 
-                if (
-                        Build.VERSION.SDK_INT
-                                >= Build.VERSION_CODES.Q
-                ) {
+                    if (Build.VERSION.SDK_INT >=
+                            Build.VERSION_CODES.Q) {
 
-                    if (
-                            blobMediaStoreUri != null
-                    ) {
+                        if (blobMediaStoreUri != null) {
+
+                            getContentResolver()
+                                    .delete(
+                                            blobMediaStoreUri,
+                                            null,
+                                            null
+                                    );
+                        }
+                    }
+
+                    Uri failedUri =
+                            blobMediaStoreUri;
+
+                    cleanupBlobDownload();
+
+                    showToast(
+                            "Blob 下载失败：文件大小不完整"
+                    );
+
+                    return;
+                }
+
+                /*
+                 * Android 10+
+                 *
+                 * IS_PENDING = 0
+                 */
+                if (Build.VERSION.SDK_INT >=
+                        Build.VERSION_CODES.Q) {
+
+                    if (blobMediaStoreUri != null) {
 
                         ContentValues values =
                                 new ContentValues();
@@ -2482,250 +1782,537 @@ public class SRToolsActivity extends Activity {
                                 0
                         );
 
-                        getContentResolver().update(
-                                blobMediaStoreUri,
-                                values,
-                                null,
-                                null
-                        );
+                        getContentResolver()
+                                .update(
+                                        blobMediaStoreUri,
+                                        values,
+                                        null,
+                                        null
+                                );
                     }
                 }
 
-                blobMediaStoreUri = null;
+                String finishedName =
+                        blobFileName;
 
-                blobTempFile = null;
-
-                blobFileName = null;
-
-                blobMimeType = null;
-
-                blobExpectedSize = -1L;
-
-                blobWrittenSize = 0L;
-
-                runOnUiThread(
-                        () ->
-                                Toast.makeText(
-                                        SRToolsActivity.this,
-                                        "下载完成：Download/"
-                                                + DOWNLOAD_FOLDER
-                                                + "/"
-                                                + completedFileName,
-                                        Toast.LENGTH_LONG
-                                ).show()
-                );
-
-            } catch (Exception e) {
+                long finishedSize =
+                        blobWrittenSize;
 
                 cleanupBlobDownload();
 
-                String message =
-                        safeMessage(e);
+                showToast(
+                        "下载完成："
+                        + finishedName
+                        + "\n"
+                        + formatSize(finishedSize)
+                );
 
-                runOnUiThread(
-                        () ->
-                                Toast.makeText(
-                                        SRToolsActivity.this,
-                                        "完成下载失败："
-                                                + message,
-                                        Toast.LENGTH_LONG
-                                ).show()
+            } catch (Throwable e) {
+
+                e.printStackTrace();
+
+                abortBlob(
+                        safeMessage(e)
                 );
             }
         }
 
-        // ========================================================
-        // Abort
-        // ========================================================
-
-        @JavascriptInterface
+        @android.webkit.JavascriptInterface
         public synchronized void abortBlob(
                 String reason
         ) {
 
-            cleanupBlobDownload();
+            try {
 
-            String message =
-                    reason == null
-                            ? "未知错误"
-                            : reason;
+                if (blobOutputStream != null) {
 
-            runOnUiThread(
-                    () ->
-                            Toast.makeText(
-                                    SRToolsActivity.this,
-                                    "Blob 下载失败："
-                                            + message,
-                                    Toast.LENGTH_LONG
-                            ).show()
-            );
-        }
-    }
+                    try {
+                        blobOutputStream.close();
+                    } catch (Throwable ignored) {
+                    }
 
-    // ============================================================
-    // File Chooser Result
-    // ============================================================
-
-    @Override
-    protected void onActivityResult(
-            int requestCode,
-            int resultCode,
-            Intent data
-    ) {
-
-        super.onActivityResult(
-                requestCode,
-                resultCode,
-                data
-        );
-
-        if (
-                requestCode
-                        != FILE_CHOOSER_REQUEST
-        ) {
-
-            return;
-        }
-
-        Uri[] results = null;
-
-        if (
-                resultCode == Activity.RESULT_OK
-                        && data != null
-        ) {
-
-            // ====================================================
-            // Multiple
-            // ====================================================
-
-            if (
-                    data.getClipData() != null
-            ) {
-
-                int count =
-                        data.getClipData()
-                                .getItemCount();
-
-                results =
-                        new Uri[count];
-
-                for (
-                        int i = 0;
-                        i < count;
-                        i++
-                ) {
-
-                    results[i] =
-                            data.getClipData()
-                                    .getItemAt(i)
-                                    .getUri();
+                    blobOutputStream = null;
                 }
 
-            }
+                if (Build.VERSION.SDK_INT >=
+                        Build.VERSION_CODES.Q) {
 
-            // ====================================================
-            // Single
-            // ====================================================
+                    if (blobMediaStoreUri != null) {
 
-            else if (
-                    data.getData() != null
-            ) {
+                        try {
 
-                results =
-                        new Uri[]{
-                                data.getData()
-                        };
+                            getContentResolver()
+                                    .delete(
+                                            blobMediaStoreUri,
+                                            null,
+                                            null
+                                    );
+
+                        } catch (Throwable ignored) {
+                        }
+                    }
+                }
+
+                cleanupBlobDownload();
+
+                String message =
+                        reason == null
+                                ? "未知错误"
+                                : reason;
+
+                showToast(
+                        "Blob 下载失败："
+                        + message
+                );
+
+            } catch (Throwable e) {
+
+                e.printStackTrace();
+
+                cleanupBlobDownload();
             }
         }
 
-        if (
-                filePathCallback != null
-        ) {
+        private synchronized void cleanupBlobDownload() {
 
-            filePathCallback
-                    .onReceiveValue(
-                            results
-                    );
+            try {
 
-            filePathCallback = null;
+                if (blobOutputStream != null) {
+
+                    try {
+                        blobOutputStream.close();
+                    } catch (Throwable ignored) {
+                    }
+
+                    blobOutputStream = null;
+                }
+
+            } catch (Throwable ignored) {
+            }
+
+            blobMediaStoreUri = null;
+
+            blobExpectedSize = -1;
+
+            blobWrittenSize = 0;
+
+            blobFileName = null;
+
+            blobMimeType = null;
+
+            blobStarted = false;
         }
     }
 
-    // ============================================================
-    // Back
-    // ============================================================
+    /*
+     * ============================================================
+     * 文件名
+     * ============================================================
+     */
+
+    private String guessFileName(
+            String url,
+            String contentDisposition,
+            String mimeType
+    ) {
+
+        String fileName = null;
+
+        try {
+
+            if (contentDisposition != null) {
+
+                String lower =
+                        contentDisposition.toLowerCase(
+                                Locale.ROOT
+                        );
+
+                int index =
+                        lower.indexOf(
+                                "filename="
+                        );
+
+                if (index >= 0) {
+
+                    fileName =
+                            contentDisposition
+                                    .substring(
+                                            index
+                                                    + 9
+                                    )
+                                    .trim();
+
+                    fileName =
+                            fileName.replace(
+                                    "\"",
+                                    ""
+                            );
+
+                    fileName =
+                            fileName.replace(
+                                    "'",
+                                    ""
+                            );
+                }
+            }
+
+        } catch (Throwable ignored) {
+        }
+
+        if (fileName == null
+                || fileName.isEmpty()) {
+
+            try {
+
+                Uri uri =
+                        Uri.parse(url);
+
+                String path =
+                        uri.getPath();
+
+                if (path != null) {
+
+                    int slash =
+                            path.lastIndexOf('/');
+
+                    if (slash >= 0) {
+                        path =
+                                path.substring(
+                                        slash + 1
+                                );
+                    }
+
+                    if (!path.isEmpty()) {
+                        fileName = path;
+                    }
+                }
+
+            } catch (Throwable ignored) {
+            }
+        }
+
+        if (fileName == null
+                || fileName.isEmpty()) {
+
+            fileName =
+                    "download.bin";
+        }
+
+        /*
+         * 如果服务器没有扩展名，
+         * 根据 MIME 类型补扩展名。
+         */
+        if (!hasExtension(fileName)
+                && mimeType != null
+                && !mimeType.isEmpty()) {
+
+            String extension =
+                    MimeTypeMap
+                            .getSingleton()
+                            .getExtensionFromMimeType(
+                                    mimeType
+                            );
+
+            if (extension != null
+                    && !extension.isEmpty()) {
+
+                fileName +=
+                        "." + extension;
+            }
+        }
+
+        return sanitizeFileName(
+                fileName
+        );
+    }
+
+    private boolean hasExtension(
+            String fileName
+    ) {
+
+        int dot =
+                fileName.lastIndexOf('.');
+
+        return dot > 0
+                && dot < fileName.length() - 1;
+    }
+
+    private String sanitizeFileName(
+            String name
+    ) {
+
+        if (name == null
+                || name.trim().isEmpty()) {
+
+            return "download.bin";
+        }
+
+        name =
+                name.trim();
+
+        name =
+                name.replace(
+                        "/",
+                        "_"
+                );
+
+        name =
+                name.replace(
+                        "\\",
+                        "_"
+                );
+
+        name =
+                name.replace(
+                        ":",
+                        "_"
+                );
+
+        name =
+                name.replace(
+                        "*",
+                        "_"
+                );
+
+        name =
+                name.replace(
+                        "?",
+                        "_"
+                );
+
+        name =
+                name.replace(
+                        "\"",
+                        "_"
+                );
+
+        name =
+                name.replace(
+                        "<",
+                        "_"
+                );
+
+        name =
+                name.replace(
+                        ">",
+                        "_"
+                );
+
+        name =
+                name.replace(
+                        "|",
+                        "_"
+                );
+
+        if (name.isEmpty()) {
+            name = "download.bin";
+        }
+
+        return name;
+    }
+
+    /*
+     * ============================================================
+     * Toast / UI
+     * ============================================================
+     */
+
+    private void showToast(
+            String message
+    ) {
+
+        mainHandler.post(() -> {
+
+            if (isFinishing()) {
+                return;
+            }
+
+            Toast.makeText(
+                    SRToolsActivity.this,
+                    message,
+                    Toast.LENGTH_SHORT
+            ).show();
+        });
+    }
+
+    private void showProgress(
+            boolean show
+    ) {
+
+        mainHandler.post(() -> {
+
+            if (progressBar == null) {
+                return;
+            }
+
+            progressBar.setVisibility(
+                    show
+                            ? View.VISIBLE
+                            : View.GONE
+            );
+        });
+    }
+
+    /*
+     * ============================================================
+     * 工具
+     * ============================================================
+     */
+
+    private String formatSize(
+            long size
+    ) {
+
+        if (size < 1024) {
+            return size + " B";
+        }
+
+        if (size < 1024 * 1024) {
+
+            return String.format(
+                    Locale.US,
+                    "%.2f KB",
+                    size / 1024.0
+            );
+        }
+
+        if (size < 1024L * 1024L * 1024L) {
+
+            return String.format(
+                    Locale.US,
+                    "%.2f MB",
+                    size / (1024.0 * 1024.0)
+            );
+        }
+
+        return String.format(
+                Locale.US,
+                "%.2f GB",
+                size /
+                        (1024.0 *
+                                1024.0 *
+                                1024.0)
+        );
+    }
+
+    private String safeMessage(
+            Throwable e
+    ) {
+
+        if (e == null) {
+            return "未知错误";
+        }
+
+        String message =
+                e.getMessage();
+
+        if (message == null
+                || message.isEmpty()) {
+
+            return e.getClass()
+                    .getSimpleName();
+        }
+
+        return message;
+    }
+
+    /**
+     * 简单 JS 字符串转义。
+     */
+    private String JSONObjectEscape(
+            String value
+    ) {
+
+        if (value == null) {
+            return "null";
+        }
+
+        StringBuilder sb =
+                new StringBuilder();
+
+        sb.append('"');
+
+        for (int i = 0;
+             i < value.length();
+             i++) {
+
+            char c =
+                    value.charAt(i);
+
+            switch (c) {
+
+                case '\\':
+                    sb.append("\\\\");
+                    break;
+
+                case '"':
+                    sb.append("\\\"");
+                    break;
+
+                case '\n':
+                    sb.append("\\n");
+                    break;
+
+                case '\r':
+                    sb.append("\\r");
+                    break;
+
+                case '\t':
+                    sb.append("\\t");
+                    break;
+
+                default:
+                    sb.append(c);
+                    break;
+            }
+        }
+
+        sb.append('"');
+
+        return sb.toString();
+    }
+
+    /*
+     * ============================================================
+     * Back / Destroy
+     * ============================================================
+     */
 
     @Override
     public void onBackPressed() {
 
-        if (
-                webView != null
-                        && webView.canGoBack()
-        ) {
+        if (webView != null
+                && webView.canGoBack()) {
 
             webView.goBack();
 
-        } else {
-
-            super.onBackPressed();
+            return;
         }
-    }
 
-    // ============================================================
-    // Destroy
-    // ============================================================
+        super.onBackPressed();
+    }
 
     @Override
     protected void onDestroy() {
 
-        // ========================================================
-        // File chooser
-        // ========================================================
+        try {
 
-        if (
-                filePathCallback != null
-        ) {
-
-            filePathCallback
-                    .onReceiveValue(
-                            null
-                    );
-
-            filePathCallback = null;
-        }
-
-        // ========================================================
-        // Blob
-        // ========================================================
-
-        cleanupBlobDownload();
-
-        // ========================================================
-        // WebView
-        // ========================================================
-
-        if (
-                webView != null
-        ) {
-
-            try {
+            if (webView != null) {
 
                 webView.stopLoading();
 
-                webView.loadUrl(
-                        "about:blank"
-                );
+                webView.setWebChromeClient(null);
 
-                webView.clearHistory();
-
-                webView.removeAllViews();
+                webView.setWebViewClient(null);
 
                 webView.destroy();
 
-            } catch (Exception ignored) {
+                webView = null;
             }
 
-            webView = null;
+        } catch (Throwable e) {
+
+            e.printStackTrace();
         }
 
         super.onDestroy();
