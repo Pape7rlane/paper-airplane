@@ -1,0 +1,332 @@
+name: Android ARM64 APK
+
+on:
+  workflow_dispatch:
+    inputs:
+      publish_release:
+        description: Publish GitHub Release
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+
+env:
+  ANDROID_HOME: /usr/local/lib/android/sdk
+  ANDROID_SDK_ROOT: /usr/local/lib/android/sdk
+
+jobs:
+  build:
+    name: Build ARM64 APK
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Java 17
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Find Android SDK
+        shell: bash
+        run: |
+          set -e
+
+          echo "ANDROID_HOME=$ANDROID_HOME"
+          echo "ANDROID_SDK_ROOT=$ANDROID_SDK_ROOT"
+
+          if [ ! -d "$ANDROID_SDK_ROOT" ]; then
+            echo "Android SDK not found"
+            exit 1
+          fi
+
+          SDKMANAGER=$(find "$ANDROID_SDK_ROOT/cmdline-tools" -type f -name sdkmanager -perm -u+x 2>/dev/null | sort -V | tail -n 1)
+
+          if [ -z "$SDKMANAGER" ]; then
+            echo "sdkmanager not found"
+            exit 1
+          fi
+
+          echo "SDKMANAGER=$SDKMANAGER" >> "$GITHUB_ENV"
+
+          echo "sdkmanager:"
+          echo "$SDKMANAGER"
+
+          "$SDKMANAGER" --version
+
+      - name: Accept SDK licenses
+        shell: bash
+        run: |
+          set +e
+
+          yes | "$SDKMANAGER" --licenses
+          STATUS=("${PIPESTATUS[@]}")
+
+          set -e
+
+          SDK_STATUS="${STATUS[1]}"
+
+          echo "sdkmanager exit code: $SDK_STATUS"
+
+          if [ "$SDK_STATUS" -ne 0 ]; then
+            echo "SDK license acceptance failed"
+            exit "$SDK_STATUS"
+          fi
+
+          echo "SDK licenses accepted"
+
+      - name: Install Android SDK
+        shell: bash
+        run: |
+          set -e
+
+          "$SDKMANAGER" "platform-tools"
+          "$SDKMANAGER" "platforms;android-34"
+          "$SDKMANAGER" "build-tools;34.0.0"
+
+          echo "Android SDK installation completed"
+
+      - name: Verify Android SDK
+        shell: bash
+        run: |
+          set -e
+
+          test -d "$ANDROID_SDK_ROOT/platform-tools"
+          test -d "$ANDROID_SDK_ROOT/platforms/android-34"
+          test -d "$ANDROID_SDK_ROOT/build-tools/34.0.0"
+
+          echo "Android SDK OK"
+
+      - name: Check project
+        shell: bash
+        run: |
+          set -e
+
+          if [ ! -d "app" ]; then
+            echo "app directory not found"
+            exit 1
+          fi
+
+          if [ ! -f "app/build.gradle" ]; then
+            echo "app/build.gradle not found"
+            exit 1
+          fi
+
+          echo "Android project OK"
+
+      - name: Check ARM64 libraries
+        shell: bash
+        run: |
+          set -e
+
+          DISPATCH="app/src/main/jniLibs/arm64-v8a/libdispatch.so"
+          GAMESERVER="app/src/main/jniLibs/arm64-v8a/libgameserver.so"
+
+          if [ ! -f "$DISPATCH" ]; then
+            echo "libdispatch.so not found"
+            exit 1
+          fi
+
+          if [ ! -f "$GAMESERVER" ]; then
+            echo "libgameserver.so not found"
+            exit 1
+          fi
+
+          echo "libdispatch.so:"
+          file "$DISPATCH"
+
+          echo "libgameserver.so:"
+          file "$GAMESERVER"
+
+          echo "ARM64 libraries OK"
+
+      - name: Configure AndroidX
+        shell: bash
+        run: |
+          set -e
+
+          touch gradle.properties
+
+          grep -q '^android.useAndroidX=' gradle.properties || echo "android.useAndroidX=true" >> gradle.properties
+          grep -q '^android.enableJetifier=' gradle.properties || echo "android.enableJetifier=true" >> gradle.properties
+
+          cat gradle.properties
+
+      - name: Install Gradle 8.6
+        shell: bash
+        run: |
+          set -e
+
+          curl -fL \
+            "https://services.gradle.org/distributions/gradle-8.6-bin.zip" \
+            -o /tmp/gradle.zip
+
+          rm -rf /tmp/gradle-8.6
+
+          unzip -q \
+            /tmp/gradle.zip \
+            -d /tmp
+
+          echo "/tmp/gradle-8.6/bin" >> "$GITHUB_PATH"
+
+      - name: Check Java and Gradle
+        shell: bash
+        run: |
+          set -e
+
+          java -version
+          gradle --version
+
+      - name: Check Gradle project
+        shell: bash
+        run: |
+          set -e
+
+          gradle \
+            --no-daemon \
+            --stacktrace \
+            :app:tasks
+
+      - name: Clean
+        shell: bash
+        run: |
+          set -e
+
+          gradle \
+            --no-daemon \
+            --stacktrace \
+            clean
+
+      - name: Build Release APK
+        shell: bash
+        run: |
+          set -e
+
+          echo "Building APK..."
+
+          gradle \
+            --no-daemon \
+            --stacktrace \
+            :app:assembleRelease
+
+          echo "Build completed"
+
+      - name: Find APK
+        shell: bash
+        run: |
+          set -e
+
+          APK=$(find app/build/outputs/apk/release -maxdepth 1 -type f -name "*.apk" | head -n 1)
+
+          if [ -z "$APK" ]; then
+            echo "APK not found"
+
+            echo "Build output:"
+            find app/build/outputs -type f 2>/dev/null || true
+
+            exit 1
+          fi
+
+          mkdir -p artifact
+
+          cp "$APK" artifact/PearlSR-server-arm64.apk
+
+          echo "FINAL_APK=artifact/PearlSR-server-arm64.apk" >> "$GITHUB_ENV"
+
+          echo "APK:"
+          ls -lh artifact/PearlSR-server-arm64.apk
+
+      - name: Verify APK
+        shell: bash
+        run: |
+          set -e
+
+          APK="$FINAL_APK"
+
+          if [ ! -f "$APK" ]; then
+            echo "APK does not exist"
+            exit 1
+          fi
+
+          echo "APK information:"
+          file "$APK"
+          ls -lh "$APK"
+
+          echo
+          echo "ARM64 libraries:"
+
+          unzip -l "$APK" | grep "lib/arm64-v8a/" || true
+
+          echo
+          echo "Checking libdispatch.so..."
+
+          unzip -l "$APK" | grep -q "lib/arm64-v8a/libdispatch.so"
+
+          echo "OK"
+
+          echo
+          echo "Checking libgameserver.so..."
+
+          unzip -l "$APK" | grep -q "lib/arm64-v8a/libgameserver.so"
+
+          echo "OK"
+
+          echo
+          echo "APK verification completed"
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: PearlSR-server-arm64
+          path: artifact/PearlSR-server-arm64.apk
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Publish Release
+        if: inputs.publish_release == true
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -e
+
+          APK="$FINAL_APK"
+
+          VERSION=$(grep -E "versionName" app/build.gradle | head -n 1 | sed -E "s/.*versionName[[:space:]]+[\"']([^\"']+)[\"'].*/\1/")
+
+          if [ -z "$VERSION" ]; then
+            VERSION="unknown"
+          fi
+
+          TAG="v${VERSION}"
+
+          echo "Version: $VERSION"
+          echo "Tag: $TAG"
+
+          if gh release view "$TAG" >/dev/null 2>&1; then
+
+            echo "Release already exists"
+            echo "Uploading APK..."
+
+            gh release upload \
+              "$TAG" \
+              "$APK" \
+              --clobber
+
+          else
+
+            echo "Creating release..."
+
+            gh release create \
+              "$TAG" \
+              "$APK" \
+              --title "Pearl SR Android ${VERSION}" \
+              --notes "Pearl SR Android ARM64 APK."
+
+          fi
+
+          echo "Release completed"

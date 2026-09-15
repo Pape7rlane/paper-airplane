@@ -1,0 +1,57 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.reversedrooms.pearlserver'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId 'com.reversedrooms.pearlserver'
+        minSdk 26
+        targetSdk 34
+        versionCode 4554
+        versionName '4.5.54'
+    }
+
+    // 开启 BuildConfig，供 MainActivity 获取当前版本号
+    buildFeatures {
+        buildConfig true
+    }
+
+    buildToolsVersion "34.0.0"
+
+    packaging {
+        jniLibs {
+            useLegacyPackaging = true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            shrinkResources false
+            jniDebuggable false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            jniDebuggable true
+        }
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['src/main/jniLibs']
+        }
+    }
+
+    packagingOptions {
+        jniLibs {
+            keepDebugSymbols += ['**/libdispatch.so', '**/libgameserver.so']
+        }
+    }
+}
+
+dependencies {
+    implementation 'androidx.core:core:1.13.1'
+}

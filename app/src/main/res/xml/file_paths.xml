@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- SRTools Blob 下载临时文件 -->
+    <cache-path
+        name="downloads"
+        path="downloads/" />
+
+    <!-- 保留原来的更新文件目录 -->
+    <external-files-path
+        name="updates"
+        path="update/" />
+
+</paths>
