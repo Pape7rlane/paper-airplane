@@ -21,37 +21,93 @@ android {
 
     buildToolsVersion "34.0.0"
 
+    /*
+     * ============================================================
+     * Native Library
+     * ============================================================
+     */
+
     packaging {
         jniLibs {
             useLegacyPackaging = true
         }
     }
 
+    /*
+     * ============================================================
+     * Build Types
+     * ============================================================
+     */
+
     buildTypes {
+
         release {
             minifyEnabled false
             shrinkResources false
             jniDebuggable false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            proguardFiles
+                    getDefaultProguardFile(
+                            'proguard-android-optimize.txt'
+                    ),
+                    'proguard-rules.pro'
         }
+
         debug {
             jniDebuggable true
         }
     }
 
+    /*
+     * ============================================================
+     * Native Libraries
+     * ============================================================
+     */
+
     sourceSets {
         main {
-            jniLibs.srcDirs = ['src/main/jniLibs']
+            jniLibs.srcDirs = [
+                    'src/main/jniLibs'
+            ]
         }
     }
 
+    /*
+     * 保留服务器 Native 库中的 Debug Symbols
+     */
+
     packagingOptions {
         jniLibs {
-            keepDebugSymbols += ['**/libdispatch.so', '**/libgameserver.so']
+            keepDebugSymbols += [
+                    '**/libdispatch.so',
+                    '**/libgameserver.so'
+            ]
         }
     }
 }
 
+/*
+ * ================================================================
+ * Dependencies
+ * ================================================================
+ */
+
 dependencies {
+
+    // AndroidX Core
     implementation 'androidx.core:core:1.13.1'
+
+    /*
+     * AndroidX WebKit
+     *
+     * 用于 WebView Document Start Script。
+     *
+     * 解决 SRTools：
+     *
+     * Blob 下载失败：找不到 Blob 对象
+     *
+     * Document Start 会在网页自己的 JavaScript
+     * 执行之前注入 Blob 拦截代码。
+     */
+    implementation 'androidx.webkit:webkit:1.12.1'
 }
