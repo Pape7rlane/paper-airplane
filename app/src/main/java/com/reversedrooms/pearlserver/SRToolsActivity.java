@@ -32,6 +32,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLDecoder;
 import java.util.Base64;
+import java.util.Locale;
 
 public class SRToolsActivity extends Activity {
 
@@ -234,16 +235,11 @@ public class SRToolsActivity extends Activity {
 
         settings.setBuiltInZoomControls(true);
 
-        /*
-         * 隐藏老式 + / - 按钮
-         */
+        // 隐藏旧式 + / - 按钮
         settings.setDisplayZoomControls(false);
 
         settings.setUseWideViewPort(true);
 
-        /*
-         * 不强制缩小到整个页面
-         */
         settings.setLoadWithOverviewMode(false);
 
 
@@ -251,8 +247,10 @@ public class SRToolsActivity extends Activity {
         // 混合内容
         // ========================================================
 
-        if (Build.VERSION.SDK_INT >=
-                Build.VERSION_CODES.LOLLIPOP) {
+        if (
+                Build.VERSION.SDK_INT >=
+                        Build.VERSION_CODES.LOLLIPOP
+        ) {
 
             settings.setMixedContentMode(
                     WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE
@@ -273,9 +271,6 @@ public class SRToolsActivity extends Activity {
                             WebResourceRequest request
                     ) {
 
-                        /*
-                         * 让 WebView 自己处理网页跳转
-                         */
                         return false;
                     }
 
@@ -294,17 +289,16 @@ public class SRToolsActivity extends Activity {
                         );
 
 
-                        progressBar.setVisibility(
-                                View.VISIBLE
-                        );
+                        if (progressBar != null) {
+
+                            progressBar.setVisibility(
+                                    View.VISIBLE
+                            );
+                        }
 
 
-                        /*
-                         * 尽早安装 Blob 拦截器
-                         */
-                        injectBlobInterceptor(
-                                view
-                        );
+                        // 尽早注入
+                        injectBlobInterceptor(view);
                     }
 
 
@@ -320,25 +314,20 @@ public class SRToolsActivity extends Activity {
                         );
 
 
-                        progressBar.setVisibility(
-                                View.GONE
-                        );
+                        if (progressBar != null) {
+
+                            progressBar.setVisibility(
+                                    View.GONE
+                            );
+                        }
 
 
-                        /*
-                         * 强制网页允许缩放
-                         */
-                        injectZoomFix(
-                                view
-                        );
+                        // 强制允许网页缩放
+                        injectZoomFix(view);
 
 
-                        /*
-                         * 页面完成后再次安装
-                         */
-                        injectBlobInterceptor(
-                                view
-                        );
+                        // 再次注入 Blob
+                        injectBlobInterceptor(view);
                     }
                 }
         );
@@ -361,6 +350,11 @@ public class SRToolsActivity extends Activity {
                                 view,
                                 newProgress
                         );
+
+
+                        if (progressBar == null) {
+                            return;
+                        }
 
 
                         if (newProgress >= 100) {
@@ -448,7 +442,7 @@ public class SRToolsActivity extends Activity {
 
 
         // ========================================================
-        // 下载监听
+        // 普通下载监听
         // ========================================================
 
         webView.setDownloadListener(
@@ -527,9 +521,13 @@ public class SRToolsActivity extends Activity {
 
                 "viewport.name = 'viewport';" +
 
+                "if (document.head) {" +
                 "document.head.appendChild(viewport);" +
+                "}" +
 
                 "}" +
+
+                "if (viewport) {" +
 
                 "viewport.setAttribute(" +
                 "'content'," +
@@ -541,6 +539,8 @@ public class SRToolsActivity extends Activity {
                 "user-scalable=yes'" +
 
                 ");" +
+
+                "}" +
 
                 "} catch(e) {}" +
 
@@ -564,8 +564,10 @@ public class SRToolsActivity extends Activity {
         // Android 10+
         // --------------------------------------------------------
 
-        if (Build.VERSION.SDK_INT >=
-                Build.VERSION_CODES.Q) {
+        if (
+                Build.VERSION.SDK_INT >=
+                        Build.VERSION_CODES.Q
+        ) {
 
             try {
 
@@ -613,9 +615,7 @@ public class SRToolsActivity extends Activity {
 
                         OutputStream output =
                                 getContentResolver()
-                                        .openOutputStream(
-                                                uri
-                                        );
+                                        .openOutputStream(uri);
 
 
                         if (output != null) {
@@ -656,8 +656,10 @@ public class SRToolsActivity extends Activity {
         // Android 9 及以下
         // --------------------------------------------------------
 
-        if (Build.VERSION.SDK_INT >=
-                Build.VERSION_CODES.M) {
+        if (
+                Build.VERSION.SDK_INT >=
+                        Build.VERSION_CODES.M
+        ) {
 
             if (
                     ContextCompat.checkSelfPermission(
@@ -759,9 +761,7 @@ public class SRToolsActivity extends Activity {
         ) {
 
             String escapedUrl =
-                    escapeJs(
-                            downloadUrl
-                    );
+                    escapeJs(downloadUrl);
 
 
             String escapedMime =
@@ -871,9 +871,9 @@ public class SRToolsActivity extends Activity {
                 "window.__pearlBlobMap = new Map();" +
 
 
-                // ------------------------------------------------
+                // =================================================
                 // createObjectURL
-                // ------------------------------------------------
+                // =================================================
 
                 "const originalCreateObjectURL =" +
                 "URL.createObjectURL;" +
@@ -900,9 +900,9 @@ public class SRToolsActivity extends Activity {
                 "};" +
 
 
-                // ------------------------------------------------
+                // =================================================
                 // revokeObjectURL
-                // ------------------------------------------------
+                // =================================================
 
                 "const originalRevokeObjectURL =" +
                 "URL.revokeObjectURL;" +
@@ -920,7 +920,7 @@ public class SRToolsActivity extends Activity {
 
                 "} catch(e) {}" +
 
-                "}, 10000);" +
+                "}, 30000);" +
 
                 "} catch(e) {}" +
 
@@ -938,7 +938,7 @@ public class SRToolsActivity extends Activity {
 
 
                 // =================================================
-                // 下载 Blob
+                // Blob 下载
                 // =================================================
 
                 "window.__pearlDownloadBlob =" +
@@ -950,9 +950,9 @@ public class SRToolsActivity extends Activity {
                 "window.__pearlBlobMap.get(url);" +
 
 
-                // ------------------------------------------------
-                // 找不到时尝试 fetch
-                // ------------------------------------------------
+                // -------------------------------------------------
+                // 找不到 Blob 时尝试 fetch
+                // -------------------------------------------------
 
                 "if (!blob) {" +
 
@@ -961,8 +961,12 @@ public class SRToolsActivity extends Activity {
                 "const response =" +
                 "await fetch(url);" +
 
+                "if (response.ok) {" +
+
                 "blob =" +
                 "await response.blob();" +
+
+                "}" +
 
                 "} catch(e) {}" +
 
@@ -978,9 +982,9 @@ public class SRToolsActivity extends Activity {
                 "}" +
 
 
-                // ------------------------------------------------
+                // =================================================
                 // MIME
-                // ------------------------------------------------
+                // =================================================
 
                 "const finalMime =" +
 
@@ -991,16 +995,16 @@ public class SRToolsActivity extends Activity {
                 "'application/octet-stream';" +
 
 
-                // ------------------------------------------------
+                // =================================================
                 // 文件名
-                // ------------------------------------------------
+                // =================================================
 
                 "let fileName = '';" +
 
 
-                // ------------------------------------------------
-                // 从 a.download 获取
-                // ------------------------------------------------
+                // -------------------------------------------------
+                // 1. a.download
+                // -------------------------------------------------
 
                 "try {" +
 
@@ -1037,28 +1041,83 @@ public class SRToolsActivity extends Activity {
                 "} catch(e) {}" +
 
 
+                // -------------------------------------------------
+                // 2. 当前页面中的下载链接
+                // -------------------------------------------------
+
+                "if (!fileName) {" +
+
+                "try {" +
+
+                "const links =" +
+                "document.querySelectorAll(" +
+                "'a[download]'"+
+                ");" +
+
+
+                "for (" +
+                "let i = 0;" +
+                "i < links.length;" +
+                "i++" +
+                ") {" +
+
+                "const a = links[i];" +
+
+                "if (a.download) {" +
+
+                "const n =" +
+                "a.download.toLowerCase();" +
+
+
+                "if (" +
+
+                "n === 'freesr-data.json' ||" +
+
+                "n === 'config.json'" +
+
+                ") {" +
+
+                "fileName =" +
+                "a.download;" +
+
+                "break;" +
+
+                "}" +
+
+                "}" +
+
+                "}" +
+
+                "} catch(e) {}" +
+
+                "}" +
+
+
                 // =================================================
-                // SRTools 专用文件名处理
+                // SRTools 特殊文件
                 // =================================================
 
                 "try {" +
 
                 "if (" +
+
                 "!fileName ||" +
+
                 "fileName === 'null' ||" +
+
                 "fileName === 'undefined'" +
+
                 ") {" +
 
                 "const text =" +
 
                 "document.body ?" +
+
                 "document.body.innerText.toLowerCase() :" +
                 "'';" +
 
 
-                /*
-                 * freesr-data.json
-                 */
+                // freesr-data.json
                 "if (" +
 
                 "text.indexOf('freesr-data.json') >= 0" +
@@ -1071,9 +1130,7 @@ public class SRToolsActivity extends Activity {
                 "}" +
 
 
-                /*
-                 * config.json
-                 */
+                // config.json
                 "else if (" +
 
                 "text.indexOf('config.json') >= 0" +
@@ -1090,9 +1147,9 @@ public class SRToolsActivity extends Activity {
                 "} catch(e) {}" +
 
 
-                // ------------------------------------------------
-                // 最终默认
-                // ------------------------------------------------
+                // =================================================
+                // 最终兜底
+                // =================================================
 
                 "if (" +
 
@@ -1111,7 +1168,8 @@ public class SRToolsActivity extends Activity {
 
 
                 // =================================================
-                // 通知 Android 开始
+                // ★ 关键
+                // beginBlob 会同步打开文件
                 // =================================================
 
                 "window.PearlDownload.beginBlob(" +
@@ -1268,239 +1326,255 @@ public class SRToolsActivity extends Activity {
     private class BlobDownloadBridge {
 
 
+        // ========================================================
+        // ★ 开始 Blob 下载
+        //
+        // 这里绝对不能 runOnUiThread。
+        //
+        // JS 调用这个方法时必须等这里执行完成，
+        // 确保 blobOutputStream 已经打开，
+        // 然后 JS 才会发送 receiveBlobChunk。
+        // ========================================================
+
         @JavascriptInterface
-        public void beginBlob(
+        public synchronized void beginBlob(
                 String fileName,
                 String mimeType,
                 long size
         ) {
 
-            runOnUiThread(() -> {
+            try {
 
-                try {
-
-                    cleanupBlobDownload();
+                cleanupBlobDownload();
 
 
-                    // ------------------------------------------------
-                    // 文件名
-                    // ------------------------------------------------
+                // ------------------------------------------------
+                // 文件名
+                // ------------------------------------------------
 
-                    blobFileName =
-                            sanitizeFileName(
-                                    fileName
-                            );
-
-
-                    if (
-                            blobFileName == null ||
-                            blobFileName.isEmpty() ||
-                            blobFileName.equalsIgnoreCase("null") ||
-                            blobFileName.equalsIgnoreCase("undefined")
-                    ) {
-
-                        blobFileName =
-                                "download.bin";
-                    }
+                blobFileName =
+                        normalizeSrToolsFileName(
+                                sanitizeFileName(
+                                        fileName
+                                )
+                        );
 
 
-                    // ------------------------------------------------
-                    // SRTools 文件名
-                    // ------------------------------------------------
+                if (
+                        blobFileName == null ||
+                        blobFileName.isEmpty()
+                ) {
 
                     blobFileName =
-                            normalizeSrToolsFileName(
-                                    blobFileName
-                            );
+                            "download.bin";
+                }
 
 
-                    // ------------------------------------------------
-                    // MIME
-                    // ------------------------------------------------
+                // ------------------------------------------------
+                // MIME
+                // ------------------------------------------------
+
+                blobMimeType =
+                        mimeType;
+
+
+                if (
+                        blobMimeType == null ||
+                        blobMimeType.trim().isEmpty()
+                ) {
 
                     blobMimeType =
-                            mimeType;
+                            getMimeType(
+                                    blobFileName
+                            );
+                }
+
+
+                // =================================================
+                // Android 10+
+                // =================================================
+
+                if (
+                        Build.VERSION.SDK_INT >=
+                                Build.VERSION_CODES.Q
+                ) {
+
+                    ContentValues values =
+                            new ContentValues();
+
+
+                    values.put(
+                            MediaStore.Downloads
+                                    .DISPLAY_NAME,
+                            blobFileName
+                    );
+
+
+                    values.put(
+                            MediaStore.Downloads
+                                    .MIME_TYPE,
+                            blobMimeType
+                    );
+
+
+                    values.put(
+                            MediaStore.Downloads
+                                    .RELATIVE_PATH,
+
+                            Environment.DIRECTORY_DOWNLOADS +
+                                    "/" +
+                                    DOWNLOAD_FOLDER
+                    );
+
+
+                    values.put(
+                            MediaStore.Downloads
+                                    .IS_PENDING,
+                            1
+                    );
+
+
+                    blobMediaStoreUri =
+                            getContentResolver().insert(
+                                    MediaStore.Downloads
+                                            .EXTERNAL_CONTENT_URI,
+                                    values
+                            );
 
 
                     if (
-                            blobMimeType == null ||
-                            blobMimeType.isEmpty()
+                            blobMediaStoreUri == null
                     ) {
 
-                        blobMimeType =
-                                "application/octet-stream";
+                        throw new IOException(
+                                "无法创建下载文件"
+                        );
                     }
 
 
+                    // ★ 同步打开
+                    blobOutputStream =
+                            getContentResolver()
+                                    .openOutputStream(
+                                            blobMediaStoreUri
+                                    );
+
+
+                    if (
+                            blobOutputStream == null
+                    ) {
+
+                        throw new IOException(
+                                "下载文件没有打开"
+                        );
+                    }
+
+
+                } else {
+
                     // =================================================
-                    // Android 10+
+                    // Android 9-
                     // =================================================
 
                     if (
                             Build.VERSION.SDK_INT >=
-                            Build.VERSION_CODES.Q
+                                    Build.VERSION_CODES.M
                     ) {
 
-                        ContentValues values =
-                                new ContentValues();
-
-
-                        values.put(
-                                MediaStore.Downloads
-                                        .DISPLAY_NAME,
-                                blobFileName
-                        );
-
-
-                        values.put(
-                                MediaStore.Downloads
-                                        .MIME_TYPE,
-                                blobMimeType
-                        );
-
-
-                        values.put(
-                                MediaStore.Downloads
-                                        .RELATIVE_PATH,
-
-                                Environment.DIRECTORY_DOWNLOADS +
-                                        "/" +
-                                        DOWNLOAD_FOLDER
-                        );
-
-
-                        values.put(
-                                MediaStore.Downloads
-                                        .IS_PENDING,
-                                1
-                        );
-
-
-                        blobMediaStoreUri =
-                                getContentResolver().insert(
-                                        MediaStore.Downloads
-                                                .EXTERNAL_CONTENT_URI,
-                                        values
-                                );
-
-
                         if (
-                                blobMediaStoreUri == null
-                        ) {
-
-                            throw new IOException(
-                                    "无法创建下载文件"
-                            );
-                        }
-
-
-                        blobOutputStream =
-                                getContentResolver()
-                                        .openOutputStream(
-                                                blobMediaStoreUri
-                                        );
-
-
-                        if (
-                                blobOutputStream == null
-                        ) {
-
-                            throw new IOException(
-                                    "无法打开下载文件"
-                            );
-                        }
-
-
-                    } else {
-
-                        // =============================================
-                        // Android 9 及以下
-                        // =============================================
-
-                        if (
-                                Build.VERSION.SDK_INT >=
-                                Build.VERSION_CODES.M
-                        ) {
-
-                            if (
-                                    ContextCompat
-                                            .checkSelfPermission(
-                                                    SRToolsActivity.this,
-                                                    Manifest.permission
-                                                            .WRITE_EXTERNAL_STORAGE
-                                            ) !=
-                                            PackageManager.PERMISSION_GRANTED
-                            ) {
-
-                                requestPermissions(
-                                        new String[]{
+                                ContextCompat
+                                        .checkSelfPermission(
+                                                SRToolsActivity.this,
                                                 Manifest.permission
                                                         .WRITE_EXTERNAL_STORAGE
-                                        },
-                                        WRITE_PERMISSION_REQUEST
-                                );
+                                        ) !=
+                                        PackageManager
+                                                .PERMISSION_GRANTED
+                        ) {
 
-
-                                throw new IOException(
-                                        "需要存储权限"
-                                );
-                            }
+                            throw new IOException(
+                                    "需要存储权限"
+                            );
                         }
-
-
-                        File directory =
-                                getLegacyDownloadDirectory();
-
-
-                        if (!directory.exists()) {
-
-                            if (
-                                    !directory.mkdirs() &&
-                                    !directory.exists()
-                            ) {
-
-                                throw new IOException(
-                                        "无法创建下载目录"
-                                );
-                            }
-                        }
-
-
-                        File outputFile =
-                                getUniqueFile(
-                                        directory,
-                                        blobFileName
-                                );
-
-
-                        blobTempFile =
-                                outputFile;
-
-
-                        blobFileName =
-                                outputFile.getName();
-
-
-                        blobOutputStream =
-                                new FileOutputStream(
-                                        outputFile
-                                );
                     }
 
 
-                } catch (Exception e) {
+                    File directory =
+                            getLegacyDownloadDirectory();
 
-                    cleanupBlobDownload();
 
+                    if (!directory.exists()) {
+
+                        if (
+                                !directory.mkdirs() &&
+                                !directory.exists()
+                        ) {
+
+                            throw new IOException(
+                                    "无法创建下载目录"
+                            );
+                        }
+                    }
+
+
+                    File outputFile =
+                            getUniqueFile(
+                                    directory,
+                                    blobFileName
+                            );
+
+
+                    blobTempFile =
+                            outputFile;
+
+
+                    blobFileName =
+                            outputFile.getName();
+
+
+                    // ★ 同步打开
+                    blobOutputStream =
+                            new FileOutputStream(
+                                    outputFile
+                            );
+                }
+
+
+                // =================================================
+                // 日志
+                // =================================================
+
+                android.util.Log.d(
+                        "SRToolsActivity",
+                        "Blob 开始下载: " +
+                                blobFileName +
+                                " (" +
+                                size +
+                                " bytes)"
+                );
+
+
+            } catch (Exception e) {
+
+                cleanupBlobDownload();
+
+
+                final String error =
+                        e.getMessage() == null
+                                ? e.toString()
+                                : e.getMessage();
+
+
+                runOnUiThread(() -> {
 
                     Toast.makeText(
                             SRToolsActivity.this,
                             "开始下载失败：" +
-                                    e.getMessage(),
+                                    error,
                             Toast.LENGTH_LONG
                     ).show();
-                }
-            });
+                });
+            }
         }
 
 
@@ -1509,12 +1583,13 @@ public class SRToolsActivity extends Activity {
         // ========================================================
 
         @JavascriptInterface
-        public void receiveBlobChunk(
+        public synchronized void receiveBlobChunk(
                 String base64
         ) {
 
             try {
 
+                // ★ 此时 beginBlob 已经同步完成
                 if (
                         blobOutputStream == null
                 ) {
@@ -1522,6 +1597,15 @@ public class SRToolsActivity extends Activity {
                     throw new IOException(
                             "下载文件没有打开"
                     );
+                }
+
+
+                if (
+                        base64 == null ||
+                        base64.isEmpty()
+                ) {
+
+                    return;
                 }
 
 
@@ -1539,15 +1623,21 @@ public class SRToolsActivity extends Activity {
 
             } catch (Exception e) {
 
+                final String error =
+                        e.getMessage() == null
+                                ? e.toString()
+                                : e.getMessage();
+
+
+                cleanupBlobDownload();
+
+
                 runOnUiThread(() -> {
-
-                    cleanupBlobDownload();
-
 
                     Toast.makeText(
                             SRToolsActivity.this,
                             "写入下载文件失败：" +
-                                    e.getMessage(),
+                                    error,
                             Toast.LENGTH_LONG
                     ).show();
                 });
@@ -1560,61 +1650,89 @@ public class SRToolsActivity extends Activity {
         // ========================================================
 
         @JavascriptInterface
-        public void finishBlob() {
+        public synchronized void finishBlob() {
 
-            runOnUiThread(() -> {
+            try {
 
-                try {
+                // ------------------------------------------------
+                // 关闭文件
+                // ------------------------------------------------
+
+                if (
+                        blobOutputStream != null
+                ) {
+
+                    blobOutputStream.flush();
+
+                    blobOutputStream.close();
+
+                    blobOutputStream = null;
+                }
+
+
+                // ------------------------------------------------
+                // Android 10+
+                // ------------------------------------------------
+
+                if (
+                        Build.VERSION.SDK_INT >=
+                                Build.VERSION_CODES.Q
+                ) {
 
                     if (
-                            blobOutputStream != null
+                            blobMediaStoreUri != null
                     ) {
 
-                        blobOutputStream.flush();
+                        ContentValues values =
+                                new ContentValues();
 
-                        blobOutputStream.close();
 
-                        blobOutputStream = null;
+                        values.put(
+                                MediaStore.Downloads
+                                        .IS_PENDING,
+                                0
+                        );
+
+
+                        getContentResolver().update(
+                                blobMediaStoreUri,
+                                values,
+                                null,
+                                null
+                        );
                     }
+                }
 
 
-                    // =============================================
-                    // Android 10+
-                    // =============================================
-
-                    if (
-                            Build.VERSION.SDK_INT >=
-                            Build.VERSION_CODES.Q
-                    ) {
-
-                        if (
-                                blobMediaStoreUri != null
-                        ) {
-
-                            ContentValues values =
-                                    new ContentValues();
+                final String completedFileName =
+                        blobFileName;
 
 
-                            values.put(
-                                    MediaStore.Downloads
-                                            .IS_PENDING,
-                                    0
-                            );
+                android.util.Log.d(
+                        "SRToolsActivity",
+                        "Blob 下载完成: " +
+                                completedFileName
+                );
 
 
-                            getContentResolver().update(
-                                    blobMediaStoreUri,
-                                    values,
-                                    null,
-                                    null
-                            );
-                        }
-                    }
+                // ------------------------------------------------
+                // 清理状态
+                // ------------------------------------------------
+
+                blobTempFile = null;
+
+                blobMediaStoreUri = null;
+
+                blobFileName = null;
+
+                blobMimeType = null;
 
 
-                    final String completedFileName =
-                            blobFileName;
+                // ------------------------------------------------
+                // Toast
+                // ------------------------------------------------
 
+                runOnUiThread(() -> {
 
                     Toast.makeText(
                             SRToolsActivity.this,
@@ -1623,30 +1741,30 @@ public class SRToolsActivity extends Activity {
                                     completedFileName,
                             Toast.LENGTH_LONG
                     ).show();
+                });
 
 
-                    blobTempFile = null;
+            } catch (Exception e) {
 
-                    blobMediaStoreUri = null;
-
-                    blobFileName = null;
-
-                    blobMimeType = null;
+                cleanupBlobDownload();
 
 
-                } catch (Exception e) {
+                final String error =
+                        e.getMessage() == null
+                                ? e.toString()
+                                : e.getMessage();
 
-                    cleanupBlobDownload();
 
+                runOnUiThread(() -> {
 
                     Toast.makeText(
                             SRToolsActivity.this,
                             "完成下载失败：" +
-                                    e.getMessage(),
+                                    error,
                             Toast.LENGTH_LONG
                     ).show();
-                }
-            });
+                });
+            }
         }
 
 
@@ -1655,19 +1773,26 @@ public class SRToolsActivity extends Activity {
         // ========================================================
 
         @JavascriptInterface
-        public void error(
+        public synchronized void error(
                 String message
         ) {
 
+            cleanupBlobDownload();
+
+
+            final String error =
+                    message == null ||
+                            message.isEmpty()
+                            ? "未知错误"
+                            : message;
+
+
             runOnUiThread(() -> {
-
-                cleanupBlobDownload();
-
 
                 Toast.makeText(
                         SRToolsActivity.this,
                         "Blob 下载失败：" +
-                                message,
+                                error,
                         Toast.LENGTH_LONG
                 ).show();
             });
@@ -1754,7 +1879,7 @@ public class SRToolsActivity extends Activity {
 
 
                 // =================================================
-                // 获取文件名
+                // 文件名
                 // =================================================
 
                 String fileName =
@@ -1763,10 +1888,6 @@ public class SRToolsActivity extends Activity {
                                 contentDisposition
                         );
 
-
-                // =================================================
-                // SRTools 特殊文件
-                // =================================================
 
                 fileName =
                         normalizeSrToolsFileName(
@@ -1788,7 +1909,9 @@ public class SRToolsActivity extends Activity {
                 ) {
 
                     finalMimeType =
-                            "application/octet-stream";
+                            getMimeType(
+                                    fileName
+                            );
                 }
 
 
@@ -1798,7 +1921,7 @@ public class SRToolsActivity extends Activity {
 
                 if (
                         Build.VERSION.SDK_INT >=
-                        Build.VERSION_CODES.Q
+                                Build.VERSION_CODES.Q
                 ) {
 
                     ContentValues values =
@@ -1899,13 +2022,13 @@ public class SRToolsActivity extends Activity {
 
                 } else {
 
-                    // =============================================
-                    // Android 9 及以下
-                    // =============================================
+                    // =================================================
+                    // Android 9-
+                    // =================================================
 
                     if (
                             Build.VERSION.SDK_INT >=
-                            Build.VERSION_CODES.M
+                                    Build.VERSION_CODES.M
                     ) {
 
                         if (
@@ -1915,7 +2038,8 @@ public class SRToolsActivity extends Activity {
                                                 Manifest.permission
                                                         .WRITE_EXTERNAL_STORAGE
                                         ) !=
-                                        PackageManager.PERMISSION_GRANTED
+                                        PackageManager
+                                                .PERMISSION_GRANTED
                         ) {
 
                             runOnUiThread(() ->
@@ -1961,9 +2085,6 @@ public class SRToolsActivity extends Activity {
                             );
 
 
-                    /*
-                     * 真实最终文件名
-                     */
                     fileName =
                             outputFile.getName();
 
@@ -2100,7 +2221,7 @@ public class SRToolsActivity extends Activity {
 
 
         // --------------------------------------------------------
-        // 3. URL 字符串中直接搜索
+        // 3. URL 中搜索 SRTools 文件名
         // --------------------------------------------------------
 
         if (
@@ -2108,7 +2229,9 @@ public class SRToolsActivity extends Activity {
         ) {
 
             String lowerUrl =
-                    downloadUrl.toLowerCase();
+                    downloadUrl.toLowerCase(
+                            Locale.ROOT
+                    );
 
 
             if (
@@ -2133,7 +2256,7 @@ public class SRToolsActivity extends Activity {
 
 
         // --------------------------------------------------------
-        // 4. 最终兜底
+        // 4. 兜底
         // --------------------------------------------------------
 
         return "download.bin";
@@ -2205,7 +2328,7 @@ public class SRToolsActivity extends Activity {
 
 
     // ============================================================
-    // 判断文件名是否有效
+    // 文件名是否有效
     // ============================================================
 
     private boolean isValidFileName(
@@ -2249,7 +2372,9 @@ public class SRToolsActivity extends Activity {
         try {
 
             String lower =
-                    contentDisposition.toLowerCase();
+                    contentDisposition.toLowerCase(
+                            Locale.ROOT
+                    );
 
 
             // ----------------------------------------------------
@@ -2292,6 +2417,9 @@ public class SRToolsActivity extends Activity {
                 if (
                         value.startsWith(
                                 "UTF-8''"
+                        ) ||
+                        value.startsWith(
+                                "utf-8''"
                         )
                 ) {
 
@@ -2390,7 +2518,7 @@ public class SRToolsActivity extends Activity {
 
 
     // ============================================================
-    // 从 URL 获取文件名
+    // URL 文件名
     // ============================================================
 
     private String extractFileNameFromUrl(
@@ -2625,6 +2753,73 @@ public class SRToolsActivity extends Activity {
 
 
     // ============================================================
+    // MIME
+    // ============================================================
+
+    private String getMimeType(
+            String fileName
+    ) {
+
+        if (
+                fileName == null
+        ) {
+
+            return "application/octet-stream";
+        }
+
+
+        String lower =
+                fileName.toLowerCase(
+                        Locale.ROOT
+                );
+
+
+        if (
+                lower.endsWith(".json")
+        ) {
+
+            return "application/json";
+        }
+
+
+        if (
+                lower.endsWith(".zip")
+        ) {
+
+            return "application/zip";
+        }
+
+
+        if (
+                lower.endsWith(".txt")
+        ) {
+
+            return "text/plain";
+        }
+
+
+        if (
+                lower.endsWith(".jpg") ||
+                lower.endsWith(".jpeg")
+        ) {
+
+            return "image/jpeg";
+        }
+
+
+        if (
+                lower.endsWith(".png")
+        ) {
+
+            return "image/png";
+        }
+
+
+        return "application/octet-stream";
+    }
+
+
+    // ============================================================
     // Stream
     // ============================================================
 
@@ -2705,7 +2900,7 @@ public class SRToolsActivity extends Activity {
     // Blob Output
     // ============================================================
 
-    private void closeBlobOutput() {
+    private synchronized void closeBlobOutput() {
 
         if (
                 blobOutputStream != null
@@ -2728,7 +2923,7 @@ public class SRToolsActivity extends Activity {
     // Blob Cleanup
     // ============================================================
 
-    private void cleanupBlobDownload() {
+    private synchronized void cleanupBlobDownload() {
 
         closeBlobOutput();
 
@@ -2739,7 +2934,7 @@ public class SRToolsActivity extends Activity {
 
         if (
                 Build.VERSION.SDK_INT >=
-                Build.VERSION_CODES.Q
+                        Build.VERSION_CODES.Q
         ) {
 
             if (
@@ -2761,7 +2956,7 @@ public class SRToolsActivity extends Activity {
 
 
         // --------------------------------------------------------
-        // Legacy File
+        // Legacy
         // --------------------------------------------------------
 
         if (
@@ -2812,7 +3007,7 @@ public class SRToolsActivity extends Activity {
 
         if (
                 requestCode ==
-                FILE_CHOOSER_REQUEST
+                        FILE_CHOOSER_REQUEST
         ) {
 
             Uri[] results = null;
@@ -2905,7 +3100,7 @@ public class SRToolsActivity extends Activity {
 
         if (
                 requestCode ==
-                WRITE_PERMISSION_REQUEST
+                        WRITE_PERMISSION_REQUEST
         ) {
 
             if (
@@ -2965,7 +3160,7 @@ public class SRToolsActivity extends Activity {
     @Override
     protected void onDestroy() {
 
-        closeBlobOutput();
+        cleanupBlobDownload();
 
 
         if (
