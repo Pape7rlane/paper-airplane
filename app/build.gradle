@@ -10,28 +10,16 @@ android {
         applicationId 'com.reversedrooms.pearlserver'
         minSdk 26
         targetSdk 34
-
         versionCode 4554
         versionName '4.5.54'
     }
 
-    // ============================================================
-    // BuildConfig
-    // ============================================================
-
+    // 开启 BuildConfig，供 MainActivity 获取当前版本号
     buildFeatures {
         buildConfig true
     }
 
-    // ============================================================
-    // Android Build Tools
-    // ============================================================
-
     buildToolsVersion "34.0.0"
-
-    // ============================================================
-    // Native .so
-    // ============================================================
 
     packaging {
         jniLibs {
@@ -39,27 +27,15 @@ android {
         }
     }
 
-    // ============================================================
-    // Build Types
-    // ============================================================
-
     buildTypes {
-
         release {
-            // 不混淆
             minifyEnabled false
-
-            // 不删除资源
             shrinkResources false
-
-            // Native 库不启用 JNI 调试
             jniDebuggable false
 
-            // ----------------------------------------------------
-            // 注意：
-            // 这里不要写 getDefaultProguardFile()
-            // 因为当前 release 没有开启混淆。
-            // ----------------------------------------------------
+            // 注意：不能写 getDefaultProguardFile()
+            // 因为你当前 AGP 配置下这里会报错。
+            proguardFiles 'proguard-rules.pro'
         }
 
         debug {
@@ -67,37 +43,25 @@ android {
         }
     }
 
-    // ============================================================
-    // JNI Libs
-    // ============================================================
-
     sourceSets {
         main {
-            jniLibs.srcDirs = [
-                    'src/main/jniLibs'
-            ]
+            jniLibs.srcDirs = ['src/main/jniLibs']
         }
     }
-
-    // ============================================================
-    // 保留 Native 调试符号
-    // ============================================================
 
     packagingOptions {
         jniLibs {
             keepDebugSymbols += [
-                    '**/libdispatch.so',
-                    '**/libgameserver.so'
+                '**/libdispatch.so',
+                '**/libgameserver.so'
             ]
         }
     }
 }
 
-// ================================================================
-// Dependencies
-// ================================================================
-
 dependencies {
-
     implementation 'androidx.core:core:1.13.1'
+
+    // WebView document-start JS 支持
+    implementation 'androidx.webkit:webkit:1.12.1'
 }
