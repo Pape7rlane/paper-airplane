@@ -1644,4 +1644,3 @@ public class LicenseActivity extends Activity {
 
         super.onDestroy();
     }
-                }

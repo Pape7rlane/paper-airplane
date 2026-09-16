@@ -45,7 +45,7 @@ import java.util.Locale;
 public class SRToolsActivity extends Activity {
 
     private static final String SRTOOLS_URL =
-            "https://srtools.neonteam.dev/";
+            "https://srtools.neonteam.dev/1001/detail";
 
     private static final String DOWNLOAD_FOLDER =
             "Pearl SR";
@@ -256,7 +256,7 @@ public class SRToolsActivity extends Activity {
                 Build.VERSION_CODES.LOLLIPOP) {
 
             settings.setMixedContentMode(
-                    WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE
+                    WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
             );
         }
 
@@ -1391,15 +1391,12 @@ public class SRToolsActivity extends Activity {
         if (resultCode == RESULT_OK
                 && data != null) {
 
-            Uri uri =
-                    data.getData();
-
-            if (uri != null) {
-
-                results =
-                        new Uri[]{
-                                uri
-                        };
+            if (data.getClipData() != null) {
+                int count = data.getClipData().getItemCount();
+                results = new Uri[count];
+                for (int i = 0; i < count; i++) results[i] = data.getClipData().getItemAt(i).getUri();
+            } else if (data.getData() != null) {
+                results = new Uri[]{data.getData()};
             }
         }
 
@@ -1590,6 +1587,9 @@ public class SRToolsActivity extends Activity {
                     fileName
             );
 
+            String cookies = CookieManager.getInstance().getCookie(url);
+            if (cookies != null && !cookies.isEmpty()) request.addRequestHeader("Cookie", cookies);
+
             DownloadManager manager =
                     (DownloadManager)
                             getSystemService(
@@ -1684,6 +1684,9 @@ public class SRToolsActivity extends Activity {
                             + DOWNLOAD_FOLDER,
                     fileName
             );
+
+            String cookies = CookieManager.getInstance().getCookie(url);
+            if (cookies != null && !cookies.isEmpty()) request.addRequestHeader("Cookie", cookies);
 
             DownloadManager manager =
                     (DownloadManager)

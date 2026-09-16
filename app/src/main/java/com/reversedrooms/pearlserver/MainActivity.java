@@ -28,6 +28,7 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
@@ -417,7 +418,7 @@ public class MainActivity extends Activity {
                         "为了让服务端在切换到后台后继续运行，"
                                 + "是否允许本应用后台运行？\n\n"
                                 + "选择“允许”后，将尝试打开系统的"
-                                + "电池优化设置。"
+                                + "应用电池设置中的“后台活动/电池使用量”页面。"
                 )
 
                 .setNegativeButton(
@@ -440,13 +441,6 @@ public class MainActivity extends Activity {
                 .setPositiveButton(
                         "允许",
                         (dialog, which) -> {
-
-                            prefs.edit()
-                                    .putBoolean(
-                                            PREF_BACKGROUND_ASKED,
-                                            true
-                                    )
-                                    .apply();
 
                             requestBackgroundRunningPermission();
                         }
@@ -499,23 +493,21 @@ public class MainActivity extends Activity {
                     return;
                 }
 
-                Intent intent =
-                        new Intent(
-                                Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS
-                        );
+                Uri packageUri = Uri.parse("package:" + packageName);
+                Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, packageUri);
+                try {
+                    startActivity(intent);
+                    prefsMarkBackgroundAsked();
+                    appendLog("已打开应用电池设置，请将电池使用量设为“不受限制”。");
+                    return;
+                } catch (Exception ignored) {
+                    // Some vendor ROMs do not expose the app detail battery page.
+                }
 
-                intent.setData(
-                        Uri.parse(
-                                "package:" + packageName
-                        )
-                );
-
-                startActivity(intent);
-
-                appendLog(
-                        "已打开系统后台运行权限设置。"
-                );
-
+                Intent batteryIntent = new Intent(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS);
+                startActivity(batteryIntent);
+                prefsMarkBackgroundAsked();
+                appendLog("已打开系统电池优化列表，请允许本应用高耗电后台运行。");
                 return;
             }
 
@@ -549,6 +541,12 @@ public class MainActivity extends Activity {
                             + e.getMessage()
             );
         }
+    }
+
+
+    private void prefsMarkBackgroundAsked() {
+        getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit()
+                .putBoolean(PREF_BACKGROUND_ASKED, true).apply();
     }
 
 
@@ -1704,10 +1702,15 @@ public class MainActivity extends Activity {
                         !apk.exists()
                                 || apk.length() <= 0
                 ) {
+                    throw new IOException("下载完成但 APK 文件为空");
+                }
 
-                    throw new IOException(
-                            "下载完成但 APK 文件为空"
-                    );
+                // GitHub error pages can otherwise be saved as .apk files.
+                try (RandomAccessFile apkFile = new RandomAccessFile(apk, "r")) {
+                    if (apkFile.read() != 'P' || apkFile.read() != 'K'
+                            || apkFile.read() != 3 || apkFile.read() != 4) {
+                        throw new IOException("下载内容不是有效 APK");
+                    }
                 }
 
                 appendLog(
@@ -1823,6 +1826,16 @@ public class MainActivity extends Activity {
                     "准备安装 APK: "
                             + apk.getAbsolutePath()
             );
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O
+                    && !getPackageManager().canRequestPackageInstalls()) {
+                Intent settingsIntent = new Intent(
+                        Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES,
+                        Uri.parse("package:" + getPackageName()));
+                startActivity(settingsIntent);
+                showToast("请允许本应用安装未知应用，然后重新点击更新");
+                return;
+            }
 
             Uri uri =
                     FileProvider.getUriForFile(
