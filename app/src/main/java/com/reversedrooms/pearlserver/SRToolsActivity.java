@@ -38,6 +38,9 @@ import androidx.webkit.WebViewFeature;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.nio.charset.StandardCharsets;
 import java.io.OutputStream;
 import java.util.Collections;
 import java.util.Locale;
@@ -46,9 +49,6 @@ public class SRToolsActivity extends Activity {
 
     private static final String SRTOOLS_URL =
             "https://srtools.neonteam.dev/1001/detail";
-
-    private static final String DOWNLOAD_FOLDER =
-            "Pearl SR";
 
     private static final int FILE_CHOOSER_REQUEST = 1001;
     private static final int WRITE_PERMISSION_REQUEST = 1002;
@@ -65,6 +65,8 @@ public class SRToolsActivity extends Activity {
     private ValueCallback<Uri[]> filePathCallback;
 
     private boolean landscape = false;
+    private boolean documentStartHookInstalled;
+    private String syncResponseScript = "";
 
     private final android.os.Handler mainHandler =
             new android.os.Handler(
@@ -120,7 +122,28 @@ public class SRToolsActivity extends Activity {
                 R.id.closeButton
         );
 
+        if (!ServerStorage.hasAccess(this)) {
+            Toast.makeText(this, "请返回主页授权存储访问后再打开 SRTools", Toast.LENGTH_LONG).show();
+            finish();
+            return;
+        }
+
         setupButtons();
+
+        try (Reader reader = new InputStreamReader(
+                getAssets().open("srtools-sync.js"), StandardCharsets.UTF_8)) {
+            StringBuilder script = new StringBuilder();
+            char[] buffer = new char[4096];
+            int count;
+            while ((count = reader.read(buffer)) != -1) {
+                script.append(buffer, 0, count);
+            }
+            syncResponseScript = script.toString();
+        } catch (IOException e) {
+            Toast.makeText(this, "SRTools 同步检查初始化失败，请重新安装应用", Toast.LENGTH_LONG).show();
+            finish();
+            return;
+        }
 
         setupWebView();
 
@@ -337,7 +360,7 @@ public class SRToolsActivity extends Activity {
                          * Document Start Script，
                          * 使用普通注入作为兼容方案。
                          */
-                        if (!supportsDocumentStartJavaScript()) {
+                        if (!documentStartHookInstalled) {
 
                             injectBlobHook(view);
                         }
@@ -360,7 +383,7 @@ public class SRToolsActivity extends Activity {
                         /*
                          * 兼容旧 WebView。
                          */
-                        if (!supportsDocumentStartJavaScript()) {
+                        if (!documentStartHookInstalled) {
 
                             injectBlobHook(view);
                         }
@@ -1211,11 +1234,12 @@ public class SRToolsActivity extends Activity {
 
             WebViewCompat.addDocumentStartJavaScript(
                     webView,
-                    DOCUMENT_START_BLOB_SCRIPT,
+                    DOCUMENT_START_BLOB_SCRIPT + syncResponseScript,
                     Collections.singleton(
                             "https://srtools.neonteam.dev"
                     )
             );
+            documentStartHookInstalled = true;
 
         } catch (Throwable e) {
 
@@ -1242,11 +1266,16 @@ public class SRToolsActivity extends Activity {
     private void injectBlobHook(
             WebView view
     ) {
+        Uri page = Uri.parse(view.getUrl() == null ? "" : view.getUrl());
+        if (!"https".equals(page.getScheme())
+                || !"srtools.neonteam.dev".equals(page.getHost())) {
+            return;
+        }
 
         try {
 
             view.evaluateJavascript(
-                    DOCUMENT_START_BLOB_SCRIPT,
+                    DOCUMENT_START_BLOB_SCRIPT + syncResponseScript,
                     null
             );
 
@@ -1537,6 +1566,8 @@ public class SRToolsActivity extends Activity {
 
         try {
 
+            ServerStorage.downloadDirectory(fileName);
+
             DownloadManager.Request request =
                     new DownloadManager.Request(
                             Uri.parse(url)
@@ -1583,7 +1614,7 @@ public class SRToolsActivity extends Activity {
             request.setDestinationInExternalPublicDir(
                     Environment.DIRECTORY_DOWNLOADS
                             + File.separator
-                            + DOWNLOAD_FOLDER,
+                            + ServerStorage.downloadFolder(fileName),
                     fileName
             );
 
@@ -1635,6 +1666,8 @@ public class SRToolsActivity extends Activity {
 
         try {
 
+            ServerStorage.downloadDirectory(fileName);
+
             DownloadManager.Request request =
                     new DownloadManager.Request(
                             Uri.parse(url)
@@ -1681,7 +1714,7 @@ public class SRToolsActivity extends Activity {
             request.setDestinationInExternalPublicDir(
                     Environment.DIRECTORY_DOWNLOADS
                             + File.separator
-                            + DOWNLOAD_FOLDER,
+                            + ServerStorage.downloadFolder(fileName),
                     fileName
             );
 
@@ -1798,7 +1831,7 @@ public class SRToolsActivity extends Activity {
                             MediaStore.Downloads.RELATIVE_PATH,
                             Environment.DIRECTORY_DOWNLOADS
                                     + File.separator
-                                    + DOWNLOAD_FOLDER
+                                    + ServerStorage.downloadFolder(blobFileName)
                     );
 
                     values.put(
@@ -1846,7 +1879,7 @@ public class SRToolsActivity extends Activity {
                     File folder =
                             new File(
                                     downloads,
-                                    DOWNLOAD_FOLDER
+                                    ServerStorage.downloadFolder(blobFileName)
                             );
 
                     if (!folder.exists()
@@ -2357,7 +2390,7 @@ public class SRToolsActivity extends Activity {
                         "_"
                 );
 
-        if (name.isEmpty()) {
+        if (name.isEmpty() || ".".equals(name) || "..".equals(name)) {
 
             name =
                     "download.bin";

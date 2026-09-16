@@ -240,43 +240,41 @@ jobs:
           echo "APK:"
           ls -lh artifact/PearlSR-server-arm64.apk
 
-      - name: Verify APK
+      - name: Verify APK contents
         shell: bash
         run: |
           set -e
 
-          APK="$FINAL_APK"
+          python3 - <<'PYCODE'
+          import os
+          from pathlib import Path
+          from zipfile import ZipFile
 
-          if [ ! -f "$APK" ]; then
-            echo "APK does not exist"
-            exit 1
-          fi
-
-          echo "APK information:"
-          file "$APK"
-          ls -lh "$APK"
-
-          echo
-          echo "ARM64 libraries:"
-
-          unzip -l "$APK" | grep "lib/arm64-v8a/" || true
-
-          echo
-          echo "Checking libdispatch.so..."
-
-          unzip -l "$APK" | grep -q "lib/arm64-v8a/libdispatch.so"
-
-          echo "OK"
-
-          echo
-          echo "Checking libgameserver.so..."
-
-          unzip -l "$APK" | grep -q "lib/arm64-v8a/libgameserver.so"
-
-          echo "OK"
-
-          echo
-          echo "APK verification completed"
+          apk = Path(os.environ["FINAL_APK"])
+          required = {
+              "lib/arm64-v8a/libdispatch.so",
+              "lib/arm64-v8a/libgameserver.so",
+              "assets/srtools-sync.js",
+              "assets/server/freesr-data.json",
+              "assets/server/hotfix.json",
+          }
+          assets = Path("app/src/main/assets")
+          required.update("assets/" + path.relative_to(assets).as_posix()
+                          for path in assets.rglob("*") if path.is_file())
+          with ZipFile(apk) as archive:
+              missing = required - set(archive.namelist())
+              if missing:
+                  raise SystemExit("APK is missing: " + ", ".join(sorted(missing)))
+              empty = [name for name in required if archive.getinfo(name).file_size == 0]
+              if empty:
+                  raise SystemExit("APK contains empty files: " + ", ".join(sorted(empty)))
+              for path in assets.rglob("*"):
+                  if path.is_file():
+                      name = "assets/" + path.relative_to(assets).as_posix()
+                      if archive.read(name) != path.read_bytes():
+                          raise SystemExit("APK asset differs from project: " + name)
+          print("Verified native servers, resources and SRTools scripts in", apk)
+          PYCODE
 
       - name: Upload APK
         uses: actions/upload-artifact@v4

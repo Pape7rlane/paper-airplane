@@ -131,12 +131,12 @@
                 android:focusable="true" />
         </LinearLayout>
 
-        <!-- 底部只保留：更新、日志；已删除重置。 -->
+        <!-- 底部操作 -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="145dp"
             android:orientation="horizontal"
-            android:weightSum="3">
+            android:weightSum="2">
 
             <LinearLayout
                 android:id="@+id/updateButton"
@@ -160,34 +160,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="更新"
-                    android:textColor="#FFFFFF"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:layout_marginTop="4dp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/logButton"
-                android:layout_width="0dp"
-                android:layout_height="140dp"
-                android:layout_weight="1"
-                android:layout_margin="5dp"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:background="@drawable/bg_button"
-                android:clickable="true"
-                android:focusable="true">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="☷"
-                    android:textColor="#FFFFFF"
-                    android:textSize="38sp"
-                    android:textStyle="bold" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="日志"
                     android:textColor="#FFFFFF"
                     android:textSize="18sp"
                     android:textStyle="bold"
@@ -222,64 +194,6 @@
                     android:layout_marginTop="4dp" />
             </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
-
-    <!-- 日志面板：右上角有明确的“关闭”按钮。 -->
-    <LinearLayout
-        android:id="@+id/logScroll"
-        android:layout_width="match_parent"
-        android:layout_height="330dp"
-        android:layout_gravity="bottom"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="18dp"
-        android:orientation="vertical"
-        android:background="#E6101116"
-        android:padding="14dp"
-        android:visibility="gone">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="服务器日志"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/closeLogButton"
-                android:layout_width="76dp"
-                android:layout_height="40dp"
-                android:gravity="center"
-                android:text="关闭"
-                android:textColor="#FFFFFF"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:background="@drawable/bg_button"
-                android:clickable="true"
-                android:focusable="true" />
-        </LinearLayout>
-
-        <ScrollView
-            android:id="@+id/logContentScroll"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
-            <TextView
-                android:id="@+id/logView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#FFFFFF"
-                android:textSize="12sp"
-                android:typeface="monospace" />
-        </ScrollView>
     </LinearLayout>
 
 </FrameLayout>

@@ -1,5 +1,6 @@
 package com.reversedrooms.pearlserver;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -13,7 +14,6 @@ import android.os.Looper;
 import android.os.PowerManager;
 import android.provider.Settings;
 import android.view.View;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,9 +40,6 @@ import java.util.concurrent.Executors;
 public class MainActivity extends Activity {
 
     private TextView status;
-    private TextView logView;
-    private View logScroll;
-    private ScrollView logContentScroll;
     private TextView startButton;
     private TextView updateInfo;
 
@@ -56,6 +53,11 @@ public class MainActivity extends Activity {
     private Process gameProcess;
 
     private File serverDir;
+
+    private static final int STORAGE_PERMISSION_REQUEST = 2001;
+    private boolean storagePromptReady;
+    private boolean storagePreparing;
+    private boolean serverFilesReady;
 
     private boolean serverRunning = false;
 
@@ -124,9 +126,6 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         status = findViewById(R.id.status);
-        logView = findViewById(R.id.logView);
-        logScroll = findViewById(R.id.logScroll);
-        logContentScroll = findViewById(R.id.logContentScroll);
         startButton = findViewById(R.id.startButton);
         updateInfo = findViewById(R.id.updateInfo);
 
@@ -136,33 +135,7 @@ public class MainActivity extends Activity {
          * ========================================================
          */
 
-        try {
-
-            prepareServerFiles();
-
-            appendLog("服务端文件已准备。");
-
-            appendLog(
-                    "工作目录: "
-                            + serverDir.getAbsolutePath()
-            );
-
-            appendLog(
-                    "Dispatch: "
-                            + nativePath("libdispatch.so")
-            );
-
-            appendLog(
-                    "GameServer: "
-                            + nativePath("libgameserver.so")
-            );
-
-        } catch (Exception e) {
-
-            appendLog("初始化失败: " + e);
-
-            statusText("初始化失败");
-        }
+        statusText("等待准备服务端文件");
 
 
         /*
@@ -220,51 +193,6 @@ public class MainActivity extends Activity {
 
         /*
          * ========================================================
-         * 日志按钮
-         * ========================================================
-         */
-
-        View logButton =
-                findViewById(R.id.logButton);
-
-        logButton.setOnClickListener(v -> {
-
-            if (
-                    logScroll.getVisibility()
-                            == View.VISIBLE
-            ) {
-
-                logScroll.setVisibility(View.GONE);
-
-            } else {
-
-                logScroll.setVisibility(View.VISIBLE);
-
-                logContentScroll.post(
-                        () -> logContentScroll.fullScroll(
-                                ScrollView.FOCUS_DOWN
-                        )
-                );
-            }
-        });
-
-
-        /*
-         * ========================================================
-         * 关闭日志
-         * ========================================================
-         */
-
-        View closeLogButton =
-                findViewById(R.id.closeLogButton);
-
-        closeLogButton.setOnClickListener(
-                v -> logScroll.setVisibility(View.GONE)
-        );
-
-
-        /*
-         * ========================================================
          * SRTools
          * ========================================================
          */
@@ -273,6 +201,10 @@ public class MainActivity extends Activity {
                 findViewById(R.id.srToolsButton);
 
         srToolsButton.setOnClickListener(v -> {
+            if (!ServerStorage.hasAccess(this) || !serverFilesReady) {
+                ensureServerStorage(true);
+                return;
+            }
 
             Intent intent =
                     new Intent(
@@ -290,9 +222,10 @@ public class MainActivity extends Activity {
          * ========================================================
          */
 
-        showSecurityWarning(
-                this::showBackgroundPermissionIfNeeded
-        );
+        showSecurityWarning(() -> {
+            storagePromptReady = true;
+            ensureServerStorage(true);
+        });
     }
 
 
@@ -432,9 +365,6 @@ public class MainActivity extends Activity {
                                     )
                                     .apply();
 
-                            appendLog(
-                                    "用户未允许后台运行。"
-                            );
                         }
                 )
 
@@ -482,9 +412,6 @@ public class MainActivity extends Activity {
                                 )
                 ) {
 
-                    appendLog(
-                            "系统已允许后台运行。"
-                    );
 
                     showToast(
                             "后台运行权限已开启"
@@ -498,7 +425,6 @@ public class MainActivity extends Activity {
                 try {
                     startActivity(intent);
                     prefsMarkBackgroundAsked();
-                    appendLog("已打开应用电池设置，请将电池使用量设为“不受限制”。");
                     return;
                 } catch (Exception ignored) {
                     // Some vendor ROMs do not expose the app detail battery page.
@@ -507,16 +433,11 @@ public class MainActivity extends Activity {
                 Intent batteryIntent = new Intent(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS);
                 startActivity(batteryIntent);
                 prefsMarkBackgroundAsked();
-                appendLog("已打开系统电池优化列表，请允许本应用高耗电后台运行。");
                 return;
             }
 
         } catch (Exception e) {
 
-            appendLog(
-                    "打开后台运行设置失败: "
-                            + e.getMessage()
-            );
         }
 
         try {
@@ -536,10 +457,6 @@ public class MainActivity extends Activity {
 
         } catch (Exception e) {
 
-            appendLog(
-                    "无法打开应用设置: "
-                            + e.getMessage()
-            );
         }
     }
 
@@ -567,132 +484,93 @@ public class MainActivity extends Activity {
     // 准备服务器
     // ============================================================
 
-    private void prepareServerFiles()
-            throws IOException {
-
-        serverDir =
-                new File(
-                        getFilesDir(),
-                        "4.5.54"
-                );
-
-        if (
-                !serverDir.exists()
-                        && !serverDir.mkdirs()
-        ) {
-
-            throw new IOException(
-                    "无法创建服务端目录"
-            );
-        }
-
-        copyAssetTree(
-                "server",
-                serverDir
-        );
-
-        setExecutable(
-                new File(
-                        nativePath(
-                                "libdispatch.so"
-                        )
-                )
-        );
-
-        setExecutable(
-                new File(
-                        nativePath(
-                                "libgameserver.so"
-                        )
-                )
-        );
-    }
-
-
-    private void copyAssetTree(
-            String assetPath,
-            File out
-    ) throws IOException {
-
-        String[] children =
-                getAssets().list(assetPath);
-
-        if (
-                children == null
-                        || children.length == 0
-        ) {
-
-            copyAssetFile(
-                    assetPath,
-                    out
-            );
-
-            return;
-        }
-
-        if (
-                !out.exists()
-                        && !out.mkdirs()
-        ) {
-
-            throw new IOException(
-                    "无法创建: " + out
-            );
-        }
-
-        for (String child : children) {
-
-            copyAssetTree(
-                    assetPath + "/" + child,
-                    new File(out, child)
-            );
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (storagePromptReady && ServerStorage.hasAccess(this)) {
+            ensureServerStorage(false);
+        } else if (storagePromptReady && serverFilesReady) {
+            serverFilesReady = false;
+            stopServers();
+            statusText("需要存储权限");
         }
     }
 
-
-    private void copyAssetFile(
-            String assetPath,
-            File out
-    ) throws IOException {
-
-        File parent =
-                out.getParentFile();
-
-        if (
-                parent != null
-                        && !parent.exists()
-                        && !parent.mkdirs()
-        ) {
-
-            throw new IOException(
-                    "无法创建: " + parent
-            );
-        }
-
-        try (
-                InputStream in =
-                        getAssets().open(assetPath);
-
-                OutputStream os =
-                        new FileOutputStream(out)
-        ) {
-
-            byte[] buf =
-                    new byte[1024 * 64];
-
-            int n;
-
-            while (
-                    (n = in.read(buf)) != -1
-            ) {
-
-                os.write(
-                        buf,
-                        0,
-                        n
-                );
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                                           int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == STORAGE_PERMISSION_REQUEST) {
+            if (ServerStorage.hasAccess(this)) {
+                ensureServerStorage(false);
+            } else {
+                statusText("需要存储权限，点击启动重试");
             }
         }
+    }
+
+    private void ensureServerStorage(boolean requestPermission) {
+        if (!ServerStorage.hasAccess(this)) {
+            serverFilesReady = false;
+            statusText("需要存储权限");
+            if (requestPermission) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                    new AlertDialog.Builder(this)
+                            .setTitle("允许访问服务端文件")
+                            .setMessage("服务端需要读写 Download/Pearl SR 中的资源和同步数据。"
+                                    + "请在系统设置中允许本应用访问所有文件。")
+                            .setNegativeButton("取消", null)
+                            .setPositiveButton("去授权", (dialog, which) -> {
+                                try {
+                                    startActivity(new Intent(
+                                            Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION,
+                                            Uri.parse("package:" + getPackageName())));
+                                } catch (Exception e) {
+                                    try {
+                                        startActivity(new Intent(
+                                                Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION));
+                                    } catch (Exception unavailable) {
+                                        showToast("请在系统设置中允许本应用访问所有文件");
+                                    }
+                                }
+                            }).show();
+                } else {
+                    requestPermissions(new String[]{
+                            Manifest.permission.READ_EXTERNAL_STORAGE,
+                            Manifest.permission.WRITE_EXTERNAL_STORAGE
+                    }, STORAGE_PERMISSION_REQUEST);
+                }
+            }
+            return;
+        }
+        if (serverFilesReady || storagePreparing) {
+            return;
+        }
+        storagePreparing = true;
+        statusText("正在准备服务端文件...");
+        io.execute(() -> {
+            try {
+                File preparedDirectory = ServerStorage.prepare(this);
+                setExecutable(new File(nativePath("libdispatch.so")));
+                setExecutable(new File(nativePath("libgameserver.so")));
+                main.post(() -> {
+                    storagePreparing = false;
+                    if (isDestroyed()) return;
+                    serverDir = preparedDirectory;
+                    serverFilesReady = true;
+                    statusText("服务端文件已准备");
+                    showBackgroundPermissionIfNeeded();
+                });
+            } catch (Exception e) {
+                main.post(() -> {
+                    storagePreparing = false;
+                    serverFilesReady = false;
+                    if (isDestroyed()) return;
+                    statusText("文件初始化失败，点击启动重试");
+                    showToast("初始化失败: " + e.getMessage());
+                });
+            }
+        });
     }
 
 
@@ -715,15 +593,16 @@ public class MainActivity extends Activity {
     // ============================================================
 
     private synchronized void startServers() {
+        if (!ServerStorage.hasAccess(this) || !serverFilesReady) {
+            ensureServerStorage(true);
+            return;
+        }
 
         if (
                 isAlive(dispatchProcess)
                         || isAlive(gameProcess)
         ) {
 
-            appendLog(
-                    "服务端已经在运行。"
-            );
 
             return;
         }
@@ -760,12 +639,9 @@ public class MainActivity extends Activity {
                         )
                                 .directory(serverDir)
                                 .redirectErrorStream(true)
+                                .redirectOutput(new File("/dev/null"))
                                 .start();
 
-                readOutput(
-                        "Dispatch",
-                        dispatchProcess.getInputStream()
-                );
 
                 Thread.sleep(800);
 
@@ -784,12 +660,9 @@ public class MainActivity extends Activity {
                             )
                                     .directory(serverDir)
                                     .redirectErrorStream(true)
+                                .redirectOutput(new File("/dev/null"))
                                     .start();
 
-                    readOutput(
-                            "GameServer",
-                            gameProcess.getInputStream()
-                    );
 
                     statusText(
                             "服务器运行中"
@@ -815,10 +688,6 @@ public class MainActivity extends Activity {
                             "服务器启动失败"
                     );
 
-                    appendLog(
-                            "Dispatch 已退出，"
-                                    + "未启动 GameServer。"
-                    );
                 }
 
             } catch (Exception e) {
@@ -835,54 +704,7 @@ public class MainActivity extends Activity {
                         "启动失败"
                 );
 
-                appendLog(
-                        "启动异常: " + e
-                );
-            }
-        });
-    }
-
-
-    // ============================================================
-    // 读取服务器日志
-    // ============================================================
-
-    private void readOutput(
-            String tag,
-            InputStream input
-    ) {
-
-        io.execute(() -> {
-
-            try (
-                    BufferedReader br =
-                            new BufferedReader(
-                                    new InputStreamReader(
-                                            input
-                                    )
-                            )
-            ) {
-
-                String line;
-
-                while (
-                        (line = br.readLine())
-                                != null
-                ) {
-
-                    appendLog(
-                            "[" + tag + "] "
-                                    + line
-                    );
-                }
-
-            } catch (IOException e) {
-
-                appendLog(
-                        "[" + tag + "] "
-                                + "日志读取结束: "
-                                + e.getMessage()
-                );
+                showToast("启动失败: " + e.getMessage());
             }
         });
     }
@@ -896,9 +718,6 @@ public class MainActivity extends Activity {
 
         if (gameProcess != null) {
 
-            appendLog(
-                    "停止 GameServer..."
-            );
 
             gameProcess.destroy();
 
@@ -907,9 +726,6 @@ public class MainActivity extends Activity {
 
         if (dispatchProcess != null) {
 
-            appendLog(
-                    "停止 Dispatch..."
-            );
 
             dispatchProcess.destroy();
 
@@ -956,16 +772,6 @@ public class MainActivity extends Activity {
 
             try {
 
-                appendLog(
-                        "正在检查 GitHub 最新版本..."
-                );
-
-                appendLog(
-                        "仓库: "
-                                + GITHUB_OWNER
-                                + "/"
-                                + GITHUB_REPO
-                );
 
                 URL url =
                         new URL(RELEASE_API);
@@ -1008,10 +814,6 @@ public class MainActivity extends Activity {
                 int code =
                         connection.getResponseCode();
 
-                appendLog(
-                        "GitHub API HTTP: "
-                                + code
-                );
 
                 if (
                         code
@@ -1163,39 +965,12 @@ public class MainActivity extends Activity {
                 latestApkBrowserUrl =
                         apkBrowserUrl;
 
-                final String finalApkName =
-                        apkName;
-
                 final boolean hasUpdate =
                         compareVersions(
                                 latestVersion,
                                 BuildConfig.VERSION_NAME
                         ) > 0;
 
-                appendLog(
-                        "最新版本: "
-                                + latestVersion
-                );
-
-                appendLog(
-                        "APK: "
-                                + finalApkName
-                );
-
-                appendLog(
-                        "Asset API: "
-                                + latestApkApiUrl
-                );
-
-                if (
-                        latestApkBrowserUrl != null
-                ) {
-
-                    appendLog(
-                            "Browser URL: "
-                                    + latestApkBrowserUrl
-                    );
-                }
 
                 main.post(() -> {
 
@@ -1207,10 +982,6 @@ public class MainActivity extends Activity {
                                         + " · 正在下载"
                         );
 
-                        appendLog(
-                                "发现新版本: "
-                                        + latestVersion
-                        );
 
                         /*
                          * 直接开始下载
@@ -1227,10 +998,6 @@ public class MainActivity extends Activity {
                                         + BuildConfig.VERSION_NAME
                         );
 
-                        appendLog(
-                                "当前已是最新版本: "
-                                        + BuildConfig.VERSION_NAME
-                        );
 
                         new AlertDialog.Builder(this)
 
@@ -1256,16 +1023,6 @@ public class MainActivity extends Activity {
 
             } catch (Exception e) {
 
-                String error =
-                        e.getClass()
-                                .getSimpleName()
-                                + ": "
-                                + e.getMessage();
-
-                appendLog(
-                        "检查更新失败: "
-                                + error
-                );
 
                 main.post(() ->
                         updateInfo.setText(
@@ -1365,12 +1122,8 @@ public class MainActivity extends Activity {
 
         if (apk.exists()) {
 
-            if (!apk.delete()) {
-
-                appendLog(
-                        "警告：无法删除旧 APK"
-                );
-            }
+            //noinspection ResultOfMethodCallIgnored
+            apk.delete();
         }
 
         statusText(
@@ -1379,10 +1132,6 @@ public class MainActivity extends Activity {
                         + "..."
         );
 
-        appendLog(
-                "开始下载 "
-                        + latestVersion
-        );
 
         /*
          * ========================================================
@@ -1419,13 +1168,6 @@ public class MainActivity extends Activity {
 
             firstError = e;
 
-            appendLog(
-                    "Asset API 下载失败: "
-                            + e.getClass()
-                                    .getSimpleName()
-                            + ": "
-                            + e.getMessage()
-            );
         }
 
         /*
@@ -1441,9 +1183,6 @@ public class MainActivity extends Activity {
                         .isEmpty()
         ) {
 
-            appendLog(
-                    "正在尝试备用下载地址..."
-            );
 
             if (apk.exists()) {
 
@@ -1471,13 +1210,6 @@ public class MainActivity extends Activity {
 
             } catch (Exception e) {
 
-                appendLog(
-                        "备用下载也失败: "
-                                + e.getClass()
-                                        .getSimpleName()
-                                + ": "
-                                + e.getMessage()
-                );
             }
         }
 
@@ -1506,9 +1238,6 @@ public class MainActivity extends Activity {
                 "更新失败: " + message
         );
 
-        appendLog(
-                "更新失败，请检查网络或 GitHub 连接。"
-        );
     }
 
 
@@ -1539,11 +1268,6 @@ public class MainActivity extends Activity {
 
             try {
 
-                appendLog(
-                        "下载尝试 "
-                                + attempt
-                                + "/3"
-                );
 
                 URL url =
                         new URL(downloadUrl);
@@ -1600,10 +1324,6 @@ public class MainActivity extends Activity {
                 int code =
                         connection.getResponseCode();
 
-                appendLog(
-                        "下载 HTTP 状态: "
-                                + code
-                );
 
                 if (
                         code != HttpURLConnection.HTTP_OK
@@ -1713,11 +1433,6 @@ public class MainActivity extends Activity {
                     }
                 }
 
-                appendLog(
-                        "下载文件大小: "
-                                + apk.length()
-                                + " bytes"
-                );
 
                 return;
 
@@ -1741,10 +1456,6 @@ public class MainActivity extends Activity {
 
                 if (attempt < 3) {
 
-                    appendLog(
-                            "下载失败，"
-                                    + "2 秒后重试..."
-                    );
 
                     try {
 
@@ -1785,11 +1496,6 @@ public class MainActivity extends Activity {
             File apk
     ) {
 
-        appendLog(
-                "APK 下载完成: "
-                        + apk.length()
-                        + " bytes"
-        );
 
         statusText(
                 "更新下载完成"
@@ -1822,10 +1528,6 @@ public class MainActivity extends Activity {
                 );
             }
 
-            appendLog(
-                    "准备安装 APK: "
-                            + apk.getAbsolutePath()
-            );
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O
                     && !getPackageManager().canRequestPackageInstalls()) {
@@ -1871,10 +1573,6 @@ public class MainActivity extends Activity {
 
         } catch (Exception e) {
 
-            appendLog(
-                    "无法打开 APK 安装程序: "
-                            + e
-            );
 
             showToast(
                     "无法安装 APK，请检查系统的"
@@ -2069,31 +1767,6 @@ public class MainActivity extends Activity {
                                 : R.drawable.bg_start_button
                 )
         );
-    }
-
-
-    private void appendLog(
-            String text
-    ) {
-
-        main.post(() -> {
-
-            logView.append(
-                    text + "\n"
-            );
-
-            if (
-                    logScroll.getVisibility()
-                            == View.VISIBLE
-            ) {
-
-                logContentScroll.post(
-                        () -> logContentScroll.fullScroll(
-                                ScrollView.FOCUS_DOWN
-                        )
-                );
-            }
-        });
     }
 
 
