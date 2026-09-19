@@ -11,7 +11,7 @@ android {
         minSdk 26
         targetSdk 34
         versionCode 4554
-        versionName '4.5.54'
+        versionName '4.5.54.5'
     }
 
     // 开启 BuildConfig，供 MainActivity 获取当前版本号
