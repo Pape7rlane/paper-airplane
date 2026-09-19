@@ -2,7 +2,7 @@
   "keys": [
     {
       "key": "CHLOGUVV",
-      "expires": null,
+      "expires": never,
       "enabled": true
     }
   ]
