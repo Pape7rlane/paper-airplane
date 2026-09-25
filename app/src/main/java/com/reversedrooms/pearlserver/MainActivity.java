@@ -16,6 +16,7 @@ import android.provider.Settings;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.text.method.LinkMovementMethod;
 
 import androidx.core.content.FileProvider;
 
@@ -130,6 +131,10 @@ public class MainActivity extends Activity {
         startButton = findViewById(R.id.startButton);
         updateInfo = findViewById(R.id.updateInfo);
         statusDot = findViewById(R.id.statusDot);
+        TextView aboutProject = findViewById(R.id.aboutProject);
+        if (aboutProject != null) {
+            aboutProject.setMovementMethod(LinkMovementMethod.getInstance());
+        }
 
         /*
          * ========================================================

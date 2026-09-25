@@ -21,4 +21,6 @@
     <string name="srtools_hide">隐藏工具栏，点击右上角可恢复</string>
     <string name="srtools_drag">拖动以移动工具栏</string>
     <string name="srtools_enable">开启功能</string>
+    <string name="about_title">关于</string>
+    <string name="about_project">Pearl-SR-Android\n由 RR 的 Pearl-SR 改编而成\n原项目： https://git.xeondev.com/HonkaiSlopRail/pearl-sr.git</string>
 </resources>

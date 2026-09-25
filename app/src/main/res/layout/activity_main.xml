@@ -196,6 +196,30 @@
                         android:textStyle="bold" />
                 </LinearLayout>
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/aboutTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="22dp"
+                android:text="@string/about_title"
+                android:textColor="@color/text_secondary"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/aboutProject"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:gravity="center"
+                android:autoLink="web"
+                android:linksClickable="true"
+                android:text="@string/about_project"
+                android:textColor="@color/text_secondary"
+                android:textColorLink="@color/accent"
+                android:textSize="12sp" />
         </LinearLayout>
     </ScrollView>
 </FrameLayout>
