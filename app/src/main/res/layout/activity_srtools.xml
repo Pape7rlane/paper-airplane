@@ -132,16 +132,17 @@
 
     <Button
         android:id="@+id/showToolbarButton"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
+        android:layout_width="56dp"
+        android:layout_height="40dp"
         android:layout_gravity="bottom|center_horizontal"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/bg_start_button"
         android:minWidth="0dp"
-        android:paddingStart="24dp"
-        android:paddingEnd="24dp"
-        android:text="@string/srtools_enable"
+        android:minHeight="0dp"
+        android:padding="0dp"
+        android:text="@string/srtools_enable_short"
         android:textColor="@color/text_on_accent"
+        android:textSize="12sp"
         android:textStyle="bold"
         android:visibility="gone"
         android:contentDescription="@string/srtools_enable" />
