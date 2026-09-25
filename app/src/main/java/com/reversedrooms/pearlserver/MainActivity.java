@@ -17,6 +17,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.text.method.LinkMovementMethod;
+import android.text.Html;
 
 import androidx.core.content.FileProvider;
 
@@ -131,9 +132,9 @@ public class MainActivity extends Activity {
         startButton = findViewById(R.id.startButton);
         updateInfo = findViewById(R.id.updateInfo);
         statusDot = findViewById(R.id.statusDot);
-        TextView aboutProject = findViewById(R.id.aboutProject);
-        if (aboutProject != null) {
-            aboutProject.setMovementMethod(LinkMovementMethod.getInstance());
+        View settingsButton = findViewById(R.id.settingsButton);
+        if (settingsButton != null) {
+            settingsButton.setOnClickListener(v -> showSettingsDialog());
         }
 
         /*
@@ -170,20 +171,6 @@ public class MainActivity extends Activity {
 
         /*
          * ========================================================
-         * 更新按钮
-         * ========================================================
-         */
-
-        View updateButton =
-                findViewById(R.id.updateButton);
-
-        updateButton.setOnClickListener(
-                v -> checkForUpdates(true)
-        );
-
-
-        /*
-         * ========================================================
          * 当前版本
          * ========================================================
          */
@@ -194,7 +181,7 @@ public class MainActivity extends Activity {
         updateInfo.setText(
                 "当前版本 "
                         + BuildConfig.VERSION_NAME
-                        + " · 点击“更新”检查"
+                        + " · 在设置中检查更新"
         );
 
 
@@ -239,6 +226,38 @@ public class MainActivity extends Activity {
     // ============================================================
     // 安全警告
     // ============================================================
+
+    private void showSettingsDialog() {
+        String[] options = {"关于", "检查更新"};
+        new AlertDialog.Builder(this)
+                .setTitle("设置")
+                .setItems(options, (dialog, which) -> {
+                    if (which == 0) {
+                        showAboutDialog();
+                    } else {
+                        checkForUpdates(true);
+                    }
+                })
+                .setNegativeButton("关闭", null)
+                .show();
+    }
+
+    private void showAboutDialog() {
+        TextView content = new TextView(this);
+        int padding = (int) (24 * getResources().getDisplayMetrics().density);
+        content.setPadding(padding, 0, padding, 0);
+        content.setText(Html.fromHtml(
+                "Pearl-SR-Android<br>由 RR 的 Pearl-SR 改编而成<br>原项目：" +
+                        "<a href=\"https://git.xeondev.com/HonkaiSlopRail/pearl-sr.git\">" +
+                        "HonkaiSlopRail/pearl-sr</a>", Html.FROM_HTML_MODE_LEGACY));
+        content.setTextColor(getResources().getColor(R.color.text_secondary));
+        content.setMovementMethod(LinkMovementMethod.getInstance());
+        new AlertDialog.Builder(this)
+                .setTitle("关于")
+                .setView(content)
+                .setPositiveButton("确定", null)
+                .show();
+    }
 
     private void showSecurityWarning(
             Runnable afterDismiss
