@@ -17,4 +17,6 @@
     <string name="srtools_reload">刷新网页</string>
     <string name="srtools_close_short">×</string>
     <string name="srtools_close">关闭 SRTools</string>
+    <string name="srtools_hide_short">−</string>
+    <string name="srtools_hide">隐藏工具栏，点击右上角可恢复</string>
 </resources>

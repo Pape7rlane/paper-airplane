@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.View;
+import android.view.MotionEvent;
 import android.view.Window;
 import android.view.WindowManager;
 import android.webkit.CookieManager;
@@ -61,6 +62,7 @@ public class SRToolsActivity extends Activity {
     private Button orientationButton;
     private Button reloadButton;
     private Button closeButton;
+    private View toolbar;
 
     private ValueCallback<Uri[]> filePathCallback;
 
@@ -121,6 +123,8 @@ public class SRToolsActivity extends Activity {
         closeButton = findViewById(
                 R.id.closeButton
         );
+
+        toolbar = findViewById(R.id.srtoolsToolbar);
 
         if (!ServerStorage.hasAccess(this)) {
             Toast.makeText(this, "请返回主页授权存储访问后再打开 SRTools", Toast.LENGTH_LONG).show();
@@ -185,7 +189,32 @@ public class SRToolsActivity extends Activity {
             );
         }
 
+        View hideToolbarButton = findViewById(R.id.hideToolbarButton);
+        if (hideToolbarButton != null) {
+            hideToolbarButton.setOnClickListener(v -> hideToolbar());
+        }
+
         updateOrientationButton();
+    }
+
+    private void hideToolbar() {
+        if (toolbar != null) {
+            toolbar.setVisibility(View.GONE);
+            showToast(getString(R.string.srtools_hide));
+        }
+    }
+
+    private void showToolbarIfRequested(MotionEvent event) {
+        if (toolbar == null || toolbar.getVisibility() == View.VISIBLE
+                || event.getActionMasked() != MotionEvent.ACTION_DOWN) {
+            return;
+        }
+
+        int revealHeight = (int) (80 * getResources().getDisplayMetrics().density);
+        int revealWidth = (int) (220 * getResources().getDisplayMetrics().density);
+        if (event.getY() <= revealHeight && event.getX() >= webView.getWidth() - revealWidth) {
+            toolbar.setVisibility(View.VISIBLE);
+        }
     }
 
 
@@ -234,6 +263,11 @@ public class SRToolsActivity extends Activity {
 
         WebSettings settings =
                 webView.getSettings();
+
+        webView.setOnTouchListener((view, event) -> {
+            showToolbarIfRequested(event);
+            return false;
+        });
 
         settings.setJavaScriptEnabled(true);
 
