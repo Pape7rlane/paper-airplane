@@ -20,4 +20,5 @@
     <string name="srtools_hide_short">−</string>
     <string name="srtools_hide">隐藏工具栏，点击右上角可恢复</string>
     <string name="srtools_drag">拖动以移动工具栏</string>
+    <string name="srtools_enable">开启功能</string>
 </resources>

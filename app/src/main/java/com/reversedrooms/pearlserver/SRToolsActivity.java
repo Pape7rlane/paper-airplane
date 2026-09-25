@@ -63,6 +63,7 @@ public class SRToolsActivity extends Activity {
     private Button reloadButton;
     private Button closeButton;
     private View toolbar;
+    private View showToolbarButton;
     private float dragStartX;
     private float dragStartY;
     private float toolbarStartX;
@@ -129,6 +130,7 @@ public class SRToolsActivity extends Activity {
         );
 
         toolbar = findViewById(R.id.srtoolsToolbar);
+        showToolbarButton = findViewById(R.id.showToolbarButton);
 
         if (!ServerStorage.hasAccess(this)) {
             Toast.makeText(this, "请返回主页授权存储访问后再打开 SRTools", Toast.LENGTH_LONG).show();
@@ -198,6 +200,10 @@ public class SRToolsActivity extends Activity {
             hideToolbarButton.setOnClickListener(v -> hideToolbar());
         }
 
+        if (showToolbarButton != null) {
+            showToolbarButton.setOnClickListener(v -> showToolbar());
+        }
+
         View dragHandle = findViewById(R.id.toolbarDragHandle);
         if (dragHandle != null) {
             dragHandle.setOnTouchListener((view, event) -> {
@@ -230,20 +236,18 @@ public class SRToolsActivity extends Activity {
     private void hideToolbar() {
         if (toolbar != null) {
             toolbar.setVisibility(View.GONE);
-            showToast(getString(R.string.srtools_hide));
+        }
+        if (showToolbarButton != null) {
+            showToolbarButton.setVisibility(View.VISIBLE);
         }
     }
 
-    private void showToolbarIfRequested(MotionEvent event) {
-        if (toolbar == null || toolbar.getVisibility() == View.VISIBLE
-                || event.getActionMasked() != MotionEvent.ACTION_DOWN) {
-            return;
-        }
-
-        int revealHeight = (int) (80 * getResources().getDisplayMetrics().density);
-        int revealWidth = (int) (220 * getResources().getDisplayMetrics().density);
-        if (event.getY() <= revealHeight && event.getX() >= webView.getWidth() - revealWidth) {
+    private void showToolbar() {
+        if (toolbar != null) {
             toolbar.setVisibility(View.VISIBLE);
+        }
+        if (showToolbarButton != null) {
+            showToolbarButton.setVisibility(View.GONE);
         }
     }
 
@@ -293,11 +297,6 @@ public class SRToolsActivity extends Activity {
 
         WebSettings settings =
                 webView.getSettings();
-
-        webView.setOnTouchListener((view, event) -> {
-            showToolbarIfRequested(event);
-            return false;
-        });
 
         settings.setJavaScriptEnabled(true);
 

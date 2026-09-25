@@ -130,4 +130,20 @@
             android:contentDescription="@string/srtools_hide" />
     </LinearLayout>
 
+    <Button
+        android:id="@+id/showToolbarButton"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/bg_start_button"
+        android:minWidth="0dp"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:text="@string/srtools_enable"
+        android:textColor="@color/text_on_accent"
+        android:textStyle="bold"
+        android:visibility="gone"
+        android:contentDescription="@string/srtools_enable" />
+
 </FrameLayout>
