@@ -63,6 +63,16 @@
         android:orientation="horizontal"
         android:padding="4dp">
 
+        <TextView
+            android:id="@+id/toolbarDragHandle"
+            android:layout_width="24dp"
+            android:layout_height="48dp"
+            android:gravity="center"
+            android:text="⋮⋮"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp"
+            android:contentDescription="@string/srtools_drag" />
+
         <Button
             android:id="@+id/orientationButton"
             android:layout_width="48dp"

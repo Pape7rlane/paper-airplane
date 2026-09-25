@@ -63,6 +63,10 @@ public class SRToolsActivity extends Activity {
     private Button reloadButton;
     private Button closeButton;
     private View toolbar;
+    private float dragStartX;
+    private float dragStartY;
+    private float toolbarStartX;
+    private float toolbarStartY;
 
     private ValueCallback<Uri[]> filePathCallback;
 
@@ -192,6 +196,32 @@ public class SRToolsActivity extends Activity {
         View hideToolbarButton = findViewById(R.id.hideToolbarButton);
         if (hideToolbarButton != null) {
             hideToolbarButton.setOnClickListener(v -> hideToolbar());
+        }
+
+        View dragHandle = findViewById(R.id.toolbarDragHandle);
+        if (dragHandle != null) {
+            dragHandle.setOnTouchListener((view, event) -> {
+                if (toolbar == null) {
+                    return false;
+                }
+                switch (event.getActionMasked()) {
+                    case MotionEvent.ACTION_DOWN:
+                        dragStartX = event.getRawX();
+                        dragStartY = event.getRawY();
+                        toolbarStartX = toolbar.getTranslationX();
+                        toolbarStartY = toolbar.getTranslationY();
+                        return true;
+                    case MotionEvent.ACTION_MOVE:
+                        toolbar.setTranslationX(toolbarStartX + event.getRawX() - dragStartX);
+                        toolbar.setTranslationY(toolbarStartY + event.getRawY() - dragStartY);
+                        return true;
+                    case MotionEvent.ACTION_UP:
+                    case MotionEvent.ACTION_CANCEL:
+                        return true;
+                    default:
+                        return true;
+                }
+            });
         }
 
         updateOrientationButton();
