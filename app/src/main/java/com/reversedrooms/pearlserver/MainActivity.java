@@ -42,6 +42,7 @@ public class MainActivity extends Activity {
     private TextView status;
     private TextView startButton;
     private TextView updateInfo;
+    private View statusDot;
 
     private final Handler main =
             new Handler(Looper.getMainLooper());
@@ -128,6 +129,7 @@ public class MainActivity extends Activity {
         status = findViewById(R.id.status);
         startButton = findViewById(R.id.startButton);
         updateInfo = findViewById(R.id.updateInfo);
+        statusDot = findViewById(R.id.statusDot);
 
         /*
          * ========================================================
@@ -1760,13 +1762,18 @@ public class MainActivity extends Activity {
             boolean running
     ) {
 
-        main.post(() ->
-                startButton.setBackgroundResource(
-                        running
-                                ? R.drawable.bg_start_button_running
-                                : R.drawable.bg_start_button
-                )
-        );
+        main.post(() -> {
+            startButton.setBackgroundResource(
+                    running
+                            ? R.drawable.bg_start_button_running
+                            : R.drawable.bg_start_button
+            );
+            statusDot.setBackgroundResource(
+                    running
+                            ? R.drawable.bg_dot
+                            : R.drawable.bg_dot_inactive
+            );
+        });
     }
 
 

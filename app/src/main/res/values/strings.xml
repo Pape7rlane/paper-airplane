@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">pearl-sr-4.5.54 Server</string>
+    <string name="home_title">Pearl SR</string>
+    <string name="home_subtitle">本地服务控制台</string>
+    <string name="server_status_label">SERVER STATUS</string>
+    <string name="server_stopped">服务器已停止</string>
+    <string name="version_placeholder">正在读取版本信息</string>
+    <string name="start_server">▶  启动服务器</string>
+    <string name="tools_label">快捷工具</string>
+    <string name="update">检查更新</string>
+    <string name="srtools">SRTools</string>
 </resources>

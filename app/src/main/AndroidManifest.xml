@@ -69,30 +69,6 @@
 
 
         <!-- =================================================
-             License
-             
-             保持竖屏
-             ================================================= -->
-
-        <activity
-            android:name=".LicenseActivity"
-            android:screenOrientation="portrait"
-            android:exported="true">
-
-            <intent-filter>
-
-                <action
-                    android:name="android.intent.action.MAIN" />
-
-                <category
-                    android:name="android.intent.category.LAUNCHER" />
-
-            </intent-filter>
-
-        </activity>
-
-
-        <!-- =================================================
              MainActivity
              
              保持竖屏
@@ -101,7 +77,14 @@
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
 
 
         <!-- =================================================

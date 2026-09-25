@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="app_background">#101416</color>
+    <color name="background_scrim">#B8101416</color>
+    <color name="surface">#E61B2225</color>
+    <color name="surface_pressed">#F02A3337</color>
+    <color name="surface_border">#476E7B80</color>
+    <color name="accent">#65D2A5</color>
+    <color name="accent_pressed">#4DB78D</color>
+    <color name="danger">#F06A67</color>
+    <color name="danger_pressed">#D65653</color>
+    <color name="text_primary">#F5F7F7</color>
+    <color name="text_secondary">#B7C1C3</color>
+    <color name="text_on_accent">#0D2119</color>
+</resources>
