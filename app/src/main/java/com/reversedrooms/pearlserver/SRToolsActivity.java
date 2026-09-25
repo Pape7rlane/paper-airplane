@@ -219,7 +219,9 @@ public class SRToolsActivity extends Activity {
         }
 
         orientationButton.setText(
-                landscape ? "竖" : "横"
+                landscape
+                        ? getString(R.string.srtools_orientation_landscape)
+                        : getString(R.string.srtools_orientation_portrait)
         );
     }
 

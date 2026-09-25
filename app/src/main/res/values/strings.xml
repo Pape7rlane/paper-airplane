@@ -9,4 +9,12 @@
     <string name="tools_label">快捷工具</string>
     <string name="update">检查更新</string>
     <string name="srtools">SRTools</string>
+    <string name="srtools_loading">正在加载 SRTools</string>
+    <string name="srtools_orientation_portrait">横</string>
+    <string name="srtools_orientation_landscape">竖</string>
+    <string name="srtools_toggle_orientation">切换屏幕方向</string>
+    <string name="srtools_reload_short">↻</string>
+    <string name="srtools_reload">刷新网页</string>
+    <string name="srtools_close_short">×</string>
+    <string name="srtools_close">关闭 SRTools</string>
 </resources>

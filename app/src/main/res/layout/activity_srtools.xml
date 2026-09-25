@@ -9,7 +9,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    android:background="#000000"
+    android:background="@color/app_background"
 
     tools:context=".SRToolsActivity">
 
@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 
-        android:background="#000000"
+        android:background="@color/app_background"
 
         android:overScrollMode="never"
 
@@ -40,108 +40,70 @@
     <ProgressBar
         android:id="@+id/progressBar"
 
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
 
         android:layout_gravity="center"
 
-        android:visibility="gone" />
+        android:visibility="gone"
+        android:indeterminateTint="@color/accent"
+        android:contentDescription="@string/srtools_loading" />
 
 
-    <!-- ================================================= -->
-    <!-- 横竖屏切换 -->
-    <!-- ================================================= -->
-
-    <Button
-        android:id="@+id/orientationButton"
-
-        android:layout_width="52dp"
-        android:layout_height="52dp"
-
+    <LinearLayout
+        android:id="@+id/srtoolsToolbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="top|end"
-
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="120dp"
-
-        android:minWidth="0dp"
-        android:minHeight="0dp"
-
-        android:padding="0dp"
-
-        android:text="横"
-        android:textSize="19sp"
-        android:textStyle="bold"
-
-        android:textColor="#FFFFFF"
-
-        android:backgroundTint="#CC222222"
-
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:background="@drawable/bg_srtools_toolbar"
         android:elevation="10dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="4dp">
 
-        android:contentDescription="切换屏幕方向" />
+        <Button
+            android:id="@+id/orientationButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_srtools_tool_button"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:padding="0dp"
+            android:text="@string/srtools_orientation_portrait"
+            android:textColor="@color/text_primary"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:contentDescription="@string/srtools_toggle_orientation" />
 
+        <Button
+            android:id="@+id/reloadButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="2dp"
+            android:background="@drawable/bg_srtools_tool_button"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:padding="0dp"
+            android:text="@string/srtools_reload_short"
+            android:textColor="@color/text_primary"
+            android:textSize="23sp"
+            android:contentDescription="@string/srtools_reload" />
 
-    <!-- ================================================= -->
-    <!-- 刷新 -->
-    <!-- ================================================= -->
-
-    <Button
-        android:id="@+id/reloadButton"
-
-        android:layout_width="52dp"
-        android:layout_height="52dp"
-
-        android:layout_gravity="top|end"
-
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="62dp"
-
-        android:minWidth="0dp"
-        android:minHeight="0dp"
-
-        android:padding="0dp"
-
-        android:text="↻"
-        android:textSize="25sp"
-
-        android:textColor="#FFFFFF"
-
-        android:backgroundTint="#CC222222"
-
-        android:elevation="10dp"
-
-        android:contentDescription="刷新网页" />
-
-
-    <!-- ================================================= -->
-    <!-- 关闭 -->
-    <!-- ================================================= -->
-
-    <Button
-        android:id="@+id/closeButton"
-
-        android:layout_width="52dp"
-        android:layout_height="52dp"
-
-        android:layout_gravity="top|end"
-
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="4dp"
-
-        android:minWidth="0dp"
-        android:minHeight="0dp"
-
-        android:padding="0dp"
-
-        android:text="×"
-        android:textSize="30sp"
-
-        android:textColor="#FFFFFF"
-
-        android:backgroundTint="#CC222222"
-
-        android:elevation="10dp"
-
-        android:contentDescription="关闭" />
+        <Button
+            android:id="@+id/closeButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="2dp"
+            android:background="@drawable/bg_srtools_close_button"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:padding="0dp"
+            android:text="@string/srtools_close_short"
+            android:textColor="@color/text_primary"
+            android:textSize="25sp"
+            android:contentDescription="@string/srtools_close" />
+    </LinearLayout>
 
 </FrameLayout>
