@@ -229,6 +229,29 @@
         "SpriteOutput/ChallengePeak/MedallionIcon/ChallengePeakMedalIcon0010/Gold.png",
         "SpriteOutput/ChallengePeak/MedallionIcon/ChallengePeakMedalIcon0010/Ultra.png"
       ]
+    },
+    {
+      "ID": 11,
+      "Title": {
+        "Hash": 1570201705,
+        "Hash64": 8621814597265561652
+      },
+      "RecommendID": 11,
+      "ActivityModule": 2101101,
+      "PreLevelIDList": [1101, 1102, 1103],
+      "BossLevelID": 1104,
+      "RewardGroupID": 1,
+      "BossUI3DPrefabPath": "UI/UI3D/ChallengePeak/_dependencies/Prefab/ChallengePeakBoss_W5_AsatPramad.prefab",
+      "BossUI3DAnimatorPath": "UI/UI3D/ChallengePeak/_dependencies/Animator/ChallengePeakBoss_W5_AsatPramad_AniControl.controller",
+      "ThemePosterTabPicPath": "SpriteOutput/Quest/TabIcon/BtnChallengePeak_4011.png",
+      "ThemeIconPicPath": "SpriteOutput/ChallengePeak/ChallengePeakIcon_4011.png",
+      "HandBookPanelBannerPath": "SpriteOutput/DailyMission/Banner/ChallengePeakPanelBanner_4011.png",
+      "RankIconPathList": [
+        "SpriteOutput/ChallengePeak/MedallionIcon/ChallengePeakMedalIcon0011/Bronze.png",
+        "SpriteOutput/ChallengePeak/MedallionIcon/ChallengePeakMedalIcon0011/Silver.png",
+        "SpriteOutput/ChallengePeak/MedallionIcon/ChallengePeakMedalIcon0011/Gold.png",
+        "SpriteOutput/ChallengePeak/MedallionIcon/ChallengePeakMedalIcon0011/Ultra.png"
+      ]
     }
   ]
 }

@@ -729,6 +729,14 @@
       "Sort": 440
     },
     {
+      "ID": 201503,
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1503.png",
+      "AvatarID": 1503,
+      "Type": "Avatar",
+      "SortType": 3,
+      "Sort": 460
+    },
+    {
       "ID": 201512,
       "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1512.png",
       "AvatarID": 1512,
@@ -745,36 +753,12 @@
       "Sort": 450
     },
     {
-      "ID": 201014,
-      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1014.png",
-      "AvatarID": 1014,
+      "ID": 201511,
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1511.png",
+      "AvatarID": 1511,
       "Type": "Avatar",
       "SortType": 3,
-      "Sort": 340
-    },
-    {
-      "ID": 201015,
-      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1015.png",
-      "AvatarID": 1015,
-      "Type": "Avatar",
-      "SortType": 3,
-      "Sort": 340
-    },
-    {
-      "ID": 201508,
-      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1508.png",
-      "AvatarID": 1508,
-      "Type": "Avatar",
-      "SortType": 3,
-      "Sort": 440
-    },
-    {
-      "ID": 201509,
-      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1509.png",
-      "AvatarID": 1509,
-      "Type": "Avatar",
-      "SortType": 3,
-      "Sort": 440
+      "Sort": 470
     }
   ]
 }

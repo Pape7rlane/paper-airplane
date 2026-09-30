@@ -1581,6 +1581,54 @@
       "RewardID": 201
     },
     {
+      "GroupID": 2255,
+      "TutorialGuideIDList": [225501, 225502],
+      "TutorialType": 1,
+      "CanReview": true,
+      "Order": 442,
+      "TriggerParams": [
+        {
+          "TriggerType": "EnterBattle",
+          "TriggerParam": "20561080"
+        }
+      ],
+      "FinishTriggerParams": [
+        {
+          "TriggerType": "FinishSubMission",
+          "TriggerParam": "105460708"
+        }
+      ],
+      "MessageText": {
+        "Hash": 2096650907,
+        "Hash64": 9363794932068697376
+      },
+      "RewardID": 201
+    },
+    {
+      "GroupID": 2256,
+      "TutorialGuideIDList": [225601, 225602],
+      "TutorialType": 1,
+      "CanReview": true,
+      "Order": 443,
+      "TriggerParams": [
+        {
+          "TriggerType": "EnterBattle",
+          "TriggerParam": "20561080"
+        }
+      ],
+      "FinishTriggerParams": [
+        {
+          "TriggerType": "FinishSubMission",
+          "TriggerParam": "105460708"
+        }
+      ],
+      "MessageText": {
+        "Hash": 2096650910,
+        "Hash64": 8352883512240925800
+      },
+      "RewardID": 201
+    },
+    {
       "GroupID": 2260,
       "TutorialGuideIDList": [226001, 226002, 226003, 226004, 226005],
       "TutorialType": 1,
@@ -15096,6 +15144,45 @@
       "RewardID": 100
     },
     {
+      "GroupID": 10350,
+      "TutorialGuideIDList": [1035001, 1035002, 1035003, 1035004],
+      "TutorialType": 3,
+      "TutorialShowType": "NonTutorial",
+      "TriggerParams": [],
+      "FinishTriggerParams": [],
+      "MessageText": {
+        "Hash": -958258540,
+        "Hash64": 17453794517761697885
+      },
+      "RewardID": 100
+    },
+    {
+      "GroupID": 10351,
+      "TutorialGuideIDList": [1035100, 1035102, 1035103, 1035104, 1035105],
+      "TutorialType": 3,
+      "TutorialShowType": "NonTutorial",
+      "TriggerParams": [],
+      "FinishTriggerParams": [],
+      "MessageText": {
+        "Hash": 607825401,
+        "Hash64": 17602650868547157839
+      },
+      "RewardID": 100
+    },
+    {
+      "GroupID": 10352,
+      "TutorialGuideIDList": [1035200, 1035201],
+      "TutorialType": 3,
+      "TutorialShowType": "NonTutorial",
+      "TriggerParams": [],
+      "FinishTriggerParams": [],
+      "MessageText": {
+        "Hash": 204540874,
+        "Hash64": 10467631080829939887
+      },
+      "RewardID": 100
+    },
+    {
       "GroupID": 10502,
       "TutorialGuideIDList": [1050201, 1050202],
       "TutorialType": 1,
@@ -15110,6 +15197,85 @@
       "MessageText": {
         "Hash": -1838732947,
         "Hash64": 6955586708204124249
+      },
+      "RewardID": 100
+    },
+    {
+      "GroupID": 10503,
+      "TutorialGuideIDList": [1050301, 1050302, 1050303],
+      "TutorialType": 3,
+      "TutorialShowType": "AutoShow",
+      "TriggerParams": [
+        {
+          "TriggerType": "ShowUIPage",
+          "TriggerParam": "PetParkEntrancePage"
+        }
+      ],
+      "FinishTriggerParams": [],
+      "MessageText": {
+        "Hash": -272649006,
+        "Hash64": 11992858086446744504
+      },
+      "RewardID": 100
+    },
+    {
+      "GroupID": 10504,
+      "TutorialGuideIDList": [1050401, 1050402],
+      "TutorialType": 3,
+      "TutorialShowType": "NonTutorial",
+      "TriggerParams": [],
+      "FinishTriggerParams": [],
+      "MessageText": {
+        "Hash": 1649665295,
+        "Hash64": 361533699066813448
+      },
+      "RewardID": 100
+    },
+    {
+      "GroupID": 10505,
+      "TutorialGuideIDList": [1050501, 1050502],
+      "TutorialType": 3,
+      "TutorialShowType": "AutoShow",
+      "TriggerParams": [
+        {
+          "TriggerType": "ShowUIPage",
+          "TriggerParam": "InventoryPage"
+        },
+        {
+          "TriggerType": "ItemSubTypeCount",
+          "TriggerParam": "902,2"
+        },
+        {
+          "TriggerType": "TutorialFinish",
+          "TriggerParam": "4048"
+        },
+        {
+          "TriggerType": "TaskUnlock",
+          "TriggerParam": "BlindBoxPetInventoryGuide"
+        }
+      ],
+      "FinishTriggerParams": [],
+      "MessageText": {
+        "Hash": -1079218060,
+        "Hash64": 8411968153109266399
+      },
+      "RewardID": 100
+    },
+    {
+      "GroupID": 10506,
+      "TutorialGuideIDList": [1050601, 1050602],
+      "TutorialType": 1,
+      "TutorialShowType": "BattleStart",
+      "TriggerParams": [
+        {
+          "TriggerType": "TaskUnlock",
+          "TriggerParam": "TantaoInvasionMaxLV"
+        }
+      ],
+      "FinishTriggerParams": [],
+      "MessageText": {
+        "Hash": 486865881,
+        "Hash64": 996173297844924240
       },
       "RewardID": 100
     }

@@ -1517,7 +1517,7 @@
         30510011
       ],
       "TagList": [
-        3033091
+        3033058
       ],
       "ProgressValueList": [
         3,
@@ -1551,8 +1551,7 @@
         3000
       ],
       "DamageType": [
-        "Physical",
-        "Thunder"
+        "Quantum"
       ],
       "EventIDList": [
         30510012
@@ -1576,7 +1575,7 @@
         60
       ],
       "NpcMonsterIDList": [
-        5024010
+        4014030
       ],
       "MapEntranceID": 3013501,
       "MazeGroupID": 8
@@ -1634,7 +1633,6 @@
         3005
       ],
       "DamageType": [
-        "Wind",
         "Quantum",
         "Imaginary"
       ],
@@ -1642,9 +1640,8 @@
         30510021
       ],
       "TagList": [
-        3033003,
-        3033078,
-        3033080
+        3033058,
+        3033078
       ],
       "ProgressValueList": [
         3,
@@ -1662,6 +1659,174 @@
       ],
       "NpcMonsterIDList": [
         5034010
+      ],
+      "MapEntranceID": 3013501,
+      "MazeGroupID": 8
+    },
+    {
+      "ID": 1101,
+      "Title": {
+        "Hash": 1090093027,
+        "Hash64": 15703483933950471460
+      },
+      "NormalTargetList": [
+        3001,
+        3002,
+        3000
+      ],
+      "DamageType": [
+        "Quantum",
+        "Imaginary"
+      ],
+      "EventIDList": [
+        30511011
+      ],
+      "TagList": [
+        3033058
+      ],
+      "ProgressValueList": [
+        3,
+        5,
+        0,
+        0,
+        0
+      ],
+      "HPProgressValueList": [
+        0,
+        0,
+        20,
+        60,
+        60
+      ],
+      "NpcMonsterIDList": [
+        5034010
+      ],
+      "MapEntranceID": 3013501,
+      "MazeGroupID": 8
+    },
+    {
+      "ID": 1102,
+      "Title": {
+        "Hash": 686808500,
+        "Hash64": 7082918897696607295
+      },
+      "NormalTargetList": [
+        3001,
+        3002,
+        3000
+      ],
+      "DamageType": [
+        "Fire",
+        "Thunder"
+      ],
+      "EventIDList": [
+        30511012
+      ],
+      "TagList": [
+        3033071
+      ],
+      "ProgressValueList": [
+        3,
+        5,
+        0,
+        0,
+        0
+      ],
+      "HPProgressValueList": [
+        0,
+        0,
+        20,
+        60,
+        60
+      ],
+      "NpcMonsterIDList": [
+        5014030
+      ],
+      "MapEntranceID": 3013501,
+      "MazeGroupID": 8
+    },
+    {
+      "ID": 1103,
+      "Title": {
+        "Hash": -2042074855,
+        "Hash64": 11455086876832900696
+      },
+      "NormalTargetList": [
+        3001,
+        3002,
+        3000
+      ],
+      "DamageType": [
+        "Fire",
+        "Ice"
+      ],
+      "EventIDList": [
+        30511013
+      ],
+      "TagList": [
+        3033088,
+        3033092
+      ],
+      "ProgressValueList": [
+        3,
+        5,
+        0,
+        0,
+        0
+      ],
+      "HPProgressValueList": [
+        0,
+        0,
+        20,
+        60,
+        60
+      ],
+      "NpcMonsterIDList": [
+        3004020
+      ],
+      "MapEntranceID": 3013501,
+      "MazeGroupID": 8
+    },
+    {
+      "ID": 1104,
+      "Title": {
+        "Hash": 1493377554,
+        "Hash64": 8314021874380898940
+      },
+      "NormalTargetList": [
+        3003,
+        3004,
+        3005
+      ],
+      "DamageType": [
+        "Fire",
+        "Wind",
+        "Imaginary"
+      ],
+      "EventIDList": [
+        30511021
+      ],
+      "TagList": [
+        3033056,
+        3033093,
+        3033025
+      ],
+      "ProgressValueList": [
+        3,
+        5,
+        0,
+        0,
+        0
+      ],
+      "HPProgressValueList": [
+        0,
+        0,
+        20,
+        60,
+        60
+      ],
+      "NpcMonsterIDList": [
+        8015030
       ],
       "MapEntranceID": 3013501,
       "MazeGroupID": 8

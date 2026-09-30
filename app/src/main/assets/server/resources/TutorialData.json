@@ -19738,6 +19738,309 @@
         }
       ],
       "FinishTriggerParams": []
+    },
+    {
+      "TutorialID": 9680,
+      "Priority": 10,
+      "RestoreType": "AutoFinish",
+      "CanInterrupt": true,
+      "TutorialJsonPath": "Config/Level/Tutorial/Tutorial_9680.json",
+      "TriggerParams": [
+        {
+          "TriggerType": "ShowUIPage",
+          "TriggerParam": "ComicDessertMainPage"
+        }
+      ],
+      "FinishTriggerParams": []
+    },
+    {
+      "TutorialID": 9681,
+      "Priority": 10,
+      "RestoreType": "AutoFinish",
+      "CanInterrupt": true,
+      "TutorialJsonPath": "Config/Level/Tutorial/Tutorial_9681.json",
+      "TriggerParams": [
+        {
+          "TriggerType": "ShowUIPage",
+          "TriggerParam": "ComicDessertMainPage"
+        },
+        {
+          "TriggerType": "FinishQuest",
+          "TriggerParam": "6088121"
+        }
+      ],
+      "FinishTriggerParams": []
+    },
+    {
+      "TutorialID": 46001,
+      "Priority": 10,
+      "RestoreType": "AutoFinish",
+      "CanInterrupt": true,
+      "TutorialJsonPath": "Config/Level/Tutorial/Tutorial_46001.json",
+      "TriggerParams": [
+        {
+          "TriggerType": "TaskUnlock",
+          "TriggerParam": "Tutorial_46001"
+        }
+      ],
+      "FinishTriggerParams": []
+    },
+    {
+      "TutorialID": 46002,
+      "Priority": 10,
+      "RestoreType": "AutoFinish",
+      "CanInterrupt": true,
+      "TutorialJsonPath": "Config/Level/Tutorial/Tutorial_46002.json",
+      "TriggerParams": [
+        {
+          "TriggerType": "ShowUIPage",
+          "TriggerParam": "PetMarbleMainPage"
+        }
+      ],
+      "FinishTriggerParams": []
+    },
+    {
+      "TutorialID": 46003,
+      "Priority": 10,
+      "RestoreType": "AutoFinish",
+      "CanInterrupt": true,
+      "TutorialJsonPath": "Config/Level/Tutorial/Tutorial_46003.json",
+      "TriggerParams": [
+        {
+          "TriggerType": "ShowUIPage",
+          "TriggerParam": "PetMarblePreparationPage"
+        }
+      ],
+      "FinishTriggerParams": []
+    },
+    {
+      "TutorialID": 10051,
+      "Priority": 10,
+      "RestoreType": "AutoFinish",
+      "CanInterrupt": true,
+      "TutorialJsonPath": "Config/Level/Tutorial/Tutorial_10051.json",
+      "TriggerParams": [
+        {
+          "TriggerType": "TaskUnlock",
+          "TriggerParam": "EnterGridFightS2MainPage"
+        }
+      ],
+      "FinishTriggerParams": []
+    },
+    {
+      "TutorialID": 10052,
+      "Priority": 10,
+      "RestoreType": "AutoFinish",
+      "CanInterrupt": true,
+      "TutorialJsonPath": "Config/Level/Tutorial/Tutorial_10052.json",
+      "TriggerParams": [
+        {
+          "TriggerType": "TaskUnlock",
+          "TriggerParam": "GridFightNewPlayerEnterDivisionStartDialog"
+        }
+      ],
+      "FinishTriggerParams": []
+    },
+    {
+      "TutorialID": 10053,
+      "Priority": 10,
+      "RestoreType": "AutoFinish",
+      "CanInterrupt": true,
+      "TutorialJsonPath": "Config/Level/Tutorial/Tutorial_10053.json",
+      "TriggerParams": [
+        {
+          "TriggerType": "ShowUIPage",
+          "TriggerParam": "GridFightPetpalRevealPage"
+        }
+      ],
+      "FinishTriggerParams": []
+    },
+    {
+      "TutorialID": 10054,
+      "Priority": 10,
+      "RestoreType": "AutoFinish",
+      "CanInterrupt": true,
+      "TutorialJsonPath": "Config/Level/Tutorial/Tutorial_10054.json",
+      "TriggerParams": [
+        {
+          "TriggerType": "ShowUIPage",
+          "TriggerParam": "GridFightPortalBuffSelectPage"
+        }
+      ],
+      "FinishTriggerParams": []
+    },
+    {
+      "TutorialID": 10055,
+      "Priority": 10,
+      "RestoreType": "AutoFinish",
+      "CanInterrupt": true,
+      "TutorialJsonPath": "Config/Level/Tutorial/Tutorial_10055.json",
+      "TriggerParams": [
+        {
+          "TriggerType": "ShowUIDialog",
+          "TriggerParam": "GridFightPetPalEffectRevealDialog"
+        }
+      ],
+      "FinishTriggerParams": []
+    },
+    {
+      "TutorialID": 10056,
+      "Priority": 10,
+      "RestoreType": "AutoFinish",
+      "CanInterrupt": true,
+      "TutorialJsonPath": "Config/Level/Tutorial/Tutorial_10056.json",
+      "TriggerParams": [],
+      "FinishTriggerParams": []
+    },
+    {
+      "TutorialID": 10057,
+      "Priority": 10,
+      "RestoreType": "AutoFinish",
+      "CanInterrupt": true,
+      "TutorialJsonPath": "Config/Level/Tutorial/Tutorial_10057.json",
+      "TriggerParams": [
+        {
+          "TriggerType": "ShowUIDialog",
+          "TriggerParam": "GridFightDraftDialog"
+        }
+      ],
+      "FinishTriggerParams": []
+    },
+    {
+      "TutorialID": 10058,
+      "Priority": 10,
+      "RestoreType": "AutoFinish",
+      "CanInterrupt": true,
+      "TutorialJsonPath": "Config/Level/Tutorial/Tutorial_10058.json",
+      "TriggerParams": [
+        {
+          "TriggerType": "ShowUIPage",
+          "TriggerParam": "GridFightPreparationPage"
+        },
+        {
+          "TriggerType": "TaskUnlock",
+          "TriggerParam": "GridFightEnterPreparationFinish_2_1_9"
+        }
+      ],
+      "FinishTriggerParams": []
+    },
+    {
+      "TutorialID": 10062,
+      "Priority": 10,
+      "RestoreType": "AutoFinish",
+      "CanInterrupt": true,
+      "TutorialJsonPath": "Config/Level/Tutorial/Tutorial_10062.json",
+      "TriggerParams": [
+        {
+          "TriggerType": "ShowUIPage",
+          "TriggerParam": "GridFightPreparationPage"
+        },
+        {
+          "TriggerType": "TaskUnlock",
+          "TriggerParam": "EnterGridFightS2MainCharacterSelectDialog"
+        }
+      ],
+      "FinishTriggerParams": []
+    },
+    {
+      "TutorialID": 10063,
+      "Priority": 10,
+      "RestoreType": "AutoFinish",
+      "CanInterrupt": true,
+      "TutorialJsonPath": "Config/Level/Tutorial/Tutorial_10063.json",
+      "TriggerParams": [
+        {
+          "TriggerType": "ShowUIPage",
+          "TriggerParam": "GridFightPreparationPage"
+        },
+        {
+          "TriggerType": "TaskUnlock",
+          "TriggerParam": "GridFightSpotLightSelectPanelShown"
+        }
+      ],
+      "FinishTriggerParams": []
+    },
+    {
+      "TutorialID": 10059,
+      "Priority": 10,
+      "RestoreType": "AutoFinish",
+      "CanInterrupt": true,
+      "TutorialJsonPath": "Config/Level/Tutorial/Tutorial_10059.json",
+      "TriggerParams": [
+        {
+          "TriggerType": "TaskUnlock",
+          "TriggerParam": "GridFightOldPlayerEnterDivisionUpDialog"
+        }
+      ],
+      "FinishTriggerParams": []
+    },
+    {
+      "TutorialID": 10060,
+      "Priority": 10,
+      "RestoreType": "AutoFinish",
+      "CanInterrupt": true,
+      "TutorialJsonPath": "Config/Level/Tutorial/Tutorial_10060.json",
+      "TriggerParams": [
+        {
+          "TriggerType": "ShowUIDialog",
+          "TriggerParam": "GridFightBonfireDialog"
+        }
+      ],
+      "FinishTriggerParams": []
+    },
+    {
+      "TutorialID": 10064,
+      "Priority": 10,
+      "RestoreType": "AutoFinish",
+      "CanInterrupt": true,
+      "TutorialJsonPath": "Config/Level/Tutorial/Tutorial_10064.json",
+      "TriggerParams": [
+        {
+          "TriggerType": "ShowUIDialog",
+          "TriggerParam": "GridFightBonfireDialog"
+        },
+        {
+          "TriggerType": "TaskUnlock",
+          "TriggerParam": "GridFightEnterBonfireDialogTakeReward"
+        }
+      ],
+      "FinishTriggerParams": []
+    },
+    {
+      "TutorialID": 10061,
+      "Priority": 10,
+      "RestoreType": "AutoFinish",
+      "CanInterrupt": true,
+      "TutorialJsonPath": "Config/Level/Tutorial/Tutorial_10061.json",
+      "TriggerParams": [
+        {
+          "TriggerType": "ShowUIPage",
+          "TriggerParam": "GridFightPreparationPage"
+        },
+        {
+          "TriggerType": "TaskUnlock",
+          "TriggerParam": "GridFightGotSpotLightReplaceCnt"
+        }
+      ],
+      "FinishTriggerParams": []
+    },
+    {
+      "TutorialID": 10065,
+      "Priority": 10,
+      "RestoreType": "AutoFinish",
+      "CanInterrupt": true,
+      "TutorialJsonPath": "Config/Level/Tutorial/Tutorial_10065.json",
+      "TriggerParams": [
+        {
+          "TriggerType": "ShowUIPage",
+          "TriggerParam": "GridFightS2EntrancePage"
+        },
+        {
+          "TriggerType": "FinishMainMission",
+          "TriggerParam": "8047206"
+        }
+      ],
+      "FinishTriggerParams": []
     }
   ]
 }
