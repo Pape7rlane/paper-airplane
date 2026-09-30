@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - robinsr
+      - robinsr-android
   workflow_dispatch:
 
 permissions:
@@ -35,6 +36,22 @@ jobs:
           CARGO_TARGET_X86_64_PC_WINDOWS_GNU_LINKER: x86_64-w64-mingw32-gcc
         run: cargo build --release --target x86_64-pc-windows-gnu --bin gameserver --bin sdkserver
 
+      - name: Build static Linux ARM64 binaries
+        env:
+          CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER: aarch64-linux-gnu-gcc
+          RUSTFLAGS: "-C target-feature=+crt-static"
+        run: |
+          set -euo pipefail
+          rustup target add aarch64-unknown-linux-gnu
+          cargo build --release \
+            --target aarch64-unknown-linux-gnu \
+            --bin gameserver \
+            --bin sdkserver
+          file target/aarch64-unknown-linux-gnu/release/gameserver
+          file target/aarch64-unknown-linux-gnu/release/sdkserver
+          ! ldd target/aarch64-unknown-linux-gnu/release/gameserver
+          ! ldd target/aarch64-unknown-linux-gnu/release/sdkserver
+
       - name: Package prebuilt release
         run: |
           set -euo pipefail
@@ -63,11 +80,25 @@ jobs:
 
           unzip -l prebuilt-win64.zip
 
+          rm -rf dist-arm64
+          mkdir -p dist-arm64
+          cp target/aarch64-unknown-linux-gnu/release/gameserver dist-arm64/gameserver
+          cp target/aarch64-unknown-linux-gnu/release/sdkserver dist-arm64/sdkserver
+          cp persistent res.json freesr-data.json versions.json dist-arm64/
+          (
+            cd dist-arm64
+            zip -9 -q ../prebuilt-linux-arm64-static.zip \
+              gameserver sdkserver persistent res.json freesr-data.json versions.json
+          )
+          unzip -l prebuilt-linux-arm64-static.zip
+
       - name: Publish prebuilt release
         uses: actions/upload-artifact@v4
         with:
-          name: prebuilt-win64
-          path: prebuilt-win64.zip
+          name: prebuilt-binaries
+          path: |
+            prebuilt-win64.zip
+            prebuilt-linux-arm64-static.zip
 
       - name: Publish GitHub release asset
         if: startsWith(github.ref, 'refs/tags/')
