@@ -1,6 +1,9 @@
 name: Android ARM64 APK
 
 on:
+  push:
+    branches:
+      - robinsr-android
   workflow_dispatch:
     inputs:
       publish_release:
@@ -119,6 +122,14 @@ jobs:
           fi
 
           echo "Android project OK"
+
+      - name: Install Rust build dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends protobuf-compiler
+          protoc --version
 
       - name: Build RobinSR Android servers
         uses: dtolnay/rust-toolchain@stable
