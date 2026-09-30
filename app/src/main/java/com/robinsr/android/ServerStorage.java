@@ -1,4 +1,4 @@
-package com.reversedrooms.pearlserver;
+package com.robinsr.android;
 
 import android.Manifest;
 import android.content.Context;
@@ -16,7 +16,7 @@ import java.nio.file.StandardCopyOption;
 
 /** Shared paths for the native servers and SRTools downloads. */
 final class ServerStorage {
-    static final String SERVER_FOLDER = "Pearl SR";
+    static final String SERVER_FOLDER = "RobinSR";
     static final String TOOLS_FOLDER = "Strools";
 
     private ServerStorage() { }

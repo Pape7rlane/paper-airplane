@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">pearl-sr-4.6.51 Server</string>
-    <string name="home_title">Pearl SR</string>
+    <string name="app_name">RobinSR 4.6.51</string>
+    <string name="home_title">RobinSR</string>
     <string name="home_subtitle">本地服务控制台</string>
     <string name="server_status_label">SERVER STATUS</string>
     <string name="server_stopped">服务器已停止</string>
@@ -24,5 +24,5 @@
     <string name="srtools_enable">开启功能</string>
     <string name="srtools_enable_short">开启</string>
     <string name="about_title">关于</string>
-    <string name="about_project">Pearl-SR-Android\n由 RR 的 Pearl-SR 改编而成\n原项目： https://git.xeondev.com/HonkaiSlopRail/pearl-sr.git</string>
+    <string name="about_project">RobinSR Android 4.6.51\nAndroid 客户端与 RobinSR 服务端\n原项目： https://git.neonteam.dev/amizing/robinsr.git</string>
 </resources>

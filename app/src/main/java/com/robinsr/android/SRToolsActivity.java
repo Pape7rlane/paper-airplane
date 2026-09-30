@@ -1,4 +1,4 @@
-package com.reversedrooms.pearlserver;
+package com.robinsr.android;
 
 import android.Manifest;
 import android.app.Activity;

@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.reversedrooms.pearlserver'
+    namespace 'com.robinsr.android'
     compileSdk 34
 
     defaultConfig {
-        applicationId 'com.reversedrooms.pearlserver'
+        applicationId 'com.robinsr.android'
         minSdk 26
         targetSdk 34
         versionCode 4651

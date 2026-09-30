@@ -1,4 +1,4 @@
-package com.reversedrooms.pearlserver;
+package com.robinsr.android;
 
 import android.Manifest;
 import android.app.Activity;
@@ -15,6 +15,9 @@ import android.os.PowerManager;
 import android.provider.Settings;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.Toast;
 import android.text.method.LinkMovementMethod;
 import android.text.Html;
@@ -54,6 +57,11 @@ public class MainActivity extends Activity {
 
     private Process dispatchProcess;
     private Process gameProcess;
+    private AlertDialog logDialog;
+    private TextView logView;
+    private final Object logLock = new Object();
+    private final StringBuilder logBuffer = new StringBuilder();
+    private static final int MAX_LOG_CHARS = 24000;
 
     private File serverDir;
 
@@ -135,6 +143,10 @@ public class MainActivity extends Activity {
         View settingsButton = findViewById(R.id.settingsButton);
         if (settingsButton != null) {
             settingsButton.setOnClickListener(v -> showSettingsDialog());
+        }
+        View logButton = findViewById(R.id.logButton);
+        if (logButton != null) {
+            logButton.setOnClickListener(v -> showLogDialog());
         }
 
         /*
@@ -665,8 +677,9 @@ public class MainActivity extends Activity {
                         )
                                 .directory(serverDir)
                                 .redirectErrorStream(true)
-                                .redirectOutput(new File("/dev/null"))
                                 .start();
+                appendLog("[SDK Server] started");
+                watchProcessOutput("SDK Server", dispatchProcess);
 
 
                 Thread.sleep(800);
@@ -686,8 +699,9 @@ public class MainActivity extends Activity {
                             )
                                     .directory(serverDir)
                                     .redirectErrorStream(true)
-                                .redirectOutput(new File("/dev/null"))
                                     .start();
+                    appendLog("[GameServer] started");
+                    watchProcessOutput("GameServer", gameProcess);
 
 
                     statusText(
@@ -718,6 +732,8 @@ public class MainActivity extends Activity {
 
             } catch (Exception e) {
 
+                appendLog("[启动失败] " + e);
+
                 serverRunning = false;
 
                 startButtonRunning(false);
@@ -743,16 +759,14 @@ public class MainActivity extends Activity {
     private synchronized void stopServers() {
 
         if (gameProcess != null) {
-
-
+            appendLog("[GameServer] stopping");
             gameProcess.destroy();
 
             gameProcess = null;
         }
 
         if (dispatchProcess != null) {
-
-
+            appendLog("[SDK Server] stopping");
             dispatchProcess.destroy();
 
             dispatchProcess = null;
@@ -776,6 +790,90 @@ public class MainActivity extends Activity {
 
         return p != null
                 && p.isAlive();
+    }
+
+    private void watchProcessOutput(String name, Process process) {
+        io.execute(() -> {
+            try (BufferedReader reader = new BufferedReader(
+                    new InputStreamReader(process.getInputStream()))) {
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    appendLog("[" + name + "] " + line);
+                }
+            } catch (IOException e) {
+                appendLog("[" + name + "] log reader stopped: " + e.getMessage());
+            }
+        });
+    }
+
+    private void appendLog(String line) {
+        String entry = line + "\n";
+        synchronized (logLock) {
+            logBuffer.append(entry);
+            if (logBuffer.length() > MAX_LOG_CHARS) {
+                logBuffer.delete(0, logBuffer.length() - MAX_LOG_CHARS);
+            }
+        }
+        main.post(() -> {
+            if (logView != null) {
+                synchronized (logLock) {
+                    logView.setText(logBuffer.toString());
+                }
+                logView.post(() -> {
+                    if (logView.getLayout() != null) {
+                        logView.scrollTo(0, logView.getLayout().getLineTop(logView.getLineCount()));
+                    }
+                });
+            }
+        });
+    }
+
+    private void showLogDialog() {
+        if (logDialog != null && logDialog.isShowing()) {
+            return;
+        }
+
+        LinearLayout content = new LinearLayout(this);
+        content.setOrientation(LinearLayout.VERTICAL);
+        content.setPadding(24, 8, 24, 8);
+
+        ScrollView scroll = new ScrollView(this);
+        logView = new TextView(this);
+        logView.setTextColor(getResources().getColor(R.color.text_primary));
+        logView.setTextSize(12);
+        logView.setTypeface(android.graphics.Typeface.MONOSPACE);
+        logView.setTextIsSelectable(true);
+        synchronized (logLock) {
+            logView.setText(logBuffer.length() == 0 ? "暂无日志" : logBuffer.toString());
+        }
+        scroll.addView(logView, new ScrollView.LayoutParams(
+                ScrollView.LayoutParams.MATCH_PARENT,
+                ScrollView.LayoutParams.WRAP_CONTENT));
+        content.addView(scroll, new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, 0, 1));
+
+        Button close = new Button(this);
+        close.setText("关闭");
+        close.setOnClickListener(v -> {
+            if (logDialog != null) {
+                logDialog.dismiss();
+            }
+        });
+        content.addView(close, new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT));
+
+        logDialog = new AlertDialog.Builder(this)
+                .setTitle("实时日志")
+                .setView(content)
+                .create();
+        logDialog.setOnDismissListener(dialog -> logView = null);
+        logDialog.show();
+        if (logDialog.getWindow() != null) {
+            logDialog.getWindow().setLayout(
+                    (int) (getResources().getDisplayMetrics().widthPixels * 0.94f),
+                    (int) (getResources().getDisplayMetrics().heightPixels * 0.72f));
+        }
     }
 
 
