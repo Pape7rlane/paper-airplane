@@ -1,0 +1,32 @@
+[package]
+name = "sdkserver"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+# Framework
+tokio.workspace = true
+tower-http = { workspace = true, features = ["cors"] }
+axum.workspace = true
+axum-server.workspace = true
+reqwest.workspace = true
+
+# JSON
+serde.workspace = true
+serde_json.workspace = true
+
+# Logging
+tracing.workspace = true
+ansi_term.workspace = true
+env_logger.workspace = true
+
+# Encoding / Serialization
+prost.workspace = true
+rbase64.workspace = true
+
+# Error handling
+anyhow.workspace = true
+
+# Local
+common.workspace = true
+proto.workspace = true

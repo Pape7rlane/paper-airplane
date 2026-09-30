@@ -52,7 +52,7 @@ android {
     packagingOptions {
         jniLibs {
             keepDebugSymbols += [
-                '**/libdispatch.so',
+                '**/libsdkserver.so',
                 '**/libgameserver.so'
             ]
         }

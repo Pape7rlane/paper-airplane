@@ -1,0 +1,6 @@
+target/
+Cargo.lock
+/prebuild
+/assets
+.vscode
+.prebuilt

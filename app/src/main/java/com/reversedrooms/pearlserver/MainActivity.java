@@ -577,7 +577,7 @@ public class MainActivity extends Activity {
         io.execute(() -> {
             try {
                 File preparedDirectory = ServerStorage.prepare(this);
-                setExecutable(new File(nativePath("libdispatch.so")));
+                setExecutable(new File(nativePath("libsdkserver.so")));
                 setExecutable(new File(nativePath("libgameserver.so")));
                 main.post(() -> {
                     storagePreparing = false;
@@ -633,9 +633,9 @@ public class MainActivity extends Activity {
             return;
         }
 
-        final String dispatch =
+        final String sdkserver =
                 nativePath(
-                        "libdispatch.so"
+                        "libsdkserver.so"
                 );
 
         final String gameserver =
@@ -650,7 +650,7 @@ public class MainActivity extends Activity {
                 serverRunning = true;
 
                 statusText(
-                        "正在启动 Dispatch..."
+                        "正在启动 SDK Server..."
                 );
 
                 startButtonRunning(true);
@@ -661,7 +661,7 @@ public class MainActivity extends Activity {
 
                 dispatchProcess =
                         new ProcessBuilder(
-                                dispatch
+                                sdkserver
                         )
                                 .directory(serverDir)
                                 .redirectErrorStream(true)
@@ -677,7 +677,7 @@ public class MainActivity extends Activity {
                 ) {
 
                     statusText(
-                            "Dispatch 已启动，正在启动 GameServer..."
+                        "SDK Server 已启动，正在启动 GameServer..."
                     );
 
                     gameProcess =

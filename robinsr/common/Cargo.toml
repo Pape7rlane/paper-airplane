@@ -1,0 +1,12 @@
+[package]
+name = "common"
+edition = "2024"
+version.workspace = true
+
+[dependencies]
+proto.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+tokio.workspace = true
+tracing.workspace = true
+anyhow.workspace = true

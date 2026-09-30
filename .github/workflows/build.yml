@@ -87,6 +87,7 @@ jobs:
           "$SDKMANAGER" "platform-tools"
           "$SDKMANAGER" "platforms;android-34"
           "$SDKMANAGER" "build-tools;34.0.0"
+          "$SDKMANAGER" "ndk;26.3.11579264"
 
           echo "Android SDK installation completed"
 
@@ -98,6 +99,7 @@ jobs:
           test -d "$ANDROID_SDK_ROOT/platform-tools"
           test -d "$ANDROID_SDK_ROOT/platforms/android-34"
           test -d "$ANDROID_SDK_ROOT/build-tools/34.0.0"
+          test -d "$ANDROID_SDK_ROOT/ndk/26.3.11579264"
 
           echo "Android SDK OK"
 
@@ -118,16 +120,37 @@ jobs:
 
           echo "Android project OK"
 
+      - name: Build RobinSR Android servers
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: aarch64-linux-android
+
+      - name: Compile RobinSR for ARM64
+        shell: bash
+        run: |
+          set -euo pipefail
+          export ANDROID_NDK_HOME="$ANDROID_SDK_ROOT/ndk/26.3.11579264"
+          export PATH="$ANDROID_NDK_HOME/toolchains/llvm/prebuilt/linux-x86_64/bin:$PATH"
+          cargo install cargo-ndk --locked
+          cd robinsr
+          cargo ndk -t arm64-v8a build --release --bin gameserver --bin sdkserver
+          cd ..
+          mkdir -p app/src/main/jniLibs/arm64-v8a app/src/main/assets/server
+          cp robinsr/target/aarch64-linux-android/release/sdkserver app/src/main/jniLibs/arm64-v8a/libsdkserver.so
+          cp robinsr/target/aarch64-linux-android/release/gameserver app/src/main/jniLibs/arm64-v8a/libgameserver.so
+          rm -rf app/src/main/assets/server/*
+          cp robinsr/freesr-data.json robinsr/persistent robinsr/res.json robinsr/versions.json app/src/main/assets/server/
+
       - name: Check ARM64 libraries
         shell: bash
         run: |
           set -e
 
-          DISPATCH="app/src/main/jniLibs/arm64-v8a/libdispatch.so"
+          SDKSERVER="app/src/main/jniLibs/arm64-v8a/libsdkserver.so"
           GAMESERVER="app/src/main/jniLibs/arm64-v8a/libgameserver.so"
 
-          if [ ! -f "$DISPATCH" ]; then
-            echo "libdispatch.so not found"
+          if [ ! -f "$SDKSERVER" ]; then
+            echo "libsdkserver.so not found"
             exit 1
           fi
 
@@ -136,8 +159,8 @@ jobs:
             exit 1
           fi
 
-          echo "libdispatch.so:"
-          file "$DISPATCH"
+          echo "libsdkserver.so:"
+          file "$SDKSERVER"
 
           echo "libgameserver.so:"
           file "$GAMESERVER"
@@ -252,11 +275,13 @@ jobs:
 
           apk = Path(os.environ["FINAL_APK"])
           required = {
-              "lib/arm64-v8a/libdispatch.so",
+              "lib/arm64-v8a/libsdkserver.so",
               "lib/arm64-v8a/libgameserver.so",
               "assets/srtools-sync.js",
               "assets/server/freesr-data.json",
-              "assets/server/hotfix.json",
+              "assets/server/persistent",
+              "assets/server/res.json",
+              "assets/server/versions.json",
           }
           assets = Path("app/src/main/assets")
           required.update("assets/" + path.relative_to(assets).as_posix()

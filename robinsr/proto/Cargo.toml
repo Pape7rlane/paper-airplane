@@ -1,0 +1,12 @@
+[package]
+name = "proto"
+edition = "2024"
+version.workspace = true
+
+[dependencies]
+prost.workspace = true
+prost-types.workspace = true
+proto-derive.workspace = true
+
+[build-dependencies]
+prost-build.workspace = true

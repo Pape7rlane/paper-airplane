@@ -1,0 +1,70 @@
+[workspace]
+members = ["gameserver", "proto", "sdkserver", "common"]
+resolver = "3"
+
+[workspace.package]
+version = "0.1.0"
+
+[workspace.dependencies]
+# Framework
+tokio = { version = "1.52.1", features = ["full"] }
+axum = "0.8.9"
+axum-server = "0.8.0"
+tower-http = "0.6.8"
+reqwest = { version = "0.13.3", default-features = false, features = [
+	"json",
+	"multipart",
+	"cookies",
+	"gzip",
+	"brotli",
+	"deflate",
+	"rustls",
+	"charset",
+	"http2",
+	"system-proxy",
+] }
+
+# JSON 
+serde = { version = "1.0.228", features = ["derive"] }
+serde_json = "1.0.149"
+
+# Logging
+tracing = "0.1.44"
+ansi_term = "0.12.1"
+env_logger = "0.11.10"
+
+# Cryptography
+rsa = { version = "0.9.10", features = [
+	"sha1",
+	"nightly",
+	"pkcs5",
+	"serde",
+	"sha2",
+] }
+rand = "0.10.1"
+
+# Serialization
+prost = "0.14.3"
+prost-types = "0.14.3"
+prost-build = "0.14.3"
+rbase64 = "2.0.3"
+
+# Utilities
+paste = "1.0.15"
+notify = "8.2.0"
+notify-debouncer-mini = "0.7.0"
+anyhow = "1.0.102"
+
+# Local
+proto = { path = "proto/" }
+proto-derive = { path = "proto/proto-derive" }
+mhy-kcp = { path = "kcp/", features = ["tokio"] }
+common = { path = "common/" }
+sdkserver = { path = "sdkserver/" }
+gameserver = { path = "gameserver/" }
+
+[profile.release]
+opt-level = "z"   # Optimize for size.
+strip = true      # Automatically strip symbols from the binary.
+lto = true
+codegen-units = 1

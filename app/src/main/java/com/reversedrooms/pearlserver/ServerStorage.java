@@ -64,7 +64,9 @@ final class ServerStorage {
 
         // Keep the previous installation's editable data when moving to Downloads.
         File legacy = new File(context.getFilesDir(), "4.6.51");
-        for (String name : new String[]{"freesr-data.json", "hotfix.json"}) {
+        for (String name : new String[]{
+                "freesr-data.json", "persistent", "res.json", "versions.json"
+        }) {
             File target = new File(directory, name);
             File source = new File(legacy, name);
             if (!target.exists() && source.isFile()) {
