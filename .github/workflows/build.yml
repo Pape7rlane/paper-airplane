@@ -267,7 +267,30 @@ jobs:
 
           mkdir -p artifact
 
-          cp "$APK" artifact/PearlSR-server-arm64.apk
+          # assembleRelease is unsigned in this project. Android refuses to
+          # install an unsigned APK, so create a reproducible CI signing key
+          # and sign the aligned artifact before publishing it.
+          KEYSTORE="$RUNNER_TEMP/pearl-debug.keystore"
+          ALIGNED="$RUNNER_TEMP/pearl-aligned.apk"
+          keytool -genkeypair \
+            -keystore "$KEYSTORE" \
+            -storepass android \
+            -keypass android \
+            -alias androiddebugkey \
+            -keyalg RSA \
+            -keysize 2048 \
+            -validity 10000 \
+            -dname "CN=Android Debug,O=Android,C=US"
+
+          "$ANDROID_SDK_ROOT/build-tools/34.0.0/zipalign" -f 4 "$APK" "$ALIGNED"
+          "$ANDROID_SDK_ROOT/build-tools/34.0.0/apksigner" sign \
+            --ks "$KEYSTORE" \
+            --ks-pass pass:android \
+            --key-pass pass:android \
+            --out artifact/PearlSR-server-arm64.apk \
+            "$ALIGNED"
+          "$ANDROID_SDK_ROOT/build-tools/34.0.0/apksigner" verify --verbose \
+            artifact/PearlSR-server-arm64.apk
 
           echo "FINAL_APK=artifact/PearlSR-server-arm64.apk" >> "$GITHUB_ENV"
 
