@@ -555,7 +555,7 @@ public class MainActivity extends Activity {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
                     new AlertDialog.Builder(this)
                             .setTitle("允许访问服务端文件")
-                            .setMessage("服务端需要读写 Download/Pearl SR 中的资源和同步数据。"
+                            .setMessage("服务端需要读写 Download/RobinSR 中的资源和同步数据。"
                                     + "请在系统设置中允许本应用访问所有文件。")
                             .setNegativeButton("取消", null)
                             .setPositiveButton("去授权", (dialog, which) -> {
@@ -927,7 +927,7 @@ public class MainActivity extends Activity {
 
                 connection.setRequestProperty(
                         "User-Agent",
-                        "PearlSR-Android-Updater"
+                        "RobinSR-Android-Updater"
                 );
 
                 connection.setRequestProperty(
@@ -1422,7 +1422,7 @@ public class MainActivity extends Activity {
 
                 connection.setRequestProperty(
                         "User-Agent",
-                        "PearlSR-Android-Updater"
+                        "RobinSR-Android-Updater"
                 );
 
                 if (assetApi) {

@@ -1651,7 +1651,7 @@ public class SRToolsActivity extends Activity {
             );
 
             request.setDescription(
-                    "Pearl SR 下载"
+                    "RobinSR 下载"
             );
 
             request.setNotificationVisibility(
@@ -1751,7 +1751,7 @@ public class SRToolsActivity extends Activity {
             );
 
             request.setDescription(
-                    "Pearl SR 下载"
+                    "RobinSR 下载"
             );
 
             request.setNotificationVisibility(
