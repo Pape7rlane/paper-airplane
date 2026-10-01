@@ -9,7 +9,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    android:background="@color/app_background"
+    android:background="@color/srtools_background"
 
     tools:context=".SRToolsActivity">
 
@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 
-        android:background="@color/app_background"
+        android:background="@color/srtools_background"
 
         android:overScrollMode="never"
 
@@ -69,7 +69,7 @@
             android:layout_height="48dp"
             android:gravity="center"
             android:text="⋮⋮"
-            android:textColor="@color/text_secondary"
+            android:textColor="@color/srtools_text_secondary"
             android:textSize="14sp"
             android:contentDescription="@string/srtools_drag" />
 
@@ -82,7 +82,7 @@
             android:minHeight="0dp"
             android:padding="0dp"
             android:text="@string/srtools_orientation_portrait"
-            android:textColor="@color/text_primary"
+            android:textColor="@color/srtools_text"
             android:textSize="14sp"
             android:textStyle="bold"
             android:contentDescription="@string/srtools_toggle_orientation" />
@@ -97,7 +97,7 @@
             android:minHeight="0dp"
             android:padding="0dp"
             android:text="@string/srtools_reload_short"
-            android:textColor="@color/text_primary"
+            android:textColor="@color/srtools_text"
             android:textSize="23sp"
             android:contentDescription="@string/srtools_reload" />
 
@@ -111,7 +111,7 @@
             android:minHeight="0dp"
             android:padding="0dp"
             android:text="@string/srtools_close_short"
-            android:textColor="@color/text_primary"
+            android:textColor="@color/srtools_text"
             android:textSize="25sp"
             android:contentDescription="@string/srtools_close" />
 
@@ -125,7 +125,7 @@
             android:minHeight="0dp"
             android:padding="0dp"
             android:text="@string/srtools_hide_short"
-            android:textColor="@color/text_primary"
+            android:textColor="@color/srtools_text"
             android:textSize="22sp"
             android:contentDescription="@string/srtools_hide" />
     </LinearLayout>
