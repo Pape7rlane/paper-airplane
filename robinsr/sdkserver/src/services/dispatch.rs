@@ -46,14 +46,20 @@ pub async fn query_gateway(
     let config = lock
         .get_or_insert_hotfix(&parameters.version, &parameters.dispatch_seed)
         .await;
+    let asset_bundle_url_b = if config.asset_bundle_url_b.is_empty() {
+        config.asset_bundle_url.clone()
+    } else {
+        config.asset_bundle_url_b.clone()
+    };
 
     let rsp = GateServer {
         ip: String::from("127.0.0.1"),
         port: 23301,
         asset_bundle_url: config.asset_bundle_url.clone(),
-        asset_bundle_url_b: config.asset_bundle_url.clone(),
+        asset_bundle_url_b,
         ex_resource_url: config.ex_resource_url.clone(),
         lua_url: config.lua_url.clone(),
+        ifix_url: config.ifix_url.clone(),
         ifix_version: String::from("0"),
         unk1: true,
         unk2: true,
