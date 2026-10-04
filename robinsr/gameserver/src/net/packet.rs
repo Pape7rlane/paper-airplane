@@ -411,6 +411,8 @@ trait_handler! {
     PlayerGetToken;
     PlayerLogin;
     GetMissionStatus;
+    GetMainMissionCustomValue;
+    UpdateTrackMainMission;
     GetBasicInfo;
     GetAvatarData;
     GetAllLineupData;

@@ -18,7 +18,7 @@ import java.nio.file.StandardCopyOption;
 final class ServerStorage {
     static final String SERVER_FOLDER = "RobinSR";
     static final String TOOLS_FOLDER = "Strools";
-    private static final String PAYLOAD_VERSION = "4.6.51-dev-stable-45bbb73";
+    private static final String PAYLOAD_VERSION = "4.6.51-login-hotfix-1";
 
     private ServerStorage() { }
 

@@ -16,3 +16,20 @@ pub async fn on_get_mission_status_cs_req(
         })
         .collect();
 }
+
+pub async fn on_get_main_mission_custom_value_cs_req(
+    _session: &mut PlayerSession,
+    _body: &GetMainMissionCustomValueCsReq,
+    res: &mut GetMainMissionCustomValueScRsp,
+) {
+    res.retcode = 0;
+}
+
+pub async fn on_update_track_main_mission_cs_req(
+    _session: &mut PlayerSession,
+    body: &UpdateTrackMainMissionCsReq,
+    res: &mut UpdateTrackMainMissionScRsp,
+) {
+    res.retcode = 0;
+    res.track_mission_id = body.track_mission_id;
+}
