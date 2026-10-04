@@ -18,6 +18,7 @@ import java.nio.file.StandardCopyOption;
 final class ServerStorage {
     static final String SERVER_FOLDER = "RobinSR";
     static final String TOOLS_FOLDER = "Strools";
+    private static final String PAYLOAD_VERSION = "4.6.51-dev-stable-45bbb73";
 
     private ServerStorage() { }
 
@@ -62,11 +63,9 @@ final class ServerStorage {
         ensureDirectory(directory);
         ensureDirectory(new File(directory, TOOLS_FOLDER));
 
-        // Keep the previous installation's editable data when moving to Downloads.
+        // Keep user-edited data, but refresh versioned server resources on APK updates.
         File legacy = new File(context.getFilesDir(), "4.6.51");
-        for (String name : new String[]{
-                "freesr-data.json", "persistent", "res.json", "versions.json"
-        }) {
+        for (String name : new String[]{"freesr-data.json", "persistent"}) {
             File target = new File(directory, name);
             File source = new File(legacy, name);
             if (!target.exists() && source.isFile()) {
@@ -75,7 +74,17 @@ final class ServerStorage {
                 }
             }
         }
-        copyAssets(context, "server", directory);
+
+        File marker = new File(directory, ".payload-version");
+        String installed = marker.isFile()
+                ? new String(Files.readAllBytes(marker.toPath()), java.nio.charset.StandardCharsets.UTF_8)
+                : "";
+        boolean refreshPayload = !PAYLOAD_VERSION.equals(installed);
+        copyAssets(context, "server", directory, directory, refreshPayload);
+        if (refreshPayload) {
+            copyReplacing(new java.io.ByteArrayInputStream(
+                    PAYLOAD_VERSION.getBytes(java.nio.charset.StandardCharsets.UTF_8)), marker);
+        }
         return directory;
     }
 
@@ -85,17 +94,19 @@ final class ServerStorage {
         }
     }
 
-    private static void copyAssets(Context context, String assetPath, File target)
+    private static void copyAssets(Context context, String assetPath, File target,
+                                   File serverRoot, boolean refreshPayload)
             throws IOException {
         String[] children = context.getAssets().list(assetPath);
         if (children != null && children.length > 0) {
             ensureDirectory(target);
             for (String child : children) {
-                copyAssets(context, assetPath + "/" + child, new File(target, child));
+                copyAssets(context, assetPath + "/" + child, new File(target, child),
+                        serverRoot, refreshPayload);
             }
-        } else if (!target.exists()) {
+        } else if (!target.exists() || (refreshPayload && !isUserData(serverRoot, target))) {
             try (InputStream in = context.getAssets().open(assetPath)) {
-                copyMissing(in, target);
+                copyReplacing(in, target);
             }
         } else if (!target.isFile()) {
             throw new IOException("文件路径被目录占用: " + target);
@@ -119,5 +130,32 @@ final class ServerStorage {
         } finally {
             Files.deleteIfExists(temporary.toPath());
         }
+    }
+
+    private static void copyReplacing(InputStream in, File target) throws IOException {
+        File temporary = File.createTempFile(".robinsr-", ".part", target.getParentFile());
+        try {
+            try (FileOutputStream out = new FileOutputStream(temporary)) {
+                byte[] buffer = new byte[64 * 1024];
+                int count;
+                while ((count = in.read(buffer)) != -1) {
+                    out.write(buffer, 0, count);
+                }
+            }
+            try {
+                Files.move(temporary.toPath(), target.toPath(),
+                        StandardCopyOption.REPLACE_EXISTING, StandardCopyOption.ATOMIC_MOVE);
+            } catch (IOException atomicError) {
+                Files.move(temporary.toPath(), target.toPath(),
+                        StandardCopyOption.REPLACE_EXISTING);
+            }
+        } finally {
+            Files.deleteIfExists(temporary.toPath());
+        }
+    }
+
+    private static boolean isUserData(File serverRoot, File target) {
+        return target.equals(new File(serverRoot, "freesr-data.json"))
+                || target.equals(new File(serverRoot, "persistent"));
     }
 }

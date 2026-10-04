@@ -259,9 +259,9 @@ public class MainActivity extends Activity {
         int padding = (int) (24 * getResources().getDisplayMetrics().density);
         content.setPadding(padding, 0, padding, 0);
         content.setText(Html.fromHtml(
-                "Pearl-SR-Android<br>由 RR 的 Pearl-SR 改编而成<br>原项目：" +
-                        "<a href=\"https://git.xeondev.com/HonkaiSlopRail/pearl-sr.git\">" +
-                        "HonkaiSlopRail/pearl-sr</a>", Html.FROM_HTML_MODE_LEGACY));
+                "RobinSR Android 4.6.51<br>服务端基于 " +
+                        "<a href=\"https://github.com/CAtlas0784/hkrpg-ps/tree/dev-stable\">" +
+                        "CAtlas0784/hkrpg-ps dev-stable</a>", Html.FROM_HTML_MODE_LEGACY));
         content.setTextColor(getResources().getColor(R.color.text_secondary));
         content.setMovementMethod(LinkMovementMethod.getInstance());
         new AlertDialog.Builder(this)

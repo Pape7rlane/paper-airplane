@@ -1,0 +1,5 @@
+# Hoyo-hkrpg-PS Python Dependencies
+# (The game server and sdkserver run natively via run.bat and do not require Python or Rust.
+# Auxiliary Python tools or scripts installed via pip are tracked here.)
+
+requests>=2.31.0

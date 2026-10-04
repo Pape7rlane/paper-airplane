@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - robinsr-android
+      - robinsr-android4.6.51
   workflow_dispatch:
     inputs:
       publish_release:
@@ -132,7 +133,7 @@ jobs:
           protoc --version
 
       - name: Build RobinSR Android servers
-        uses: dtolnay/rust-toolchain@stable
+        uses: dtolnay/rust-toolchain@nightly
         with:
           targets: aarch64-linux-android
 
@@ -150,7 +151,7 @@ jobs:
           cp robinsr/target/aarch64-linux-android/release/sdkserver app/src/main/jniLibs/arm64-v8a/libsdkserver.so
           cp robinsr/target/aarch64-linux-android/release/gameserver app/src/main/jniLibs/arm64-v8a/libgameserver.so
           rm -rf app/src/main/assets/server/*
-          cp robinsr/freesr-data.json robinsr/persistent robinsr/res.json robinsr/versions.json app/src/main/assets/server/
+          cp robinsr/freesr-data.json robinsr/persistent robinsr/res.json robinsr/versions.json robinsr/challenge_data.json app/src/main/assets/server/
 
       - name: Check ARM64 libraries
         shell: bash
@@ -316,6 +317,7 @@ jobs:
               "assets/server/persistent",
               "assets/server/res.json",
               "assets/server/versions.json",
+              "assets/server/challenge_data.json",
           }
           assets = Path("app/src/main/assets")
           required.update("assets/" + path.relative_to(assets).as_posix()

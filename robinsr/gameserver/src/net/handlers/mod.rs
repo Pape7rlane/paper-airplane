@@ -1,6 +1,7 @@
 mod authentication;
 mod avatar;
 mod battle;
+pub mod challenge;
 mod chat;
 mod gacha;
 mod inventory;
@@ -20,6 +21,7 @@ use crate::net::NetPacket;
 pub use authentication::*;
 pub use avatar::*;
 pub use battle::*;
+pub use challenge::*;
 pub use chat::*;
 pub use gacha::*;
 pub use inventory::*;
@@ -86,15 +88,14 @@ dummy! {
     // PlayerReturnInfoQuery, // ?3.7.51
     // GetBag,
     GetPlayerBoardData,
-    GetActivityScheduleConfig,
+    // GetActivityScheduleConfig,
     GetMissionData,
-    GetChallenge,
-    GetCurChallenge,
+    // GetChallenge,
+    // GetCurChallenge,
     // GetRogueInfo, // ?3.7.51
     GetExpeditionData,
     // GetRogueDialogueEventData,
     GetJukeboxData,
-    SyncClientResVersion,
     // DailyFirstMeetPam, // ?3.7.51
     // GetMuseumInfo, // ?3.7.51
     GetLoginActivity,
@@ -107,10 +108,8 @@ dummy! {
     // GetChatFriendHistory,
     GetSecretKeyInfo,
     GetVideoVersionKey,
-    GetCurBattleInfo,
     GetPhoneData,
     // PlayerLoginFinish,
-    InteractProp,
     FinishTalkMission,
     GetRechargeGiftInfo,
     // RelicRecommend

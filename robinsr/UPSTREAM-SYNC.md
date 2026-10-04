@@ -1,15 +1,16 @@
 # Upstream Sync
 
-This repository is a GitHub mirror of `https://git.neonteam.dev/amizing/robinsr.git`.
-The mirror branch is `robinsr`; the upstream branch is `main`.
+The Android 4.6.51 server core is synchronized from
+`https://github.com/CAtlas0784/hkrpg-ps.git`, branch `dev-stable`.
+The imported upstream revision is `45bbb7375e9c6898beed6089499924fcbc427396`.
 
 ## Update procedure
 
 1. Add or update the upstream remote:
 
    ```sh
-   git remote add upstream https://git.neonteam.dev/amizing/robinsr.git
-   git fetch upstream main
+   git remote add upstream https://github.com/CAtlas0784/hkrpg-ps.git
+   git fetch upstream dev-stable
    ```
 
 2. Review the upstream commits and changes, especially `versions.json`,
@@ -24,10 +25,11 @@ The mirror branch is `robinsr`; the upstream branch is `main`.
    cargo build --release --bin gameserver --bin sdkserver
    ```
 
-4. Push the reviewed result to GitHub:
+4. Reapply the Android-specific localhost binding and verify
+   `challenge_data.json` is included in the APK assets, then push the reviewed result:
 
    ```sh
-   git push origin robinsr
+   git push origin robinsr-android4.6.51
    ```
 
 The GitHub workflow is `.github/workflows/prebuilt.yml`. It builds the Windows

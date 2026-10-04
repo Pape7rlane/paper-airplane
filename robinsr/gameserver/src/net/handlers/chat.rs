@@ -14,6 +14,10 @@ const SERVER_UID: u32 = 727;
 const SERVER_HEAD_ICON: u32 = 201402;
 const SERVER_CHAT_BUBBLE_ID: u32 = 220005;
 const SERVER_CHAT_HISTORY: &[&str] = &[
+    "'mode {aa/moc/pf/as/su/default}' set battle mode (Anomaly Arbitration, MoC, etc.)",
+    "'stage {stage_id}' set stage ID",
+    "'cycle {count}' set battle cycle limit",
+    "'status' view current battle mode and stage settings",
     "'lua {path_to_lua_script}' execute lua script",
     "'sw {on/off}' enable/disable silver wolf global buff",
     "'castorice {on/off}' enable/disable castorice global buff",
@@ -301,6 +305,110 @@ pub async fn on_send_msg_cs_req(
                     .await
                     .unwrap();
             }
+            "mode" | "battle" => {
+                let mode_str = args.first().unwrap_or(&"").to_lowercase();
+                let new_mode = match mode_str.as_str() {
+                    "aa" => Some(common::structs::BattleType::AA),
+                    "moc" => Some(common::structs::BattleType::Moc),
+                    "pf" => Some(common::structs::BattleType::PF),
+                    "as" => Some(common::structs::BattleType::AS),
+                    "su" => Some(common::structs::BattleType::SU),
+                    "default" => Some(common::structs::BattleType::Default),
+                    _ => None,
+                };
+
+                let response_msg = if let Some(mode) = new_mode {
+                    json.battle_config.battle_type = mode.clone();
+                    format!("Battle mode set to: {mode:?}")
+                } else {
+                    format!(
+                        "Current mode: {:?}. Available: aa, moc, pf, as, su, default",
+                        json.battle_config.battle_type
+                    )
+                };
+
+                session
+                    .send(create_send_message(
+                        25,
+                        SERVER_UID,
+                        body.message_datas
+                            .as_ref()
+                            .map(|v| v.message_type)
+                            .unwrap_or_default(),
+                        body.chat_type,
+                        response_msg,
+                    ))
+                    .await
+                    .unwrap();
+            }
+            "stage" => {
+                let response_msg =
+                    if let Some(Ok(stage_id)) = args.first().map(|s| s.parse::<u32>()) {
+                        json.battle_config.stage_id = stage_id;
+                        format!("Stage ID set to: {stage_id}")
+                    } else {
+                        format!("Current Stage ID: {}", json.battle_config.stage_id)
+                    };
+
+                session
+                    .send(create_send_message(
+                        25,
+                        SERVER_UID,
+                        body.message_datas
+                            .as_ref()
+                            .map(|v| v.message_type)
+                            .unwrap_or_default(),
+                        body.chat_type,
+                        response_msg,
+                    ))
+                    .await
+                    .unwrap();
+            }
+            "cycle" | "cycles" => {
+                let response_msg = if let Some(Ok(cycles)) = args.first().map(|s| s.parse::<u32>())
+                {
+                    json.battle_config.cycle_count = cycles;
+                    format!("Cycle limit set to: {cycles}")
+                } else {
+                    format!("Current Cycle limit: {}", json.battle_config.cycle_count)
+                };
+
+                session
+                    .send(create_send_message(
+                        25,
+                        SERVER_UID,
+                        body.message_datas
+                            .as_ref()
+                            .map(|v| v.message_type)
+                            .unwrap_or_default(),
+                        body.chat_type,
+                        response_msg,
+                    ))
+                    .await
+                    .unwrap();
+            }
+            "status" => {
+                let status_msg = format!(
+                    "Battle Status:\n- Mode: {:?}\n- Stage ID: {}\n- Cycles: {}",
+                    json.battle_config.battle_type,
+                    json.battle_config.stage_id,
+                    json.battle_config.cycle_count
+                );
+
+                session
+                    .send(create_send_message(
+                        25,
+                        SERVER_UID,
+                        body.message_datas
+                            .as_ref()
+                            .map(|v| v.message_type)
+                            .unwrap_or_default(),
+                        body.chat_type,
+                        status_msg,
+                    ))
+                    .await
+                    .unwrap();
+            }
             _ => {}
         }
     }
@@ -326,7 +434,7 @@ fn create_send_message(
     RevcMsgScNotify {
         chat_type,
         pffpfkoglpo: to,
-        recv_message_data: Some(ChatMessageData {
+        msg: Some(ChatMessageData {
             create_time: cur_timestamp_ms(),
             ckhpffenobe: Some(Eknabklpeel {
                 kpobmnlklok: 1,

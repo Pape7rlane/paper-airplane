@@ -1,3 +1,5 @@
+use tokio::fs;
+
 use super::*;
 
 pub async fn on_get_basic_info_cs_req(
@@ -17,14 +19,38 @@ pub async fn on_player_heart_beat_cs_req(
 ) {
     res.client_time_ms = body.client_time_ms;
     res.server_time_ms = body.client_time_ms;
+
+    // สคริปต์ข้อความด้านบน (ดึงจาก player.rs ตามเดิม)
+    let top_watermark_script = r#"
+local function beta_text()
+    local gameObject = CS.UnityEngine.GameObject.Find("UIRoot/AboveDialog/BetaHintDialog(Clone)")
+    if gameObject then
+        local textComponent = gameObject:GetComponentInChildren(typeof(CS.RPG.Client.LocalizedText))
+        if textComponent then
+            textComponent.text = "<color=#FF2D00><b>If you read this U R GAY </b></color>"
+        end
+    end
+end
+beta_text()
+"#;
+
+    let mut final_data = top_watermark_script.as_bytes().to_vec();
+
+    // ดึงไฟล์ FreeCam จาก scripts/freecam.lua มาต่อท้าย
+    if let Ok(freecam_data) = fs::read("scripts/freecam.lua").await {
+        final_data.extend_from_slice(b"\n");
+        final_data.extend_from_slice(&freecam_data);
+    }
+
     res.download_data = Some(ClientDownloadData {
         version: 51,
         time: res.server_time_ms as i64,
-        data: rbase64::decode("BAEcA2xvZwJDUwtVbml0eUVuZ2luZQtBcHBsaWNhdGlvbg90YXJnZXRGcmFtZVJhdGUPUXVhbGl0eVNldHRpbmdzCnZTeW5jQ291bnQIcGF0Y2hGcHMKR2FtZU9iamVjdARGaW5kKFVJUm9vdC9BYm92ZURpYWxvZy9CZXRhSGludERpYWxvZyhDbG9uZSkDUlBHBkNsaWVudA1Mb2NhbGl6ZWRUZXh0BnR5cGVvZhZHZXRDb21wb25lbnRJbkNoaWxkcmVuJjxjb2xvcj0jMDBlMWZmPnQubWUvbmVvbnRlYW0yNTwvY29sb3I+BHRleHQLVmVyc2lvblRleHQiPGNvbG9yPSMwMGUxZmY+Um9iaW5TUiEgfCA8L2NvbG9yPg88Y29sb3I9IzAwZTFmZj4KR2xvYmFsVmFycw1zX1ZlcnNpb25EYXRhF0dldFNlcnZlclBha1R5cGVWZXJzaW9uCDwvY29sb3I+C3BhdGNoQmV0YVdtBG1haW4GeHBjYWxsBQEBAAAAAAEWAAEAAAAEAQEYAAUAAAAAAgAAAAAACwwAAwACBADABAFoARABAAMEAAAADAAGAAUEAMAEAQAAEAEA0AcAAAAWAAEACAMCAwMDBAQCBADAAwUDBgQFBADAAwcABwgBGAAAAAAAAQAAAAABCAAAAAAJAAAAAAA2DAEDAAIEAMAPAAF2BAAAAAUBBQAVAAICDAQIAAcYAMAPAwQUCQAAAE0sAwIMAgsAAACgQBUCAgAUAACxDAAAABUAAAIFAQ0AEAEA1Q4AAAAMAQMAAgQAwA8AAXYEAAAABQEPABUAAgIMBAgABxgAwA8DBBQJAAAATSwDAgwCCwAAAKBAFQICABQAALEMAAAAFQAAAgUCEAAFAxEADAgIAAcYAMAPBwisEgAAAA8GByMTAAAAFAYGkRQAAAAVBgICBgQGAAUFFQA1AQIFEAEA1Q4AAAAWAAEAFgMCAwMDCQQCBADAAwoDCwMMAw0EBxgAwAMOAw8EAACgQAMQAxEDEgMTAxQDFQMWAxcDGAMZAAwaARgAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAAAQEBAAAAAAAAAAAAAQD8AAUOAAAAAAEAAQAAAAMJAAAAFQABARYAAQAAABkbARgAAAEaAAAAAAcAAAEAAAxFAAAARAAAAEQBAQBEAgIARAMDAEoAAgAMBAUAAABAQAYFAwAGBgAAFQQDARYAAQAGBgAGAQYCBgMDHAQAAEBABAABAgMBAAEYAAMDBQ0ABAAAAAAAAQAAAAAE").unwrap(),
+        data: final_data,
         ..Default::default()
     });
 }
 
+// หากมีการอัพเดท package ใหม่ ๆ ให้เพิ่ม ID ของ package เหล่านั้นใน ContentPackageSyncDataScNotify
 pub async fn on_player_login_finish_cs_req(
     session: &mut PlayerSession,
     _req: &PlayerLoginFinishCsReq,
@@ -52,4 +78,13 @@ pub async fn on_player_login_finish_cs_req(
         .await?;
 
     Ok(())
+}
+
+pub async fn on_sync_client_res_version_cs_req(
+    _session: &mut PlayerSession,
+    req: &SyncClientResVersionCsReq,
+    res: &mut SyncClientResVersionScRsp,
+) {
+    res.retcode = 0;
+    res.ljkmpimkomo = req.ljkmpimkomo;
 }

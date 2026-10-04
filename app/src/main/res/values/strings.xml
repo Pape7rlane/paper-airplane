@@ -24,5 +24,5 @@
     <string name="srtools_enable">开启功能</string>
     <string name="srtools_enable_short">开启</string>
     <string name="about_title">关于</string>
-    <string name="about_project">RobinSR Android 4.6.51\nAndroid 客户端与 RobinSR 服务端\n原项目： https://git.neonteam.dev/amizing/robinsr.git</string>
+    <string name="about_project">RobinSR Android 4.6.51\n服务端基于 CAtlas0784/hkrpg-ps dev-stable\n上游：horoyoi-san/Hoyo 与 reversedrooms/RobinSR</string>
 </resources>

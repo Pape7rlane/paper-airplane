@@ -2,13 +2,21 @@ use anyhow::Result;
 
 pub fn init_tracing() {
     #[cfg(target_os = "windows")]
-    ansi_term::enable_ansi_support().unwrap();
+    let _ = ansi_term::enable_ansi_support();
 
-    env_logger::init_from_env(env_logger::Env::new().default_filter_or("info"));
+    let _ = env_logger::Builder::from_env(env_logger::Env::new().default_filter_or("info"))
+        .target(env_logger::Target::Stdout)
+        .format_timestamp_secs()
+        .try_init();
 }
 
 #[tokio::main]
 async fn main() -> Result<()> {
     init_tracing();
+    println!("============================================================");
+    println!("  [Hoyo-hkrpg-PS] Gameserver (v4.6.51) - ONLINE");
+    println!("  Listening on UDP port 23301 (KCP Gateway)");
+    println!("  Ready for StarRail client connection...");
+    println!("============================================================");
     gameserver::start_gameserver().await
 }

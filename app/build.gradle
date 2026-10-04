@@ -10,7 +10,7 @@ android {
         applicationId 'com.robinsr.android'
         minSdk 26
         targetSdk 34
-        versionCode 4651
+        versionCode 4652
         versionName '4.6.51'
     }
 

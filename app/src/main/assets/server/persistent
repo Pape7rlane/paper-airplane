@@ -1,22 +1,22 @@
 {
   "lineups": {
-    "0": 1513,
-    "1": 1308,
-    "2": 1403,
-    "3": 1409
+    "0": 1501,
+    "1": 1502,
+    "2": 1503,
+    "3": 1506
   },
   "position": {
-    "x": 674182,
-    "y": 75562,
-    "z": -16482,
-    "rot_y": 204639
+    "x": -4030,
+    "y": 0,
+    "z": -13006,
+    "rot_y": 270000
   },
   "scene": {
-    "plane_id": 20511,
-    "floor_id": 20511001,
-    "entry_id": 2051101
+    "plane_id": 10000,
+    "floor_id": 10000000,
+    "entry_id": 100000104
   },
-  "main_character": "FemaleElation",
+  "main_character": "FemaleHarmony",
   "march_type": "MarchHunt",
   "enable_sw_global": true,
   "enable_castorice_global": true
