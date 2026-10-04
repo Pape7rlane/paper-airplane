@@ -12,3 +12,6 @@ ARM64, packages the 4.6.51 resources, builds the APK, and verifies its contents.
 
 This project includes GPLv3 server code. See `robinsr/LICENSE` and the upstream
 attribution in `robinsr/README.md`.
+
+Future server updates must follow the complete upstream replacement and Android
+reapplication checklist in [`robinsr/UPSTREAM-SYNC.md`](robinsr/UPSTREAM-SYNC.md).
