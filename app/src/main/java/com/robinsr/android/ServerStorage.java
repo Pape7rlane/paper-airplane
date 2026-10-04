@@ -115,7 +115,7 @@ final class ServerStorage {
 
     // Only publish a complete seed file; never overwrite an existing synced file.
     private static void copyMissing(InputStream in, File target) throws IOException {
-        File temporary = File.createTempFile(".pearl-", ".part", target.getParentFile());
+        File temporary = File.createTempFile(".robinsr-", ".part", target.getParentFile());
         try {
             try (FileOutputStream out = new FileOutputStream(temporary)) {
                 byte[] buffer = new byte[64 * 1024];

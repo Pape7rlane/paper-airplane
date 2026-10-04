@@ -1235,7 +1235,7 @@ public class MainActivity extends Activity {
         File apk =
                 new File(
                         updateDir,
-                        "pearl-sr-"
+                        "robinsr-"
                                 + latestVersion
                                 + "-update.apk"
                 );

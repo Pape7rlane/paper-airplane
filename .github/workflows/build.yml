@@ -271,8 +271,8 @@ jobs:
           # assembleRelease is unsigned in this project. Android refuses to
           # install an unsigned APK, so create a reproducible CI signing key
           # and sign the aligned artifact before publishing it.
-          KEYSTORE="$RUNNER_TEMP/pearl-debug.keystore"
-          ALIGNED="$RUNNER_TEMP/pearl-aligned.apk"
+          KEYSTORE="$RUNNER_TEMP/robinsr-debug.keystore"
+          ALIGNED="$RUNNER_TEMP/robinsr-aligned.apk"
           keytool -genkeypair \
             -keystore "$KEYSTORE" \
             -storepass android \
@@ -288,15 +288,15 @@ jobs:
             --ks "$KEYSTORE" \
             --ks-pass pass:android \
             --key-pass pass:android \
-            --out artifact/PearlSR-server-arm64.apk \
+            --out artifact/RobinSR-4.6.51-arm64.apk \
             "$ALIGNED"
           "$ANDROID_SDK_ROOT/build-tools/34.0.0/apksigner" verify --verbose \
-            artifact/PearlSR-server-arm64.apk
+            artifact/RobinSR-4.6.51-arm64.apk
 
-          echo "FINAL_APK=artifact/PearlSR-server-arm64.apk" >> "$GITHUB_ENV"
+          echo "FINAL_APK=artifact/RobinSR-4.6.51-arm64.apk" >> "$GITHUB_ENV"
 
           echo "APK:"
-          ls -lh artifact/PearlSR-server-arm64.apk
+          ls -lh artifact/RobinSR-4.6.51-arm64.apk
 
       - name: Verify APK contents
         shell: bash
@@ -340,8 +340,8 @@ jobs:
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: PearlSR-server-arm64
-          path: artifact/PearlSR-server-arm64.apk
+          name: RobinSR-4.6.51-arm64
+          path: artifact/RobinSR-4.6.51-arm64.apk
           if-no-files-found: error
           retention-days: 14
 
