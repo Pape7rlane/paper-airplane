@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">pearl-sr-4.6.51 Server</string>
+    <string name="app_name">Pearl SR</string>
     <string name="home_title">Pearl SR</string>
     <string name="home_subtitle">本地服务控制台</string>
     <string name="server_status_label">SERVER STATUS</string>

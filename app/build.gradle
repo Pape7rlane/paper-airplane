@@ -10,8 +10,8 @@ android {
         applicationId 'com.reversedrooms.pearlserver'
         minSdk 26
         targetSdk 34
-        versionCode 4651
-        versionName '4.6.51'
+        versionCode 4653
+        versionName '4.6.53'
     }
 
     // 开启 BuildConfig，供 MainActivity 获取当前版本号

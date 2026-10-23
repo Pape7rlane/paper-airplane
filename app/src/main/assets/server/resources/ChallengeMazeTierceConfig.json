@@ -1036,9 +1036,9 @@
     {
       "ID": 20275,
       "PreChallengeMazeID": 20274,
-      "MapEntranceID": 3014003,
+      "MapEntranceID": 3014201,
       "LCHKKJDBLGM": [],
-      "MazeGroupID": 7,
+      "MazeGroupID": 8,
       "ConfigList": [200001],
       "NpcMonsterIDList": [3024010],
       "EventIDList": [30325043],

@@ -21447,7 +21447,7 @@
         "Hash64": 17552722413313065201
       },
       "GroupID": 3021,
-      "MapEntranceID": 3000205,
+      "MapEntranceID": 3013601,
       "MapEntranceID2": 3013601,
       "PreChallengeMazeID": 30213,
       "Floor": 4,
@@ -21458,7 +21458,7 @@
       "StageNum": 2,
       "MonsterID1": [],
       "MonsterID2": [],
-      "MazeGroupID1": 6,
+      "MazeGroupID1": 7,
       "ConfigList1": [200001],
       "NpcMonsterIDList1": [2004012],
       "EventIDList1": [420534],
